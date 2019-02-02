@@ -12,22 +12,22 @@ const buildEntities: () => Entity[] =
 
         const mainEntity: Entity = {
             noteSpecs: mainPart,
-            timbreName: TimbreNameEnum.FLUTE,
+            timbreName: TimbreNameEnum.PHONEME_OOH,
         }
 
         const supportEntity: Entity = {
             noteSpecs: supportPart,
-            timbreName: TimbreNameEnum.TROMBONE,
+            timbreName: TimbreNameEnum.CELESTE,
         }
 
         const secondSupportEntity: Entity = {
             noteSpecs: secondSupportPart,
-            timbreName: TimbreNameEnum.TUBA,
+            timbreName: TimbreNameEnum.ETHNIC_33,
         }
 
         const bassEntity: Entity = {
             noteSpecs: bassPart,
-            timbreName: TimbreNameEnum.DOUBLE_BASS,
+            timbreName: TimbreNameEnum.ORGAN_2,
         }
 
         return [

@@ -28,9 +28,6 @@ const buildNoteSpec: (contourElement: ContourElement<StandardContour>) => NoteSp
                 index: offsetFromOneIndexedToZeroIndexed(to.Index(duration)),
                 scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
             },
-            gainSpec: {
-                scalar: 0.25,
-            },
             pitchSpec: {
                 index: offsetFromOneIndexedToZeroIndexed(to.Index(pitch)),
                 scaleIndex: STANDARD_PITCH_SCALE_INDEX,
