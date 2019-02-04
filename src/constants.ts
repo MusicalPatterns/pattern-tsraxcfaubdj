@@ -3,7 +3,7 @@
 import { Frequency, Milliseconds, to } from '@musical-patterns/utilities'
 
 const TSRAXCFAUBDJ_INITIAL_BASE_DURATION: Milliseconds = to.Milliseconds(2400)
-const TSRAXCFAUBDJ_INITIAL_BASE_FREQUENCY: Frequency = to.Frequency(17.32)
+const TSRAXCFAUBDJ_INITIAL_BASE_FREQUENCY: Frequency = to.Frequency(16.351)
 
 export {
     TSRAXCFAUBDJ_INITIAL_BASE_DURATION,

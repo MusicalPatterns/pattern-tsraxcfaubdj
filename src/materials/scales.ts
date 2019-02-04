@@ -5,7 +5,7 @@ import {
     StandardSpec,
     StandardSpecProperties,
 } from '@musical-patterns/pattern'
-import { from, Index, to } from '@musical-patterns/utilities'
+import { from, Scalar, to } from '@musical-patterns/utilities'
 import { buildYerScalars } from './scalars'
 
 const buildScales: BuildScalesFunction =
@@ -18,10 +18,11 @@ const buildScales: BuildScalesFunction =
             scalar: to.Scalar(from.Milliseconds(spec[ StandardSpecProperties.BASE_DURATION ] || to.Milliseconds(1))),
             scalars: flatDurationsScale.scalars,
         }
+        const scalars: Scalar[] = generateOctaveRepeatingScalars(buildYerScalars())
         const pitchesScale: Scale = {
             offset: spec[ StandardSpecProperties.FREQUENCY_OFFSET ] || to.Offset(0),
             scalar: to.Scalar(from.Frequency(spec[ StandardSpecProperties.BASE_FREQUENCY ] || to.Frequency(1))),
-            scalars: generateOctaveRepeatingScalars(buildYerScalars()),
+            scalars,
         }
 
         return [
