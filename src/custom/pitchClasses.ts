@@ -1,3 +1,4 @@
+import { apply, from, to } from '@musical-patterns/utilities'
 import { YER_PITCH_CLASS_COUNT } from '../materials'
 import { Yer } from './types'
 
@@ -22,7 +23,10 @@ const yerPitchClassesOrdered: Yer[] = [
 
 const yer: (octaveIndex: number, yerPitchClass: Yer) => number =
     (octaveIndex: number, yerPitchClass: Yer): number =>
-        (YER_PITCH_CLASS_COUNT * octaveIndex) + yerPitchClassesOrdered.indexOf(yerPitchClass)
+        apply.Offset(
+            apply.Scalar(from.Count(YER_PITCH_CLASS_COUNT), to.Scalar(octaveIndex)),
+            to.Offset(yerPitchClassesOrdered.indexOf(yerPitchClass)),
+        )
 
 export {
     yer,

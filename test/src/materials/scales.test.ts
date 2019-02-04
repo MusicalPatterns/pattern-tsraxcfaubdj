@@ -1,6 +1,6 @@
 import { Scale } from '@musical-patterns/compiler'
 import { StandardSpec } from '@musical-patterns/pattern'
-import { apply, HALF, INITIAL, Scalar } from '@musical-patterns/utilities'
+import { apply, from, HALF, INITIAL, Scalar } from '@musical-patterns/utilities'
 import { buildScales } from '../../../src/indexForTest'
 
 describe('yer scale', () => {
@@ -9,7 +9,7 @@ describe('yer scale', () => {
         const yerScale: Scale = buildScales(spec)[2]
         const yerScaleScalars: Scalar[] = yerScale.scalars || []
 
-        yerScaleScalars.slice(INITIAL, yerScaleScalars.length - 16)
+        yerScaleScalars.slice(from.Index(INITIAL), yerScaleScalars.length - 16)
             .forEach((scalar: Scalar, index: number) => {
                 expect(scalar)
                     .toEqual(apply.Scalar(yerScaleScalars[ index + 16 ], HALF))
