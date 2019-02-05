@@ -1,14 +1,14 @@
 // tslint:disable
 
 import { NoteSpec } from '@musical-patterns/compiler'
-import { StandardContour } from '@musical-patterns/pattern'
+import { PitchDuration } from '@musical-patterns/pattern'
 import { DictionaryOf, to } from '@musical-patterns/utilities'
 import { Yer, yer } from '../custom'
 import { buildNoteSpec } from './notes'
 
 const buildParts: () => DictionaryOf<NoteSpec[]> =
     (): DictionaryOf<NoteSpec[]> => {
-        const mainPart: NoteSpec[] = to.ContourWhole<StandardContour>([
+        const mainPart: NoteSpec[] = to.ContourWhole<PitchDuration>([
             // 0
             [ yer(4, Yer._17_19), 1 ],
             [ yer(4, Yer._13_17_19), 1 ],
@@ -110,7 +110,7 @@ const buildParts: () => DictionaryOf<NoteSpec[]> =
             [ yer(4, Yer._11_13_19), 1 ],
         ]).map(buildNoteSpec)
 
-        const supportPart: NoteSpec[] = to.ContourWhole<StandardContour>([
+        const supportPart: NoteSpec[] = to.ContourWhole<PitchDuration>([
             // 0
             [ 0, 4 ],
 
@@ -189,7 +189,7 @@ const buildParts: () => DictionaryOf<NoteSpec[]> =
             [ yer(4, Yer._17), 4 ],
         ]).map(buildNoteSpec)
 
-        const secondSupportPart: NoteSpec[] = to.ContourWhole<StandardContour>([
+        const secondSupportPart: NoteSpec[] = to.ContourWhole<PitchDuration>([
             // 0
             [ 0, 4 ],
 
@@ -268,7 +268,7 @@ const buildParts: () => DictionaryOf<NoteSpec[]> =
             [ yer(4, Yer._17_19), 4 ],
         ]).map(buildNoteSpec)
 
-        const bassPart: NoteSpec[] = to.ContourWhole<StandardContour>([
+        const bassPart: NoteSpec[] = to.ContourWhole<PitchDuration>([
             // 0
             [ 0, 4 ],
 

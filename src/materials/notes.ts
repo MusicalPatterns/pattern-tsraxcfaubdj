@@ -1,15 +1,15 @@
 import { NoteSpec } from '@musical-patterns/compiler'
 import {
+    PitchDuration,
     STANDARD_DURATIONS_SCALE_INDEX,
     STANDARD_PITCH_SCALE_INDEX,
-    StandardContour,
-    unpackStandardContourElement,
+    unpackPitchDurationContourElement,
 } from '@musical-patterns/pattern'
 import { ContourElement, offsetFromOneIndexedToZeroIndexed, to } from '@musical-patterns/utilities'
 
-const buildNoteSpec: (contourElement: ContourElement<StandardContour>) => NoteSpec =
-    (contourElement: ContourElement<StandardContour>): NoteSpec => {
-        const { pitch, duration } = unpackStandardContourElement(contourElement)
+const buildNoteSpec: (contourElement: ContourElement<PitchDuration>) => NoteSpec =
+    (contourElement: ContourElement<PitchDuration>): NoteSpec => {
+        const { pitch, duration } = unpackPitchDurationContourElement(contourElement)
 
         if (pitch === 0) {
             return {
