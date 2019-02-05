@@ -6,7 +6,7 @@ describe('yer scalars', () => {
         const actualScalars: Scalar[] = buildYerScalars()
 
         const expectedScalarsAsRatios: Scalar[] = [
-            // tslint:disable-next-line:no-identical-expressions
+            // tslint:disable-next-line no-identical-expressions
             1 / 1,
             4199 / 4096,
             17 / 16,
@@ -28,7 +28,7 @@ describe('yer scalars', () => {
             .toEqual(expectedScalarsAsRatios)
 
         const expectedScalarsAsDecimals: Scalar[] = [
-            // tslint:disable-next-line:number-literal-format
+            // tslint:disable-next-line number-literal-format
             1.0,
             1.025146484375,
             1.0625,
