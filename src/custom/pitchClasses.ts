@@ -23,10 +23,10 @@ const yerPitchClassesOrdered: Yer[] = [
 
 const yer: (octaveIndex: number, yerPitchClass: Yer) => number =
     (octaveIndex: number, yerPitchClass: Yer): number =>
-        apply.Translation(
-            apply.Scalar(from.Cardinal(YER_PITCH_CLASS_COUNT), to.Scalar(octaveIndex)),
+        from.Cardinal(apply.Translation(
+            apply.Scalar(YER_PITCH_CLASS_COUNT, to.Scalar(octaveIndex)),
             to.Translation(yerPitchClassesOrdered.indexOf(yerPitchClass)),
-        )
+        ))
 
 export {
     yer,
