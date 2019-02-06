@@ -9,7 +9,7 @@ describe('yer scale', () => {
         const yerScale: Scale = buildScales(spec)[2]
         const yerScaleScalars: Scalar[] = yerScale.scalars || []
 
-        yerScaleScalars.slice(from.Index(INITIAL), yerScaleScalars.length - 16)
+        yerScaleScalars.slice(from.Ordinal(INITIAL), yerScaleScalars.length - 16)
             .forEach((scalar: Scalar, index: number) => {
                 expect(scalar)
                     .toEqual(apply.Scalar(yerScaleScalars[ index + 16 ], ONE_HALF))
