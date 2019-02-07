@@ -8,7 +8,7 @@ import { buildNoteSpec } from './notes'
 
 const buildParts: () => DictionaryOf<NoteSpec[]> =
     (): DictionaryOf<NoteSpec[]> => {
-        const mainPart: NoteSpec[] = to.ContourWhole<PitchDuration>([
+        const leadPart: NoteSpec[] = to.ContourWhole<PitchDuration>([
             // 0
             [ yer(4, Yer._17_19), 1 ],
             [ yer(4, Yer._13_17_19), 1 ],
@@ -111,7 +111,7 @@ const buildParts: () => DictionaryOf<NoteSpec[]> =
             [ yer(4, Yer._11_13_19), 1 ],
         ]).map(buildNoteSpec)
 
-        const supportPart: NoteSpec[] = to.ContourWhole<PitchDuration>([
+        const firstHarmonyPart: NoteSpec[] = to.ContourWhole<PitchDuration>([
             // 0
             [ 0, 4 ],
 
@@ -188,7 +188,7 @@ const buildParts: () => DictionaryOf<NoteSpec[]> =
             [ yer(4, Yer._17), 4 ],
         ]).map(buildNoteSpec)
 
-        const secondSupportPart: NoteSpec[] = to.ContourWhole<PitchDuration>([
+        const secondHarmonyPart: NoteSpec[] = to.ContourWhole<PitchDuration>([
             // 0
             [ 0, 4 ],
 
@@ -347,9 +347,9 @@ const buildParts: () => DictionaryOf<NoteSpec[]> =
 
         return {
             bassPart,
-            mainPart,
-            secondSupportPart,
-            supportPart,
+            leadPart,
+            secondHarmonyPart,
+            firstHarmonyPart,
         }
     }
 

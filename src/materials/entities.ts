@@ -4,24 +4,24 @@ import { buildParts } from './parts'
 const buildEntities: () => Entity[] =
     (): Entity[] => {
         const {
-            mainPart,
-            secondSupportPart,
-            supportPart,
+            leadPart,
+            secondHarmonyPart,
+            firstHarmonyPart,
             bassPart,
         } = buildParts()
 
-        const mainEntity: Entity = {
-            noteSpecs: mainPart,
+        const leadEntity: Entity = {
+            noteSpecs: leadPart,
             timbreName: TimbreNameEnum.PHONEME_OOH,
         }
 
-        const supportEntity: Entity = {
-            noteSpecs: supportPart,
+        const firstHarmonyEntity: Entity = {
+            noteSpecs: firstHarmonyPart,
             timbreName: TimbreNameEnum.CELESTE,
         }
 
-        const secondSupportEntity: Entity = {
-            noteSpecs: secondSupportPart,
+        const secondHarmonyEntity: Entity = {
+            noteSpecs: secondHarmonyPart,
             timbreName: TimbreNameEnum.ETHNIC_33,
         }
 
@@ -31,9 +31,9 @@ const buildEntities: () => Entity[] =
         }
 
         return [
-            mainEntity,
-            secondSupportEntity,
-            supportEntity,
+            leadEntity,
+            secondHarmonyEntity,
+            firstHarmonyEntity,
             bassEntity,
         ]
     }
