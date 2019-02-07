@@ -43,13 +43,14 @@ const buildParts: () => DictionaryOf<NoteSpec[]> =
             [ yer(4, Yer._11_17_19), 1 ],
 
             // 7
-            [ yer(5, Yer._17_19), 4 ],
+            [ yer(5, Yer._17_19), 3 ],
+            [ yer(5, Yer._17_19), 3 ],
 
             // 8
-            [ yer(5, Yer._17_19), 4 ],
+            [ yer(5, Yer._17_19), 3 ],
 
             // 9
-            [ yer(5, Yer._17_19), 4 ],
+            [ yer(5, Yer._17_19), 3 ],
 
             // 10
             [ yer(5, Yer._11_17_19), 4 ],
@@ -134,13 +135,11 @@ const buildParts: () => DictionaryOf<NoteSpec[]> =
             [ yer(4, Yer._13_17_19), 4 ],
 
             // 7
-            [ yer(4, Yer._17_19), 4 ],
+            [ yer(4, Yer._17_19), 12 ],
 
             // 8
-            [ yer(4, Yer._17_19), 4 ],
 
             // 9
-            [ yer(4, Yer._17_19), 4 ],
 
             // 10
             [ yer(3, Yer._11_17_19), 4 ],
@@ -213,13 +212,11 @@ const buildParts: () => DictionaryOf<NoteSpec[]> =
             [ yer(4, Yer._11_13_19), 4 ],
 
             // 7
-            [ yer(4, Yer._17_19), 4 ],
+            [ yer(4, Yer._17_19), 12 ],
 
             // 8
-            [ yer(4, Yer._17_19), 4 ],
 
             // 9
-            [ yer(4, Yer._17_19), 4 ],
 
             // 10
             [ 0, 4 ],

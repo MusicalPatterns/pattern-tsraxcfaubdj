@@ -211,7 +211,7 @@
         "sustain": 2399.9
       },
       {
-        "duration": 9600,
+        "duration": 7200,
         "gain": 1,
         "frequency": 660.212,
         "position": [
@@ -219,10 +219,10 @@
           0,
           0
         ],
-        "sustain": 9599.9
+        "sustain": 7199.9
       },
       {
-        "duration": 9600,
+        "duration": 7200,
         "gain": 1,
         "frequency": 660.212,
         "position": [
@@ -230,10 +230,10 @@
           0,
           0
         ],
-        "sustain": 9599.9
+        "sustain": 7199.9
       },
       {
-        "duration": 9600,
+        "duration": 7200,
         "gain": 1,
         "frequency": 660.212,
         "position": [
@@ -241,7 +241,18 @@
           0,
           0
         ],
-        "sustain": 9599.9
+        "sustain": 7199.9
+      },
+      {
+        "duration": 7200,
+        "gain": 1,
+        "frequency": 660.212,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 7199.9
       },
       {
         "duration": 9600,
@@ -670,7 +681,7 @@
         "sustain": 9599.9
       },
       {
-        "duration": 9600,
+        "duration": 28800,
         "gain": 1,
         "frequency": 330.106,
         "position": [
@@ -678,29 +689,7 @@
           0,
           0
         ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 330.106,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 330.106,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
+        "sustain": 28799.9
       },
       {
         "duration": 9600,
@@ -997,7 +986,7 @@
         "sustain": 9599.9
       },
       {
-        "duration": 9600,
+        "duration": 28800,
         "gain": 1,
         "frequency": 330.106,
         "position": [
@@ -1005,29 +994,7 @@
           0,
           0
         ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 330.106,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 330.106,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
+        "sustain": 28799.9
       },
       {
         "duration": 9600,
