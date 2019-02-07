@@ -3,6 +3,7 @@ export { pattern } from './patterns'
 export {
     buildYerScalars,
     buildScales,
+    YER_PITCH_CLASS_COUNT,
 } from './materials/indexForTest'
 export {
     yer,
