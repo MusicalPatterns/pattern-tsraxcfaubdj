@@ -1,5 +1,11 @@
-import { apply, from, octaveReduce, powerSet, Scalar, to } from '@musical-patterns/utilities'
-import { YER_SCALARS } from './constants'
+import { apply, from, octaveReduce, powerSet, product, quotient, Scalar, to } from '@musical-patterns/utilities'
+import {
+    YER_SCALAR_ELEVEN,
+    YER_SCALAR_NINETEEN,
+    YER_SCALAR_SEVENTEEN,
+    YER_SCALAR_THIRTEEN,
+    YER_SCALARS,
+} from './constants'
 
 const buildYerScalars: () => Scalar[] =
     (): Scalar[] =>
@@ -13,6 +19,14 @@ const buildYerScalars: () => Scalar[] =
             .map(octaveReduce)
             .sort()
 
+const buildYerExceptionScalars: () => Scalar[] =
+    (): Scalar[] =>
+        [
+            product(YER_SCALAR_ELEVEN, YER_SCALAR_ELEVEN, YER_SCALAR_SEVENTEEN),
+            quotient(product(YER_SCALAR_THIRTEEN, YER_SCALAR_NINETEEN), YER_SCALAR_ELEVEN),
+        ].map(octaveReduce)
+
 export {
     buildYerScalars,
+    buildYerExceptionScalars,
 }

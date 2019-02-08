@@ -6,9 +6,10 @@ import {
     StandardSpecProperties,
 } from '@musical-patterns/pattern'
 import { from, NO_TRANSLATION, Scalar, to } from '@musical-patterns/utilities'
-import { buildYerScalars } from './scalars'
+import { buildYerExceptionScalars, buildYerScalars } from './scalars'
 
 const buildScales: BuildScalesFunction =
+    // tslint:disable-next-line cyclomatic-complexity
     (spec: StandardSpec): Scale[] => {
         const { nonScale, flatDurationsScale } = buildStandardScales()
 
@@ -18,17 +19,24 @@ const buildScales: BuildScalesFunction =
             scalars: flatDurationsScale.scalars,
             translation: spec[ StandardSpecProperties.DURATION_TRANSLATION ] || NO_TRANSLATION,
         }
-        const scalars: Scalar[] = generateOctaveRepeatingScalars(buildYerScalars())
-        const pitchesScale: Scale = {
+        const yerScalars: Scalar[] = generateOctaveRepeatingScalars(buildYerScalars())
+        const yerPitchesScale: Scale = {
             scalar: to.Scalar(from.Frequency(spec[ StandardSpecProperties.BASE_FREQUENCY ] || to.Frequency(1))),
-            scalars,
+            scalars: yerScalars,
+            translation: spec[ StandardSpecProperties.FREQUENCY_TRANSLATION ] || NO_TRANSLATION,
+        }
+        const yerExceptionScalars: Scalar[] = generateOctaveRepeatingScalars(buildYerExceptionScalars())
+        const yerExceptionPitchesScale: Scale = {
+            scalar: to.Scalar(from.Frequency(spec[ StandardSpecProperties.BASE_FREQUENCY ] || to.Frequency(1))),
+            scalars: yerExceptionScalars,
             translation: spec[ StandardSpecProperties.FREQUENCY_TRANSLATION ] || NO_TRANSLATION,
         }
 
         return [
             gainScale,
             durationsScale,
-            pitchesScale,
+            yerPitchesScale,
+            yerExceptionPitchesScale,
         ]
     }
 

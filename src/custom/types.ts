@@ -17,6 +17,12 @@ enum Yer {
     _13_19 = '_13_19',
 }
 
+enum YerException {
+    _11_11_17 = '_11_11_17',
+    _13_19_OVER_11 = '_13_19_OVER_11',
+}
+
 export {
     Yer,
+    YerException,
 }
