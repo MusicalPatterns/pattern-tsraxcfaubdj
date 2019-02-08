@@ -2,6 +2,7 @@ import { Scale } from '@musical-patterns/compiler'
 import { StandardSpec } from '@musical-patterns/pattern'
 import {
     apply,
+    forEach,
     from,
     indexOfLastElement,
     INITIAL,
@@ -20,25 +21,27 @@ describe('yer scale', () => {
         const yerScale: Scale = buildScales(spec)[ 2 ]
         const yerScaleScalars: Scalar[] = yerScale.scalars || []
 
-        slice(
-            yerScaleScalars,
-            INITIAL,
-            apply.Translation(
-                indexOfLastElement(yerScaleScalars),
-                to.Translation(from.Cardinal(negative(YER_PITCH_CLASS_COUNT))),
+        forEach(
+            slice(
+                yerScaleScalars,
+                INITIAL,
+                apply.Translation(
+                    indexOfLastElement(yerScaleScalars),
+                    to.Translation(from.Cardinal(negative(YER_PITCH_CLASS_COUNT))),
+                ),
             ),
-        )
-            .forEach((scalar: Scalar, index: number) => {
-                const indexOfScalarWhichShouldBeTwiceThisOne: Ordinal = to.Ordinal(apply.Translation(
+            (scalar: Scalar, index: Ordinal) => {
+                const indexOfScalarWhichShouldBeTwiceThisOne: Ordinal = apply.Translation(
                     index,
                     to.Translation(from.Cardinal(YER_PITCH_CLASS_COUNT)),
-                ))
+                )
                 expect(scalar)
                     .toEqual(apply.Scalar(
                         apply.Ordinal(yerScaleScalars, indexOfScalarWhichShouldBeTwiceThisOne),
                         ONE_HALF,
                     ))
-            })
+            },
+        )
     })
 
     it('has a total of 160 notes, spanning 10 octaves', () => {
