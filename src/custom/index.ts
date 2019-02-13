@@ -1,5 +1,6 @@
-export { yer } from './pitchClasses'
+export { yer, yerException } from './pitchClasses'
 
 export {
     Yer,
+    YerException,
 } from './types'
