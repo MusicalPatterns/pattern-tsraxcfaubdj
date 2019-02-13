@@ -10,8 +10,8 @@ import {
 const buildYerScalars: () => Scalar[] =
     (): Scalar[] =>
         powerSet(YER_SCALARS.map(from.Scalar))
-            .map((combination: number[]): Scalar =>
-                combination.reduce(
+            .map((set: number[]): Scalar =>
+                set.reduce(
                     (accumulator: Scalar, scalar: number): Scalar =>
                         apply.Scalar(accumulator, to.Scalar(scalar)),
                     to.Scalar(1),
