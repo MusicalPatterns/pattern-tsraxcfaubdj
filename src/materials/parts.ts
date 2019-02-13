@@ -1,6 +1,11 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { DictionaryOf } from '@musical-patterns/utilities'
-import { buildBassContour, buildFirstHarmonyContour, buildLeadContour, buildSecondHarmonyContour } from './contours'
+import { DictionaryOf, sequence } from '@musical-patterns/utilities'
+import {
+    buildBassContourPieces,
+    buildFirstHarmonyContour,
+    buildLeadContour,
+    buildSecondHarmonyContour,
+} from './contours'
 import { buildNoteSpec } from './notes'
 
 const buildParts: () => DictionaryOf<NoteSpec[]> =
@@ -11,7 +16,7 @@ const buildParts: () => DictionaryOf<NoteSpec[]> =
             .map(buildNoteSpec)
         const secondHarmonyPart: NoteSpec[] = buildSecondHarmonyContour()
             .map(buildNoteSpec)
-        const bassPart: NoteSpec[] = buildBassContour()
+        const bassPart: NoteSpec[] = sequence(buildBassContourPieces())
             .map(buildNoteSpec)
 
         return {

@@ -1,19 +1,15 @@
-import { apply, from, octaveReduce, powerSet, product, quotient, Scalar, to } from '@musical-patterns/utilities'
-import {
-    YER_SCALAR_ELEVEN,
-    YER_SCALAR_NINETEEN,
-    YER_SCALAR_SEVENTEEN,
-    YER_SCALAR_THIRTEEN,
-    YER_SCALARS,
-} from './constants'
+import { apply, octaveReduce, powerSet, product, quotient, reduce, Scalar, to } from '@musical-patterns/utilities'
+import { YER_ELEVEN, YER_NINETEEN, YER_SEVENTEEN, YER_THIRTEEN } from '../constants'
+import { YER_SCALARS } from './constants'
 
 const buildYerScalars: () => Scalar[] =
     (): Scalar[] =>
-        powerSet(YER_SCALARS.map(from.Scalar))
-            .map((set: number[]): Scalar =>
-                set.reduce(
-                    (accumulator: Scalar, scalar: number): Scalar =>
-                        apply.Scalar(accumulator, to.Scalar(scalar)),
+        powerSet(YER_SCALARS)
+            .map((set: Scalar[]): Scalar =>
+                reduce(
+                    set,
+                    (accumulator: Scalar, scalar: Scalar): Scalar =>
+                        apply.Scalar(accumulator, scalar),
                     to.Scalar(1),
                 ))
             .map(octaveReduce)
@@ -22,8 +18,8 @@ const buildYerScalars: () => Scalar[] =
 const buildYerExceptionScalars: () => Scalar[] =
     (): Scalar[] =>
         [
-            product(YER_SCALAR_ELEVEN, YER_SCALAR_ELEVEN, YER_SCALAR_SEVENTEEN),
-            quotient(product(YER_SCALAR_THIRTEEN, YER_SCALAR_NINETEEN), YER_SCALAR_ELEVEN),
+            product(YER_ELEVEN, YER_ELEVEN, YER_SEVENTEEN),
+            quotient(product(YER_THIRTEEN, YER_NINETEEN), YER_ELEVEN),
         ].map(octaveReduce)
 
 export {

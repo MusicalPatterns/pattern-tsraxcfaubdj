@@ -7,8 +7,16 @@ export {
     YER_PITCH_CLASS_COUNT,
 } from './materials/indexForTest'
 export {
-    yer,
-    Yer,
+    buildYerBlumeyerCommaPump,
+    yerPitchIndex,
+    YerPitchClass,
+    YerBlumeyerCommaPumpInstructionsSpec,
+    YerBlumeyerCommaPumpFamily,
+    YerBlumeyerCommaPumpOperation,
+    buildYerBlumeyerCommaPumpInstructions,
+    Instruction,
+    YerBlumeyerCommaPumpAction,
+    YerFactor,
 } from './custom/indexForTest'
 
 // tslint:disable-next-line no-default-import

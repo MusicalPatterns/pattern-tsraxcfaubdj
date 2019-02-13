@@ -1,6 +1,6 @@
-export { yer, yerException } from './pitchClasses'
+export { yerPitchIndex, yerExceptionPitchIndex } from './pitchIndices'
 
 export {
-    Yer,
-    YerException,
+    YerPitchClass,
+    YerExceptionPitchClass,
 } from './types'

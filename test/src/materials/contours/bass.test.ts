@@ -12,10 +12,10 @@ import {
     Scalar,
     to,
 } from '@musical-patterns/utilities'
-import { pattern } from '../../../src/indexForTest'
+import { pattern } from '../../../../src/indexForTest'
 
-describe('parts', () => {
-    it('lead part - almost every interval is a simple 11, 13, 17, or 19', async (done: DoneFn) => {
+describe('bass', () => {
+    it('almost every interval is a simple 11, 13, 17, or 19', async (done: DoneFn) => {
         const rawAcceptableRatios: Array<[ number, number ]> = [
             [ 1, 1 ],
             [ 11, 16 ],
@@ -37,14 +37,15 @@ describe('parts', () => {
         ]
         const acceptableRatios: Ratio[] = rawAcceptableRatios.map(to.Ratio)
 
-        const exceptionalIndices: Ordinal[] = [ 10, 27, 48 ].map(to.Ordinal)
+        const FROM_THE_OPENING_REST: number = 0
+        const exceptionalIndices: Ordinal[] = [ FROM_THE_OPENING_REST ].map(to.Ordinal)
 
         const threadSpecs: ThreadSpec[] = await compilePattern({
             material: pattern.material,
             spec: pattern.specData.initial,
         })
-        const lead: ThreadSpec = threadSpecs[ 0 ]
-        const notes: Note[] = lead.notes || []
+        const bass: ThreadSpec = threadSpecs[ 3 ]
+        const notes: Note[] = bass.notes || []
 
         forEach(notes, (note: Note, index: Ordinal) => {
             if (exceptionalIndices.includes(index)) {
