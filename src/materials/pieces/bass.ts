@@ -3,28 +3,28 @@
 import { PitchDurationScale } from '@musical-patterns/pattern'
 import { ContourPiece, FIRST, FOURTH, INITIAL, SECOND, sequence, THIRD, to } from '@musical-patterns/utilities'
 import {
-    openingPump,
+    openingBassPump,
     openingRest,
-    quietudePump,
-    suspensionPump,
-    thirdStepOfOpeningPumpIfItDidNotCommaShift,
+    quietudeBassPump,
+    suspensionBassPump,
+    thirdStepOfOpeningBassPumpIfItDidNotCommaShift,
 } from '../segments'
 
 const buildBassContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
     (): Array<ContourPiece<PitchDurationScale>> =>
         sequence([
             openingRest(),
-            openingPump(),
-            openingPump()
+            openingBassPump(),
+            openingBassPump()
                 .slice(INITIAL, SECOND),
-            thirdStepOfOpeningPumpIfItDidNotCommaShift(),
-            suspensionPump(),
-            suspensionPump({ transposeThirdStepDown: true })
+            thirdStepOfOpeningBassPumpIfItDidNotCommaShift(),
+            suspensionBassPump(),
+            suspensionBassPump({ transposeThirdStepDown: true })
                 .slice(INITIAL, THIRD),
-            quietudePump(),
-            quietudePump()
+            quietudeBassPump(),
+            quietudeBassPump()
                 .slice(INITIAL, SECOND),
-            openingPump()
+            openingBassPump()
                 .slice(FIRST, FOURTH),
         ])
             .map((contourPiece: number[][]) => to.ContourPiece<PitchDurationScale>(contourPiece))

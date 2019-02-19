@@ -1,6 +1,6 @@
 // tslint:disable no-reaching-imports
 
-export { yerPitchIndex, yerExceptionPitchIndex } from './pitchIndices'
+export { yerPitchClassIndex, yerExceptionPitchClassIndex } from './pitchClassIndices'
 export {
     buildYerBlumeyerCommaPump,
     YerBlumeyerCommaPumpInstructionsSpec,

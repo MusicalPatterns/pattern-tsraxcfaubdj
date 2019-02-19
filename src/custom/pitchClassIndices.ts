@@ -26,14 +26,14 @@ const yerExceptionPitchClassesOrdered: YerExceptionPitchClass[] = [
     YerExceptionPitchClass._13_19_OVER_11,
 ]
 
-const yerPitchIndex: (octaveIndex: number, yerPitchClass: YerPitchClass) => number =
+const yerPitchClassIndex: (octaveIndex: number, yerPitchClass: YerPitchClass) => number =
     (octaveIndex: number, yerPitchClass: YerPitchClass): number =>
         from.Cardinal(apply.Translation(
             apply.Scalar(YER_PITCH_CLASS_COUNT, to.Scalar(octaveIndex)),
             to.Translation(yerPitchClassesOrdered.indexOf(yerPitchClass)),
         ))
 
-const yerExceptionPitchIndex: (octaveIndex: number, yerExceptionPitchClass: YerExceptionPitchClass) => number =
+const yerExceptionPitchClassIndex: (octaveIndex: number, yerExceptionPitchClass: YerExceptionPitchClass) => number =
     (octaveIndex: number, yerExceptionPitchClass: YerExceptionPitchClass): number =>
         from.Cardinal(apply.Translation(
             apply.Scalar(YER_EXCEPTION_PITCH_CLASS_COUNT, to.Scalar(octaveIndex)),
@@ -41,6 +41,6 @@ const yerExceptionPitchIndex: (octaveIndex: number, yerExceptionPitchClass: YerE
         ))
 
 export {
-    yerPitchIndex,
-    yerExceptionPitchIndex,
+    yerPitchClassIndex,
+    yerExceptionPitchClassIndex,
 }

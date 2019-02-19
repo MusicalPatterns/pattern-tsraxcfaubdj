@@ -7,7 +7,13 @@ export {
     buildLeadContourPieces,
     buildFirstHarmonyContourPieces,
     buildSecondHarmonyContourPieces,
-} from './contours/indexForTest'
+} from './pieces/indexForTest'
+export {
+    buildBassContourWhole,
+    buildFirstHarmonyContourWhole,
+    buildSecondHarmonyContourWhole,
+    buildLeadContourWhole,
+} from './wholes/indexForTest'
 export {
     HALF_NOTE,
     WHOLE_NOTE,

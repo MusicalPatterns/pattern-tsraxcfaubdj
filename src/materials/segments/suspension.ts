@@ -6,7 +6,7 @@ import {
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
     YerPitchClass,
-    yerPitchIndex,
+    yerPitchClassIndex,
 } from '../../custom'
 import { YER_SCALE_INDEX } from '../constants'
 import {
@@ -22,18 +22,18 @@ import {
 const suspensionLead: () => number[][][] =
     (): number[][][] => [
         [
-            [ yerPitchIndex(FIFTH_OCTAVE, YerPitchClass._17_19), DOTTED_HALF_NOTE, YER_SCALE_INDEX ],
-            [ yerPitchIndex(FIFTH_OCTAVE, YerPitchClass._17_19), DOTTED_HALF_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FIFTH_OCTAVE, YerPitchClass._17_19), DOTTED_HALF_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FIFTH_OCTAVE, YerPitchClass._17_19), DOTTED_HALF_NOTE, YER_SCALE_INDEX ],
         ],
         [
-            [ yerPitchIndex(FIFTH_OCTAVE, YerPitchClass._17_19), DOTTED_HALF_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FIFTH_OCTAVE, YerPitchClass._17_19), DOTTED_HALF_NOTE, YER_SCALE_INDEX ],
         ],
         [
-            [ yerPitchIndex(FIFTH_OCTAVE, YerPitchClass._17_19), DOTTED_HALF_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FIFTH_OCTAVE, YerPitchClass._17_19), DOTTED_HALF_NOTE, YER_SCALE_INDEX ],
         ],
     ]
 
-const suspensionPump: (parameters?: { transposeThirdStepDown?: boolean }) => number[][][] =
+const suspensionBassPump: (parameters?: { transposeThirdStepDown?: boolean }) => number[][][] =
     ({ transposeThirdStepDown = false }: { transposeThirdStepDown?: boolean } = {}): number[][][] =>
         rawPiecesFromPump(
             buildYerBlumeyerCommaPump(
@@ -50,7 +50,7 @@ const suspensionPump: (parameters?: { transposeThirdStepDown?: boolean }) => num
 const suspensionFirstHarmony: () => number[][][] =
     (): number[][][] => [
         [
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._17_19), THREE_WHOLE_NOTES, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17_19), THREE_WHOLE_NOTES, YER_SCALE_INDEX ],
         ],
         [],
         [],
@@ -59,7 +59,7 @@ const suspensionFirstHarmony: () => number[][][] =
 const suspensionSecondHarmony: () => number[][][] =
     (): number[][][] => [
         [
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._17_19), THREE_WHOLE_NOTES, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17_19), THREE_WHOLE_NOTES, YER_SCALE_INDEX ],
         ],
         [],
         [],
@@ -67,7 +67,7 @@ const suspensionSecondHarmony: () => number[][][] =
 
 export {
     suspensionLead,
-    suspensionPump,
+    suspensionBassPump,
     suspensionFirstHarmony,
     suspensionSecondHarmony,
 }

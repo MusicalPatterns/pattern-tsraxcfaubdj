@@ -11,7 +11,7 @@ import {
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
     YerPitchClass,
-    yerPitchIndex,
+    yerPitchClassIndex,
 } from '../../../../src/indexForTest'
 
 describe('raw pieces from pump', () => {
@@ -32,17 +32,17 @@ describe('raw pieces from pump', () => {
             .toEqual(
                 [
                     [
-                        [ yerPitchIndex(SECOND_OCTAVE, YerPitchClass._13), WHOLE_NOTE, YER_SCALE_INDEX ],
+                        [ yerPitchClassIndex(SECOND_OCTAVE, YerPitchClass._13), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
-                        [ yerPitchIndex(SECOND_OCTAVE, YerPitchClass._13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
+                        [ yerPitchClassIndex(SECOND_OCTAVE, YerPitchClass._13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
-                        [ yerPitchIndex(THIRD_OCTAVE, YerPitchClass._19), HALF_NOTE, YER_SCALE_INDEX ],
-                        [ yerPitchIndex(THIRD_OCTAVE, YerPitchClass._11_13_17), HALF_NOTE, YER_SCALE_INDEX ],
+                        [ yerPitchClassIndex(THIRD_OCTAVE, YerPitchClass._19), HALF_NOTE, YER_SCALE_INDEX ],
+                        [ yerPitchClassIndex(THIRD_OCTAVE, YerPitchClass._11_13_17), HALF_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
-                        [ yerPitchIndex(SECOND_OCTAVE, YerPitchClass._13_17), WHOLE_NOTE, YER_SCALE_INDEX ],
+                        [ yerPitchClassIndex(SECOND_OCTAVE, YerPitchClass._13_17), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                 ],
             )

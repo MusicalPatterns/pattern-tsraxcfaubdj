@@ -1,8 +1,8 @@
 export {
     openingLead,
     openingRest,
-    openingPump,
-    thirdStepOfOpeningPumpIfItDidNotCommaShift,
+    openingBassPump,
+    thirdStepOfOpeningBassPumpIfItDidNotCommaShift,
     openingFirstHarmony,
     openingSecondHarmony,
 } from './opening'
@@ -16,7 +16,7 @@ export {
 } from './openingEntrances'
 export {
     suspensionLead,
-    suspensionPump,
+    suspensionBassPump,
     suspensionFirstHarmony,
     suspensionSecondHarmony,
 } from './suspension'
@@ -29,7 +29,7 @@ export {
     quietudeLead,
     quietudeEndingToLoopLead,
     quietudeEndingToEscapeLead,
-    quietudePump,
+    quietudeBassPump,
     quietudeFirstHarmony,
     quietudeSecondHarmony,
 } from './quietude'

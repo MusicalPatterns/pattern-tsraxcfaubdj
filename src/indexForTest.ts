@@ -21,10 +21,14 @@ export {
     FIFTH_OCTAVE,
     FOURTH_OCTAVE,
     QUARTER_NOTE,
+    buildBassContourWhole,
+    buildFirstHarmonyContourWhole,
+    buildSecondHarmonyContourWhole,
+    buildLeadContourWhole,
 } from './materials/indexForTest'
 export {
     buildYerBlumeyerCommaPump,
-    yerPitchIndex,
+    yerPitchClassIndex,
     YerPitchClass,
     YerBlumeyerCommaPumpInstructionsSpec,
     YerBlumeyerCommaPumpFamily,
@@ -35,7 +39,7 @@ export {
     YerFactor,
     YerBlumeyerCommaPump,
     YerExceptionPitchClass,
-    yerExceptionPitchIndex,
+    yerExceptionPitchClassIndex,
     rawPiecesFromPump,
 } from './custom/indexForTest'
 

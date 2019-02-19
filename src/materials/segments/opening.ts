@@ -6,7 +6,7 @@ import {
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
     YerPitchClass,
-    yerPitchIndex,
+    yerPitchClassIndex,
 } from '../../custom'
 import { YER_SCALE_INDEX } from '../constants'
 import {
@@ -23,18 +23,18 @@ import {
 const openingLead: () => number[][][] =
     (): number[][][] => [
         [
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._17_19), QUARTER_NOTE, YER_SCALE_INDEX ],
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._13_17_19), QUARTER_NOTE, YER_SCALE_INDEX ],
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), QUARTER_NOTE, YER_SCALE_INDEX ],
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), QUARTER_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17_19), QUARTER_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._13_17_19), QUARTER_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), QUARTER_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), QUARTER_NOTE, YER_SCALE_INDEX ],
         ],
         [
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
         [
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), HALF_NOTE, YER_SCALE_INDEX ],
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), QUARTER_NOTE, YER_SCALE_INDEX ],
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_17_19), QUARTER_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), HALF_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), QUARTER_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_17_19), QUARTER_NOTE, YER_SCALE_INDEX ],
         ],
     ]
 
@@ -45,7 +45,7 @@ const openingRest: () => number[][][] =
         ],
     ]
 
-const openingPump: () => number[][][] =
+const openingBassPump: () => number[][][] =
     (): number[][][] =>
         rawPiecesFromPump(
             buildYerBlumeyerCommaPump(
@@ -59,38 +59,38 @@ const openingPump: () => number[][][] =
             [ SECOND_OCTAVE, SECOND_OCTAVE, THIRD_OCTAVE, SECOND_OCTAVE ],
         )
 
-const thirdStepOfOpeningPumpIfItDidNotCommaShift: () => number[][][] =
+const thirdStepOfOpeningBassPumpIfItDidNotCommaShift: () => number[][][] =
     (): number[][][] => [
         [
-            [ yerPitchIndex(THIRD_OCTAVE, YerPitchClass._19), WHOLE_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(THIRD_OCTAVE, YerPitchClass._19), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
     ]
 
 const openingFirstHarmony: () => number[][][] =
     (): number[][][] => [
         [
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._1), WHOLE_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._1), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
         [
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._13_17_19), WHOLE_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._13_17_19), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
     ]
 
 const openingSecondHarmony: () => number[][][] =
     (): number[][][] => [
         [
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
         [
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
     ]
 
 export {
     openingLead,
     openingRest,
-    openingPump,
-    thirdStepOfOpeningPumpIfItDidNotCommaShift,
+    openingBassPump,
+    thirdStepOfOpeningBassPumpIfItDidNotCommaShift,
     openingFirstHarmony,
     openingSecondHarmony,
 }

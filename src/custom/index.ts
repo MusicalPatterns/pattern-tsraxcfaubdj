@@ -1,4 +1,4 @@
-export { yerPitchIndex, yerExceptionPitchIndex } from './pitchIndices'
+export { yerPitchClassIndex, yerExceptionPitchClassIndex } from './pitchClassIndices'
 
 export {
     buildYerBlumeyerCommaPumpInstructions,
