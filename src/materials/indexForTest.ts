@@ -5,8 +5,11 @@ export { buildScales } from './scales'
 export {
     buildBassContourPieces,
     buildLeadContourPieces,
+    buildFirstHarmonyContourPieces,
+    buildSecondHarmonyContourPieces,
     HALF_NOTE,
     WHOLE_NOTE,
+    THREE_WHOLE_NOTES,
     SECOND_OCTAVE,
     THIRD_OCTAVE,
     REST,

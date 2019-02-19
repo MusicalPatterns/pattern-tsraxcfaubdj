@@ -1,67 +1,108 @@
-// tslint:disable no-commented-code
+// tslint:disable max-file-line-count
 
 import { PitchDurationScale } from '@musical-patterns/pattern'
-import { ContourWhole, to } from '@musical-patterns/utilities'
+import { ContourPiece, sequence, to } from '@musical-patterns/utilities'
 import { YerPitchClass, yerPitchIndex } from '../../custom'
 import { YER_SCALE_INDEX } from '../constants'
 import { FOURTH_OCTAVE, HALF_NOTE, REST, THREE_WHOLE_NOTES, WHOLE_NOTE } from './constants'
 
-const buildSecondHarmonyContour: () => ContourWhole<PitchDurationScale> =
-    (): ContourWhole<PitchDurationScale> =>
-        to.ContourWhole<PitchDurationScale>([
-            // 0
+const openingRest: () => number[][][] =
+    (): number[][][] => [
+        [
             [ REST, WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 1
+        ],
+    ]
+
+const opening: () => number[][][] =
+    (): number[][][] => [
+        [
             [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 2
+        ],
+        [
             [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 3
-            [ REST, HALF_NOTE, YER_SCALE_INDEX ],
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), HALF_NOTE, YER_SCALE_INDEX ],
-            // 4
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._17_19), WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 5
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 6
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 7
+        ],
+    ]
+
+const suspension: () => number[][][] =
+    (): number[][][] => [
+        [
             [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._17_19), THREE_WHOLE_NOTES, YER_SCALE_INDEX ],
-            // 8
-            // 9
-            // 10
+        ],
+        [],
+        [],
+    ]
+
+const desperation: () => number[][][] =
+    (): number[][][] => [
+        [
             [ REST, WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 11
+        ],
+        [
             [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), HALF_NOTE, YER_SCALE_INDEX ],
             [ REST, HALF_NOTE, YER_SCALE_INDEX ],
-            // 12
+        ],
+        [
             [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 13
+        ],
+        [
             [ REST, WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 14
+        ],
+    ]
+
+const quietude: () => number[][][] =
+    (): number[][][] => [
+        [
             [ REST, WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 15
+        ],
+        [
             [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 16
+        ],
+        [
             [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), HALF_NOTE, YER_SCALE_INDEX ],
             [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13), HALF_NOTE, YER_SCALE_INDEX ],
-            // 17
+        ],
+        [
             [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 18
-            [ REST, WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 19
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 20
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), HALF_NOTE, YER_SCALE_INDEX ],
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13), HALF_NOTE, YER_SCALE_INDEX ],
-            // 21
-            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
-            // 22
+        ],
+    ]
+
+const openingEntrance: () => number[][][] =
+    (): number[][][] => [
+        [
             [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._17_19), HALF_NOTE, YER_SCALE_INDEX ],
             [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), HALF_NOTE, YER_SCALE_INDEX ],
-            // 23
+        ],
+        [
             [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._17_19), WHOLE_NOTE, YER_SCALE_INDEX ],
+        ],
+    ]
+
+const openingEntranceAsPartOfLoop: () => number[][][] =
+    (): number[][][] => [
+        [
+            [ REST, HALF_NOTE, YER_SCALE_INDEX ],
+            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), HALF_NOTE, YER_SCALE_INDEX ],
+        ],
+        [
+            [ yerPitchIndex(FOURTH_OCTAVE, YerPitchClass._17_19), WHOLE_NOTE, YER_SCALE_INDEX ],
+        ],
+    ]
+
+const buildSecondHarmonyContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
+    (): Array<ContourPiece<PitchDurationScale>> =>
+        sequence([
+            openingRest(),
+            opening(),
+            openingEntranceAsPartOfLoop(),
+            opening(),
+            suspension(),
+            desperation(),
+            quietude(),
+            quietude(),
+            openingEntrance(),
         ])
+            .map((contourPiece: number[][]) => to.ContourPiece<PitchDurationScale>(contourPiece))
 
 export {
-    buildSecondHarmonyContour,
+    buildSecondHarmonyContourPieces,
 }
