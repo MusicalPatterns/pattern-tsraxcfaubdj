@@ -3,7 +3,7 @@ export { buildEntities } from './entities'
 export {
     HALF_NOTE,
     WHOLE_NOTE,
-} from './contours'
+} from './segments'
 
 export {
     YER_PITCH_CLASS_COUNT,

@@ -7,6 +7,8 @@ export {
     buildLeadContourPieces,
     buildFirstHarmonyContourPieces,
     buildSecondHarmonyContourPieces,
+} from './contours/indexForTest'
+export {
     HALF_NOTE,
     WHOLE_NOTE,
     THREE_WHOLE_NOTES,
@@ -17,7 +19,7 @@ export {
     FIFTH_OCTAVE,
     FOURTH_OCTAVE,
     QUARTER_NOTE,
-} from './contours/indexForTest'
+} from './segments/indexForTest'
 
 export {
     YER_PITCH_CLASS_COUNT,
