@@ -1,5 +1,6 @@
 export { buildYerBlumeyerCommaPump } from './pump'
 export { buildYerBlumeyerCommaPumpInstructions } from './instructions'
+export { rawPiecesFromPump } from './contours'
 
 export {
     YerBlumeyerCommaPumpInstructionsSpec,
@@ -7,4 +8,5 @@ export {
     YerBlumeyerCommaPumpOperation,
     YerBlumeyerCommaPumpInstruction,
     YerBlumeyerCommaPumpAction,
+    YerBlumeyerCommaPump,
 } from './types'

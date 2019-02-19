@@ -4,11 +4,11 @@ import { YerFactorization, YerPitchClass } from '../types'
 import { calculateInitialFactorization } from './initial'
 import { nextFactorization } from './nextFactorization'
 import { applyCommaShift } from './shift'
-import { YerBlumeyerCommaPumpInstruction } from './types'
+import { YerBlumeyerCommaPump, YerBlumeyerCommaPumpInstruction } from './types'
 
 const buildYerBlumeyerCommaPump:
-    (instructions: YerBlumeyerCommaPumpInstruction[], rotation?: Ordinal) => YerPitchClass[][] =
-    (instructions: YerBlumeyerCommaPumpInstruction[], rotation: Ordinal = INITIAL): YerPitchClass[][] => {
+    (instructions: YerBlumeyerCommaPumpInstruction[], rotation?: Ordinal) => YerBlumeyerCommaPump =
+    (instructions: YerBlumeyerCommaPumpInstruction[], rotation: Ordinal = INITIAL): YerBlumeyerCommaPump => {
         let currentFactorization: YerFactorization = calculateInitialFactorization(rotation, instructions)
         const pump: YerPitchClass[][] = []
 
@@ -30,7 +30,7 @@ const buildYerBlumeyerCommaPump:
             },
         )
 
-        return pump
+        return pump as YerBlumeyerCommaPump
     }
 
 export {

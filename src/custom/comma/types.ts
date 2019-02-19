@@ -1,5 +1,5 @@
 import { Translation } from '@musical-patterns/utilities'
-import { YerFactor } from '../types'
+import { YerFactor, YerPitchClass } from '../types'
 
 enum YerBlumeyerCommaPumpFamily {
     A = 'A',
@@ -30,10 +30,16 @@ interface YerBlumeyerCommaPumpInstruction {
     factor: YerFactor,
 }
 
+type YerBlumeyerCommaPump = [ YerPitchClass[], YerPitchClass[], YerPitchClass[], YerPitchClass[] ]
+
+type OctavesMap = [ number, number, number, number ]
+
 export {
     YerBlumeyerCommaPumpInstructionsSpec,
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
     YerBlumeyerCommaPumpInstruction,
     YerBlumeyerCommaPumpAction,
+    YerBlumeyerCommaPump,
+    OctavesMap,
 }
