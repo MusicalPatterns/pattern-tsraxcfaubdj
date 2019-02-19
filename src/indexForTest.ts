@@ -8,11 +8,16 @@ export {
     HALF_NOTE,
     WHOLE_NOTE,
     buildBassContourPieces,
+    buildLeadContourPieces,
     YER_SCALE_INDEX,
     YER_EXCEPTION_SCALE_INDEX,
     SECOND_OCTAVE,
     THIRD_OCTAVE,
     REST,
+    DOTTED_HALF_NOTE,
+    FIFTH_OCTAVE,
+    FOURTH_OCTAVE,
+    QUARTER_NOTE,
 } from './materials/indexForTest'
 export {
     buildYerBlumeyerCommaPump,

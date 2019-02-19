@@ -1,4 +1,4 @@
-export { buildLeadContour } from './lead'
+export { buildLeadContourPieces } from './lead'
 export { buildFirstHarmonyContour } from './firstHarmony'
 export { buildSecondHarmonyContour } from './secondHarmony'
 export { buildBassContourPieces } from './bass'

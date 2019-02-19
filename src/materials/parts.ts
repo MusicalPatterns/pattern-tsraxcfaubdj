@@ -3,14 +3,14 @@ import { DictionaryOf, sequence } from '@musical-patterns/utilities'
 import {
     buildBassContourPieces,
     buildFirstHarmonyContour,
-    buildLeadContour,
+    buildLeadContourPieces,
     buildSecondHarmonyContour,
 } from './contours'
 import { buildNoteSpec } from './notes'
 
 const buildParts: () => DictionaryOf<NoteSpec[]> =
     (): DictionaryOf<NoteSpec[]> => {
-        const leadPart: NoteSpec[] = buildLeadContour()
+        const leadPart: NoteSpec[] = sequence(buildLeadContourPieces())
             .map(buildNoteSpec)
         const firstHarmonyPart: NoteSpec[] = buildFirstHarmonyContour()
             .map(buildNoteSpec)
