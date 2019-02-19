@@ -1,8 +1,9 @@
 import { YerFactorization } from '../types'
-import { Instruction, YerBlumeyerCommaPumpAction } from './types'
+import { YerBlumeyerCommaPumpAction, YerBlumeyerCommaPumpInstruction } from './types'
 
-const nextFactorization: (factorization: YerFactorization, instruction: Instruction) => YerFactorization =
-    (factorization: YerFactorization, { factor, action }: Instruction): YerFactorization => {
+const nextFactorization:
+    (factorization: YerFactorization, instruction: YerBlumeyerCommaPumpInstruction) => YerFactorization =
+    (factorization: YerFactorization, { factor, action }: YerBlumeyerCommaPumpInstruction): YerFactorization => {
         factorization[ factor ] = action === YerBlumeyerCommaPumpAction.ADD
 
         return factorization

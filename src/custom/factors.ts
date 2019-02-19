@@ -1,4 +1,4 @@
-import { DictionaryOf } from '@musical-patterns/utilities'
+import { deepClone, DictionaryOf } from '@musical-patterns/utilities'
 import { YerFactor, YerFactorization, YerPitchClass } from './types'
 
 const pitchClassByFactorization: DictionaryOf<DictionaryOf<DictionaryOf<DictionaryOf<YerPitchClass>>>> = {
@@ -74,7 +74,7 @@ const factorizationByPitchClass: { [key in YerPitchClass]: YerFactorization } = 
 
 const getYerFactorizationByPitchClass: (yer: YerPitchClass) => YerFactorization =
     (yer: YerPitchClass): YerFactorization =>
-        factorizationByPitchClass[ yer ]
+        deepClone(factorizationByPitchClass[ yer ])
 
 const getYerPitchClassByFactorization: (factors: YerFactorization) => YerPitchClass =
     (yerFactorization: YerFactorization): YerPitchClass => {

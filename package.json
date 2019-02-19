@@ -1,6 +1,6 @@
 {
   "name": "@musical-patterns/pattern-tsraxcfaubdj",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "@musical-patterns/utilities": "^1.0.258"
   },
   "devDependencies": {
-    "@musical-patterns/cli": "^1.0.431",
+    "@musical-patterns/cli": "^1.0.433",
     "@musical-patterns/playroom": "^1.0.228",
     "@musical-patterns/snapshot": "^1.0.47"
   }

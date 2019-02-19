@@ -14,7 +14,7 @@ export {
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
     buildYerBlumeyerCommaPumpInstructions,
-    Instruction,
+    YerBlumeyerCommaPumpInstruction,
     YerBlumeyerCommaPumpAction,
     YerFactor,
 } from './custom/indexForTest'

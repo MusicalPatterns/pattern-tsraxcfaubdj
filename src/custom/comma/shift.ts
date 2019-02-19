@@ -1,13 +1,7 @@
 import { getYerFactorizationByPitchClass, getYerPitchClassByFactorization } from '../factors'
 import { YerFactorization, YerPitchClass } from '../types'
 
-const commaShifts: YerPitchClass[][] = [
-    [ YerPitchClass._11_13_17, YerPitchClass._19 ],
-    [ YerPitchClass._11_17_19, YerPitchClass._13_17 ],
-    [ YerPitchClass._13, YerPitchClass._11_19 ],
-]
-
-const commaShiftsDictionaryStyle: Partial<{ [key in YerPitchClass]: YerPitchClass }> = {
+const possibleCommaShifts: Partial<{ [key in YerPitchClass]: YerPitchClass }> = {
     [ YerPitchClass._11_13_17 ]: YerPitchClass._19,
     [ YerPitchClass._19 ]: YerPitchClass._11_13_17,
     [ YerPitchClass._11_17_19 ]: YerPitchClass._13_17,
@@ -16,24 +10,21 @@ const commaShiftsDictionaryStyle: Partial<{ [key in YerPitchClass]: YerPitchClas
     [ YerPitchClass._13 ]: YerPitchClass._11_19,
 }
 
-const commaShiftPossibleHere: (factorization: YerFactorization) => boolean =
-    (factorization: YerFactorization): boolean =>
-        !commaShifts.every((commaShift: YerPitchClass[]) =>
-            commaShift.every((yer: YerPitchClass) =>
-                getYerPitchClassByFactorization(factorization) !== yer,
-            ),
-        )
-
 const applyCommaShift: (factorization: YerFactorization) => YerFactorization =
     (factorization: YerFactorization): YerFactorization => {
-        const yer: YerPitchClass = getYerPitchClassByFactorization(factorization)
+        const yerPitchClass: YerPitchClass = getYerPitchClassByFactorization(factorization)
 
-        const commaShiftedYer: YerPitchClass = commaShiftsDictionaryStyle[ yer ] as YerPitchClass
+        const commaShiftedYer: YerPitchClass = possibleCommaShifts[ yerPitchClass ] as YerPitchClass
+
+        if (!commaShiftedYer) {
+            throw new Error(
+                `You tried to comma shift at a place you cannot: ${yerPitchClass} at factorization ${factorization}`,
+            )
+        }
 
         return getYerFactorizationByPitchClass(commaShiftedYer)
     }
 
 export {
-    commaShiftPossibleHere,
     applyCommaShift,
 }

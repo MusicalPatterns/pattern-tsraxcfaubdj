@@ -5,6 +5,6 @@ export {
     YerBlumeyerCommaPumpInstructionsSpec,
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
-    Instruction,
+    YerBlumeyerCommaPumpInstruction,
     YerBlumeyerCommaPumpAction,
 } from './types'

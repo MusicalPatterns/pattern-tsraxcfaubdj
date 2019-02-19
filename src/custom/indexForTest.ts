@@ -7,7 +7,7 @@ export {
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
     buildYerBlumeyerCommaPumpInstructions,
-    Instruction,
+    YerBlumeyerCommaPumpInstruction,
     YerBlumeyerCommaPumpAction,
 } from './comma/indexForTest'
 

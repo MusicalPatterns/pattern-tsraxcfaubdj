@@ -1,32 +1,31 @@
-import { Cycle, reciprocal, to } from '@musical-patterns/utilities'
-import { YER_ELEVEN, YER_NINETEEN, YER_SEVENTEEN, YER_THIRTEEN } from '../../constants'
+import { apply, Cycle, negative, sequence, to } from '@musical-patterns/utilities'
 import { YerFactor } from '../types'
-import { Instruction, YerBlumeyerCommaPumpAction, YerBlumeyerCommaPumpFamily } from './types'
+import { YerBlumeyerCommaPumpAction, YerBlumeyerCommaPumpFamily, YerBlumeyerCommaPumpInstruction } from './types'
 
-const buildPumpInstructionsFromFamily: (family: YerBlumeyerCommaPumpFamily) => Cycle<Instruction> =
-    (family: YerBlumeyerCommaPumpFamily): Cycle<Instruction> => {
+const buildPumpInstructionsFromFamily: (family: YerBlumeyerCommaPumpFamily) => Cycle<YerBlumeyerCommaPumpInstruction> =
+    (family: YerBlumeyerCommaPumpFamily): Cycle<YerBlumeyerCommaPumpInstruction> => {
+        const theFactorsOnTheOtherSide: Cycle<YerBlumeyerCommaPumpInstruction> = to.Cycle([
+            { factor: YerFactor._17, action: YerBlumeyerCommaPumpAction.REMOVE },
+            { factor: YerFactor._11, action: YerBlumeyerCommaPumpAction.REMOVE },
+            { factor: YerFactor._13, action: YerBlumeyerCommaPumpAction.REMOVE },
+        ])
+
         switch (family) {
             case YerBlumeyerCommaPumpFamily.A:
-                return to.Cycle([
-                    { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD },
-                    { factor: YerFactor._17, action: YerBlumeyerCommaPumpAction.REMOVE },
-                    { factor: YerFactor._11, action: YerBlumeyerCommaPumpAction.REMOVE },
-                    { factor: YerFactor._13, action: YerBlumeyerCommaPumpAction.REMOVE },
-                ])
+                return to.Cycle(sequence([
+                    [ { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD } ],
+                    apply.Translation(theFactorsOnTheOtherSide, to.Translation(0)),
+                ]))
             case YerBlumeyerCommaPumpFamily.B:
-                return to.Cycle([
-                    { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD },
-                    { factor: YerFactor._11, action: YerBlumeyerCommaPumpAction.REMOVE },
-                    { factor: YerFactor._13, action: YerBlumeyerCommaPumpAction.REMOVE },
-                    { factor: YerFactor._17, action: YerBlumeyerCommaPumpAction.REMOVE },
-                ])
+                return to.Cycle(sequence([
+                    [ { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD } ],
+                    apply.Translation(theFactorsOnTheOtherSide, to.Translation(1)),
+                ]))
             case YerBlumeyerCommaPumpFamily.C:
-                return to.Cycle([
-                    { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD },
-                    { factor: YerFactor._13, action: YerBlumeyerCommaPumpAction.REMOVE },
-                    { factor: YerFactor._17, action: YerBlumeyerCommaPumpAction.REMOVE },
-                    { factor: YerFactor._11, action: YerBlumeyerCommaPumpAction.REMOVE },
-                ])
+                return to.Cycle(sequence([
+                    [ { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD } ],
+                    apply.Translation(theFactorsOnTheOtherSide, to.Translation(negative(1))),
+                ]))
             default:
                 throw new Error('YerBlumeyerCommaPumpInstructionsSpec has no family.')
         }

@@ -1,28 +1,34 @@
+import { forEach, INITIAL, Ordinal } from '@musical-patterns/utilities'
 import { getYerPitchClassByFactorization } from '../factors'
 import { YerFactorization, YerPitchClass } from '../types'
+import { calculateInitialFactorization } from './initial'
 import { nextFactorization } from './nextFactorization'
-import { applyCommaShift, commaShiftPossibleHere } from './shift'
-import { Instruction } from './types'
+import { applyCommaShift } from './shift'
+import { YerBlumeyerCommaPumpInstruction } from './types'
 
-const buildYerBlumeyerCommaPump: (instructions: Instruction[]) => YerPitchClass[][] =
-    (instructions: Instruction[]): YerPitchClass[][] => {
-        let currentFactorization: YerFactorization = {}
+const buildYerBlumeyerCommaPump:
+    (instructions: YerBlumeyerCommaPumpInstruction[], rotation?: Ordinal) => YerPitchClass[][] =
+    (instructions: YerBlumeyerCommaPumpInstruction[], rotation: Ordinal = INITIAL): YerPitchClass[][] => {
+        let currentFactorization: YerFactorization = calculateInitialFactorization(rotation, instructions)
         const pump: YerPitchClass[][] = []
-        let commaShiftDone: boolean = false
-        instructions.forEach((instruction: Instruction): void => {
-            const pumpStep: YerPitchClass[] = []
-            pumpStep.push(getYerPitchClassByFactorization(currentFactorization))
 
-            if (!commaShiftDone && commaShiftPossibleHere(currentFactorization)) {
-                commaShiftDone = true
-                currentFactorization = applyCommaShift(currentFactorization)
+        forEach(
+            instructions,
+            (instruction: YerBlumeyerCommaPumpInstruction, index: Ordinal): void => {
+                const pumpStep: YerPitchClass[] = []
+
                 pumpStep.push(getYerPitchClassByFactorization(currentFactorization))
-            }
 
-            pump.push(pumpStep)
+                if (index === rotation) {
+                    currentFactorization = applyCommaShift(currentFactorization)
+                    pumpStep.push(getYerPitchClassByFactorization(currentFactorization))
+                }
 
-            currentFactorization = nextFactorization(currentFactorization, instruction)
-        })
+                pump.push(pumpStep)
+
+                currentFactorization = nextFactorization(currentFactorization, instruction)
+            },
+        )
 
         return pump
     }

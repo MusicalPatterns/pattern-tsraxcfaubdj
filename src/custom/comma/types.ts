@@ -25,7 +25,7 @@ enum YerBlumeyerCommaPumpAction {
     REMOVE = 'REMOVE',
 }
 
-interface Instruction {
+interface YerBlumeyerCommaPumpInstruction {
     action: YerBlumeyerCommaPumpAction,
     factor: YerFactor,
 }
@@ -34,6 +34,6 @@ export {
     YerBlumeyerCommaPumpInstructionsSpec,
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
-    Instruction,
+    YerBlumeyerCommaPumpInstruction,
     YerBlumeyerCommaPumpAction,
 }

@@ -1,17 +1,8 @@
 import { Cycle, to } from '@musical-patterns/utilities'
-import { Instruction, YerBlumeyerCommaPumpAction, YerBlumeyerCommaPumpOperation } from './types'
+import { YerBlumeyerCommaPumpAction, YerBlumeyerCommaPumpInstruction, YerBlumeyerCommaPumpOperation } from './types'
 
-const converse: (instructions: Cycle<Instruction>) => Cycle<Instruction> =
-    (instructions: Cycle<Instruction>): Cycle<Instruction> =>
-        to.Cycle(instructions.map((instruction: Instruction) => ({
-            ...instruction,
-            action: instruction.action === YerBlumeyerCommaPumpAction.ADD ?
-                YerBlumeyerCommaPumpAction.REMOVE :
-                YerBlumeyerCommaPumpAction.ADD,
-        })))
-
-const inverse: (instructions: Cycle<Instruction>) => Cycle<Instruction> =
-    (instructions: Cycle<Instruction>): Cycle<Instruction> =>
+const converse: (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =
+    (instructions: Cycle<YerBlumeyerCommaPumpInstruction>): Cycle<YerBlumeyerCommaPumpInstruction> =>
         to.Cycle(
             instructions.slice(0, 1)
                 .concat(
@@ -20,13 +11,28 @@ const inverse: (instructions: Cycle<Instruction>) => Cycle<Instruction> =
                 ),
         )
 
-const reverse: (instructions: Cycle<Instruction>) => Cycle<Instruction> =
-    (instructions: Cycle<Instruction>): Cycle<Instruction> =>
+const inverse: (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =
+    (instructions: Cycle<YerBlumeyerCommaPumpInstruction>): Cycle<YerBlumeyerCommaPumpInstruction> =>
+        to.Cycle(instructions.map((instruction: YerBlumeyerCommaPumpInstruction) => ({
+            ...instruction,
+            action: instruction.action === YerBlumeyerCommaPumpAction.ADD ?
+                YerBlumeyerCommaPumpAction.REMOVE :
+                YerBlumeyerCommaPumpAction.ADD,
+        })))
+
+const reverse: (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =
+    (instructions: Cycle<YerBlumeyerCommaPumpInstruction>): Cycle<YerBlumeyerCommaPumpInstruction> =>
         converse(inverse(instructions))
 
 const applyPumpInstructionsOperation:
-    (instructions: Cycle<Instruction>, operation: YerBlumeyerCommaPumpOperation) => Cycle<Instruction> =
-    (instructions: Cycle<Instruction>, operation: YerBlumeyerCommaPumpOperation): Cycle<Instruction> => {
+    (
+        instructions: Cycle<YerBlumeyerCommaPumpInstruction>,
+        operation: YerBlumeyerCommaPumpOperation,
+    ) => Cycle<YerBlumeyerCommaPumpInstruction> =
+    (
+        instructions: Cycle<YerBlumeyerCommaPumpInstruction>,
+        operation: YerBlumeyerCommaPumpOperation,
+    ): Cycle<YerBlumeyerCommaPumpInstruction> => {
         switch (operation) {
             case YerBlumeyerCommaPumpOperation.BASE:
                 return instructions
@@ -43,4 +49,5 @@ const applyPumpInstructionsOperation:
 
 export {
     applyPumpInstructionsOperation,
+    inverse,
 }
