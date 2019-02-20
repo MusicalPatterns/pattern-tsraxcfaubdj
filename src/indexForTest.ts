@@ -41,6 +41,9 @@ export {
     YerExceptionPitchClass,
     yerExceptionPitchClassIndex,
     rawPiecesFromPump,
+    getYerFactorizationByPitchClass,
+    YerFactorization,
+    yerPitchClassesOrdered,
 } from './custom/indexForTest'
 
 // tslint:disable-next-line no-default-import

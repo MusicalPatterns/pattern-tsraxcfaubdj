@@ -6,7 +6,7 @@ const buildNoteSpec: (contourElement: ContourElement<PitchDurationScale>) => Not
     (contourElement: ContourElement<PitchDurationScale>): NoteSpec => {
         const [ pitch, duration, scale ] = contourElement as number[]
 
-        if (pitch === 0) {
+        if (pitch === -1) {
             return {
                 durationSpec: {
                     index: translateFromOneIndexedToZeroIndexed(to.Ordinal(duration)),

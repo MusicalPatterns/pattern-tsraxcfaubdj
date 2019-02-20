@@ -43,4 +43,5 @@ const yerExceptionPitchClassIndex: (octaveIndex: number, yerExceptionPitchClass:
 export {
     yerPitchClassIndex,
     yerExceptionPitchClassIndex,
+    yerPitchClassesOrdered,
 }

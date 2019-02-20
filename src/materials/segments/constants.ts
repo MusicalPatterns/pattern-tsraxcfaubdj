@@ -8,7 +8,7 @@ const DOTTED_HALF_NOTE: number = 3
 const HALF_NOTE: number = 2
 const QUARTER_NOTE: number = 1
 
-const REST: number = 0
+const REST: number = -1
 
 const SECOND_OCTAVE: number = 2
 const THIRD_OCTAVE: number = 3
