@@ -5,14 +5,19 @@ const buildEntities: () => Entity[] =
     (): Entity[] => {
         const {
             leadPart,
+            bassPart,
             secondHarmonyPart,
             firstHarmonyPart,
-            bassPart,
         } = buildParts()
 
         const leadEntity: Entity = {
             noteSpecs: leadPart,
             timbreName: TimbreNameEnum.PHONEME_OOH,
+        }
+
+        const bassEntity: Entity = {
+            noteSpecs: bassPart,
+            timbreName: TimbreNameEnum.ORGAN_2,
         }
 
         const firstHarmonyEntity: Entity = {
@@ -25,16 +30,11 @@ const buildEntities: () => Entity[] =
             timbreName: TimbreNameEnum.ETHNIC_33,
         }
 
-        const bassEntity: Entity = {
-            noteSpecs: bassPart,
-            timbreName: TimbreNameEnum.ORGAN_2,
-        }
-
         return [
             leadEntity,
+            bassEntity,
             secondHarmonyEntity,
             firstHarmonyEntity,
-            bassEntity,
         ]
     }
 

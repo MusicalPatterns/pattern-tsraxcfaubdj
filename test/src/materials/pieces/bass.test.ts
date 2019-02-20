@@ -21,8 +21,8 @@ describe('bass pieces', () => {
         const FROM_THE_OPENING_REST: number = 0
         const exceptionalIndices: Ordinal[] = [ FROM_THE_OPENING_REST ].map(to.Ordinal)
 
-        const indexOfBassThreadSpec: Ordinal = to.Ordinal(3)
-        await testEveryIntervalIsSimple(indexOfBassThreadSpec, exceptionalIndices)
+        const INDEX_OF_BASS_THREAD_SPEC: Ordinal = to.Ordinal(1)
+        await testEveryIntervalIsSimple(INDEX_OF_BASS_THREAD_SPEC, exceptionalIndices)
         done()
     })
 

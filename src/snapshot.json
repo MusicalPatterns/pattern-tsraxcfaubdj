@@ -606,6 +606,344 @@
       {
         "duration": 9600,
         "gain": 1,
+        "frequency": 106.288,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 126.217,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 4800,
+        "gain": 1,
+        "frequency": 155.344,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 4799.9
+      },
+      {
+        "duration": 4800,
+        "gain": 1,
+        "frequency": 155.28013,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 4799.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 112.931,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 106.288,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 126.217,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 155.344,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 130.816,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 138.992,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 191.114,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 4800,
+        "gain": 1,
+        "frequency": 155.28013,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 4799.9
+      },
+      {
+        "duration": 4800,
+        "gain": 1,
+        "frequency": 155.344,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 4799.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 130.816,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 138.992,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 95.557,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 89.936,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 4800,
+        "gain": 1,
+        "frequency": 106.799,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 4799.9
+      },
+      {
+        "duration": 4800,
+        "gain": 1,
+        "frequency": 106.288,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 4799.9
+      },
+      {
+        "duration": 4800,
+        "gain": 1,
+        "frequency": 65.408,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 4799.9
+      },
+      {
+        "duration": 4800,
+        "gain": 1,
+        "frequency": 65.69544,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 4799.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 95.557,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 89.936,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 4800,
+        "gain": 1,
+        "frequency": 106.799,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 4799.9
+      },
+      {
+        "duration": 4800,
+        "gain": 1,
+        "frequency": 106.288,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 4799.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 126.217,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 4800,
+        "gain": 1,
+        "frequency": 155.344,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 4799.9
+      },
+      {
+        "duration": 4800,
+        "gain": 1,
+        "frequency": 155.28013,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 4799.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
+        "frequency": 112.931,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      }
+    ],
+    "voiceSpec": {
+      "timbreName": "ORGAN_2",
+      "voiceType": "OSCILLATOR"
+    }
+  },
+  {
+    "notes": [
+      {
+        "duration": 9600,
+        "gain": 0,
+        "frequency": 1,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 9599.9
+      },
+      {
+        "duration": 9600,
+        "gain": 1,
         "frequency": 292.292,
         "position": [
           0,
@@ -1197,344 +1535,6 @@
     ],
     "voiceSpec": {
       "timbreName": "CELESTE",
-      "voiceType": "OSCILLATOR"
-    }
-  },
-  {
-    "notes": [
-      {
-        "duration": 9600,
-        "gain": 0,
-        "frequency": 1,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 106.288,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 126.217,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 4800,
-        "gain": 1,
-        "frequency": 155.344,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 4799.9
-      },
-      {
-        "duration": 4800,
-        "gain": 1,
-        "frequency": 155.28013,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 4799.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 112.931,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 106.288,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 126.217,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 155.344,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 130.816,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 138.992,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 191.114,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 4800,
-        "gain": 1,
-        "frequency": 155.28013,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 4799.9
-      },
-      {
-        "duration": 4800,
-        "gain": 1,
-        "frequency": 155.344,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 4799.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 130.816,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 138.992,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 95.557,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 89.936,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 4800,
-        "gain": 1,
-        "frequency": 106.799,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 4799.9
-      },
-      {
-        "duration": 4800,
-        "gain": 1,
-        "frequency": 106.288,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 4799.9
-      },
-      {
-        "duration": 4800,
-        "gain": 1,
-        "frequency": 65.408,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 4799.9
-      },
-      {
-        "duration": 4800,
-        "gain": 1,
-        "frequency": 65.69544,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 4799.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 95.557,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 89.936,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 4800,
-        "gain": 1,
-        "frequency": 106.799,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 4799.9
-      },
-      {
-        "duration": 4800,
-        "gain": 1,
-        "frequency": 106.288,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 4799.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 126.217,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      },
-      {
-        "duration": 4800,
-        "gain": 1,
-        "frequency": 155.344,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 4799.9
-      },
-      {
-        "duration": 4800,
-        "gain": 1,
-        "frequency": 155.28013,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 4799.9
-      },
-      {
-        "duration": 9600,
-        "gain": 1,
-        "frequency": 112.931,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 9599.9
-      }
-    ],
-    "voiceSpec": {
-      "timbreName": "ORGAN_2",
       "voiceType": "OSCILLATOR"
     }
   }
