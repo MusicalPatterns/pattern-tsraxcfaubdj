@@ -1,6 +1,30 @@
-import { YerPitchClass, yerPitchClassIndex } from '../../../src/indexForTest'
+import { getOrderedPitchClassIndices, YerPitchClass, yerPitchClassIndex } from '../../../src/indexForTest'
 
 describe('pitch indices', () => {
+    it('has the pitch classes ordered by pitch', () => {
+        const actual: YerPitchClass[] = getOrderedPitchClassIndices()
+
+        expect(actual)
+            .toEqual([
+                YerPitchClass._1,
+                YerPitchClass._13_17_19,
+                YerPitchClass._17,
+                YerPitchClass._11_13,
+                YerPitchClass._11_13_17,
+                YerPitchClass._19,
+                YerPitchClass._17_19,
+                YerPitchClass._11_13_19,
+                YerPitchClass._11,
+                YerPitchClass._11_13_17_19,
+                YerPitchClass._11_17,
+                YerPitchClass._13,
+                YerPitchClass._11_19,
+                YerPitchClass._13_17,
+                YerPitchClass._11_17_19,
+                YerPitchClass._13_19,
+            ])
+    })
+
     it('gives you the index of the pitch in the yer scale, given the octave and pitch class', () => {
         expect(yerPitchClassIndex(0, YerPitchClass._1))
             .toBe(0)

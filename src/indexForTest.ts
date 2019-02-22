@@ -43,7 +43,7 @@ export {
     rawPiecesFromPump,
     getYerFactorizationByPitchClass,
     YerFactorization,
-    yerPitchClassesOrdered,
+    getOrderedPitchClassIndices,
 } from './custom/indexForTest'
 
 // tslint:disable-next-line no-default-import

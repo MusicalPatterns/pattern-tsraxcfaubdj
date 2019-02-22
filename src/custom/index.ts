@@ -1,4 +1,5 @@
 export { yerPitchClassIndex, yerExceptionPitchClassIndex } from './pitchClassIndices'
+export { buildYer } from './yer'
 
 export {
     buildYerBlumeyerCommaPumpInstructions,
@@ -11,4 +12,5 @@ export {
 export {
     YerPitchClass,
     YerExceptionPitchClass,
+    Yer,
 } from './types'

@@ -1,4 +1,4 @@
-import { Ordinal, Translation } from '@musical-patterns/utilities'
+import { Ordinal, Scalar, Translation } from '@musical-patterns/utilities'
 
 enum YerPitchClass {
     _1 = '_1',
@@ -33,7 +33,13 @@ enum YerFactor {
 
 type YerFactorization = Partial<{ [ key in YerFactor ]: boolean }>
 
+interface Yer {
+    pitchClass: YerPitchClass,
+    scalar: Scalar,
+}
+
 export {
+    Yer,
     YerPitchClass,
     YerExceptionPitchClass,
     YerFactor,

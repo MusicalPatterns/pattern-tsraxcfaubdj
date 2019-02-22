@@ -16,12 +16,12 @@ import {
     buildFirstHarmonyContourPieces,
     buildLeadContourPieces,
     buildSecondHarmonyContourPieces,
+    getOrderedPitchClassIndices,
     getYerFactorizationByPitchClass,
     REST,
     YER_PITCH_CLASS_COUNT,
     YerFactor,
     YerFactorization,
-    yerPitchClassesOrdered,
 } from '../../../src/indexForTest'
 import { PotentialFailure } from './types'
 
@@ -120,8 +120,8 @@ describe('segments', () => {
                 }
 
                 return [
-                    getYerFactorizationByPitchClass(yerPitchClassesOrdered[ firstPitch ]),
-                    getYerFactorizationByPitchClass(yerPitchClassesOrdered[ secondPitch ]),
+                    getYerFactorizationByPitchClass(getOrderedPitchClassIndices()[ firstPitch ]),
+                    getYerFactorizationByPitchClass(getOrderedPitchClassIndices()[ secondPitch ]),
                 ]
             })
 
