@@ -46,6 +46,8 @@ type YerPitchClassByFactorizationCursor = DictionaryOf<DictionaryOf<DictionaryOf
     DictionaryOf<DictionaryOf<YerPitchClass>> |
     DictionaryOf<YerPitchClass>
 
+type YerFactorizationByPitchClass = { [key in YerPitchClass]: YerFactorization }
+
 export {
     Yer,
     YerPitchClass,
@@ -54,4 +56,5 @@ export {
     YerFactorization,
     YerPitchClassByFactorization,
     YerPitchClassByFactorizationCursor,
+    YerFactorizationByPitchClass,
 }

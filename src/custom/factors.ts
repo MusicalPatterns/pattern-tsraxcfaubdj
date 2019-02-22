@@ -1,9 +1,11 @@
-import { deepClone, forEach, Ordinal, Scalar } from '@musical-patterns/utilities'
+import { entries, forEach, Ordinal, Scalar } from '@musical-patterns/utilities'
+import { YER_ELEVEN, YER_NINETEEN, YER_SEVENTEEN, YER_THIRTEEN } from '../constants'
 import { YER_FACTORS } from './constants'
 import {
     Yer,
     YerFactor,
     YerFactorization,
+    YerFactorizationByPitchClass,
     YerPitchClass,
     YerPitchClassByFactorization,
     YerPitchClassByFactorizationCursor,
@@ -34,33 +36,38 @@ const pitchClassByFactorization: () => YerPitchClassByFactorization =
             )
     }
 
-const factorizationByPitchClass: { [key in YerPitchClass]: YerFactorization } = {
-    [ YerPitchClass._1 ]: {},
-    [ YerPitchClass._11 ]: { [ YerFactor._11 ]: true },
-    [ YerPitchClass._13 ]: { [ YerFactor._13 ]: true },
-    [ YerPitchClass._17 ]: { [ YerFactor._17 ]: true },
-    [ YerPitchClass._19 ]: { [ YerFactor._19 ]: true },
-    [ YerPitchClass._11_13 ]: { [ YerFactor._11 ]: true, [ YerFactor._13 ]: true },
-    [ YerPitchClass._11_17 ]: { [ YerFactor._11 ]: true, [ YerFactor._17 ]: true },
-    [ YerPitchClass._11_19 ]: { [ YerFactor._11 ]: true, [ YerFactor._19 ]: true },
-    [ YerPitchClass._13_17 ]: { [ YerFactor._13 ]: true, [ YerFactor._17 ]: true },
-    [ YerPitchClass._13_19 ]: { [ YerFactor._13 ]: true, [ YerFactor._19 ]: true },
-    [ YerPitchClass._17_19 ]: { [ YerFactor._17 ]: true, [ YerFactor._19 ]: true },
-    [ YerPitchClass._11_13_17 ]: { [ YerFactor._11 ]: true, [ YerFactor._13 ]: true, [ YerFactor._17 ]: true },
-    [ YerPitchClass._11_13_19 ]: { [ YerFactor._11 ]: true, [ YerFactor._13 ]: true, [ YerFactor._19 ]: true },
-    [ YerPitchClass._11_17_19 ]: { [ YerFactor._11 ]: true, [ YerFactor._17 ]: true, [ YerFactor._19 ]: true },
-    [ YerPitchClass._13_17_19 ]: { [ YerFactor._13 ]: true, [ YerFactor._17 ]: true, [ YerFactor._19 ]: true },
-    [ YerPitchClass._11_13_17_19 ]: {
-        [ YerFactor._11 ]: true,
-        [ YerFactor._13 ]: true,
-        [ YerFactor._17 ]: true,
-        [ YerFactor._19 ]: true,
-    },
+const yerScalarByFactor: { [key in YerFactor]: Scalar } = {
+    [ YerFactor._11 ]: YER_ELEVEN,
+    [ YerFactor._13 ]: YER_THIRTEEN,
+    [ YerFactor._17 ]: YER_SEVENTEEN,
+    [ YerFactor._19 ]: YER_NINETEEN,
 }
+
+const factorizationByPitchClass: () => YerFactorizationByPitchClass =
+    (): YerFactorizationByPitchClass =>
+        buildYer()
+            .reduce(
+                (accumalator: YerFactorizationByPitchClass, yer: Yer): YerFactorizationByPitchClass => {
+                    const factorization: YerFactorization = {}
+                    entries(yerScalarByFactor)
+                        .forEach(([ factor, scalar ]: [ YerFactor, Scalar ]) => {
+                            if (yer.subset.includes(scalar)) {
+                                factorization[ factor ] = true
+                            }
+                        })
+
+                    return {
+                        ...accumalator,
+                        [ yer.pitchClass ]: factorization,
+                    }
+                },
+                // @ts-ignore
+                {},
+            )
 
 const getYerFactorizationByPitchClass: (yer: YerPitchClass) => YerFactorization =
     (yer: YerPitchClass): YerFactorization =>
-        deepClone(factorizationByPitchClass[ yer ])
+        factorizationByPitchClass()[ yer ]
 
 const getYerPitchClassByFactorization: (factors: YerFactorization) => YerPitchClass =
     (yerFactorization: YerFactorization): YerPitchClass => {
