@@ -1,4 +1,4 @@
-import { Ordinal, Scalar, Translation } from '@musical-patterns/utilities'
+import { DictionaryOf, Scalar } from '@musical-patterns/utilities'
 
 enum YerPitchClass {
     _1 = '_1',
@@ -31,12 +31,20 @@ enum YerFactor {
     _19 = '_19',
 }
 
-type YerFactorization = Partial<{ [ key in YerFactor ]: boolean }>
+type YerFactorization = Partial<{ [key in YerFactor]: boolean }>
 
 interface Yer {
     pitchClass: YerPitchClass,
     scalar: Scalar,
+    subset: Scalar[],
 }
+
+type YerPitchClassByFactorization = DictionaryOf<DictionaryOf<DictionaryOf<DictionaryOf<YerPitchClass>>>>
+
+type YerPitchClassByFactorizationCursor = DictionaryOf<DictionaryOf<DictionaryOf<DictionaryOf<YerPitchClass>>>> |
+    DictionaryOf<DictionaryOf<DictionaryOf<YerPitchClass>>> |
+    DictionaryOf<DictionaryOf<YerPitchClass>> |
+    DictionaryOf<YerPitchClass>
 
 export {
     Yer,
@@ -44,4 +52,6 @@ export {
     YerExceptionPitchClass,
     YerFactor,
     YerFactorization,
+    YerPitchClassByFactorization,
+    YerPitchClassByFactorizationCursor,
 }

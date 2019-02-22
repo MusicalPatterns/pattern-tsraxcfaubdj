@@ -5,9 +5,9 @@ import { Yer, YerPitchClass } from './types'
 const buildYer: () => Yer[] =
     (): Yer[] =>
         powerSet(YER_FACTORS)
-            .map((yerFactorPowerSet: Scalar[]): Yer => {
+            .map((subset: Scalar[]): Yer => {
                 let pitchClassRaw: string = reduce(
-                    yerFactorPowerSet,
+                    subset,
                     (accumulator: string, factor: Scalar): string =>
                         `${accumulator}_${factor}`,
                     '',
@@ -16,13 +16,13 @@ const buildYer: () => Yer[] =
                 const pitchClass: YerPitchClass = YerPitchClass[ pitchClassRaw as YerPitchClass ]
 
                 const scalar: Scalar = reduce(
-                    yerFactorPowerSet,
+                    subset,
                     (accumulator: Scalar, factor: Scalar): Scalar =>
                         apply.Scalar(accumulator, factor),
                     to.Scalar(1),
                 )
 
-                return { scalar, pitchClass }
+                return { scalar, pitchClass, subset }
             })
             .map((yer: Yer) => ({
                 ...yer,
