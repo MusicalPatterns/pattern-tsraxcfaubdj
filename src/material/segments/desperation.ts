@@ -1,5 +1,5 @@
-import { YerPitchClass, yerPitchClassIndex } from '../../custom'
 import { YER_SCALE_INDEX } from '../constants'
+import { YerPitchClass, yerPitchClassIndex } from '../custom'
 import {
     DOTTED_HALF_NOTE,
     FIFTH_OCTAVE,

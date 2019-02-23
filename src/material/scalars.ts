@@ -1,6 +1,6 @@
 import { octaveReduce, product, quotient, Scalar } from '@musical-patterns/utilities'
 import { YER_ELEVEN, YER_NINETEEN, YER_SEVENTEEN, YER_THIRTEEN } from '../constants'
-import { buildYer, Yer } from '../custom'
+import { buildYer, Yer } from './custom'
 
 const buildYerScalars: () => Scalar[] =
     (): Scalar[] =>

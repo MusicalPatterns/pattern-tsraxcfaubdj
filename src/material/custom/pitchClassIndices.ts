@@ -1,5 +1,5 @@
 import { apply, from, to } from '@musical-patterns/utilities'
-import { YER_EXCEPTION_PITCH_CLASS_COUNT, YER_PITCH_CLASS_COUNT } from '../materials'
+import { YER_EXCEPTION_PITCH_CLASS_COUNT, YER_PITCH_CLASS_COUNT } from '../constants'
 import { Yer, YerExceptionPitchClass, YerPitchClass } from './types'
 import { buildYer } from './yer'
 

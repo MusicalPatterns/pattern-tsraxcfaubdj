@@ -26,6 +26,25 @@ export {
     FOURTH_OCTAVE,
     QUARTER_NOTE,
 } from './segments/indexForTest'
+export {
+    buildYerBlumeyerCommaPump,
+    yerPitchClassIndex,
+    YerPitchClass,
+    YerBlumeyerCommaPumpInstructionsSpec,
+    YerBlumeyerCommaPumpFamily,
+    YerBlumeyerCommaPumpOperation,
+    buildYerBlumeyerCommaPumpInstructions,
+    YerBlumeyerCommaPumpInstruction,
+    YerBlumeyerCommaPumpAction,
+    YerFactor,
+    YerBlumeyerCommaPump,
+    YerExceptionPitchClass,
+    yerExceptionPitchClassIndex,
+    rawPiecesFromPump,
+    getYerFactorizationByPitchClass,
+    YerFactorization,
+    getOrderedPitchClassIndices,
+} from './custom/indexForTest'
 
 export {
     YER_PITCH_CLASS_COUNT,

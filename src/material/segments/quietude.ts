@@ -1,7 +1,7 @@
 // tslint:disable max-file-line-count
 
-import { YerExceptionPitchClass, yerExceptionPitchClassIndex, YerPitchClass, yerPitchClassIndex } from '../../custom'
 import { YER_EXCEPTION_SCALE_INDEX, YER_SCALE_INDEX } from '../constants'
+import { YerExceptionPitchClass, yerExceptionPitchClassIndex, YerPitchClass, yerPitchClassIndex } from '../custom'
 import {
     FIFTH_OCTAVE,
     FOURTH_OCTAVE,

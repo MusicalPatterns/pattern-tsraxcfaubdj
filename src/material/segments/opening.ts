@@ -1,4 +1,5 @@
 import { NO_TRANSLATION } from '@musical-patterns/utilities'
+import { YER_SCALE_INDEX } from '../constants'
 import {
     buildYerBlumeyerCommaPump,
     buildYerBlumeyerCommaPumpInstructions,
@@ -7,8 +8,7 @@ import {
     YerBlumeyerCommaPumpOperation,
     YerPitchClass,
     yerPitchClassIndex,
-} from '../../custom'
-import { YER_SCALE_INDEX } from '../constants'
+} from '../custom'
 import {
     FIRST_PUMP_ROTATION,
     FOURTH_OCTAVE,

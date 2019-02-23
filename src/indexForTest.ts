@@ -25,8 +25,6 @@ export {
     buildFirstHarmonyContourWhole,
     buildSecondHarmonyContourWhole,
     buildLeadContourWhole,
-} from './materials/indexForTest'
-export {
     buildYerBlumeyerCommaPump,
     yerPitchClassIndex,
     YerPitchClass,
@@ -44,7 +42,7 @@ export {
     getYerFactorizationByPitchClass,
     YerFactorization,
     getOrderedPitchClassIndices,
-} from './custom/indexForTest'
+} from './material/indexForTest'
 
 // tslint:disable-next-line no-default-import
 import * as snapshot from './snapshot.json'

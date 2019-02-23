@@ -1,5 +1,5 @@
-import { YerPitchClass, yerPitchClassIndex } from '../../custom'
 import { YER_SCALE_INDEX } from '../constants'
+import { YerPitchClass, yerPitchClassIndex } from '../custom'
 import { FIFTH_OCTAVE, FOURTH_OCTAVE, HALF_NOTE, QUARTER_NOTE, REST, WHOLE_NOTE } from './constants'
 
 const openingEntranceAsPartOfLoopLead: () => number[][][] =
