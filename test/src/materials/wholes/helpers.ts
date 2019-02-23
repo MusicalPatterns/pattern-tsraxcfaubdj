@@ -1,5 +1,5 @@
 import { PitchDurationScale } from '@musical-patterns/pattern'
-import { apply, ContourElement, ContourWhole, forEach, Ordinal, to } from '@musical-patterns/utilities'
+import { apply, ContourElement, ContourWhole, forEach, numericSort, Ordinal, to } from '@musical-patterns/utilities'
 import { buildBassContourWhole, REST, YER_PITCH_CLASS_COUNT } from '../../../../src/indexForTest'
 import { INDEX_OF_PITCH_WITHIN_CONTOUR_ELEMENT } from './constants'
 
@@ -8,7 +8,7 @@ const getBassPitchClassIndexSet: () => number[] =
         getPitchClassIndices(buildBassContourWhole())
             .filter((value: number, index: number, self: number[]) => self.indexOf(value) === index)
             .filter((value: number) => value !== REST)
-            .sort((value: number, nextValue: number) => value - nextValue)
+            .sort(numericSort)
 
 const getPitchClassIndices: (contourWhole: ContourWhole<PitchDurationScale>) => number[] =
     (contourWhole: ContourWhole<PitchDurationScale>): number[] =>
