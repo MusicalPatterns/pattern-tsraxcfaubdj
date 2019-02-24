@@ -1,4 +1,4 @@
-import { PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
+import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
 import { from, NO_TRANSLATION } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import {
@@ -41,7 +41,7 @@ const openingLead: () => number[][][] =
 const openingRest: () => number[][][] =
     (): number[][][] => [
         [
-            [ from.Ordinal(PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
+            [ from.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
     ]
 

@@ -1,4 +1,4 @@
-import { PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
+import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
 import { from } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import { YerPitchClass, yerPitchClassIndex } from '../custom'
@@ -26,7 +26,7 @@ const openingEntranceAsPartOfLoopFirstHarmony: () => number[][][] =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17_19), HALF_NOTE, YER_SCALE_INDEX ],
-            [ from.Ordinal(PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
+            [ from.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
         ],
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17), WHOLE_NOTE, YER_SCALE_INDEX ],
@@ -48,7 +48,7 @@ const openingEntranceFirstHarmony: () => number[][][] =
 const openingEntranceAsPartOfLoopSecondHarmony: () => number[][][] =
     (): number[][][] => [
         [
-            [ from.Ordinal(PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
+            [ from.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), HALF_NOTE, YER_SCALE_INDEX ],
         ],
         [

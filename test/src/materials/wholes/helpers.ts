@@ -1,4 +1,4 @@
-import { PITCH_INDEX_INDICATING_REST, PitchDurationScale } from '@musical-patterns/pattern'
+import { PitchDurationScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
 import {
     apply,
     ContourElement,
@@ -18,7 +18,7 @@ const getBassPitchClassIndexSet: () => number[] =
             getPitchClassIndices(buildBassContourWhole()),
             uniqueFilter,
         )
-            .filter((value: number) => value !== from.Ordinal(PITCH_INDEX_INDICATING_REST))
+            .filter((value: number) => value !== from.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST))
             .sort(numericSort)
 
 const getPitchClassIndices: (contourWhole: ContourWhole<PitchDurationScale>) => number[] =

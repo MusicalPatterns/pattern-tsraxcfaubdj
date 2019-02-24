@@ -1,4 +1,4 @@
-import { PITCH_INDEX_INDICATING_REST, PitchDurationScale } from '@musical-patterns/pattern'
+import { PitchDurationScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
 import {
     apply,
     combinationCount,
@@ -115,7 +115,7 @@ describe('segments', () => {
 
         const combinationsOfFactorizations: Array<[ YerFactorization, YerFactorization ]> =
             combinationsOfPitches.map(([ firstPitch, secondPitch ]: [ number, number ]): [ YerFactorization, YerFactorization ] => {
-                if (firstPitch === from.Ordinal(PITCH_INDEX_INDICATING_REST) || secondPitch === from.Ordinal(PITCH_INDEX_INDICATING_REST)) {
+                if (firstPitch === from.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST) || secondPitch === from.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST)) {
                     return [ {}, {} ]
                 }
 

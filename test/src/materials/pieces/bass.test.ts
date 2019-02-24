@@ -1,4 +1,4 @@
-import { PITCH_INDEX_INDICATING_REST, PitchDurationScale } from '@musical-patterns/pattern'
+import { PitchDurationScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
 import { from, Ordinal, to } from '@musical-patterns/utilities'
 import {
     buildBassContourPieces,
@@ -30,7 +30,7 @@ describe('bass pieces', () => {
             .toEqual(
                 [
                     [
-                        [ from.Ordinal(PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
+                        [ from.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
                         [ yerPitchClassIndex(SECOND_OCTAVE, YerPitchClass._13), WHOLE_NOTE, YER_SCALE_INDEX ],
