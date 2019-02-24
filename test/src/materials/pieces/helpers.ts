@@ -3,12 +3,12 @@ import { Note, ThreadSpec } from '@musical-patterns/performer'
 import {
     apply,
     forEach,
+    Fraction,
     from,
     isCloseTo,
     NEXT,
     Ordinal,
     quotient,
-    Ratio,
     Scalar,
     to,
 } from '@musical-patterns/utilities'
@@ -35,7 +35,7 @@ const testEveryIntervalIsSimple: (threadSpecIndex: Ordinal, exceptionalIndices?:
             [ 19, 16 ],
             [ 19, 32 ],
         ]
-        const acceptableRatios: Ratio[] = rawAcceptablySimpleRatios.map(to.Ratio)
+        const acceptableRatios: Fraction[] = rawAcceptablySimpleRatios.map(to.Fraction)
 
         const threadSpecs: ThreadSpec[] = await compilePattern({
             material: pattern.material,
@@ -57,8 +57,8 @@ const testEveryIntervalIsSimple: (threadSpecIndex: Ordinal, exceptionalIndices?:
 
             let pass: boolean = false
             const actualInterval: Scalar = to.Scalar(from.Hz(quotient(nextNote.frequency, note.frequency)))
-            acceptableRatios.forEach((acceptableRatio: Ratio) => {
-                const acceptableInterval: Scalar = to.Scalar(from.Ratio(acceptableRatio))
+            acceptableRatios.forEach((acceptableRatio: Fraction) => {
+                const acceptableInterval: Scalar = to.Scalar(from.Fraction(acceptableRatio))
                 if (isCloseTo(actualInterval, acceptableInterval)) {
                     pass = true
                 }
