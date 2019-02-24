@@ -1,6 +1,7 @@
 import { PitchDurationScale } from '@musical-patterns/pattern'
 import {
     apply,
+    combinationCount,
     ContourElement,
     ContourPiece,
     deepEqual,
@@ -29,7 +30,7 @@ describe('segments', () => {
     const SEGMENT_COUNT: number = 24
     const QUARTERS_PER_SEGMENT: number = 4
     const QUARTERS_COUNT: number = SEGMENT_COUNT * QUARTERS_PER_SEGMENT
-    const COMBINATIONS_PER_QUARTER: number = 6
+    const COMBINATIONS_PER_QUARTER: number = combinationCount(QUARTERS_PER_SEGMENT, 2)
     const COMBINATIONS_COUNT: number = COMBINATIONS_PER_QUARTER * QUARTERS_COUNT
 
     const INDEX_OF_PITCH_IN_PITCH_DURATION_SCALE_CONTOUR: Ordinal = to.Ordinal(0)
