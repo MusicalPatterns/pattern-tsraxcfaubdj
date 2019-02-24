@@ -7,7 +7,7 @@ import {
     YerBlumeyerCommaPumpInstructionsSpec,
     YerBlumeyerCommaPumpOperation,
     YerFactor,
-} from '../../../../src/indexForTest'
+} from '../../../../../src/indexForTest'
 
 describe('comma pump instructions', () => {
     it('from a spec, gives you instructions for a comma pump, which you could then find a starting position / rotation for to get a final pattern of pitch classes', () => {

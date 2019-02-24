@@ -12,7 +12,7 @@ import {
     YerBlumeyerCommaPumpOperation,
     YerPitchClass,
     yerPitchClassIndex,
-} from '../../../../src/indexForTest'
+} from '../../../../../src/indexForTest'
 
 describe('raw pieces from pump', () => {
     it('given a comma pump, returns the raw pieces to be cast to contour pieces', () => {

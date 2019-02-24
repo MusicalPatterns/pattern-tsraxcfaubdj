@@ -9,7 +9,7 @@ import {
     YerBlumeyerCommaPumpOperation,
     YerFactor,
     YerPitchClass,
-} from '../../../../src/indexForTest'
+} from '../../../../../src/indexForTest'
 
 describe('comma pumps', () => {
     let instructions: YerBlumeyerCommaPumpInstruction[]
