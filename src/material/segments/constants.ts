@@ -8,8 +8,6 @@ const DOTTED_HALF_NOTE: number = 3
 const HALF_NOTE: number = 2
 const QUARTER_NOTE: number = 1
 
-const REST: number = -1
-
 const SECOND_OCTAVE: number = 2
 const THIRD_OCTAVE: number = 3
 const FOURTH_OCTAVE: number = 4
@@ -24,7 +22,6 @@ export {
     DOTTED_HALF_NOTE,
     HALF_NOTE,
     QUARTER_NOTE,
-    REST,
     SECOND_OCTAVE,
     THIRD_OCTAVE,
     FOURTH_OCTAVE,

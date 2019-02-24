@@ -1,4 +1,5 @@
-import { NO_TRANSLATION } from '@musical-patterns/utilities'
+import { PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
+import { from, NO_TRANSLATION } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import {
     buildYerBlumeyerCommaPump,
@@ -14,7 +15,6 @@ import {
     FOURTH_OCTAVE,
     HALF_NOTE,
     QUARTER_NOTE,
-    REST,
     SECOND_OCTAVE,
     THIRD_OCTAVE,
     WHOLE_NOTE,
@@ -41,7 +41,7 @@ const openingLead: () => number[][][] =
 const openingRest: () => number[][][] =
     (): number[][][] => [
         [
-            [ REST, WHOLE_NOTE, YER_SCALE_INDEX ],
+            [ from.Ordinal(PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
     ]
 

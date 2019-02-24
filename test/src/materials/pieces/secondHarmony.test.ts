@@ -1,10 +1,9 @@
-import { PitchDurationScale } from '@musical-patterns/pattern'
-import { to } from '@musical-patterns/utilities'
+import { PITCH_INDEX_INDICATING_REST, PitchDurationScale } from '@musical-patterns/pattern'
+import { from, to } from '@musical-patterns/utilities'
 import {
     buildSecondHarmonyContourPieces,
     FOURTH_OCTAVE,
     HALF_NOTE,
-    REST,
     THREE_WHOLE_NOTES,
     WHOLE_NOTE,
     YER_SCALE_INDEX,
@@ -18,7 +17,7 @@ describe('second harmony pieces', () => {
             .toEqual(
                 [
                     [
-                        [ REST, WHOLE_NOTE, YER_SCALE_INDEX ],
+                        [ from.Ordinal(PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],
@@ -27,7 +26,7 @@ describe('second harmony pieces', () => {
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
-                        [ REST, HALF_NOTE, YER_SCALE_INDEX ],
+                        [ from.Ordinal(PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), HALF_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
@@ -45,20 +44,20 @@ describe('second harmony pieces', () => {
                     [],
                     [],
                     [
-                        [ REST, WHOLE_NOTE, YER_SCALE_INDEX ],
+                        [ from.Ordinal(PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), HALF_NOTE, YER_SCALE_INDEX ],
-                        [ REST, HALF_NOTE, YER_SCALE_INDEX ],
+                        [ from.Ordinal(PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
-                        [ REST, WHOLE_NOTE, YER_SCALE_INDEX ],
+                        [ from.Ordinal(PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
-                        [ REST, WHOLE_NOTE, YER_SCALE_INDEX ],
+                        [ from.Ordinal(PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],
@@ -71,7 +70,7 @@ describe('second harmony pieces', () => {
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
-                        [ REST, WHOLE_NOTE, YER_SCALE_INDEX ],
+                        [ from.Ordinal(PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],
