@@ -33,7 +33,7 @@ describe('comma pump instructions', () => {
     describe('cycling', () => {
         it('can cycle', () => {
             const yerBlumeyerCommaPumpInstructionsSpec: YerBlumeyerCommaPumpInstructionsSpec = {
-                cycling: to.Translation(negative(3)),
+                cycling: to.Translation(3),
                 family: YerBlumeyerCommaPumpFamily.A,
                 operation: YerBlumeyerCommaPumpOperation.BASE,
             }
@@ -54,27 +54,9 @@ describe('comma pump instructions', () => {
 
     describe('family', () => {
         it('can change families to B', () => {
-            const bSpec: YerBlumeyerCommaPumpInstructionsSpec = {
-                cycling: to.Translation(0),
-                family: YerBlumeyerCommaPumpFamily.B,
-                operation: YerBlumeyerCommaPumpOperation.BASE,
-            }
-            const bActual: YerBlumeyerCommaPumpInstruction[] = buildYerBlumeyerCommaPumpInstructions(bSpec)
-            const bExpected: YerBlumeyerCommaPumpInstruction[] = [
-                { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD },
-                { factor: YerFactor._11, action: YerBlumeyerCommaPumpAction.REMOVE },
-                { factor: YerFactor._13, action: YerBlumeyerCommaPumpAction.REMOVE },
-                { factor: YerFactor._17, action: YerBlumeyerCommaPumpAction.REMOVE },
-            ]
-
-            expect(bExpected)
-                .toEqual(bActual)
-        })
-
-        it('can change families to C', () => {
             const cSpec: YerBlumeyerCommaPumpInstructionsSpec = {
                 cycling: to.Translation(0),
-                family: YerBlumeyerCommaPumpFamily.C,
+                family: YerBlumeyerCommaPumpFamily.B,
                 operation: YerBlumeyerCommaPumpOperation.BASE,
             }
             const cActual: YerBlumeyerCommaPumpInstruction[] = buildYerBlumeyerCommaPumpInstructions(cSpec)
@@ -87,6 +69,24 @@ describe('comma pump instructions', () => {
 
             expect(cExpected)
                 .toEqual(cActual)
+        })
+
+        it('can change families to C', () => {
+            const bSpec: YerBlumeyerCommaPumpInstructionsSpec = {
+                cycling: to.Translation(0),
+                family: YerBlumeyerCommaPumpFamily.C,
+                operation: YerBlumeyerCommaPumpOperation.BASE,
+            }
+            const bActual: YerBlumeyerCommaPumpInstruction[] = buildYerBlumeyerCommaPumpInstructions(bSpec)
+            const bExpected: YerBlumeyerCommaPumpInstruction[] = [
+                { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD },
+                { factor: YerFactor._11, action: YerBlumeyerCommaPumpAction.REMOVE },
+                { factor: YerFactor._13, action: YerBlumeyerCommaPumpAction.REMOVE },
+                { factor: YerFactor._17, action: YerBlumeyerCommaPumpAction.REMOVE },
+            ]
+
+            expect(bExpected)
+                .toEqual(bActual)
         })
     })
 
@@ -156,7 +156,7 @@ describe('comma pump instructions', () => {
         it('can do it', () => {
             const yerBlumeyerCommaPumpInstructionsSpec: YerBlumeyerCommaPumpInstructionsSpec = {
                 cycling: to.Translation(2),
-                family: YerBlumeyerCommaPumpFamily.B,
+                family: YerBlumeyerCommaPumpFamily.C,
                 operation: YerBlumeyerCommaPumpOperation.REVERSE,
             }
 
