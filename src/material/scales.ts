@@ -11,7 +11,7 @@ import { buildYerExceptionScalars, buildYerScalars } from './scalars'
 const buildScales: BuildScalesFunction =
     // tslint:disable-next-line cyclomatic-complexity
     (spec: StandardSpec): Scale[] => {
-        const { nonScale, flatDurationsScale } = buildStandardScales()
+        const { nonScale } = buildStandardScales()
 
         const gainScale: Scale = nonScale
         const durationScalar: Scalar =
@@ -20,7 +20,7 @@ const buildScales: BuildScalesFunction =
             from.Ms(spec[ StandardSpecProperties.DURATION_TRANSLATION ] || to.Ms(NO_TRANSLATION))
         const durationsScale: Scale = {
             scalar: durationScalar,
-            scalars: flatDurationsScale.scalars,
+            scalars: nonScale.scalars,
             translation: durationTranslation,
         }
         const pitchesScalar: Scalar =

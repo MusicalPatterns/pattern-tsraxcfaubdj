@@ -9,7 +9,7 @@ const buildNoteSpec: (contourElement: ContourElement<PitchDurationScale>) => Not
         if (pitch === -1) {
             return {
                 durationSpec: {
-                    index: translateFromOneIndexedToZeroIndexed(to.Ordinal(duration)),
+                    scalar: to.Scalar(duration),
                     scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
                 },
                 gainSpec: {
@@ -20,7 +20,7 @@ const buildNoteSpec: (contourElement: ContourElement<PitchDurationScale>) => Not
 
         return {
             durationSpec: {
-                index: translateFromOneIndexedToZeroIndexed(to.Ordinal(duration)),
+                scalar: to.Scalar(duration),
                 scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
             },
             pitchSpec: {
