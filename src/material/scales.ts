@@ -2,50 +2,28 @@ import { BuildScalesFunction, Scale } from '@musical-patterns/compiler'
 import {
     buildStandardScales,
     generateOctaveRepeatingScalars,
+    STANDARD_PITCH_SCALE_INDEX,
     StandardSpec,
-    StandardSpecProperties,
 } from '@musical-patterns/pattern'
-import { from, NO_TRANSLATION, Scalar, to, Translation } from '@musical-patterns/utilities'
+import { Scalar } from '@musical-patterns/utilities'
 import { buildYerExceptionScalars, buildYerScalars } from './scalars'
 
 const buildScales: BuildScalesFunction =
-    // tslint:disable-next-line cyclomatic-complexity
     (spec: StandardSpec): Scale[] => {
-        const { nonScale } = buildStandardScales()
-
-        const gainScale: Scale = nonScale
-        const durationScalar: Scalar =
-            from.Ms(spec[ StandardSpecProperties.BASE_DURATION ] || to.Scalar(to.Ms(1)))
-        const durationTranslation: Translation =
-            from.Ms(spec[ StandardSpecProperties.DURATION_TRANSLATION ] || to.Ms(NO_TRANSLATION))
-        const durationsScale: Scale = {
-            scalar: durationScalar,
-            scalars: nonScale.scalars,
-            translation: durationTranslation,
-        }
-        const pitchesScalar: Scalar =
-            from.Hz(spec[ StandardSpecProperties.BASE_FREQUENCY ] || to.Scalar(to.Hz(1)))
-        const pitchesTranslation: Translation =
-            from.Hz(spec[ StandardSpecProperties.FREQUENCY_TRANSLATION ] || to.Hz(NO_TRANSLATION))
         const yerScalars: Scalar[] = generateOctaveRepeatingScalars(buildYerScalars())
-        const yerPitchesScale: Scale = {
-            scalar: pitchesScalar,
-            scalars: yerScalars,
-            translation: pitchesTranslation,
-        }
+
+        const standardScales: Scale[] = buildStandardScales(spec, { pitchScalars: yerScalars })
+
         const yerExceptionScalars: Scalar[] = generateOctaveRepeatingScalars(buildYerExceptionScalars())
         const yerExceptionPitchesScale: Scale = {
-            scalar: pitchesScalar,
+            scalar: standardScales[ STANDARD_PITCH_SCALE_INDEX ].scalar,
             scalars: yerExceptionScalars,
-            translation: pitchesTranslation,
+            translation: standardScales[ STANDARD_PITCH_SCALE_INDEX ].translation,
         }
 
-        return [
-            gainScale,
-            durationsScale,
-            yerPitchesScale,
+        return standardScales.concat([
             yerExceptionPitchesScale,
-        ]
+        ])
     }
 
 export {
