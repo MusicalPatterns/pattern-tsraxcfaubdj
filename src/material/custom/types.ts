@@ -1,4 +1,4 @@
-import { DictionaryOf, Scalar } from '@musical-patterns/utilities'
+import { DictionaryOf, Frequency, Scalar } from '@musical-patterns/utilities'
 
 enum YerPitchClass {
     _1 = '_1',
@@ -35,8 +35,8 @@ type YerFactorization = Partial<{ [key in YerFactor]: boolean }>
 
 interface Yer {
     pitchClass: YerPitchClass,
-    scalar: Scalar,
-    subset: Scalar[],
+    scalar: Scalar<Frequency>,
+    subset: Array<Scalar<Frequency>>,
 }
 
 type YerPitchClassByFactorization = DictionaryOf<DictionaryOf<DictionaryOf<DictionaryOf<YerPitchClass>>>>

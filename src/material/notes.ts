@@ -1,6 +1,6 @@
 import { NoteSpec } from '@musical-patterns/compiler'
 import { PitchDurationScale, SILENT, STANDARD_DURATIONS_SCALE_INDEX } from '@musical-patterns/pattern'
-import { ContourElement, to } from '@musical-patterns/utilities'
+import { ContourElement, from, Scalar, to } from '@musical-patterns/utilities'
 
 const buildNoteSpec: (contourElement: ContourElement<PitchDurationScale>) => NoteSpec =
     (contourElement: ContourElement<PitchDurationScale>): NoteSpec => {
@@ -13,7 +13,7 @@ const buildNoteSpec: (contourElement: ContourElement<PitchDurationScale>) => Not
                     scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
                 },
                 gainSpec: {
-                    scalar: SILENT,
+                    scalar: from.Amplitude(SILENT) as Scalar,
                 },
             }
         }

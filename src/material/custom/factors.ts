@@ -1,4 +1,4 @@
-import { entries, forEach, Ordinal, Scalar } from '@musical-patterns/utilities'
+import { entries, forEach, Frequency, Ordinal, Scalar } from '@musical-patterns/utilities'
 import { YER_ELEVEN, YER_NINETEEN, YER_SEVENTEEN, YER_THIRTEEN } from '../../constants'
 import { YER_FACTORS } from './constants'
 import {
@@ -20,7 +20,7 @@ const pitchClassByFactorization: () => YerPitchClassByFactorization =
             .reduce(
                 (accumulator: YerPitchClassByFactorization, yer: Yer): YerPitchClassByFactorization => {
                     let cursor: YerPitchClassByFactorizationCursor = accumulator
-                    forEach(YER_FACTORS, (factor: Scalar, index: Ordinal) => {
+                    forEach(YER_FACTORS, (factor: Scalar<Frequency>, index: Ordinal) => {
                         const key: string = yer.subset.includes(factor)
                             .toString()
                         if (!cursor[ key ]) {
@@ -36,7 +36,7 @@ const pitchClassByFactorization: () => YerPitchClassByFactorization =
             )
     }
 
-const yerScalarByFactor: { [key in YerFactor]: Scalar } = {
+const yerScalarByFactor: { [key in YerFactor]: Scalar<Frequency> } = {
     [ YerFactor._11 ]: YER_ELEVEN,
     [ YerFactor._13 ]: YER_THIRTEEN,
     [ YerFactor._17 ]: YER_SEVENTEEN,
@@ -50,7 +50,7 @@ const factorizationByPitchClass: () => YerFactorizationByPitchClass =
                 (accumalator: YerFactorizationByPitchClass, yer: Yer): YerFactorizationByPitchClass => {
                     const factorization: YerFactorization = {}
                     entries(yerScalarByFactor)
-                        .forEach(([ factor, scalar ]: [ YerFactor, Scalar ]) => {
+                        .forEach(([ factor, scalar ]: [ YerFactor, Scalar<Frequency> ]) => {
                             if (yer.subset.includes(scalar)) {
                                 factorization[ factor ] = true
                             }

@@ -1,11 +1,11 @@
 // tslint:disable no-magic-numbers
 
-import { Scalar, to } from '@musical-patterns/utilities'
+import { Frequency, Scalar, to } from '@musical-patterns/utilities'
 
-const YER_ELEVEN: Scalar = to.Scalar(11)
-const YER_THIRTEEN: Scalar = to.Scalar(13)
-const YER_SEVENTEEN: Scalar = to.Scalar(17)
-const YER_NINETEEN: Scalar = to.Scalar(19)
+const YER_ELEVEN: Scalar<Frequency> = to.Scalar(to.Frequency(11))
+const YER_THIRTEEN: Scalar<Frequency> = to.Scalar(to.Frequency(13))
+const YER_SEVENTEEN: Scalar<Frequency> = to.Scalar(to.Frequency(17))
+const YER_NINETEEN: Scalar<Frequency> = to.Scalar(to.Frequency(19))
 
 export {
     YER_ELEVEN,
