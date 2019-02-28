@@ -15,6 +15,7 @@ const metadata: Metadata = {
     mostRecentPublish: process.env.PUBLISH_DATE || '2018-10-31T07:00:00.000Z',
     musicalIdeaIllustrated: 'un-pump of the Blumeyer comma (11*13*17)/19',
     originalPublish: '2018-10-31T07:00:00.000Z',
+    version: process.env.PATTERN_VERSION || 'unknown',
 }
 
 const pattern: Pattern<StandardSpec> = {
