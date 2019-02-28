@@ -1,4 +1,4 @@
-import { negative, to } from '@musical-patterns/utilities'
+import { to } from '@musical-patterns/utilities'
 import {
     buildYerBlumeyerCommaPumpInstructions,
     YerBlumeyerCommaPumpAction,

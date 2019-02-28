@@ -2,8 +2,10 @@ import { PitchDurationScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@music
 import {
     apply,
     ContourElement,
-    ContourWhole, filter,
-    forEach, from,
+    ContourWhole,
+    filter,
+    forEach,
+    from,
     numericSort,
     Ordinal,
     to,

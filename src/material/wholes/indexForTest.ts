@@ -1,3 +1,5 @@
+// tslint:disable no-reaching-imports
+
 export { buildLeadContourWhole } from './lead'
 export { buildBassContourWhole } from './bass'
 export { buildFirstHarmonyContourWhole } from './firstHarmony'
