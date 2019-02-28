@@ -1,6 +1,6 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { DictionaryOf } from '@musical-patterns/utilities'
 import { buildNoteSpec } from './notes'
+import { TsraxcfaubdjParts } from './types'
 import {
     buildBassContourWhole,
     buildFirstHarmonyContourWhole,
@@ -8,22 +8,22 @@ import {
     buildSecondHarmonyContourWhole,
 } from './wholes'
 
-const buildParts: () => DictionaryOf<NoteSpec[]> =
-    (): DictionaryOf<NoteSpec[]> => {
-        const leadPart: NoteSpec[] = buildLeadContourWhole()
+const buildParts: () => TsraxcfaubdjParts =
+    (): TsraxcfaubdjParts => {
+        const lead: NoteSpec[] = buildLeadContourWhole()
             .map(buildNoteSpec)
-        const bassPart: NoteSpec[] = buildBassContourWhole()
+        const bass: NoteSpec[] = buildBassContourWhole()
             .map(buildNoteSpec)
-        const firstHarmonyPart: NoteSpec[] = buildFirstHarmonyContourWhole()
+        const firstHarmony: NoteSpec[] = buildFirstHarmonyContourWhole()
             .map(buildNoteSpec)
-        const secondHarmonyPart: NoteSpec[] = buildSecondHarmonyContourWhole()
+        const secondHarmony: NoteSpec[] = buildSecondHarmonyContourWhole()
             .map(buildNoteSpec)
 
         return {
-            bassPart,
-            firstHarmonyPart,
-            leadPart,
-            secondHarmonyPart,
+            bass,
+            firstHarmony,
+            lead,
+            secondHarmony,
         }
     }
 

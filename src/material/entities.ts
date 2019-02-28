@@ -1,32 +1,28 @@
 import { Entity, TimbreNameEnum } from '@musical-patterns/compiler'
 import { buildParts } from './parts'
+import { TsraxcfaubdjParts } from './types'
 
 const buildEntities: () => Entity[] =
     (): Entity[] => {
-        const {
-            leadPart,
-            bassPart,
-            secondHarmonyPart,
-            firstHarmonyPart,
-        } = buildParts()
+        const parts: TsraxcfaubdjParts = buildParts()
 
         const leadEntity: Entity = {
-            noteSpecs: leadPart,
+            noteSpecs: parts.lead,
             timbreName: TimbreNameEnum.PHONEME_OOH,
         }
 
         const bassEntity: Entity = {
-            noteSpecs: bassPart,
+            noteSpecs: parts.bass,
             timbreName: TimbreNameEnum.ORGAN_2,
         }
 
         const firstHarmonyEntity: Entity = {
-            noteSpecs: firstHarmonyPart,
+            noteSpecs: parts.firstHarmony,
             timbreName: TimbreNameEnum.CELESTE,
         }
 
         const secondHarmonyEntity: Entity = {
-            noteSpecs: secondHarmonyPart,
+            noteSpecs: parts.secondHarmony,
             timbreName: TimbreNameEnum.ETHNIC_33,
         }
 
