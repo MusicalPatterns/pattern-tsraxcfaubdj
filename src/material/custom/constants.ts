@@ -1,3 +1,5 @@
+// tslint:disable no-magic-numbers
+
 import { Frequency, Scalar } from '@musical-patterns/utilities'
 import { YER_ELEVEN, YER_NINETEEN, YER_SEVENTEEN, YER_THIRTEEN } from '../../constants'
 
