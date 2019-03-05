@@ -1,4 +1,4 @@
-import { entries, forEach, Frequency, Ordinal, Scalar } from '@musical-patterns/utilities'
+import { entries, forEach, Frequency, indexOfLastElement, Ordinal, Scalar } from '@musical-patterns/utilities'
 import { YER_ELEVEN, YER_NINETEEN, YER_SEVENTEEN, YER_THIRTEEN } from '../../constants'
 import { YER_FACTORS } from './constants'
 import {
@@ -22,7 +22,7 @@ const pitchClassByFactorization: () => YerPitchClassByFactorization =
                         const key: string = yer.subset.includes(factor)
                             .toString()
                         if (!cursor[ key ]) {
-                            cursor[ key ] = index === YER_FACTORS.length - 1 ? yer.pitchClass : {}
+                            cursor[ key ] = index === indexOfLastElement(YER_FACTORS) ? yer.pitchClass : {}
                         }
                         // @ts-ignore
                         cursor = cursor[ key ]
