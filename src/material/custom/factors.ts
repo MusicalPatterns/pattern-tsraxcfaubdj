@@ -24,8 +24,7 @@ const pitchClassByFactorization: () => YerPitchClassByFactorization =
                         if (!cursor[ key ]) {
                             cursor[ key ] = index === indexOfLastElement(YER_FACTORS) ? yer.pitchClass : {}
                         }
-                        // @ts-ignore
-                        cursor = cursor[ key ]
+                        cursor = cursor[ key ] as YerPitchClassByFactorizationCursor
                     })
 
                     return accumulator
@@ -58,8 +57,8 @@ const factorizationByPitchClass: () => YerFactorizationByPitchClass =
                         [ yer.pitchClass ]: factorization,
                     }
                 },
-                // @ts-ignore
-                {},
+                // tslint:disable-next-line no-object-literal-type-assertion
+                {} as YerFactorizationByPitchClass,
             )
 
 const getYerFactorizationByPitchClass: (yer: YerPitchClass) => YerFactorization =
