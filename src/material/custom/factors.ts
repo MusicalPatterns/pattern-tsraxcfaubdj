@@ -13,11 +13,9 @@ import {
 import { buildYer } from './yer'
 
 const pitchClassByFactorization: () => YerPitchClassByFactorization =
-    (): YerPitchClassByFactorization => {
-        const yerPitchClassByFactorizationAccumulator: YerPitchClassByFactorization = {}
-
-        return buildYer()
-            .reduce(
+    (): YerPitchClassByFactorization =>
+        buildYer()
+            .reduce<YerPitchClassByFactorization>(
                 (accumulator: YerPitchClassByFactorization, yer: Yer): YerPitchClassByFactorization => {
                     let cursor: YerPitchClassByFactorizationCursor = accumulator
                     forEach(YER_FACTORS, (factor: Scalar<Frequency>, index: Ordinal) => {
@@ -32,9 +30,8 @@ const pitchClassByFactorization: () => YerPitchClassByFactorization =
 
                     return accumulator
                 },
-                yerPitchClassByFactorizationAccumulator,
+                {},
             )
-    }
 
 const yerScalarByFactor: { [key in YerFactor]: Scalar<Frequency> } = {
     [ YerFactor._11 ]: YER_ELEVEN,
