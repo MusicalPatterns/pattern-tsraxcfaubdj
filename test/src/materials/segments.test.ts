@@ -43,11 +43,11 @@ describe('segments', () => {
                 piece.forEach((element: ContourElement<PitchDurationScale>) => {
                     for (
                         let quarter: Ordinal = to.Ordinal(0);
-                        from.Ordinal(quarter) < apply.Ordinal(element, INDEX_OF_DURATION_IN_PITCH_DURATION_SCALE_CONTOUR);
+                        from.Ordinal(quarter) < (apply.Ordinal(element, INDEX_OF_DURATION_IN_PITCH_DURATION_SCALE_CONTOUR) as number);
                         quarter = apply.Translation(quarter, NEXT)
                     ) {
                         pitchesByQuarter.push(
-                            apply.Ordinal(element, INDEX_OF_PITCH_IN_PITCH_DURATION_SCALE_CONTOUR),
+                            apply.Ordinal(element, INDEX_OF_PITCH_IN_PITCH_DURATION_SCALE_CONTOUR) as number,
                         )
                     }
                 })
@@ -87,10 +87,10 @@ describe('segments', () => {
         const quarters: number[][] = []
         for (let index: Ordinal = to.Ordinal(0); from.Ordinal(index) < QUARTERS_COUNT; index = apply.Translation(index, NEXT)) {
             quarters.push([
-                apply.Ordinal(leadPitchesByQuarter, index),
-                apply.Ordinal(bassPitchesByQuarter, index),
-                apply.Ordinal(firstHarmonyPitchesByQuarter, index),
-                apply.Ordinal(secondHarmonyPitchesByQuarter, index),
+                apply.Ordinal(leadPitchesByQuarter, index) as number,
+                apply.Ordinal(bassPitchesByQuarter, index) as number,
+                apply.Ordinal(firstHarmonyPitchesByQuarter, index) as number,
+                apply.Ordinal(secondHarmonyPitchesByQuarter, index) as number,
             ])
         }
 
@@ -107,8 +107,8 @@ describe('segments', () => {
                     secondPitchIndex = apply.Translation(secondPitchIndex, NEXT)
                 ) {
                     combinationsOfPitches.push([
-                        apply.Ordinal(quarter, firstPitchIndex),
-                        apply.Ordinal(quarter, secondPitchIndex),
+                        apply.Ordinal(quarter, firstPitchIndex) as number,
+                        apply.Ordinal(quarter, secondPitchIndex) as number,
                     ])
                 }
             }

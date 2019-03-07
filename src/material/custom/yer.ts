@@ -1,19 +1,39 @@
-import { apply, Frequency, from, octaveReduce, powerSet, reduce, Scalar, to } from '@musical-patterns/utilities'
+import {
+    apply,
+    Frequency,
+    from,
+    keyExistsOnObject,
+    octaveReduce,
+    powerSet,
+    reduce,
+    Scalar,
+    to,
+} from '@musical-patterns/utilities'
 import { YER_FACTORS } from './constants'
 import { Yer, YerPitchClass } from './types'
+
+const isYerPitchClass: (candidate: string) => candidate is YerPitchClass =
+    (candidate: string): candidate is YerPitchClass =>
+        keyExistsOnObject(candidate, YerPitchClass)
 
 const buildYer: () => Yer[] =
     (): Yer[] =>
         powerSet(YER_FACTORS)
             .map((subset: Array<Scalar<Frequency>>): Yer => {
-                let pitchClassRaw: string = reduce(
+                let rawPitchClass: string = reduce(
                     subset,
                     (accumulator: string, factor: Scalar<Frequency>): string =>
                         `${accumulator}_${factor}`,
                     '',
                 )
-                pitchClassRaw = pitchClassRaw || '_1'
-                const pitchClass: YerPitchClass = YerPitchClass[ pitchClassRaw as YerPitchClass ]
+                rawPitchClass = rawPitchClass || '_1'
+                let pitchClass: YerPitchClass
+                if (isYerPitchClass(rawPitchClass)) {
+                    pitchClass = rawPitchClass
+                }
+                else {
+                    throw new Error(`malformed YerPitchClass: ${rawPitchClass}`)
+                }
 
                 const scalar: Scalar<Frequency> = reduce(
                     subset,

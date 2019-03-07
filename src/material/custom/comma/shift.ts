@@ -1,3 +1,4 @@
+import { isUndefined, Maybe } from '@musical-patterns/utilities'
 import { getYerFactorizationByPitchClass, getYerPitchClassByFactorization } from '../factors'
 import { YerFactorization, YerPitchClass } from '../types'
 
@@ -14,9 +15,9 @@ const applyCommaShift: (factorization: YerFactorization) => YerFactorization =
     (factorization: YerFactorization): YerFactorization => {
         const yerPitchClass: YerPitchClass = getYerPitchClassByFactorization(factorization)
 
-        const commaShiftedYer: YerPitchClass = possibleCommaShifts[ yerPitchClass ] as YerPitchClass
+        const commaShiftedYer: Maybe<YerPitchClass> = possibleCommaShifts[ yerPitchClass ]
 
-        if (!commaShiftedYer) {
+        if (isUndefined(commaShiftedYer)) {
             throw new Error(
                 `You tried to comma shift at a place you cannot: ${yerPitchClass} at factorization ${factorization}`,
             )

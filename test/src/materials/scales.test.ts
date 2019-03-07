@@ -6,6 +6,8 @@ import {
     from,
     indexOfLastElement,
     INITIAL,
+    isUndefined,
+    Maybe,
     negative,
     ONE_HALF,
     Ordinal,
@@ -35,9 +37,17 @@ describe('yer scale', () => {
                     index,
                     to.Translation(from.Cardinal(YER_PITCH_CLASS_COUNT)),
                 )
+                const yerScaleScalarWhichShouldBeTwiceThisOne: Maybe<Scalar> =
+                    apply.Ordinal(yerScaleScalars, indexOfScalarWhichShouldBeTwiceThisOne)
+                if (isUndefined(yerScaleScalarWhichShouldBeTwiceThisOne)) {
+                    fail('yer scale scalar which should be twice this one was beyond the count of yer scale scalars')
+
+                    return
+                }
+
                 expect(scalar)
                     .toEqual(apply.Scalar(
-                        apply.Ordinal(yerScaleScalars, indexOfScalarWhichShouldBeTwiceThisOne),
+                        yerScaleScalarWhichShouldBeTwiceThisOne,
                         ONE_HALF,
                     ))
             },

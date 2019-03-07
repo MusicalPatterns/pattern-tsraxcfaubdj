@@ -1,4 +1,4 @@
-import { apply, deepEqual, INITIAL, Ordinal, to } from '@musical-patterns/utilities'
+import { apply, deepEqual, INITIAL, Maybe, Ordinal, to } from '@musical-patterns/utilities'
 import { getYerFactorizationByPitchClass } from '../factors'
 import { YerFactor, YerFactorization, YerPitchClass } from '../types'
 import { nextFactorization } from './nextFactorization'
@@ -13,7 +13,7 @@ const canUseUndoInstructionsToDetermineCommaShiftDirection:
 const firstInstructionRequiresStartingOnPitchClassNineteen:
     (instructions: YerBlumeyerCommaPumpInstruction[]) => boolean =
     (instructions: YerBlumeyerCommaPumpInstruction[]): boolean => {
-        const initialInstruction: YerBlumeyerCommaPumpInstruction = apply.Ordinal(instructions, INITIAL)
+        const initialInstruction: Maybe<YerBlumeyerCommaPumpInstruction> = apply.Ordinal(instructions, INITIAL)
 
         return deepEqual(initialInstruction, { action: YerBlumeyerCommaPumpAction.REMOVE, factor: YerFactor._19 }) ||
             deepEqual(initialInstruction, { action: YerBlumeyerCommaPumpAction.ADD, factor: YerFactor._11 }) ||

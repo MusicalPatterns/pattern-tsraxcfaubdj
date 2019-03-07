@@ -4,8 +4,9 @@ import {
     apply,
     forEach,
     Fraction,
-    from,
+    from, indexOfLastElement,
     isCloseTo,
+    Maybe,
     NEXT,
     Ordinal,
     quotient,
@@ -50,7 +51,10 @@ const testEveryIntervalIsSimple: (threadSpecIndex: Ordinal, exceptionalIndices?:
             }
 
             const nextIndex: Ordinal = apply.Translation(index, NEXT)
-            const nextNote: Note = apply.Ordinal(notes, nextIndex)
+            if (nextIndex > indexOfLastElement(notes)) {
+                return
+            }
+            const nextNote: Maybe<Note> = apply.Ordinal(notes, nextIndex)
             if (!nextNote) {
                 return
             }
