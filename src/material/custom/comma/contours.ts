@@ -10,7 +10,7 @@ const rawPiecesFromPump: (pump: YerBlumeyerCommaPump, octavesMap: OctavesMap) =>
         map(pump, (pumpStep: YerPitchClass[], index: Ordinal) =>
             map(pumpStep, (pumpStepPart: YerPitchClass) =>
                 [
-                    yerPitchClassIndex(apply.Ordinal(octavesMap, index) as number, pumpStepPart),
+                    yerPitchClassIndex(apply.Ordinal(octavesMap, index), pumpStepPart),
                     pumpStep.length === 1 ? WHOLE_NOTE : HALF_NOTE,
                     YER_SCALE_INDEX,
                 ],

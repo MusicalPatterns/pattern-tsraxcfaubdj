@@ -27,7 +27,7 @@ const getPitchClassIndices: (contourWhole: ContourWhole<PitchDurationScale>) => 
     (contourWhole: ContourWhole<PitchDurationScale>): number[] =>
         contourWhole.map((contourElement: ContourElement<PitchDurationScale>) =>
             apply.Modulus(
-                apply.Ordinal(contourElement, INDEX_OF_PITCH_WITHIN_CONTOUR_ELEMENT) as number,
+                apply.Ordinal(contourElement, INDEX_OF_PITCH_WITHIN_CONTOUR_ELEMENT),
                 to.Modulus(YER_PITCH_CLASS_COUNT),
             ))
 
