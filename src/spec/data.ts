@@ -1,28 +1,28 @@
 import {
-    SpecAttributes,
-    SpecData,
+    Attributes,
+    Data,
+    standardAttributes,
     standardInitialSpec,
+    StandardProperty,
     StandardSpec,
-    standardSpecAttributes,
-    StandardSpecProperties,
 } from '@musical-patterns/pattern'
 import { TSRAXCFAUBDJ_INITIAL_BASE_DURATION, TSRAXCFAUBDJ_INITIAL_BASE_FREQUENCY } from './constants'
 
 const initial: StandardSpec = {
     ...standardInitialSpec,
-    [ StandardSpecProperties.BASE_DURATION ]: TSRAXCFAUBDJ_INITIAL_BASE_DURATION,
-    [ StandardSpecProperties.BASE_FREQUENCY ]: TSRAXCFAUBDJ_INITIAL_BASE_FREQUENCY,
+    [ StandardProperty.BASE_DURATION ]: TSRAXCFAUBDJ_INITIAL_BASE_DURATION,
+    [ StandardProperty.BASE_FREQUENCY ]: TSRAXCFAUBDJ_INITIAL_BASE_FREQUENCY,
 }
 
-const attributes: SpecAttributes<StandardSpec> = {
-    ...standardSpecAttributes,
+const attributes: Attributes<StandardSpec> = {
+    ...standardAttributes,
 }
 
-const specData: SpecData<StandardSpec> = {
+const data: Data<StandardSpec> = {
     attributes,
     initial,
 }
 
 export {
-    specData,
+    data,
 }

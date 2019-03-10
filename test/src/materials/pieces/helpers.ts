@@ -40,7 +40,7 @@ const testEveryIntervalIsSimple: (threadSpecIndex: Ordinal, exceptionalIndices?:
 
         const threadSpecs: ThreadSpec[] = await compilePattern({
             material: pattern.material,
-            spec: pattern.specData.initial,
+            spec: pattern.data.initial,
         })
         const threadSpec: ThreadSpec = threadSpecs[ threadSpecIndex ]
         const notes: Note[] = threadSpec.notes || []
