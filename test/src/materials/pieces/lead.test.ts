@@ -28,8 +28,8 @@ describe('lead pieces', () => {
             BETWEEN_BAR_22_AND_23_WHICH_IS_THE_SAME_AS_BETWEEN_THREE_AND_FOUR,
         ].map(to.Ordinal)
 
-        const INDEX_OF_LEAD_THREAD_SPEC: Ordinal = to.Ordinal(0)
-        await testEveryIntervalIsSimple(INDEX_OF_LEAD_THREAD_SPEC, exceptionalIndices)
+        const INDEX_OF_LEAD_VOICE: Ordinal = to.Ordinal(0)
+        await testEveryIntervalIsSimple(INDEX_OF_LEAD_VOICE, exceptionalIndices)
 
         done()
     })

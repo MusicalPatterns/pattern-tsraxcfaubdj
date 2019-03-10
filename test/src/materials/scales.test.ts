@@ -15,12 +15,12 @@ import {
     slice,
     to,
 } from '@musical-patterns/utilities'
-import { buildScales, YER_PITCH_CLASS_COUNT } from '../../../src/indexForTest'
+import { materializeScales, YER_PITCH_CLASS_COUNT } from '../../../src/indexForTest'
 
 describe('yer scale', () => {
     it('the pitch scale has 16 pitch classes, repeating within an octave window', () => {
         const spec: StandardSpec = {}
-        const yerScale: Scale = buildScales(spec)[ 2 ]
+        const yerScale: Scale = materializeScales(spec)[ 2 ]
         const yerScaleScalars: Scalar[] = yerScale.scalars || []
 
         forEach(
@@ -56,7 +56,7 @@ describe('yer scale', () => {
 
     it('has a total of 160 notes, spanning 10 octaves', () => {
         const spec: StandardSpec = {}
-        const yerScale: Scale = buildScales(spec)[ 2 ]
+        const yerScale: Scale = materializeScales(spec)[ 2 ]
         const yerScaleScalars: Scalar[] = yerScale.scalars || []
 
         expect(yerScaleScalars.length)

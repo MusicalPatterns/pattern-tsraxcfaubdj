@@ -1,7 +1,7 @@
 // tslint:disable no-reaching-imports
 
 export { buildYerScalars, buildYerExceptionScalars } from './scalars'
-export { buildScales } from './scales'
+export { materializeScales } from './scales'
 export {
     buildBassContourPieces,
     buildLeadContourPieces,

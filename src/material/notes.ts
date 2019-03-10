@@ -1,38 +1,32 @@
-import { NoteSpec } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/compiler'
+import { buildNote } from './features'
+import { TsraxcfaubdjNotes } from './types'
 import {
-    PitchDurationScale,
-    SILENT,
-    STANDARD_DURATIONS_SCALE_INDEX,
-    STANDARD_PITCH_INDEX_INDICATING_REST,
-} from '@musical-patterns/pattern'
-import { Amplitude, ContourElement, from, Scalar, to } from '@musical-patterns/utilities'
+    buildBassContourWhole,
+    buildFirstHarmonyContourWhole,
+    buildLeadContourWhole,
+    buildSecondHarmonyContourWhole,
+} from './wholes'
 
-const buildNoteSpec: (contourElement: ContourElement<PitchDurationScale>) => NoteSpec =
-    ([ pitch, duration, scale ]: ContourElement<PitchDurationScale>): NoteSpec => {
-        if (pitch === STANDARD_PITCH_INDEX_INDICATING_REST) {
-            return {
-                durationSpec: {
-                    scalar: to.Scalar(duration),
-                    scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
-                },
-                gainSpec: {
-                    scalar: from.Amplitude<Scalar, Scalar<Amplitude>>(SILENT),
-                },
-            }
-        }
+const buildNotes: () => TsraxcfaubdjNotes =
+    (): TsraxcfaubdjNotes => {
+        const lead: Note[] = buildLeadContourWhole()
+            .map(buildNote)
+        const bass: Note[] = buildBassContourWhole()
+            .map(buildNote)
+        const firstHarmony: Note[] = buildFirstHarmonyContourWhole()
+            .map(buildNote)
+        const secondHarmony: Note[] = buildSecondHarmonyContourWhole()
+            .map(buildNote)
 
         return {
-            durationSpec: {
-                scalar: to.Scalar(duration),
-                scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
-            },
-            pitchSpec: {
-                index: to.Ordinal(pitch),
-                scaleIndex: to.Ordinal(scale),
-            },
+            bass,
+            firstHarmony,
+            lead,
+            secondHarmony,
         }
     }
 
 export {
-    buildNoteSpec,
+    buildNotes,
 }

@@ -1,6 +1,6 @@
 [
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 2400,
         "gain": 1,
@@ -585,13 +585,13 @@
         "sustain": 2399.9
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "PHONEME_OOH",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 9600,
         "gain": 0,
@@ -923,13 +923,13 @@
         "sustain": 9599.9
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "ORGAN_2",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 9600,
         "gain": 0,
@@ -1228,13 +1228,13 @@
         "sustain": 9599.9
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "ETHNIC_33",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 9600,
         "gain": 0,
@@ -1533,9 +1533,9 @@
         "sustain": 9599.9
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "CELESTE",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   }
 ]

@@ -54,7 +54,7 @@ describe('scalars', () => {
     })
 
     describe('yer exception scalars', () => {
-        it('is a set of a couple scalars not part of yer at its most essential, but which come in handy when using it', () => {
+        it('is a set of a couple scalars not members of yer at its most essential, but which come in handy when using it', () => {
             const actualScalars: Array<Scalar<Frequency>> = buildYerExceptionScalars()
 
             const expectedScalarsAsRatios: Array<Scalar<Frequency>> = [

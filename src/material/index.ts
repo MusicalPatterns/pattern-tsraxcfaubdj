@@ -1,5 +1,5 @@
-export { buildScales } from './scales'
-export { buildEntities } from './entities'
+export { materializeScales } from './scales'
+export { materializeEntities } from './entities'
 export {
     HALF_NOTE,
     WHOLE_NOTE,

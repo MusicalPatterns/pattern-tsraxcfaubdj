@@ -1,5 +1,5 @@
 import { compilePattern } from '@musical-patterns/compiler'
-import { Note, ThreadSpec } from '@musical-patterns/performer'
+import { Sound, Voice } from '@musical-patterns/performer'
 import {
     apply,
     forEach,
@@ -15,8 +15,8 @@ import {
 } from '@musical-patterns/utilities'
 import { pattern } from '../../../../src/indexForTest'
 
-const testEveryIntervalIsSimple: (threadSpecIndex: Ordinal, exceptionalIndices?: Ordinal[]) => Promise<void> =
-    async (threadSpecIndex: Ordinal, exceptionalIndices: Ordinal[] = []): Promise<void> => {
+const testEveryIntervalIsSimple: (voiceIndex: Ordinal, exceptionalIndices?: Ordinal[]) => Promise<void> =
+    async (voiceIndex: Ordinal, exceptionalIndices: Ordinal[] = []): Promise<void> => {
         const rawAcceptablySimpleRatios: Array<[ number, number ]> = [
             [ 1, 1 ],
             [ 11, 16 ],
@@ -38,29 +38,29 @@ const testEveryIntervalIsSimple: (threadSpecIndex: Ordinal, exceptionalIndices?:
         ]
         const acceptableRatios: Fraction[] = rawAcceptablySimpleRatios.map(to.Fraction)
 
-        const threadSpecs: ThreadSpec[] = await compilePattern({
+        const voices: Voice[] = await compilePattern({
             material: pattern.material,
             spec: pattern.data.initial,
         })
-        const threadSpec: ThreadSpec = threadSpecs[ threadSpecIndex ]
-        const notes: Note[] = threadSpec.notes || []
+        const voice: Voice = voices[ voiceIndex ]
+        const sounds: Sound[] = voice.sounds || []
 
-        forEach(notes, (note: Note, index: Ordinal) => {
+        forEach(sounds, (sound: Sound, index: Ordinal) => {
             if (exceptionalIndices.includes(index)) {
                 return
             }
 
             const nextIndex: Ordinal = apply.Translation(index, NEXT)
-            if (nextIndex > indexOfLastElement(notes)) {
+            if (nextIndex > indexOfLastElement(sounds)) {
                 return
             }
-            const nextNote: Maybe<Note> = apply.Ordinal(notes, nextIndex)
-            if (!nextNote) {
+            const nextSound: Maybe<Sound> = apply.Ordinal(sounds, nextIndex)
+            if (!nextSound) {
                 return
             }
 
             let pass: boolean = false
-            const actualInterval: Scalar = to.Scalar(from.Hz(quotient(nextNote.frequency, note.frequency)))
+            const actualInterval: Scalar = to.Scalar(from.Hz(quotient(nextSound.frequency, sound.frequency)))
             acceptableRatios.forEach((acceptableRatio: Fraction) => {
                 const acceptableInterval: Scalar = to.Scalar(from.Fraction(acceptableRatio))
                 if (isCloseTo(actualInterval, acceptableInterval)) {

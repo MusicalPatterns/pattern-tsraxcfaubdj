@@ -1,12 +1,12 @@
-import { NoteSpec } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/compiler'
 
-interface TsraxcfaubdjParts {
-    bass: NoteSpec[],
-    firstHarmony: NoteSpec[],
-    lead: NoteSpec[],
-    secondHarmony: NoteSpec[],
+interface TsraxcfaubdjNotes {
+    bass: Note[],
+    firstHarmony: Note[],
+    lead: Note[],
+    secondHarmony: Note[],
 }
 
 export {
-    TsraxcfaubdjParts,
+    TsraxcfaubdjNotes,
 }

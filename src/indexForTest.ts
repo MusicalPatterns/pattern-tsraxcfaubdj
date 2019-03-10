@@ -3,7 +3,7 @@ export { pattern } from './patterns'
 export {
     buildYerScalars,
     buildYerExceptionScalars,
-    buildScales,
+    materializeScales,
     YER_PITCH_CLASS_COUNT,
     HALF_NOTE,
     WHOLE_NOTE,
