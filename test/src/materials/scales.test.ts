@@ -21,7 +21,7 @@ describe('yer scale', () => {
     it('the pitch scale has 16 pitch classes, repeating within an octave window', () => {
         const spec: StandardSpec = {}
         const yerScale: Scale = materializeScales(spec)[ 2 ]
-        const yerScaleScalars: Scalar[] = yerScale.scalars || []
+        const yerScaleScalars: Scalar[] = yerScale.scalars!
 
         forEach(
             slice(
@@ -57,7 +57,7 @@ describe('yer scale', () => {
     it('has a total of 160 notes, spanning 10 octaves', () => {
         const spec: StandardSpec = {}
         const yerScale: Scale = materializeScales(spec)[ 2 ]
-        const yerScaleScalars: Scalar[] = yerScale.scalars || []
+        const yerScaleScalars: Scalar[] = yerScale.scalars!
 
         expect(yerScaleScalars.length)
             .toBe(160)
