@@ -2,7 +2,7 @@ import { isUndefined, Maybe } from '@musical-patterns/utilities'
 import { getYerFactorizationByPitchClass, getYerPitchClassByFactorization } from '../factors'
 import { YerFactorization, YerPitchClass } from '../types'
 
-const possibleCommaShifts: Partial<{ [key in YerPitchClass]: YerPitchClass }> = {
+const possibleCommaShifts: Partial<{ [Index in YerPitchClass]: YerPitchClass }> = {
     [ YerPitchClass._11_13_17 ]: YerPitchClass._19,
     [ YerPitchClass._19 ]: YerPitchClass._11_13_17,
     [ YerPitchClass._11_17_19 ]: YerPitchClass._13_17,

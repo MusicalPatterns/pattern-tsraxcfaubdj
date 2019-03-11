@@ -8,10 +8,10 @@ import {
     from,
     numericSort,
     Ordinal,
-    to,
     uniqueFilter,
 } from '@musical-patterns/utilities'
-import { buildBassContourWhole, YER_PITCH_CLASS_COUNT } from '../../../../src/indexForTest'
+import { buildBassContourWhole } from '../../../../src/indexForTest'
+import { pitchClassIndexFromPitchIndexRespectingRests } from '../helpers'
 import { INDEX_OF_PITCH_WITHIN_CONTOUR_ELEMENT } from './constants'
 
 const getBassPitchClassIndexSet: () => number[] =
@@ -25,11 +25,11 @@ const getBassPitchClassIndexSet: () => number[] =
 
 const getPitchClassIndices: (contourWhole: ContourWhole<PitchDurationScale>) => number[] =
     (contourWhole: ContourWhole<PitchDurationScale>): number[] =>
-        contourWhole.map((contourElement: ContourElement<PitchDurationScale>) =>
-            apply.Modulus(
-                apply.Ordinal(contourElement, INDEX_OF_PITCH_WITHIN_CONTOUR_ELEMENT),
-                to.Modulus(YER_PITCH_CLASS_COUNT),
-            ))
+        contourWhole.map((contourElement: ContourElement<PitchDurationScale>) => {
+            const pitchIndex: number = apply.Ordinal(contourElement, INDEX_OF_PITCH_WITHIN_CONTOUR_ELEMENT)
+
+            return pitchClassIndexFromPitchIndexRespectingRests(pitchIndex)
+        })
 
 const testDoesNotUseSamePitchesAsBass:
     (contourWhole: ContourWhole<PitchDurationScale>, exceptionalIndices?: Ordinal[]) => void =
@@ -38,12 +38,12 @@ const testDoesNotUseSamePitchesAsBass:
 
         const pitchClassIndices: number[] = getPitchClassIndices(contourWhole)
 
-        forEach(pitchClassIndices, (pitch: number, index: Ordinal) => {
+        forEach(pitchClassIndices, (pitchClassIndex: number, index: Ordinal) => {
             if (exceptionalIndices.includes(index)) {
                 return
             }
-            expect(bassPitchClassIndexSet.includes(pitch))
-                .toBeFalsy()
+            expect(bassPitchClassIndexSet.includes(pitchClassIndex))
+                .toBeFalsy(`bass pitch class index set ${JSON.stringify(bassPitchClassIndexSet)} included pitch class index ${pitchClassIndex}`)
         })
     }
 

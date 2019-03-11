@@ -24,6 +24,7 @@ import {
     YerFactor,
     YerFactorization,
 } from '../../../src/indexForTest'
+import { pitchClassIndexFromPitchIndexRespectingRests } from './helpers'
 import { PotentialFailure } from './types'
 
 describe('segments', () => {
@@ -36,9 +37,9 @@ describe('segments', () => {
     const INDEX_OF_PITCH_IN_PITCH_DURATION_SCALE_CONTOUR: Ordinal = to.Ordinal(0)
     const INDEX_OF_DURATION_IN_PITCH_DURATION_SCALE_CONTOUR: Ordinal = to.Ordinal(1)
 
-    const calculatePitchesByQuarter: (contourPieces: Array<ContourPiece<PitchDurationScale>>) => number[] =
+    const calculatePitchClassIndicesByQuarter: (contourPieces: Array<ContourPiece<PitchDurationScale>>) => number[] =
         (contourPieces: Array<ContourPiece<PitchDurationScale>>): number[] => {
-            const pitchesByQuarter: number[] = []
+            const pitchIndicesByQuarter: number[] = []
             contourPieces.forEach((piece: ContourPiece<PitchDurationScale>) => {
                 piece.forEach((element: ContourElement<PitchDurationScale>) => {
                     for (
@@ -46,14 +47,14 @@ describe('segments', () => {
                         from.Ordinal(quarter) < (apply.Ordinal(element, INDEX_OF_DURATION_IN_PITCH_DURATION_SCALE_CONTOUR));
                         quarter = apply.Translation(quarter, NEXT)
                     ) {
-                        pitchesByQuarter.push(
+                        pitchIndicesByQuarter.push(
                             apply.Ordinal(element, INDEX_OF_PITCH_IN_PITCH_DURATION_SCALE_CONTOUR),
                         )
                     }
                 })
             })
 
-            return pitchesByQuarter.map((pitch: number) => apply.Modulus(pitch, to.Modulus(YER_PITCH_CLASS_COUNT)))
+            return pitchIndicesByQuarter.map(pitchClassIndexFromPitchIndexRespectingRests)
         }
 
     let leadContourPieces: Array<ContourPiece<PitchDurationScale>>
@@ -79,18 +80,18 @@ describe('segments', () => {
     })
 
     it('each segment makes simple chords', () => {
-        const leadPitchesByQuarter: number[] = calculatePitchesByQuarter(leadContourPieces)
-        const bassPitchesByQuarter: number[] = calculatePitchesByQuarter(bassContourPieces)
-        const firstHarmonyPitchesByQuarter: number[] = calculatePitchesByQuarter(firstHarmonyContourPieces)
-        const secondHarmonyPitchesByQuarter: number[] = calculatePitchesByQuarter(secondHarmonyContourPieces)
+        const leadPitchClassIndicesByQuarter: number[] = calculatePitchClassIndicesByQuarter(leadContourPieces)
+        const bassPitchClassIndicesByQuarter: number[] = calculatePitchClassIndicesByQuarter(bassContourPieces)
+        const firstHarmonyPitchClassIndicesByQuarter: number[] = calculatePitchClassIndicesByQuarter(firstHarmonyContourPieces)
+        const secondHarmonyPitchClassIndicesByQuarter: number[] = calculatePitchClassIndicesByQuarter(secondHarmonyContourPieces)
 
         const quarters: number[][] = []
         for (let index: Ordinal = to.Ordinal(0); from.Ordinal(index) < QUARTERS_COUNT; index = apply.Translation(index, NEXT)) {
             quarters.push([
-                apply.Ordinal(leadPitchesByQuarter, index),
-                apply.Ordinal(bassPitchesByQuarter, index),
-                apply.Ordinal(firstHarmonyPitchesByQuarter, index),
-                apply.Ordinal(secondHarmonyPitchesByQuarter, index),
+                apply.Ordinal(leadPitchClassIndicesByQuarter, index),
+                apply.Ordinal(bassPitchClassIndicesByQuarter, index),
+                apply.Ordinal(firstHarmonyPitchClassIndicesByQuarter, index),
+                apply.Ordinal(secondHarmonyPitchClassIndicesByQuarter, index),
             ])
         }
 
@@ -173,7 +174,9 @@ describe('segments', () => {
                             deepEqual(potentialFailure.secondFactorization, secondFactorization) &&
                             potentialFailure.patternQuarter === patternQuarter - 1
                         ) {
-                            fail(`There was a harmony sustained longer than a single quarter note which was too complex: ${firstFactorization} ${secondFactorization}, at segment ${segment}, quarter ${quarter}.`)
+                            fail(`There was a harmony sustained longer than a single quarter note which was too complex:\
+                            ${JSON.stringify(firstFactorization)} ${JSON.stringify(secondFactorization)},\
+                            at segment ${segment}, quarter ${quarter}.`)
                         }
                     })
                     potentialFailures.push({ firstFactorization, secondFactorization, patternQuarter })
