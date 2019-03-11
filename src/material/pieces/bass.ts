@@ -10,7 +10,7 @@ import {
     thirdStepOfOpeningBassPumpIfItDidNotCommaShift,
 } from '../segments'
 
-const buildBassContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
+const computeBassContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
     (): Array<ContourPiece<PitchDurationScale>> =>
         sequence([
             openingRest(),
@@ -30,5 +30,5 @@ const buildBassContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
             .map((contourPiece: number[][]) => to.ContourPiece<PitchDurationScale>(contourPiece))
 
 export {
-    buildBassContourPieces,
+    computeBassContourPieces,
 }

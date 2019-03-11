@@ -1,5 +1,5 @@
 import { apply, deepEqual, INITIAL, Maybe, Ordinal, to } from '@musical-patterns/utilities'
-import { getYerFactorizationByPitchClass } from '../factors'
+import { computeYerFactorizationByPitchClass } from '../factors'
 import { YerFactor, YerFactorization, YerPitchClass } from '../types'
 import { nextFactorization } from './nextFactorization'
 import { inverse } from './operations'
@@ -21,23 +21,23 @@ const firstInstructionRequiresStartingOnPitchClassNineteen:
             deepEqual(initialInstruction, { action: YerBlumeyerCommaPumpAction.ADD, factor: YerFactor._17 })
     }
 
-const calculateDirectionOfCommaShiftToBaseInitialFactorizationOn:
+const computeDirectionOfCommaShiftToBaseInitialFactorizationOn:
     (instructions: YerBlumeyerCommaPumpInstruction[], invertToBeBasedOnOtherSideOfShift: boolean) => YerFactorization =
     (instructions: YerBlumeyerCommaPumpInstruction[], invertToBeBasedOnOtherSideOfShift: boolean): YerFactorization =>
         firstInstructionRequiresStartingOnPitchClassNineteen(instructions) ?
             invertToBeBasedOnOtherSideOfShift ?
-                getYerFactorizationByPitchClass(YerPitchClass._11_13_17) :
-                getYerFactorizationByPitchClass(YerPitchClass._19) :
+                computeYerFactorizationByPitchClass(YerPitchClass._11_13_17) :
+                computeYerFactorizationByPitchClass(YerPitchClass._19) :
             invertToBeBasedOnOtherSideOfShift ?
-                getYerFactorizationByPitchClass(YerPitchClass._19) :
-                getYerFactorizationByPitchClass(YerPitchClass._11_13_17)
+                computeYerFactorizationByPitchClass(YerPitchClass._19) :
+                computeYerFactorizationByPitchClass(YerPitchClass._11_13_17)
 
 const instructionsUpToCommaShift:
     (rotation: Ordinal, instructions: YerBlumeyerCommaPumpInstruction[]) => YerBlumeyerCommaPumpInstruction[] =
     (rotation: Ordinal, instructions: YerBlumeyerCommaPumpInstruction[]): YerBlumeyerCommaPumpInstruction[] =>
         instructions.slice(INITIAL, rotation)
 
-const calculateUndoInstructions:
+const computeUndoInstructions:
     (rotation: Ordinal, instructions: YerBlumeyerCommaPumpInstruction[]) => YerBlumeyerCommaPumpInstruction[] =
     (rotation: Ordinal, instructions: YerBlumeyerCommaPumpInstruction[]): YerBlumeyerCommaPumpInstruction[] => {
         let undoInstructions: YerBlumeyerCommaPumpInstruction[] = instructionsUpToCommaShift(rotation, instructions)
@@ -47,15 +47,15 @@ const calculateUndoInstructions:
         return undoInstructions
     }
 
-const calculateInitialFactorization:
+const computeInitialFactorization:
     (rotation: Ordinal, instructions: YerBlumeyerCommaPumpInstruction[]) => YerFactorization =
     (rotation: Ordinal, instructions: YerBlumeyerCommaPumpInstruction[]): YerFactorization => {
-        const undoInstructions: YerBlumeyerCommaPumpInstruction[] = calculateUndoInstructions(rotation, instructions)
+        const undoInstructions: YerBlumeyerCommaPumpInstruction[] = computeUndoInstructions(rotation, instructions)
 
         let initialFactorization: YerFactorization =
             canUseUndoInstructionsToDetermineCommaShiftDirection(undoInstructions) ?
-                calculateDirectionOfCommaShiftToBaseInitialFactorizationOn(undoInstructions, false) :
-                calculateDirectionOfCommaShiftToBaseInitialFactorizationOn(instructions, true)
+                computeDirectionOfCommaShiftToBaseInitialFactorizationOn(undoInstructions, false) :
+                computeDirectionOfCommaShiftToBaseInitialFactorizationOn(instructions, true)
 
         undoInstructions.forEach((instruction: YerBlumeyerCommaPumpInstruction): void => {
             initialFactorization = nextFactorization(initialFactorization, instruction)
@@ -65,5 +65,5 @@ const calculateInitialFactorization:
     }
 
 export {
-    calculateInitialFactorization,
+    computeInitialFactorization,
 }

@@ -16,7 +16,7 @@ const isYerPitchClass: (candidate: string) => candidate is YerPitchClass =
     (candidate: string): candidate is YerPitchClass =>
         keyExistsOnObject(candidate, YerPitchClass)
 
-const buildYer: () => Yer[] =
+const computeYer: () => Yer[] =
     (): Yer[] =>
         powerSet(YER_FACTORS)
             .map((subset: Array<Scalar<Frequency>>): Yer => {
@@ -52,5 +52,5 @@ const buildYer: () => Yer[] =
                 from.Scalar(yer.scalar) - from.Scalar(nextYer.scalar))
 
 export {
-    buildYer,
+    computeYer,
 }

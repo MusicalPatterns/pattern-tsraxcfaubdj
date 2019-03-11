@@ -1,7 +1,7 @@
 import { PitchDurationScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
 import { from, to } from '@musical-patterns/utilities'
 import {
-    buildSecondHarmonyContourPieces,
+    computeSecondHarmonyContourPieces,
     FOURTH_OCTAVE,
     HALF_NOTE,
     THREE_WHOLE_NOTES,
@@ -13,7 +13,7 @@ import {
 
 describe('second harmony pieces', () => {
     it('comes out like this', () => {
-        expect(buildSecondHarmonyContourPieces())
+        expect(computeSecondHarmonyContourPieces())
             .toEqual(
                 [
                     [

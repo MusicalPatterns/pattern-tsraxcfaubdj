@@ -1,5 +1,5 @@
 import { Ordinal, to } from '@musical-patterns/utilities'
-import { buildFirstHarmonyContourWhole } from '../../../../src/indexForTest'
+import { computeFirstHarmonyContourWhole } from '../../../../src/indexForTest'
 import { testDoesNotUseSamePitchesAsBass } from './helpers'
 
 describe('first harmony whole', () => {
@@ -14,6 +14,6 @@ describe('first harmony whole', () => {
             WHEN_FIRST_HARMONY_USES_PITCH_CLASS_ONE_AT_THE_BEGINNING_OF_OPENING_THE_SECOND_TIME,
             WHEN_FIRST_HARMONY_USES_PITCH_CLASS_SEVENTEEN_AT_THE_END_OF_OPENING_ENTRANCE,
         ]
-        testDoesNotUseSamePitchesAsBass(buildFirstHarmonyContourWhole(), exceptionalIndices)
+        testDoesNotUseSamePitchesAsBass(computeFirstHarmonyContourWhole(), exceptionalIndices)
     })
 })

@@ -1,6 +1,6 @@
 import { to } from '@musical-patterns/utilities'
 import {
-    buildYerBlumeyerCommaPumpInstructions,
+    computeYerBlumeyerCommaPumpInstructions,
     YerBlumeyerCommaPumpAction,
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpInstruction,
@@ -17,7 +17,7 @@ describe('comma pump instructions', () => {
             operation: YerBlumeyerCommaPumpOperation.BASE,
         }
 
-        const actual: YerBlumeyerCommaPumpInstruction[] = buildYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
+        const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
 
         const expected: YerBlumeyerCommaPumpInstruction[] = [
             { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD },
@@ -38,7 +38,7 @@ describe('comma pump instructions', () => {
                 operation: YerBlumeyerCommaPumpOperation.BASE,
             }
 
-            const actual: YerBlumeyerCommaPumpInstruction[] = buildYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
+            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
 
             const expected: YerBlumeyerCommaPumpInstruction[] = [
                 { factor: YerFactor._17, action: YerBlumeyerCommaPumpAction.REMOVE },
@@ -59,7 +59,7 @@ describe('comma pump instructions', () => {
                 family: YerBlumeyerCommaPumpFamily.B,
                 operation: YerBlumeyerCommaPumpOperation.BASE,
             }
-            const cActual: YerBlumeyerCommaPumpInstruction[] = buildYerBlumeyerCommaPumpInstructions(cSpec)
+            const cActual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(cSpec)
             const cExpected: YerBlumeyerCommaPumpInstruction[] = [
                 { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD },
                 { factor: YerFactor._13, action: YerBlumeyerCommaPumpAction.REMOVE },
@@ -77,7 +77,7 @@ describe('comma pump instructions', () => {
                 family: YerBlumeyerCommaPumpFamily.C,
                 operation: YerBlumeyerCommaPumpOperation.BASE,
             }
-            const bActual: YerBlumeyerCommaPumpInstruction[] = buildYerBlumeyerCommaPumpInstructions(bSpec)
+            const bActual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(bSpec)
             const bExpected: YerBlumeyerCommaPumpInstruction[] = [
                 { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD },
                 { factor: YerFactor._11, action: YerBlumeyerCommaPumpAction.REMOVE },
@@ -98,7 +98,7 @@ describe('comma pump instructions', () => {
                 operation: YerBlumeyerCommaPumpOperation.INVERSE,
             }
 
-            const actual: YerBlumeyerCommaPumpInstruction[] = buildYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
+            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
 
             const expected: YerBlumeyerCommaPumpInstruction[] = [
                 { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.REMOVE },
@@ -118,7 +118,7 @@ describe('comma pump instructions', () => {
                 operation: YerBlumeyerCommaPumpOperation.CONVERSE,
             }
 
-            const actual: YerBlumeyerCommaPumpInstruction[] = buildYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
+            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
 
             const expected: YerBlumeyerCommaPumpInstruction[] = [
                 { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD },
@@ -138,7 +138,7 @@ describe('comma pump instructions', () => {
                 operation: YerBlumeyerCommaPumpOperation.REVERSE,
             }
 
-            const actual: YerBlumeyerCommaPumpInstruction[] = buildYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
+            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
 
             const expected: YerBlumeyerCommaPumpInstruction[] = [
                 { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.REMOVE },
@@ -160,7 +160,7 @@ describe('comma pump instructions', () => {
                 operation: YerBlumeyerCommaPumpOperation.REVERSE,
             }
 
-            const actual: YerBlumeyerCommaPumpInstruction[] = buildYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
+            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
 
             const expected: YerBlumeyerCommaPumpInstruction[] = [
                 { factor: YerFactor._13, action: YerBlumeyerCommaPumpAction.ADD },

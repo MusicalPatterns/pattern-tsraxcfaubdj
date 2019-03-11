@@ -1,4 +1,4 @@
-export { buildLeadContourWhole } from './lead'
-export { buildBassContourWhole } from './bass'
-export { buildFirstHarmonyContourWhole } from './firstHarmony'
-export { buildSecondHarmonyContourWhole } from './secondHarmony'
+export { computeLeadContourWhole } from './lead'
+export { computeBassContourWhole } from './bass'
+export { computeFirstHarmonyContourWhole } from './firstHarmony'
+export { computeSecondHarmonyContourWhole } from './secondHarmony'

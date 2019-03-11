@@ -22,11 +22,11 @@ import {
     YerPitchClassByFactorization,
     YerPitchClassByFactorizationCursor,
 } from './types'
-import { buildYer } from './yer'
+import { computeYer } from './yer'
 
 const pitchClassByFactorization: () => YerPitchClassByFactorization =
     (): YerPitchClassByFactorization =>
-        buildYer()
+        computeYer()
             .reduce<YerPitchClassByFactorization>(
                 (accumulator: YerPitchClassByFactorization, yer: Yer): YerPitchClassByFactorization => {
                     let cursor: YerPitchClassByFactorizationCursor = accumulator
@@ -50,7 +50,7 @@ const pitchClassByFactorization: () => YerPitchClassByFactorization =
 const factorizationByPitchClass: () => YerFactorizationByPitchClass =
     (): YerFactorizationByPitchClass =>
         reduce(
-            buildYer(),
+            computeYer(),
             (accumulator: YerFactorizationByPitchClass, yer: Yer): YerFactorizationByPitchClass => {
                 const factorization: YerFactorization = {}
                 entries(yerScalarByFactor)
@@ -68,11 +68,11 @@ const factorizationByPitchClass: () => YerFactorizationByPitchClass =
             {},
         )
 
-const getYerFactorizationByPitchClass: (yer: YerPitchClass) => YerFactorization =
+const computeYerFactorizationByPitchClass: (yer: YerPitchClass) => YerFactorization =
     (yer: YerPitchClass): YerFactorization =>
         factorizationByPitchClass()[ yer ]
 
-const getYerPitchClassByFactorization: (factors: YerFactorization) => YerPitchClass =
+const computeYerPitchClassByFactorization: (factors: YerFactorization) => YerPitchClass =
     (yerFactorization: YerFactorization): YerPitchClass => {
         const {
             [ YerFactor._11 ]: eleven = false,
@@ -89,6 +89,6 @@ const getYerPitchClassByFactorization: (factors: YerFactorization) => YerPitchCl
     }
 
 export {
-    getYerPitchClassByFactorization,
-    getYerFactorizationByPitchClass,
+    computeYerPitchClassByFactorization,
+    computeYerFactorizationByPitchClass,
 }

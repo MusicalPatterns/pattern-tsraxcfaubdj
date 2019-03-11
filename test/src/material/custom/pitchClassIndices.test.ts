@@ -1,8 +1,8 @@
-import { getOrderedPitchClassIndices, YerPitchClass, yerPitchClassIndex } from '../../../../src/indexForTest'
+import { computeOrderedPitchClassIndices, YerPitchClass, yerPitchClassIndex } from '../../../../src/indexForTest'
 
 describe('pitch indices', () => {
     it('has the pitch classes ordered by pitch', () => {
-        const actual: YerPitchClass[] = getOrderedPitchClassIndices()
+        const actual: YerPitchClass[] = computeOrderedPitchClassIndices()
 
         expect(actual)
             .toEqual([

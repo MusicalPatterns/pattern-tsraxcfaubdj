@@ -1,6 +1,6 @@
 import { Ordinal, to } from '@musical-patterns/utilities'
 import {
-    buildYerBlumeyerCommaPump,
+    computeYerBlumeyerCommaPump,
     YerBlumeyerCommaPump,
     YerBlumeyerCommaPumpAction,
     YerBlumeyerCommaPumpInstruction,
@@ -23,7 +23,7 @@ describe('comma pumps', () => {
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 0', () => {
             const rotation: Ordinal = to.Ordinal(0)
-            const commaPump: YerBlumeyerCommaPump = buildYerBlumeyerCommaPump(instructions, rotation)
+            const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
                 .toEqual([
@@ -36,7 +36,7 @@ describe('comma pumps', () => {
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 1', () => {
             const rotation: Ordinal = to.Ordinal(1)
-            const commaPump: YerBlumeyerCommaPump = buildYerBlumeyerCommaPump(instructions, rotation)
+            const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
                 .toEqual([
@@ -49,7 +49,7 @@ describe('comma pumps', () => {
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 2', () => {
             const rotation: Ordinal = to.Ordinal(2)
-            const commaPump: YerBlumeyerCommaPump = buildYerBlumeyerCommaPump(instructions, rotation)
+            const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
                 .toEqual([
@@ -62,7 +62,7 @@ describe('comma pumps', () => {
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 3', () => {
             const rotation: Ordinal = to.Ordinal(3)
-            const commaPump: YerBlumeyerCommaPump = buildYerBlumeyerCommaPump(instructions, rotation)
+            const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
                 .toEqual([
@@ -86,7 +86,7 @@ describe('comma pumps', () => {
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 0', () => {
             const rotation: Ordinal = to.Ordinal(0)
-            const commaPump: YerBlumeyerCommaPump = buildYerBlumeyerCommaPump(instructions, rotation)
+            const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
                 .toEqual([
@@ -99,7 +99,7 @@ describe('comma pumps', () => {
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 1', () => {
             const rotation: Ordinal = to.Ordinal(1)
-            const commaPump: YerBlumeyerCommaPump = buildYerBlumeyerCommaPump(instructions, rotation)
+            const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
                 .toEqual([
@@ -112,7 +112,7 @@ describe('comma pumps', () => {
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 2', () => {
             const rotation: Ordinal = to.Ordinal(2)
-            const commaPump: YerBlumeyerCommaPump = buildYerBlumeyerCommaPump(instructions, rotation)
+            const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
                 .toEqual([
@@ -125,7 +125,7 @@ describe('comma pumps', () => {
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 3', () => {
             const rotation: Ordinal = to.Ordinal(3)
-            const commaPump: YerBlumeyerCommaPump = buildYerBlumeyerCommaPump(instructions, rotation)
+            const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
                 .toEqual([

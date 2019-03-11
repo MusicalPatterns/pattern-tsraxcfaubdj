@@ -1,9 +1,9 @@
 export { yerPitchClassIndex, yerExceptionPitchClassIndex } from './pitchClassIndices'
-export { buildYer } from './yer'
+export { computeYer } from './yer'
 
 export {
-    buildYerBlumeyerCommaPumpInstructions,
-    buildYerBlumeyerCommaPump,
+    computeYerBlumeyerCommaPumpInstructions,
+    computeYerBlumeyerCommaPump,
     rawPiecesFromPump,
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,

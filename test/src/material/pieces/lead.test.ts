@@ -1,7 +1,7 @@
 import { PitchDurationScale } from '@musical-patterns/pattern'
 import { Ordinal, to } from '@musical-patterns/utilities'
 import {
-    buildLeadContourPieces,
+    computeLeadContourPieces,
     DOTTED_HALF_NOTE,
     FIFTH_OCTAVE,
     FOURTH_OCTAVE,
@@ -18,13 +18,13 @@ describe('lead pieces', () => {
     it('almost every interval is a simple 11, 13, 17, or 19', async (done: DoneFn) => {
         const BETWEEN_BAR_3_AND_4: number = 10
         const BETWEEN_BAR_13_AND_14: number = 27
-        const BETWEEN_BAR_14_AND_15_IS_ACTUALLY_NOT_NECESSARY_TO_EXCEPT_BECAUSE_IT_GETS_AROUND_THIS_CHECK_WITH_A_COMMA_SHIFT: number = 28
+        const BETWEEN_BAR_14_AND_15_IS_ACTUALLY_NOT_NECESSARY_TO_EXCEPT_BECAUSE_IT_CIRCIUMVRENTS_THIS_CHECK_WITH_A_COMMA_SHIFT: number = 28
         const BETWEEN_BAR_22_AND_23_WHICH_IS_THE_SAME_AS_BETWEEN_THREE_AND_FOUR: number = 48
 
         const exceptionalIndices: Ordinal[] = [
             BETWEEN_BAR_3_AND_4,
             BETWEEN_BAR_13_AND_14,
-            BETWEEN_BAR_14_AND_15_IS_ACTUALLY_NOT_NECESSARY_TO_EXCEPT_BECAUSE_IT_GETS_AROUND_THIS_CHECK_WITH_A_COMMA_SHIFT,
+            BETWEEN_BAR_14_AND_15_IS_ACTUALLY_NOT_NECESSARY_TO_EXCEPT_BECAUSE_IT_CIRCIUMVRENTS_THIS_CHECK_WITH_A_COMMA_SHIFT,
             BETWEEN_BAR_22_AND_23_WHICH_IS_THE_SAME_AS_BETWEEN_THREE_AND_FOUR,
         ].map(to.Ordinal)
 
@@ -35,7 +35,7 @@ describe('lead pieces', () => {
     })
 
     it('comes out like this', () => {
-        expect(buildLeadContourPieces())
+        expect(computeLeadContourPieces())
             .toEqual(
                 [
                     [

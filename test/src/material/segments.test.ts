@@ -14,12 +14,12 @@ import {
     to,
 } from '@musical-patterns/utilities'
 import {
-    buildBassContourPieces,
-    buildFirstHarmonyContourPieces,
-    buildLeadContourPieces,
-    buildSecondHarmonyContourPieces,
-    getOrderedPitchClassIndices,
-    getYerFactorizationByPitchClass,
+    computeBassContourPieces,
+    computeFirstHarmonyContourPieces,
+    computeLeadContourPieces,
+    computeOrderedPitchClassIndices,
+    computeSecondHarmonyContourPieces,
+    computeYerFactorizationByPitchClass,
     YER_PITCH_CLASS_COUNT,
     YerFactor,
     YerFactorization,
@@ -37,7 +37,7 @@ describe('segments', () => {
     const INDEX_OF_PITCH_IN_PITCH_DURATION_SCALE_CONTOUR: Ordinal = to.Ordinal(0)
     const INDEX_OF_DURATION_IN_PITCH_DURATION_SCALE_CONTOUR: Ordinal = to.Ordinal(1)
 
-    const calculatePitchClassIndicesByQuarter: (contourPieces: Array<ContourPiece<PitchDurationScale>>) => number[] =
+    const computePitchClassIndicesByQuarter: (contourPieces: Array<ContourPiece<PitchDurationScale>>) => number[] =
         (contourPieces: Array<ContourPiece<PitchDurationScale>>): number[] => {
             const pitchIndicesByQuarter: number[] = []
             contourPieces.forEach((piece: ContourPiece<PitchDurationScale>) => {
@@ -62,10 +62,10 @@ describe('segments', () => {
     let firstHarmonyContourPieces: Array<ContourPiece<PitchDurationScale>>
     let secondHarmonyContourPieces: Array<ContourPiece<PitchDurationScale>>
     beforeEach(() => {
-        leadContourPieces = buildLeadContourPieces()
-        bassContourPieces = buildBassContourPieces()
-        firstHarmonyContourPieces = buildFirstHarmonyContourPieces()
-        secondHarmonyContourPieces = buildSecondHarmonyContourPieces()
+        leadContourPieces = computeLeadContourPieces()
+        bassContourPieces = computeBassContourPieces()
+        firstHarmonyContourPieces = computeFirstHarmonyContourPieces()
+        secondHarmonyContourPieces = computeSecondHarmonyContourPieces()
     })
 
     it('each array of contour piece has the correct and same amount of segments', () => {
@@ -80,10 +80,10 @@ describe('segments', () => {
     })
 
     it('each segment makes simple chords', () => {
-        const leadPitchClassIndicesByQuarter: number[] = calculatePitchClassIndicesByQuarter(leadContourPieces)
-        const bassPitchClassIndicesByQuarter: number[] = calculatePitchClassIndicesByQuarter(bassContourPieces)
-        const firstHarmonyPitchClassIndicesByQuarter: number[] = calculatePitchClassIndicesByQuarter(firstHarmonyContourPieces)
-        const secondHarmonyPitchClassIndicesByQuarter: number[] = calculatePitchClassIndicesByQuarter(secondHarmonyContourPieces)
+        const leadPitchClassIndicesByQuarter: number[] = computePitchClassIndicesByQuarter(leadContourPieces)
+        const bassPitchClassIndicesByQuarter: number[] = computePitchClassIndicesByQuarter(bassContourPieces)
+        const firstHarmonyPitchClassIndicesByQuarter: number[] = computePitchClassIndicesByQuarter(firstHarmonyContourPieces)
+        const secondHarmonyPitchClassIndicesByQuarter: number[] = computePitchClassIndicesByQuarter(secondHarmonyContourPieces)
 
         const quarters: number[][] = []
         for (let index: Ordinal = to.Ordinal(0); from.Ordinal(index) < QUARTERS_COUNT; index = apply.Translation(index, NEXT)) {
@@ -122,8 +122,8 @@ describe('segments', () => {
                 }
 
                 return [
-                    getYerFactorizationByPitchClass(getOrderedPitchClassIndices()[ firstPitch ]),
-                    getYerFactorizationByPitchClass(getOrderedPitchClassIndices()[ secondPitch ]),
+                    computeYerFactorizationByPitchClass(computeOrderedPitchClassIndices()[ firstPitch ]),
+                    computeYerFactorizationByPitchClass(computeOrderedPitchClassIndices()[ secondPitch ]),
                 ]
             })
 

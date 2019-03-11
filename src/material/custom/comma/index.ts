@@ -1,5 +1,5 @@
-export { buildYerBlumeyerCommaPumpInstructions } from './instructions'
-export { buildYerBlumeyerCommaPump } from './pump'
+export { computeYerBlumeyerCommaPumpInstructions } from './instructions'
+export { computeYerBlumeyerCommaPump } from './pump'
 export { rawPiecesFromPump } from './contours'
 
 export {

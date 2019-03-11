@@ -1,8 +1,8 @@
 import { forEach, INITIAL, Ordinal } from '@musical-patterns/utilities'
-import { getYerPitchClassByFactorization } from '../factors'
+import { computeYerPitchClassByFactorization } from '../factors'
 import { YerFactorization, YerPitchClass } from '../types'
 import { BLUMEYER_COMMA_PUMP_STEP_COUNT } from './constants'
-import { calculateInitialFactorization } from './initial'
+import { computeInitialFactorization } from './initial'
 import { nextFactorization } from './nextFactorization'
 import { applyCommaShift } from './shift'
 import { YerBlumeyerCommaPump, YerBlumeyerCommaPumpInstruction } from './types'
@@ -11,10 +11,10 @@ const isFullPump: (candidate: YerPitchClass[][]) => candidate is YerBlumeyerComm
     (candidate: YerPitchClass[][]): candidate is YerBlumeyerCommaPump =>
         candidate.length === BLUMEYER_COMMA_PUMP_STEP_COUNT
 
-const buildYerBlumeyerCommaPump:
+const computeYerBlumeyerCommaPump:
     (instructions: YerBlumeyerCommaPumpInstruction[], rotation?: Ordinal) => YerBlumeyerCommaPump =
     (instructions: YerBlumeyerCommaPumpInstruction[], rotation: Ordinal = INITIAL): YerBlumeyerCommaPump => {
-        let currentFactorization: YerFactorization = calculateInitialFactorization(rotation, instructions)
+        let currentFactorization: YerFactorization = computeInitialFactorization(rotation, instructions)
         const pump: YerPitchClass[][] = []
 
         forEach(
@@ -22,11 +22,11 @@ const buildYerBlumeyerCommaPump:
             (instruction: YerBlumeyerCommaPumpInstruction, index: Ordinal): void => {
                 const pumpStep: YerPitchClass[] = []
 
-                pumpStep.push(getYerPitchClassByFactorization(currentFactorization))
+                pumpStep.push(computeYerPitchClassByFactorization(currentFactorization))
 
                 if (index === rotation) {
                     currentFactorization = applyCommaShift(currentFactorization)
-                    pumpStep.push(getYerPitchClassByFactorization(currentFactorization))
+                    pumpStep.push(computeYerPitchClassByFactorization(currentFactorization))
                 }
 
                 pump.push(pumpStep)
@@ -44,5 +44,5 @@ const buildYerBlumeyerCommaPump:
     }
 
 export {
-    buildYerBlumeyerCommaPump,
+    computeYerBlumeyerCommaPump,
 }

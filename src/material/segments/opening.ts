@@ -2,8 +2,8 @@ import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
 import { from, NO_TRANSLATION } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import {
-    buildYerBlumeyerCommaPump,
-    buildYerBlumeyerCommaPumpInstructions,
+    computeYerBlumeyerCommaPump,
+    computeYerBlumeyerCommaPumpInstructions,
     rawPiecesFromPump,
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
@@ -48,8 +48,8 @@ const openingRest: () => number[][][] =
 const openingBassPump: () => number[][][] =
     (): number[][][] =>
         rawPiecesFromPump(
-            buildYerBlumeyerCommaPump(
-                buildYerBlumeyerCommaPumpInstructions({
+            computeYerBlumeyerCommaPump(
+                computeYerBlumeyerCommaPumpInstructions({
                     cycling: NO_TRANSLATION,
                     family: YerBlumeyerCommaPumpFamily.A,
                     operation: YerBlumeyerCommaPumpOperation.CONVERSE,

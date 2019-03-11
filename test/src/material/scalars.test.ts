@@ -1,10 +1,10 @@
 import { Frequency, Scalar, testArraysAreClose, to } from '@musical-patterns/utilities'
-import { buildYerExceptionScalars, buildYerScalars } from '../../../src/indexForTest'
+import { computeYerExceptionScalars, computeYerScalars } from '../../../src/indexForTest'
 
 describe('scalars', () => {
     describe('yer scalars', () => {
         it('are the octave reduced power set of the prime harmonics 11, 13, 17, and 19', () => {
-            const actualScalars: Array<Scalar<Frequency>> = buildYerScalars()
+            const actualScalars: Array<Scalar<Frequency>> = computeYerScalars()
 
             const expectedScalarsAsRatios: Array<Scalar<Frequency>> = [
                 // tslint:disable-next-line no-identical-expressions
@@ -55,7 +55,7 @@ describe('scalars', () => {
 
     describe('yer exception scalars', () => {
         it('is a set of a couple scalars not members of yer at its most essential, but which come in handy when using it', () => {
-            const actualScalars: Array<Scalar<Frequency>> = buildYerExceptionScalars()
+            const actualScalars: Array<Scalar<Frequency>> = computeYerExceptionScalars()
 
             const expectedScalarsAsRatios: Array<Scalar<Frequency>> = [
                 2057 / 2048,

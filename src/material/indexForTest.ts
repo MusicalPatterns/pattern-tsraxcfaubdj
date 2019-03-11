@@ -1,18 +1,18 @@
 // tslint:disable no-reaching-imports
 
-export { buildYerScalars, buildYerExceptionScalars } from './scalars'
+export { computeYerScalars, computeYerExceptionScalars } from './scalars'
 export { materializeScales } from './scales'
 export {
-    buildBassContourPieces,
-    buildLeadContourPieces,
-    buildFirstHarmonyContourPieces,
-    buildSecondHarmonyContourPieces,
+    computeBassContourPieces,
+    computeLeadContourPieces,
+    computeFirstHarmonyContourPieces,
+    computeSecondHarmonyContourPieces,
 } from './pieces/indexForTest'
 export {
-    buildBassContourWhole,
-    buildFirstHarmonyContourWhole,
-    buildSecondHarmonyContourWhole,
-    buildLeadContourWhole,
+    computeBassContourWhole,
+    computeFirstHarmonyContourWhole,
+    computeSecondHarmonyContourWhole,
+    computeLeadContourWhole,
 } from './wholes/indexForTest'
 export {
     HALF_NOTE,
@@ -26,13 +26,13 @@ export {
     QUARTER_NOTE,
 } from './segments/indexForTest'
 export {
-    buildYerBlumeyerCommaPump,
+    computeYerBlumeyerCommaPump,
     yerPitchClassIndex,
     YerPitchClass,
     YerBlumeyerCommaPumpInstructionsSpec,
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
-    buildYerBlumeyerCommaPumpInstructions,
+    computeYerBlumeyerCommaPumpInstructions,
     YerBlumeyerCommaPumpInstruction,
     YerBlumeyerCommaPumpAction,
     YerFactor,
@@ -40,9 +40,9 @@ export {
     YerExceptionPitchClass,
     yerExceptionPitchClassIndex,
     rawPiecesFromPump,
-    getYerFactorizationByPitchClass,
+    computeYerFactorizationByPitchClass,
     YerFactorization,
-    getOrderedPitchClassIndices,
+    computeOrderedPitchClassIndices,
 } from './custom/indexForTest'
 
 export {

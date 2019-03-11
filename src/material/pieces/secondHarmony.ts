@@ -12,7 +12,7 @@ import {
     suspensionSecondHarmony,
 } from '../segments'
 
-const buildSecondHarmonyContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
+const computeSecondHarmonyContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
     (): Array<ContourPiece<PitchDurationScale>> =>
         sequence([
             openingRest(),
@@ -28,5 +28,5 @@ const buildSecondHarmonyContourPieces: () => Array<ContourPiece<PitchDurationSca
             .map((contourPiece: number[][]) => to.ContourPiece<PitchDurationScale>(contourPiece))
 
 export {
-    buildSecondHarmonyContourPieces,
+    computeSecondHarmonyContourPieces,
 }

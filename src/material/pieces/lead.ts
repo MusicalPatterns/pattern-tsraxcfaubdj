@@ -13,7 +13,7 @@ import {
     suspensionLead,
 } from '../segments'
 
-const buildLeadContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
+const computeLeadContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
     (): Array<ContourPiece<PitchDurationScale>> =>
         sequence([
             openingLead(),
@@ -32,5 +32,5 @@ const buildLeadContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
             .map((contourPiece: number[][]) => to.ContourPiece<PitchDurationScale>(contourPiece))
 
 export {
-    buildLeadContourPieces,
+    computeLeadContourPieces,
 }

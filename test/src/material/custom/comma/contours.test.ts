@@ -1,7 +1,7 @@
 import { NO_TRANSLATION, to } from '@musical-patterns/utilities'
 import {
-    buildYerBlumeyerCommaPump,
-    buildYerBlumeyerCommaPumpInstructions,
+    computeYerBlumeyerCommaPump,
+    computeYerBlumeyerCommaPumpInstructions,
     HALF_NOTE,
     rawPiecesFromPump,
     SECOND_OCTAVE,
@@ -17,8 +17,8 @@ import {
 describe('raw pieces from pump', () => {
     it('given a comma pump, returns the raw pieces to be cast to contour pieces', () => {
         const actual: number[][][] = rawPiecesFromPump(
-            buildYerBlumeyerCommaPump(
-                buildYerBlumeyerCommaPumpInstructions({
+            computeYerBlumeyerCommaPump(
+                computeYerBlumeyerCommaPumpInstructions({
                     cycling: NO_TRANSLATION,
                     family: YerBlumeyerCommaPumpFamily.A,
                     operation: YerBlumeyerCommaPumpOperation.CONVERSE,

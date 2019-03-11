@@ -1,5 +1,5 @@
 import { isUndefined, Maybe } from '@musical-patterns/utilities'
-import { getYerFactorizationByPitchClass, getYerPitchClassByFactorization } from '../factors'
+import { computeYerFactorizationByPitchClass, computeYerPitchClassByFactorization } from '../factors'
 import { YerFactorization, YerPitchClass } from '../types'
 
 const possibleCommaShifts: Partial<{ [Index in YerPitchClass]: YerPitchClass }> = {
@@ -13,7 +13,7 @@ const possibleCommaShifts: Partial<{ [Index in YerPitchClass]: YerPitchClass }> 
 
 const applyCommaShift: (factorization: YerFactorization) => YerFactorization =
     (factorization: YerFactorization): YerFactorization => {
-        const yerPitchClass: YerPitchClass = getYerPitchClassByFactorization(factorization)
+        const yerPitchClass: YerPitchClass = computeYerPitchClassByFactorization(factorization)
 
         const commaShiftedYer: Maybe<YerPitchClass> = possibleCommaShifts[ yerPitchClass ]
 
@@ -23,7 +23,7 @@ const applyCommaShift: (factorization: YerFactorization) => YerFactorization =
             )
         }
 
-        return getYerFactorizationByPitchClass(commaShiftedYer)
+        return computeYerFactorizationByPitchClass(commaShiftedYer)
     }
 
 export {

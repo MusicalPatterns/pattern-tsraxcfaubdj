@@ -1,11 +1,11 @@
 import { apply, from, to } from '@musical-patterns/utilities'
 import { YER_EXCEPTION_PITCH_CLASS_COUNT, YER_PITCH_CLASS_COUNT } from '../constants'
 import { Yer, YerExceptionPitchClass, YerPitchClass } from './types'
-import { buildYer } from './yer'
+import { computeYer } from './yer'
 
-const getOrderedPitchClassIndices: () => YerPitchClass[] =
+const computeOrderedPitchClassIndices: () => YerPitchClass[] =
     (): YerPitchClass[] =>
-        buildYer()
+        computeYer()
             .map((yer: Yer): YerPitchClass =>
                 yer.pitchClass)
 
@@ -19,7 +19,7 @@ const yerPitchClassIndex: (octaveIndex: number, yerPitchClass: YerPitchClass) =>
         from.Cardinal(apply.Translation(
             apply.Scalar(YER_PITCH_CLASS_COUNT, to.Scalar(octaveIndex)),
             to.Translation(
-                getOrderedPitchClassIndices()
+                computeOrderedPitchClassIndices()
                     .indexOf(yerPitchClass),
             ),
         ))
@@ -34,5 +34,5 @@ const yerExceptionPitchClassIndex: (octaveIndex: number, yerExceptionPitchClass:
 export {
     yerPitchClassIndex,
     yerExceptionPitchClassIndex,
-    getOrderedPitchClassIndices,
+    computeOrderedPitchClassIndices,
 }

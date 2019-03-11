@@ -1,23 +1,23 @@
 import { Note } from '@musical-patterns/compiler'
-import { buildNote } from './features'
+import { computeNote } from './features'
 import { TsraxcfaubdjNotes } from './types'
 import {
-    buildBassContourWhole,
-    buildFirstHarmonyContourWhole,
-    buildLeadContourWhole,
-    buildSecondHarmonyContourWhole,
+    computeBassContourWhole,
+    computeFirstHarmonyContourWhole,
+    computeLeadContourWhole,
+    computeSecondHarmonyContourWhole,
 } from './wholes'
 
-const buildNotes: () => TsraxcfaubdjNotes =
+const computeNotes: () => TsraxcfaubdjNotes =
     (): TsraxcfaubdjNotes => {
-        const lead: Note[] = buildLeadContourWhole()
-            .map(buildNote)
-        const bass: Note[] = buildBassContourWhole()
-            .map(buildNote)
-        const firstHarmony: Note[] = buildFirstHarmonyContourWhole()
-            .map(buildNote)
-        const secondHarmony: Note[] = buildSecondHarmonyContourWhole()
-            .map(buildNote)
+        const lead: Note[] = computeLeadContourWhole()
+            .map(computeNote)
+        const bass: Note[] = computeBassContourWhole()
+            .map(computeNote)
+        const firstHarmony: Note[] = computeFirstHarmonyContourWhole()
+            .map(computeNote)
+        const secondHarmony: Note[] = computeSecondHarmonyContourWhole()
+            .map(computeNote)
 
         return {
             bass,
@@ -28,5 +28,5 @@ const buildNotes: () => TsraxcfaubdjNotes =
     }
 
 export {
-    buildNotes,
+    computeNotes,
 }

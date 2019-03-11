@@ -2,7 +2,8 @@ import { apply, Cycle, negative, sequence, to } from '@musical-patterns/utilitie
 import { YerFactor } from '../types'
 import { YerBlumeyerCommaPumpAction, YerBlumeyerCommaPumpFamily, YerBlumeyerCommaPumpInstruction } from './types'
 
-const buildPumpInstructionsFromFamily: (family: YerBlumeyerCommaPumpFamily) => Cycle<YerBlumeyerCommaPumpInstruction> =
+const computePumpInstructionsFromFamily:
+    (family: YerBlumeyerCommaPumpFamily) => Cycle<YerBlumeyerCommaPumpInstruction> =
     (family: YerBlumeyerCommaPumpFamily): Cycle<YerBlumeyerCommaPumpInstruction> => {
         const theFactorsOnTheOtherSide: Cycle<YerBlumeyerCommaPumpInstruction> = to.Cycle([
             { factor: YerFactor._17, action: YerBlumeyerCommaPumpAction.REMOVE },
@@ -32,5 +33,5 @@ const buildPumpInstructionsFromFamily: (family: YerBlumeyerCommaPumpFamily) => C
     }
 
 export {
-    buildPumpInstructionsFromFamily,
+    computePumpInstructionsFromFamily,
 }

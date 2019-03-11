@@ -1,14 +1,14 @@
 import { Frequency, octaveReduce, product, quotient, Scalar } from '@musical-patterns/utilities'
 import { YER_ELEVEN, YER_NINETEEN, YER_SEVENTEEN, YER_THIRTEEN } from '../constants'
-import { buildYer, Yer } from './custom'
+import { computeYer, Yer } from './custom'
 
-const buildYerScalars: () => Array<Scalar<Frequency>> =
+const computeYerScalars: () => Array<Scalar<Frequency>> =
     (): Array<Scalar<Frequency>> =>
-        buildYer()
+        computeYer()
             .map((yer: Yer): Scalar<Frequency> =>
                 yer.scalar)
 
-const buildYerExceptionScalars: () => Array<Scalar<Frequency>> =
+const computeYerExceptionScalars: () => Array<Scalar<Frequency>> =
     (): Array<Scalar<Frequency>> =>
         [
             product(YER_ELEVEN, YER_ELEVEN, YER_SEVENTEEN),
@@ -16,7 +16,7 @@ const buildYerExceptionScalars: () => Array<Scalar<Frequency>> =
         ].map(octaveReduce)
 
 export {
-    buildYerScalars,
-    buildYerExceptionScalars,
-    buildYer,
+    computeYerScalars,
+    computeYerExceptionScalars,
+    computeYer,
 }

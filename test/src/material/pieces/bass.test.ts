@@ -1,7 +1,7 @@
 import { PitchDurationScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
 import { from, Ordinal, to } from '@musical-patterns/utilities'
 import {
-    buildBassContourPieces,
+    computeBassContourPieces,
     HALF_NOTE,
     SECOND_OCTAVE,
     THIRD_OCTAVE,
@@ -26,7 +26,7 @@ describe('bass pieces', () => {
     })
 
     it('based on all of those comma shifts, it comes out like this', () => {
-        expect(buildBassContourPieces())
+        expect(computeBassContourPieces())
             .toEqual(
                 [
                     [
