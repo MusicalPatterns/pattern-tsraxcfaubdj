@@ -1,11 +1,6 @@
 import { MaterializeScales, Scale } from '@musical-patterns/compiler'
-import {
-    computeOctaveRepeatingScalars,
-    materializeStandardScales,
-    STANDARD_PITCH_SCALE_INDEX,
-    StandardSpecs,
-} from '@musical-patterns/pattern'
-import { from, Scalar, to } from '@musical-patterns/utilities'
+import { materializeStandardScales, STANDARD_PITCH_SCALE_INDEX, StandardSpecs } from '@musical-patterns/pattern'
+import { computeOctaveRepeatingScalars, from, Scalar, to } from '@musical-patterns/utilities'
 import { computeYerExceptionScalars, computeYerScalars } from './scalars'
 
 const materializeScales: MaterializeScales =
