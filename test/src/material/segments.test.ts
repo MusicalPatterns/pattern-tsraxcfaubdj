@@ -20,7 +20,6 @@ import {
     computeOrderedPitchClassIndices,
     computeSecondHarmonyContourPieces,
     computeYerFactorizationByPitchClass,
-    YER_PITCH_CLASS_COUNT,
     YerFactor,
     YerFactorization,
 } from '../../../src/indexForTest'

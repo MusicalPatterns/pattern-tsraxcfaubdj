@@ -4,20 +4,20 @@ import {
     YerBlumeyerCommaPumpAction,
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpInstruction,
-    YerBlumeyerCommaPumpInstructionsSpec,
+    YerBlumeyerCommaPumpInstructionsBlueprint,
     YerBlumeyerCommaPumpOperation,
     YerFactor,
 } from '../../../../../src/indexForTest'
 
 describe('comma pump instructions', () => {
-    it('from a spec, gives you instructions for a comma pump, which you could then find a starting position / rotation for to get a final pattern of pitch classes', () => {
-        const yerBlumeyerCommaPumpInstructionsSpec: YerBlumeyerCommaPumpInstructionsSpec = {
+    it('from a blueprint, gives you instructions for a comma pump, which you could then find a starting position / rotation for to get a final pattern of pitch classes', () => {
+        const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
             cycling: to.Translation(0),
             family: YerBlumeyerCommaPumpFamily.A,
             operation: YerBlumeyerCommaPumpOperation.BASE,
         }
 
-        const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
+        const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsBlueprint)
 
         const expected: YerBlumeyerCommaPumpInstruction[] = [
             { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD },
@@ -32,13 +32,13 @@ describe('comma pump instructions', () => {
 
     describe('cycling', () => {
         it('can cycle', () => {
-            const yerBlumeyerCommaPumpInstructionsSpec: YerBlumeyerCommaPumpInstructionsSpec = {
+            const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
                 cycling: to.Translation(3),
                 family: YerBlumeyerCommaPumpFamily.A,
                 operation: YerBlumeyerCommaPumpOperation.BASE,
             }
 
-            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
+            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsBlueprint)
 
             const expected: YerBlumeyerCommaPumpInstruction[] = [
                 { factor: YerFactor._17, action: YerBlumeyerCommaPumpAction.REMOVE },
@@ -54,12 +54,12 @@ describe('comma pump instructions', () => {
 
     describe('family', () => {
         it('can change families to B', () => {
-            const cSpec: YerBlumeyerCommaPumpInstructionsSpec = {
+            const cSpecs: YerBlumeyerCommaPumpInstructionsBlueprint = {
                 cycling: to.Translation(0),
                 family: YerBlumeyerCommaPumpFamily.B,
                 operation: YerBlumeyerCommaPumpOperation.BASE,
             }
-            const cActual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(cSpec)
+            const cActual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(cSpecs)
             const cExpected: YerBlumeyerCommaPumpInstruction[] = [
                 { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD },
                 { factor: YerFactor._13, action: YerBlumeyerCommaPumpAction.REMOVE },
@@ -72,12 +72,12 @@ describe('comma pump instructions', () => {
         })
 
         it('can change families to C', () => {
-            const bSpec: YerBlumeyerCommaPumpInstructionsSpec = {
+            const bSpecs: YerBlumeyerCommaPumpInstructionsBlueprint = {
                 cycling: to.Translation(0),
                 family: YerBlumeyerCommaPumpFamily.C,
                 operation: YerBlumeyerCommaPumpOperation.BASE,
             }
-            const bActual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(bSpec)
+            const bActual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(bSpecs)
             const bExpected: YerBlumeyerCommaPumpInstruction[] = [
                 { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD },
                 { factor: YerFactor._11, action: YerBlumeyerCommaPumpAction.REMOVE },
@@ -92,13 +92,13 @@ describe('comma pump instructions', () => {
 
     describe('operation', () => {
         it('can change operation to inverse', () => {
-            const yerBlumeyerCommaPumpInstructionsSpec: YerBlumeyerCommaPumpInstructionsSpec = {
+            const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
                 cycling: to.Translation(0),
                 family: YerBlumeyerCommaPumpFamily.A,
                 operation: YerBlumeyerCommaPumpOperation.INVERSE,
             }
 
-            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
+            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsBlueprint)
 
             const expected: YerBlumeyerCommaPumpInstruction[] = [
                 { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.REMOVE },
@@ -112,13 +112,13 @@ describe('comma pump instructions', () => {
         })
 
         it('can change operation to converse', () => {
-            const yerBlumeyerCommaPumpInstructionsSpec: YerBlumeyerCommaPumpInstructionsSpec = {
+            const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
                 cycling: to.Translation(0),
                 family: YerBlumeyerCommaPumpFamily.A,
                 operation: YerBlumeyerCommaPumpOperation.CONVERSE,
             }
 
-            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
+            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsBlueprint)
 
             const expected: YerBlumeyerCommaPumpInstruction[] = [
                 { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD },
@@ -132,13 +132,13 @@ describe('comma pump instructions', () => {
         })
 
         it('can change operation to reverse', () => {
-            const yerBlumeyerCommaPumpInstructionsSpec: YerBlumeyerCommaPumpInstructionsSpec = {
+            const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
                 cycling: to.Translation(0),
                 family: YerBlumeyerCommaPumpFamily.A,
                 operation: YerBlumeyerCommaPumpOperation.REVERSE,
             }
 
-            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
+            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsBlueprint)
 
             const expected: YerBlumeyerCommaPumpInstruction[] = [
                 { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.REMOVE },
@@ -154,13 +154,13 @@ describe('comma pump instructions', () => {
 
     describe('combining operations', () => {
         it('can do it', () => {
-            const yerBlumeyerCommaPumpInstructionsSpec: YerBlumeyerCommaPumpInstructionsSpec = {
+            const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
                 cycling: to.Translation(2),
                 family: YerBlumeyerCommaPumpFamily.C,
                 operation: YerBlumeyerCommaPumpOperation.REVERSE,
             }
 
-            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsSpec)
+            const actual: YerBlumeyerCommaPumpInstruction[] = computeYerBlumeyerCommaPumpInstructions(yerBlumeyerCommaPumpInstructionsBlueprint)
 
             const expected: YerBlumeyerCommaPumpInstruction[] = [
                 { factor: YerFactor._13, action: YerBlumeyerCommaPumpAction.ADD },

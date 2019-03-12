@@ -27,7 +27,7 @@ export {
     computeYerBlumeyerCommaPump,
     yerPitchClassIndex,
     YerPitchClass,
-    YerBlumeyerCommaPumpInstructionsSpec,
+    YerBlumeyerCommaPumpInstructionsBlueprint,
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
     computeYerBlumeyerCommaPumpInstructions,

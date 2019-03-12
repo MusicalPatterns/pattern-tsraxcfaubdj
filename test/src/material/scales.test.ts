@@ -1,5 +1,5 @@
 import { Scale } from '@musical-patterns/compiler'
-import { StandardSpec } from '@musical-patterns/pattern'
+import { StandardSpecs } from '@musical-patterns/pattern'
 import {
     apply,
     forEach,
@@ -19,8 +19,8 @@ import { materializeScales, YER_PITCH_CLASS_COUNT } from '../../../src/indexForT
 
 describe('yer scale', () => {
     it('the pitch scale has 16 pitch classes, repeating within an octave window', () => {
-        const spec: StandardSpec = {}
-        const yerScale: Scale = materializeScales(spec)[ 2 ]
+        const specs: StandardSpecs = {}
+        const yerScale: Scale = materializeScales(specs)[ 2 ]
         const yerScaleScalars: Scalar[] = yerScale.scalars!
 
         forEach(
@@ -55,8 +55,8 @@ describe('yer scale', () => {
     })
 
     it('has a total of 160 notes, spanning 10 octaves', () => {
-        const spec: StandardSpec = {}
-        const yerScale: Scale = materializeScales(spec)[ 2 ]
+        const specs: StandardSpecs = {}
+        const yerScale: Scale = materializeScales(specs)[ 2 ]
         const yerScaleScalars: Scalar[] = yerScale.scalars!
 
         expect(yerScaleScalars.length)

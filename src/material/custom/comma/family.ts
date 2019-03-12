@@ -28,7 +28,7 @@ const computePumpInstructionsFromFamily:
                     apply.Translation(theFactorsOnTheOtherSide, to.Translation(negative(1))),
                 ]))
             default:
-                throw new Error('YerBlumeyerCommaPumpInstructionsSpec has no family.')
+                throw new Error('YerBlumeyerCommaPumpInstructionsBlueprint has no family.')
         }
     }
 

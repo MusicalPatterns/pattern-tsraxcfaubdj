@@ -3,7 +3,7 @@
 export { yerPitchClassIndex, yerExceptionPitchClassIndex, computeOrderedPitchClassIndices } from './pitchClassIndices'
 export {
     computeYerBlumeyerCommaPump,
-    YerBlumeyerCommaPumpInstructionsSpec,
+    YerBlumeyerCommaPumpInstructionsBlueprint,
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
     computeYerBlumeyerCommaPumpInstructions,

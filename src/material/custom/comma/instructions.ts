@@ -1,12 +1,12 @@
 import { apply, Cycle, from } from '@musical-patterns/utilities'
 import { computePumpInstructionsFromFamily } from './family'
 import { applyPumpInstructionsOperation } from './operations'
-import { YerBlumeyerCommaPumpInstruction, YerBlumeyerCommaPumpInstructionsSpec } from './types'
+import { YerBlumeyerCommaPumpInstruction, YerBlumeyerCommaPumpInstructionsBlueprint } from './types'
 
 const computeYerBlumeyerCommaPumpInstructions:
-    (instructionsSpec: YerBlumeyerCommaPumpInstructionsSpec) => YerBlumeyerCommaPumpInstruction[] =
-    (instructionsSpec: YerBlumeyerCommaPumpInstructionsSpec): YerBlumeyerCommaPumpInstruction[] => {
-        const { cycling, family, operation } = instructionsSpec
+    (instructionsSpecs: YerBlumeyerCommaPumpInstructionsBlueprint) => YerBlumeyerCommaPumpInstruction[] =
+    (instructionsSpecs: YerBlumeyerCommaPumpInstructionsBlueprint): YerBlumeyerCommaPumpInstruction[] => {
+        const { cycling, family, operation } = instructionsSpecs
         let instructions: Cycle<YerBlumeyerCommaPumpInstruction> = computePumpInstructionsFromFamily(family)
         instructions = applyPumpInstructionsOperation(instructions, operation)
         instructions = apply.Translation(instructions, cycling)

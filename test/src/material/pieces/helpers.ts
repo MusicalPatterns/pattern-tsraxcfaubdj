@@ -39,10 +39,7 @@ const testEveryIntervalIsSimple: (voiceIndex: Ordinal, exceptionalIndices?: Ordi
         ]
         const acceptableRatios: Fraction[] = rawAcceptablySimpleRatios.map(to.Fraction)
 
-        const voices: Voice[] = await compilePattern({
-            material: pattern.material,
-            spec: pattern.data.initial,
-        })
+        const voices: Voice[] = await compilePattern(pattern)
         const voice: Voice = voices[ voiceIndex ]
         const sounds: Sound[] = voice.sounds || []
 

@@ -1,8 +1,8 @@
 import { Material } from '@musical-patterns/compiler'
-import { Id, Metadata, Pattern, Patterns, StandardSpec } from '@musical-patterns/pattern'
+import { Id, Metadata, Pattern, Patterns, StandardSpecs } from '@musical-patterns/pattern'
 import { materializeEntities, materializeScales } from './material'
 import { post } from './metadata'
-import { data } from './spec'
+import { spec } from './spec'
 
 const material: Material = {
     materializeEntities,
@@ -18,11 +18,11 @@ const metadata: Metadata = {
     version: process.env.PATTERN_VERSION || 'unknown',
 }
 
-const pattern: Pattern<StandardSpec> = {
-    data,
+const pattern: Pattern<StandardSpecs> = {
     id: Id.TSRAXCFAUBDJ,
     material,
     metadata,
+    spec,
 }
 
 const patterns: Partial<Patterns> = {

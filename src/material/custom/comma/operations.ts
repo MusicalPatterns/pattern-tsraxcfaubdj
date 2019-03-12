@@ -43,7 +43,7 @@ const applyPumpInstructionsOperation:
             case YerBlumeyerCommaPumpOperation.REVERSE:
                 return reverse(instructions)
             default:
-                throw new Error('YerBlumeyerCommaPumpInstructionsSpec has no operation.')
+                throw new Error('YerBlumeyerCommaPumpInstructionsBlueprint has no operation.')
         }
     }
 

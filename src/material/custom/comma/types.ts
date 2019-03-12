@@ -14,7 +14,7 @@ enum YerBlumeyerCommaPumpOperation {
     REVERSE = 'REVERSE',
 }
 
-interface YerBlumeyerCommaPumpInstructionsSpec {
+interface YerBlumeyerCommaPumpInstructionsBlueprint {
     cycling: Translation,
     family: YerBlumeyerCommaPumpFamily,
     operation: YerBlumeyerCommaPumpOperation,
@@ -35,7 +35,7 @@ type YerBlumeyerCommaPump = [ YerPitchClass[], YerPitchClass[], YerPitchClass[],
 type OctavesMap = [ number, number, number, number ]
 
 export {
-    YerBlumeyerCommaPumpInstructionsSpec,
+    YerBlumeyerCommaPumpInstructionsBlueprint,
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
     YerBlumeyerCommaPumpInstruction,

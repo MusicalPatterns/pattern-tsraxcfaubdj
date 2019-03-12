@@ -5,7 +5,7 @@ export { computeYerBlumeyerCommaPumpInstructions } from './instructions'
 export { rawPiecesFromPump } from './contours'
 
 export {
-    YerBlumeyerCommaPumpInstructionsSpec,
+    YerBlumeyerCommaPumpInstructionsBlueprint,
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
     YerBlumeyerCommaPumpInstruction,
