@@ -10,7 +10,7 @@ import {
     openingSecondHarmony,
     quietudeSecondHarmony,
     suspensionSecondHarmony,
-} from '../segments'
+} from '../segment'
 
 const computeSecondHarmonyContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
     (): Array<ContourPiece<PitchDurationScale>> =>

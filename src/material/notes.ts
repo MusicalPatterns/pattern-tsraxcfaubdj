@@ -6,7 +6,7 @@ import {
     computeFirstHarmonyContourWhole,
     computeLeadContourWhole,
     computeSecondHarmonyContourWhole,
-} from './wholes'
+} from './whole'
 
 const computeNotes: () => TsraxcfaubdjNotes =
     (): TsraxcfaubdjNotes => {

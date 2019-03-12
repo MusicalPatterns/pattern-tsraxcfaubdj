@@ -1,6 +1,6 @@
 import { PitchDurationScale } from '@musical-patterns/pattern'
 import { ContourWhole, sequence, to } from '@musical-patterns/utilities'
-import { computeLeadContourPieces } from '../pieces'
+import { computeLeadContourPieces } from '../piece'
 
 const computeLeadContourWhole: () => ContourWhole<PitchDurationScale> =
     (): ContourWhole<PitchDurationScale> =>

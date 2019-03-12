@@ -1,6 +1,6 @@
 import { PitchDurationScale } from '@musical-patterns/pattern'
 import { ContourWhole, sequence, to } from '@musical-patterns/utilities'
-import { computeFirstHarmonyContourPieces } from '../pieces'
+import { computeFirstHarmonyContourPieces } from '../piece'
 
 const computeFirstHarmonyContourWhole: () => ContourWhole<PitchDurationScale> =
     (): ContourWhole<PitchDurationScale> =>

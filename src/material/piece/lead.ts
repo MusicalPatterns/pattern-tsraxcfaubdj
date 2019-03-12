@@ -11,7 +11,7 @@ import {
     quietudeEndingToLoopLead,
     quietudeLead,
     suspensionLead,
-} from '../segments'
+} from '../segment'
 
 const computeLeadContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
     (): Array<ContourPiece<PitchDurationScale>> =>

@@ -7,13 +7,13 @@ export {
     computeLeadContourPieces,
     computeFirstHarmonyContourPieces,
     computeSecondHarmonyContourPieces,
-} from './pieces/indexForTest'
+} from './piece/indexForTest'
 export {
     computeBassContourWhole,
     computeFirstHarmonyContourWhole,
     computeSecondHarmonyContourWhole,
     computeLeadContourWhole,
-} from './wholes/indexForTest'
+} from './whole/indexForTest'
 export {
     HALF_NOTE,
     WHOLE_NOTE,
@@ -24,7 +24,7 @@ export {
     FIFTH_OCTAVE,
     FOURTH_OCTAVE,
     QUARTER_NOTE,
-} from './segments/indexForTest'
+} from './segment/indexForTest'
 export {
     computeYerBlumeyerCommaPump,
     yerPitchClassIndex,

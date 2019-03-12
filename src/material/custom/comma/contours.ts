@@ -1,6 +1,6 @@
 import { apply, map, Ordinal } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../../constants'
-import { HALF_NOTE, WHOLE_NOTE } from '../../segments'
+import { HALF_NOTE, WHOLE_NOTE } from '../../segment'
 import { yerPitchClassIndex } from '../pitchClassIndices'
 import { YerPitchClass } from '../types'
 import { OctavesMap, YerBlumeyerCommaPump } from './types'

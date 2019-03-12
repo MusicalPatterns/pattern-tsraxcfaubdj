@@ -8,7 +8,7 @@ import {
     quietudeBassPump,
     suspensionBassPump,
     thirdStepOfOpeningBassPumpIfItDidNotCommaShift,
-} from '../segments'
+} from '../segment'
 
 const computeBassContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
     (): Array<ContourPiece<PitchDurationScale>> =>
