@@ -8,7 +8,7 @@ import {
 } from '@musical-patterns/pattern'
 import { TSRAXCFAUBDJ_INITIAL_BASE_DURATION, TSRAXCFAUBDJ_INITIAL_BASE_FREQUENCY } from './constants'
 
-const initial: StandardSpecs = {
+const initialSpecs: StandardSpecs = {
     ...standardInitialSpecs,
     [ StandardSpec.BASE_DURATION ]: TSRAXCFAUBDJ_INITIAL_BASE_DURATION,
     [ StandardSpec.BASE_FREQUENCY ]: TSRAXCFAUBDJ_INITIAL_BASE_FREQUENCY,
@@ -20,7 +20,7 @@ const configurations: Configurations<StandardSpecs> = {
 
 const spec: Spec<StandardSpecs> = {
     configurations,
-    initial,
+    initialSpecs,
 }
 
 export {

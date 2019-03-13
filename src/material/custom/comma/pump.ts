@@ -38,9 +38,8 @@ const computeYerBlumeyerCommaPump:
         if (isFullPump(pump)) {
             return pump
         }
-        else {
-            throw new Error(`A full pump was not built; only ${pump.length} steps were built (4 required).`)
-        }
+
+        throw new Error(`A full pump was not built; only ${pump.length} steps were built (4 required).`)
     }
 
 export {
