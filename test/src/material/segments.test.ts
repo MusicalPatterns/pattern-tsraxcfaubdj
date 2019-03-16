@@ -23,8 +23,8 @@ import {
     YerFactor,
     YerFactorization,
 } from '../../../src/indexForTest'
-import { pitchClassIndexFromPitchIndexRespectingRests } from './helpers'
-import { PotentialFailure } from './types'
+import { pitchClassIndexFromPitchIndexRespectingRests } from '../../support/helpers'
+import { PotentialFailure } from '../../support/types'
 
 describe('segments', () => {
     const SEGMENT_COUNT: number = 24

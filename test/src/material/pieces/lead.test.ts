@@ -12,7 +12,7 @@ import {
     YerPitchClass,
     yerPitchClassIndex,
 } from '../../../../src/indexForTest'
-import { testEveryIntervalIsSimple } from './helpers'
+import { testEveryIntervalIsSimple } from '../../../support/helpers'
 
 describe('lead pieces', () => {
     it('almost every interval is a simple 11, 13, 17, or 19', async (done: DoneFn) => {

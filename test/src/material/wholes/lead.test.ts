@@ -1,6 +1,6 @@
 import { Ordinal, to } from '@musical-patterns/utilities'
 import { computeLeadContourWhole } from '../../../../src/indexForTest'
-import { testDoesNotUseSamePitchesAsBass } from './helpers'
+import { testDoesNotUseSamePitchesAsBass } from '../../../support/helpers'
 
 describe('lead whole', () => {
     it('does not use any of the same pitches as the bass pumps', () => {

@@ -1,6 +1,6 @@
 import { Ordinal, to } from '@musical-patterns/utilities'
 import { computeFirstHarmonyContourWhole } from '../../../../src/indexForTest'
-import { testDoesNotUseSamePitchesAsBass } from './helpers'
+import { testDoesNotUseSamePitchesAsBass } from '../../../support/helpers'
 
 describe('first harmony whole', () => {
     it('does not use any of the same pitches as the bass pumps', () => {

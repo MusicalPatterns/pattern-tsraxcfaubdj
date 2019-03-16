@@ -1,4 +1,4 @@
-import { YerFactorization } from '../../../src/indexForTest'
+import { YerFactorization } from '../../src/indexForTest'
 
 interface PotentialFailure {
     firstFactorization: YerFactorization,
