@@ -14,7 +14,7 @@ import {
 
 const computeSecondHarmonyContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
     (): Array<ContourPiece<PitchDurationScale>> =>
-        sequence([
+        sequence(
             openingRest(),
             openingSecondHarmony(),
             openingEntranceAsPartOfLoopSecondHarmony(),
@@ -24,7 +24,7 @@ const computeSecondHarmonyContourPieces: () => Array<ContourPiece<PitchDurationS
             quietudeSecondHarmony(),
             quietudeSecondHarmony(),
             openingEntranceSecondHarmony(),
-        ])
+        )
             .map((contourPiece: number[][]) => to.ContourPiece<PitchDurationScale>(contourPiece))
 
 export {

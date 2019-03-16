@@ -13,20 +13,20 @@ const computePumpInstructionsFromFamily:
 
         switch (family) {
             case YerBlumeyerCommaPumpFamily.A:
-                return to.Cycle(sequence([
+                return to.Cycle(sequence(
                     [ { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD } ],
                     apply.Translation(theFactorsOnTheOtherSide, to.Translation(0)),
-                ]))
+                ))
             case YerBlumeyerCommaPumpFamily.B:
-                return to.Cycle(sequence([
+                return to.Cycle(sequence(
                     [ { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD } ],
                     apply.Translation(theFactorsOnTheOtherSide, to.Translation(1)),
-                ]))
+                ))
             case YerBlumeyerCommaPumpFamily.C:
-                return to.Cycle(sequence([
+                return to.Cycle(sequence(
                     [ { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD } ],
                     apply.Translation(theFactorsOnTheOtherSide, to.Translation(negative(1))),
-                ]))
+                ))
             default:
                 throw new Error('YerBlumeyerCommaPumpInstructionsBlueprint has no family.')
         }

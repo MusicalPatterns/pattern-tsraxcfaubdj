@@ -4,7 +4,7 @@ import { computeSecondHarmonyContourPieces } from '../piece'
 
 const computeSecondHarmonyContourWhole: () => ContourWhole<PitchDurationScale> =
     (): ContourWhole<PitchDurationScale> =>
-        to.ContourWhole<PitchDurationScale>(sequence(computeSecondHarmonyContourPieces()))
+        to.ContourWhole<PitchDurationScale>(sequence(...computeSecondHarmonyContourPieces()))
 
 export {
     computeSecondHarmonyContourWhole,

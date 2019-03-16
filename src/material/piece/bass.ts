@@ -12,7 +12,7 @@ import {
 
 const computeBassContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
     (): Array<ContourPiece<PitchDurationScale>> =>
-        sequence([
+        sequence(
             openingRest(),
             openingBassPump(),
             openingBassPump()
@@ -26,7 +26,7 @@ const computeBassContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
                 .slice(INITIAL, SECOND),
             openingBassPump()
                 .slice(FIRST, FOURTH),
-        ])
+        )
             .map((contourPiece: number[][]) => to.ContourPiece<PitchDurationScale>(contourPiece))
 
 export {

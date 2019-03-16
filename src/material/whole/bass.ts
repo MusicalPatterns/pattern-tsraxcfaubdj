@@ -4,7 +4,7 @@ import { computeBassContourPieces } from '../piece'
 
 const computeBassContourWhole: () => ContourWhole<PitchDurationScale> =
     (): ContourWhole<PitchDurationScale> =>
-        to.ContourWhole<PitchDurationScale>(sequence(computeBassContourPieces()))
+        to.ContourWhole<PitchDurationScale>(sequence(...computeBassContourPieces()))
 
 export {
     computeBassContourWhole,

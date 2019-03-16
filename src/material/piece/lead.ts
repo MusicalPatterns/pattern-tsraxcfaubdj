@@ -15,7 +15,7 @@ import {
 
 const computeLeadContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
     (): Array<ContourPiece<PitchDurationScale>> =>
-        sequence([
+        sequence(
             openingLead(),
             openingEntranceAsPartOfLoopLead(),
             openingLead(),
@@ -28,7 +28,7 @@ const computeLeadContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
             openingEntranceLead(),
             openingLead()
                 .slice(INITIAL, FIRST),
-        ])
+        )
             .map((contourPiece: number[][]) => to.ContourPiece<PitchDurationScale>(contourPiece))
 
 export {
