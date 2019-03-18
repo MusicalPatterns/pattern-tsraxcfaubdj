@@ -4,7 +4,7 @@ import {
     apply,
     forEach,
     from,
-    indexOfLastElement,
+    indexOfFinalElement,
     INITIAL,
     isUndefined,
     Maybe,
@@ -28,7 +28,7 @@ describe('yer scale', () => {
                 yerScaleScalars,
                 INITIAL,
                 apply.Translation(
-                    indexOfLastElement(yerScaleScalars),
+                    indexOfFinalElement(yerScaleScalars),
                     to.Translation(from.Cardinal(negative(YER_PITCH_CLASS_COUNT))),
                 ),
             ),

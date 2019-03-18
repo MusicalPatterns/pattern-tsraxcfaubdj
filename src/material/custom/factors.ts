@@ -2,7 +2,7 @@ import {
     entries,
     forEach,
     Frequency,
-    indexOfLastElement,
+    indexOfFinalElement,
     isUndefined,
     Ordinal,
     reduce,
@@ -34,7 +34,7 @@ const pitchClassByFactorization: () => YerPitchClassByFactorization =
                         const key: string = yer.subset.includes(factor)
                             .toString()
                         if (isUndefined(cursor[ key ])) {
-                            cursor[ key ] = index === indexOfLastElement(YER_FACTORS) ? yer.pitchClass : {}
+                            cursor[ key ] = index === indexOfFinalElement(YER_FACTORS) ? yer.pitchClass : {}
                         }
                         const node: YerPitchClassByFactorizationCursor | YerPitchClass = cursor[ key ]
                         if (isNotYerPitchClassByFactorizationLeaf(node)) {

@@ -9,7 +9,7 @@ import {
     forEach,
     Fraction,
     from,
-    indexOfLastElement,
+    indexOfFinalElement,
     isCloseTo,
     Maybe,
     NEXT,
@@ -101,7 +101,7 @@ const testEveryIntervalIsSimple: (voiceIndex: Ordinal, exceptionalIndices?: Ordi
             }
 
             const nextIndex: Ordinal = apply.Translation(index, NEXT)
-            if (nextIndex > indexOfLastElement(sounds)) {
+            if (nextIndex > indexOfFinalElement(sounds)) {
                 return
             }
             const nextSound: Maybe<Sound> = apply.Ordinal(sounds, nextIndex)

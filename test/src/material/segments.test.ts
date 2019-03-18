@@ -7,7 +7,7 @@ import {
     deepEqual,
     forEach,
     from,
-    indexOfLastElement,
+    indexOfFinalElement,
     keys,
     NEXT,
     Ordinal,
@@ -98,7 +98,7 @@ describe('segments', () => {
         quarters.forEach((quarter: number[]) => {
             for (
                 let firstPitchIndex: Ordinal = to.Ordinal(0);
-                from.Ordinal(firstPitchIndex) < indexOfLastElement(quarter);
+                from.Ordinal(firstPitchIndex) < indexOfFinalElement(quarter);
                 firstPitchIndex = apply.Translation(firstPitchIndex, NEXT)
             ) {
                 for (
