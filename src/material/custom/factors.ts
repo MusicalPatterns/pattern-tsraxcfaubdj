@@ -4,15 +4,13 @@ import {
     Frequency,
     indexOfFinalElement,
     isUndefined,
+    objectSet,
     Ordinal,
     reduce,
     Scalar,
 } from '@musical-patterns/utilities'
 import { YER_FACTORS } from './constants'
-import {
-    isNotYerPitchClassByFactorizationLeaf,
-    yerScalarByFactor,
-} from './helpers'
+import { isNotYerPitchClassByFactorizationLeaf, yerScalarByFactor } from './helpers'
 import {
     Yer,
     YerFactor,
@@ -34,7 +32,7 @@ const pitchClassByFactorization: () => YerPitchClassByFactorization =
                         const key: string = yer.subset.includes(factor)
                             .toString()
                         if (isUndefined(cursor[ key ])) {
-                            cursor[ key ] = index === indexOfFinalElement(YER_FACTORS) ? yer.pitchClass : {}
+                            objectSet(cursor, key, index === indexOfFinalElement(YER_FACTORS) ? yer.pitchClass : {})
                         }
                         const node: YerPitchClassByFactorizationCursor | YerPitchClass = cursor[ key ]
                         if (isNotYerPitchClassByFactorizationLeaf(node)) {
@@ -56,7 +54,7 @@ const factorizationByPitchClass: () => YerFactorizationByPitchClass =
                 entries(yerScalarByFactor)
                     .forEach(([ factor, scalar ]: [ YerFactor, Scalar<Frequency> ]) => {
                         if (yer.subset.includes(scalar)) {
-                            factorization[ factor ] = true
+                            objectSet(factorization, factor, true)
                         }
                     })
 
