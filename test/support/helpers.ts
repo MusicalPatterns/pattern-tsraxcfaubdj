@@ -93,7 +93,7 @@ const testEveryIntervalIsSimple: (voiceIndex: Ordinal, exceptionalIndices?: Ordi
 
         const voices: Voice[] = await compilePattern(pattern)
         const voice: Voice = voices[ voiceIndex ]
-        const sounds: Sound[] = voice.sounds || []
+        const sounds: Sound[] = voice.sections![ 0 ].sounds || []
 
         forEach(sounds, (sound: Sound, index: Ordinal) => {
             if (exceptionalIndices.includes(index)) {

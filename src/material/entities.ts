@@ -7,22 +7,22 @@ const materializeEntities: () => Entity[] =
         const notes: TsraxcfaubdjNotes = computeNotes()
 
         const leadEntity: Entity = {
-            notes: notes.lead,
+            sections: [ { notes: notes.lead } ],
             timbreName: TimbreNameEnum.PHONEME_OOH,
         }
 
         const bassEntity: Entity = {
-            notes: notes.bass,
+            sections: [ { notes: notes.bass } ],
             timbreName: TimbreNameEnum.ORGAN_2,
         }
 
         const firstHarmonyEntity: Entity = {
-            notes: notes.firstHarmony,
+            sections: [ { notes: notes.firstHarmony } ],
             timbreName: TimbreNameEnum.CELESTE,
         }
 
         const secondHarmonyEntity: Entity = {
-            notes: notes.secondHarmony,
+            sections: [ { notes: notes.secondHarmony } ],
             timbreName: TimbreNameEnum.ETHNIC_33,
         }
 

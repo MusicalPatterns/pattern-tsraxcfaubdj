@@ -1,6 +1,6 @@
 {
   "name": "@musical-patterns/pattern-tsraxcfaubdj",
-  "version": "1.0.80",
+  "version": "1.0.81",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "license": "MIT",
@@ -9,14 +9,14 @@
     "url": "https://github.com/MusicalPatterns/pattern-tsraxcfaubdj.git"
   },
   "dependencies": {
-    "@musical-patterns/compiler": "^1.0.129",
-    "@musical-patterns/pattern": "^1.0.239",
-    "@musical-patterns/utilities": "^1.0.396"
+    "@musical-patterns/compiler": "^1.0.131",
+    "@musical-patterns/pattern": "^1.0.240",
+    "@musical-patterns/utilities": "^1.0.399"
   },
   "devDependencies": {
     "@musical-patterns/cli": "^1.0.506",
-    "@musical-patterns/performer": "^1.0.222",
-    "@musical-patterns/playroom": "^1.0.358",
+    "@musical-patterns/performer": "^1.0.224",
+    "@musical-patterns/playroom": "^1.0.360",
     "@musical-patterns/snapshot": "^1.0.64"
   }
 }
