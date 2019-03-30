@@ -1,4 +1,4 @@
 export {
     yerScalarByFactor,
     isNotYerPitchClassByFactorizationLeaf,
-}from './factors'
+} from './factors'
