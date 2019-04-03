@@ -7,7 +7,6 @@ import {
     openingEntranceAsPartOfLoopFirstHarmony,
     openingEntranceFirstHarmony,
     openingFirstHarmony,
-    openingRest,
     quietudeFirstHarmony,
     suspensionFirstHarmony,
 } from '../segment'
@@ -15,7 +14,6 @@ import {
 const computeFirstHarmonyContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
     (): Array<ContourPiece<PitchDurationScale>> =>
         sequence(
-            openingRest(),
             openingFirstHarmony(),
             openingEntranceAsPartOfLoopFirstHarmony(),
             openingFirstHarmony(),

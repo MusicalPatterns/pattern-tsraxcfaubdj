@@ -4,6 +4,8 @@ interface TsraxcfaubdjNotes {
     bass: Note[],
     firstHarmony: Note[],
     lead: Note[],
+    leadIntro: Note[],
+    nonLeadIntroRest: Note[],
     secondHarmony: Note[],
 }
 

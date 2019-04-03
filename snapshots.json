@@ -590,7 +590,7 @@
         "sourceType": "OSCILLATOR",
         "timbreName": "PHONEME_OOH"
       },
-      "segnoIndex": 0
+      "segnoIndex": 4
     },
     {
       "sounds": [
@@ -929,7 +929,7 @@
         "sourceType": "OSCILLATOR",
         "timbreName": "ORGAN_2"
       },
-      "segnoIndex": 0
+      "segnoIndex": 1
     },
     {
       "sounds": [
@@ -1235,7 +1235,7 @@
         "sourceType": "OSCILLATOR",
         "timbreName": "ETHNIC_33"
       },
-      "segnoIndex": 0
+      "segnoIndex": 1
     },
     {
       "sounds": [
@@ -1541,7 +1541,7 @@
         "sourceType": "OSCILLATOR",
         "timbreName": "CELESTE"
       },
-      "segnoIndex": 0
+      "segnoIndex": 1
     }
   ]
 }

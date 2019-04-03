@@ -27,7 +27,7 @@ import { pitchClassIndexFromPitchIndexRespectingRests } from '../../support/help
 import { PotentialFailure } from '../../support/types'
 
 describe('segments', () => {
-    const SEGMENT_COUNT: number = 24
+    const SEGMENT_COUNT: number = 23
     const QUARTERS_PER_SEGMENT: number = 4
     const QUARTERS_COUNT: number = SEGMENT_COUNT * QUARTERS_PER_SEGMENT
     const COMBINATIONS_PER_QUARTER: number = combinationCount(QUARTERS_PER_SEGMENT, 2)
@@ -129,13 +129,13 @@ describe('segments', () => {
         expect(combinationsOfFactorizations.length)
             .toBe(COMBINATIONS_COUNT)
 
-        const DESIRED_TENSION_AT_END_OF_DESPERATION_1: number = 49
-        const DESIRED_TENSION_AT_END_OF_DESPERATION_2: number = 50
-        const DESIRED_TENSION_AT_END_OF_DESPERATION_3: number = 51
-        const DESIRED_TENSION_AT_END_OF_DESPERATION_4: number = 53
-        const DESIRED_TENSION_AT_END_OF_DESPERATION_5: number = 54
-        const DESIRED_TENSION_AT_END_OF_DESPERATION_6: number = 55
-        const DESIRED_TENSION_AT_END_OF_FIRST_QUIETUDE_SINCE_IT_IS_NOT_READY_TO_LOOP: number = 69
+        const DESIRED_TENSION_AT_END_OF_DESPERATION_1: number = 45
+        const DESIRED_TENSION_AT_END_OF_DESPERATION_2: number = 46
+        const DESIRED_TENSION_AT_END_OF_DESPERATION_3: number = 47
+        const DESIRED_TENSION_AT_END_OF_DESPERATION_4: number = 49
+        const DESIRED_TENSION_AT_END_OF_DESPERATION_5: number = 50
+        const DESIRED_TENSION_AT_END_OF_DESPERATION_6: number = 51
+        const DESIRED_TENSION_AT_END_OF_FIRST_QUIETUDE_SINCE_IT_IS_NOT_READY_TO_LOOP: number = 65
         const exceptionalIndices: number[] = [
             DESIRED_TENSION_AT_END_OF_DESPERATION_1,
             DESIRED_TENSION_AT_END_OF_DESPERATION_2,

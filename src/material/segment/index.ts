@@ -1,6 +1,9 @@
 export {
+    introLead,
+    introRest,
+} from './intro'
+export {
     openingLead,
-    openingRest,
     openingBassPump,
     thirdStepOfOpeningBassPumpIfItDidNotCommaShift,
     openingFirstHarmony,

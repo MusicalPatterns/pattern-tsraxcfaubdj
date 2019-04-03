@@ -6,7 +6,6 @@ import {
     desperationSecondHarmony,
     openingEntranceAsPartOfLoopSecondHarmony,
     openingEntranceSecondHarmony,
-    openingRest,
     openingSecondHarmony,
     quietudeSecondHarmony,
     suspensionSecondHarmony,
@@ -15,7 +14,6 @@ import {
 const computeSecondHarmonyContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
     (): Array<ContourPiece<PitchDurationScale>> =>
         sequence(
-            openingRest(),
             openingSecondHarmony(),
             openingEntranceAsPartOfLoopSecondHarmony(),
             openingSecondHarmony(),

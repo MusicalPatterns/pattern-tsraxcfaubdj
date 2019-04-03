@@ -30,9 +30,6 @@ describe('bass pieces', () => {
             .toEqual(
                 [
                     [
-                        [ from.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
-                    ],
-                    [
                         [ yerPitchClassIndex(SECOND_OCTAVE, YerPitchClass._13), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [

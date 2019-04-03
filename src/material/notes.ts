@@ -5,6 +5,8 @@ import {
     computeBassContourWhole,
     computeFirstHarmonyContourWhole,
     computeLeadContourWhole,
+    computeLeadIntroContourWhole,
+    computeNonLeadIntroRestContourWhole,
     computeSecondHarmonyContourWhole,
 } from './whole'
 
@@ -19,10 +21,17 @@ const computeNotes: () => TsraxcfaubdjNotes =
         const secondHarmony: Note[] = computeSecondHarmonyContourWhole()
             .map(computeNote)
 
+        const leadIntro: Note[] = computeLeadIntroContourWhole()
+            .map(computeNote)
+        const nonLeadIntroRest: Note[] = computeNonLeadIntroRestContourWhole()
+            .map(computeNote)
+
         return {
             bass,
             firstHarmony,
             lead,
+            leadIntro,
+            nonLeadIntroRest,
             secondHarmony,
         }
     }

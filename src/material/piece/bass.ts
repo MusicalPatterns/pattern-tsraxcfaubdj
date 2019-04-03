@@ -4,7 +4,6 @@ import { PitchDurationScale } from '@musical-patterns/pattern'
 import { ContourPiece, FIRST, FOURTH, INITIAL, SECOND, sequence, THIRD, to } from '@musical-patterns/utilities'
 import {
     openingBassPump,
-    openingRest,
     quietudeBassPump,
     suspensionBassPump,
     thirdStepOfOpeningBassPumpIfItDidNotCommaShift,
@@ -13,7 +12,6 @@ import {
 const computeBassContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
     (): Array<ContourPiece<PitchDurationScale>> =>
         sequence(
-            openingRest(),
             openingBassPump(),
             openingBassPump()
                 .slice(INITIAL, SECOND),
