@@ -1,5 +1,7 @@
 {
-  "initial": [
+  "segnoTime": 9600,
+  "totalDuration": 230400,
+  "voices": [
     {
       "sounds": [
         {
