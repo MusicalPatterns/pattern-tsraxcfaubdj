@@ -31,7 +31,7 @@ const pitchClassIndexFromPitchIndexRespectingRests: (pitchIndex: number) => numb
 
         return apply.Modulus(
             pitchIndex,
-            to.Modulus(YER_PITCH_CLASS_COUNT),
+            to.Modulus(from.Cardinal(YER_PITCH_CLASS_COUNT)),
         )
     }
 
@@ -89,7 +89,10 @@ const testEveryIntervalIsSimple: (voiceIndex: Ordinal, exceptionalIndices?: Ordi
             [ 19, 16 ],
             [ 19, 32 ],
         ]
-        const acceptableRatios: Fraction[] = rawAcceptablySimpleRatios.map(to.Fraction)
+        const acceptableRatios: Fraction[] = rawAcceptablySimpleRatios.map(
+            ([ numerator, denominator ]: [ number, number ]) =>
+                to.Fraction([ to.Numerator(numerator), to.Denominator(denominator) ]),
+        )
 
         const { voices } = await compilePattern(pattern)
         const voice: Voice = voices[ voiceIndex ]
