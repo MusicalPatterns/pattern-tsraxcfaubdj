@@ -1,5 +1,5 @@
 import { Scale } from '@musical-patterns/material'
-import { StandardSpecs } from '@musical-patterns/pattern'
+import { StandardSpecs } from '@musical-patterns/spec'
 import {
     apply,
     forEach,

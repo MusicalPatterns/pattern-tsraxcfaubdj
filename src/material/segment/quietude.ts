@@ -1,6 +1,6 @@
 // tslint:disable max-file-line-count
 
-import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
+import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
 import { from } from '@musical-patterns/utilities'
 import { YER_EXCEPTION_SCALE_INDEX, YER_SCALE_INDEX } from '../constants'
 import { YerExceptionPitchClass, yerExceptionPitchClassIndex, YerPitchClass, yerPitchClassIndex } from '../custom'

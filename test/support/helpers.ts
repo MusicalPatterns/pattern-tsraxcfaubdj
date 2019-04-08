@@ -1,5 +1,10 @@
-import { compilePattern, Sound, Voice } from '@musical-patterns/material'
-import { PitchDurationScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
+import {
+    compilePattern,
+    PitchDurationScale,
+    Sound,
+    STANDARD_PITCH_INDEX_INDICATING_REST,
+    Voice,
+} from '@musical-patterns/material'
 import {
     apply,
     ContourElement,

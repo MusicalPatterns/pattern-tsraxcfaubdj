@@ -1,6 +1,6 @@
 // tslint:disable max-file-line-count
 
-import { PitchDurationScale } from '@musical-patterns/pattern'
+import { PitchDurationScale } from '@musical-patterns/material'
 import { ContourPiece, sequence, to } from '@musical-patterns/utilities'
 import {
     desperationLead,

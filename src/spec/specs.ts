@@ -5,7 +5,7 @@ import {
     standardInitialSpecs,
     StandardSpec,
     StandardSpecs,
-} from '@musical-patterns/pattern'
+} from '@musical-patterns/spec'
 import { TSRAXCFAUBDJ_INITIAL_BASE_DURATION, TSRAXCFAUBDJ_INITIAL_BASE_FREQUENCY } from './constants'
 
 const initialSpecs: StandardSpecs = {

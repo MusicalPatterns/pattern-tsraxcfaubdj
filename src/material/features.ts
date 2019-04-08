@@ -1,10 +1,10 @@
-import { Note } from '@musical-patterns/material'
 import {
+    Note,
     PitchDurationScale,
     SILENT,
     STANDARD_DURATIONS_SCALE_INDEX,
     STANDARD_PITCH_INDEX_INDICATING_REST,
-} from '@musical-patterns/pattern'
+} from '@musical-patterns/material'
 import { Amplitude, ContourElement, from, Scalar, to } from '@musical-patterns/utilities'
 
 const computeNote: (contourElement: ContourElement<PitchDurationScale>) => Note =

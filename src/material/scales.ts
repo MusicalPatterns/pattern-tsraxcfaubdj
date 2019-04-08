@@ -1,5 +1,10 @@
-import { MaterializeScales, Scale } from '@musical-patterns/material'
-import { materializeStandardScales, STANDARD_PITCH_SCALE_INDEX, StandardSpecs } from '@musical-patterns/pattern'
+import {
+    MaterializeScales,
+    materializeStandardScales,
+    Scale,
+    STANDARD_PITCH_SCALE_INDEX,
+} from '@musical-patterns/material'
+import { StandardSpecs } from '@musical-patterns/spec'
 import { computeOctaveRepeatingScalars, from, Scalar, to } from '@musical-patterns/utilities'
 import { computeYerExceptionScalars, computeYerScalars } from './scalars'
 

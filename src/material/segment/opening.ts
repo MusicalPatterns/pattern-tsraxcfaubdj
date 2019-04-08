@@ -1,5 +1,4 @@
-import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
-import { from, NO_TRANSLATION } from '@musical-patterns/utilities'
+import { NO_TRANSLATION } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import {
     computeYerBlumeyerCommaPump,

@@ -1,5 +1,5 @@
-import { PitchDurationScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
-import { from, Ordinal, to } from '@musical-patterns/utilities'
+import { PitchDurationScale } from '@musical-patterns/material'
+import { Ordinal, to } from '@musical-patterns/utilities'
 import {
     computeBassContourPieces,
     HALF_NOTE,

@@ -1,4 +1,4 @@
-import { PitchDurationScale } from '@musical-patterns/pattern'
+import { PitchDurationScale } from '@musical-patterns/material'
 import { ContourWhole, sequence, to } from '@musical-patterns/utilities'
 import { computeLeadIntroContourPieces, computeNonLeadIntroRestContourPieces } from '../piece'
 
