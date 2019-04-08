@@ -1,4 +1,4 @@
-import { Scale } from '@musical-patterns/compiler'
+import { Scale } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/pattern'
 import {
     apply,

@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/material'
 import { computeNote } from './features'
 import { TsraxcfaubdjNotes } from './types'
 import {

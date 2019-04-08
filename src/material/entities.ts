@@ -1,4 +1,4 @@
-import { Entity, TimbreNameEnum } from '@musical-patterns/compiler'
+import { Entity, TimbreNameEnum } from '@musical-patterns/material'
 import { ONCE } from '@musical-patterns/utilities'
 import { computeNotes } from './notes'
 import { TsraxcfaubdjNotes } from './types'
