@@ -1,4 +1,4 @@
-import { Frequency, Scalar, testArraysAreClose, to } from '@musical-patterns/utilities'
+import { Frequency, Scalar, to } from '@musical-patterns/utilities'
 import { computeYerExceptionScalars, computeYerScalars } from '../../../src/indexForTest'
 
 describe('scalars', () => {
@@ -49,7 +49,8 @@ describe('scalars', () => {
                 1.9296875,
             ].map(to.Scalar)
                 .map(to.Frequency)
-            testArraysAreClose(actualScalars, expectedScalarsAsDecimals)
+            expect(actualScalars)
+                .toBeCloseToArray(expectedScalarsAsDecimals)
         })
     })
 
@@ -71,7 +72,8 @@ describe('scalars', () => {
                 1.40340909091,
             ].map(to.Scalar)
                 .map(to.Frequency)
-            testArraysAreClose(actualScalars, expectedScalarsAsDecimals)
+            expect(actualScalars)
+                .toBeCloseToArray(expectedScalarsAsDecimals)
         })
     })
 })
