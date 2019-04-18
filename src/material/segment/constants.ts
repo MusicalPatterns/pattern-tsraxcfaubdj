@@ -1,6 +1,7 @@
 // tslint:disable no-magic-numbers
 
 import { Ordinal, to } from '@musical-patterns/utilities'
+import { YerBlumeyerCommaPumpInstruction } from '../custom'
 
 const THREE_WHOLE_NOTES: number = 12
 const WHOLE_NOTE: number = 4
@@ -13,8 +14,8 @@ const THIRD_OCTAVE: number = 3
 const FOURTH_OCTAVE: number = 4
 const FIFTH_OCTAVE: number = 5
 
-const FIRST_PUMP_ROTATION: Ordinal = to.Ordinal(2)
-const SECOND_PUMP_ROTATION: Ordinal = to.Ordinal(3)
+const FIRST_PUMP_ROTATION: Ordinal<YerBlumeyerCommaPumpInstruction> = to.Ordinal<YerBlumeyerCommaPumpInstruction>(2)
+const SECOND_PUMP_ROTATION: Ordinal<YerBlumeyerCommaPumpInstruction> = to.Ordinal<YerBlumeyerCommaPumpInstruction>(3)
 
 export {
     THREE_WHOLE_NOTES,

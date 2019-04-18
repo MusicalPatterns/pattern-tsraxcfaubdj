@@ -3,6 +3,7 @@
 import {
     Hz,
     Ms,
+    ofFrom,
     Scalar,
     SCIENTIFIC_PITCHES,
     ScientificPitchNoteName,
@@ -10,9 +11,9 @@ import {
     to,
 } from '@musical-patterns/utilities'
 
-const TSRAXCFAUBDJ_INITIAL_BASE_DURATION: Scalar<Ms> = to.Scalar(to.Ms(2400))
+const TSRAXCFAUBDJ_INITIAL_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(2400)
 const TSRAXCFAUBDJ_INITIAL_BASE_FREQUENCY: Scalar<Hz> =
-    to.Scalar(SCIENTIFIC_PITCHES[ ScientificPitchNoteName.C ][ ScientificPitchOctaveNumber._0 ])
+    to.Scalar(ofFrom(SCIENTIFIC_PITCHES[ ScientificPitchNoteName.C ][ ScientificPitchOctaveNumber._0 ]))
 
 export {
     TSRAXCFAUBDJ_INITIAL_BASE_DURATION,

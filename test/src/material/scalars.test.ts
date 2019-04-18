@@ -1,12 +1,12 @@
-import { Frequency, Scalar, to } from '@musical-patterns/utilities'
+import { Hz, Scalar, to } from '@musical-patterns/utilities'
 import { computeYerExceptionScalars, computeYerScalars } from '../../../src/indexForTest'
 
 describe('scalars', () => {
     describe('yer scalars', () => {
         it('are the octave reduced power set of the prime harmonics 11, 13, 17, and 19', () => {
-            const actualScalars: Array<Scalar<Frequency>> = computeYerScalars()
+            const actualScalars: Array<Scalar<Hz>> = computeYerScalars()
 
-            const expectedScalarsAsRatios: Array<Scalar<Frequency>> = [
+            const expectedScalarsAsRatios: Array<Scalar<Hz>> = [
                 // tslint:disable-next-line no-identical-expressions
                 1 / 1,
                 4199 / 4096,
@@ -24,12 +24,11 @@ describe('scalars', () => {
                 221 / 128,
                 3553 / 2048,
                 247 / 128,
-            ].map(to.Scalar)
-                .map(to.Frequency)
+            ].map((expected: number) => to.Scalar<Hz>(expected))
             expect(actualScalars)
                 .toEqual(expectedScalarsAsRatios)
 
-            const expectedScalarsAsDecimals: Array<Scalar<Frequency>> = [
+            const expectedScalarsAsDecimals: Array<Scalar<Hz>> = [
                 // tslint:disable-next-line number-literal-format
                 1.0,
                 1.025146484375,
@@ -47,8 +46,7 @@ describe('scalars', () => {
                 1.7265625,
                 1.73486328125,
                 1.9296875,
-            ].map(to.Scalar)
-                .map(to.Frequency)
+            ].map((expected: number) => to.Scalar<Hz>(expected))
             expect(actualScalars)
                 .toBeCloseToArray(expectedScalarsAsDecimals)
         })
@@ -56,22 +54,19 @@ describe('scalars', () => {
 
     describe('yer exception scalars', () => {
         it('is a set of a couple scalars not members of yer at its most essential, but which come in handy when using it', () => {
-            const actualScalars: Array<Scalar<Frequency>> = computeYerExceptionScalars()
+            const actualScalars: Array<Scalar<Hz>> = computeYerExceptionScalars()
 
-            const expectedScalarsAsRatios: Array<Scalar<Frequency>> = [
+            const expectedScalarsAsRatios: Array<Scalar<Hz>> = [
                 2057 / 2048,
                 247 / 176,
-
-            ].map(to.Scalar)
-                .map(to.Frequency)
+            ].map((expected: number) => to.Scalar<Hz>(expected))
             expect(actualScalars)
                 .toEqual(expectedScalarsAsRatios)
 
-            const expectedScalarsAsDecimals: Array<Scalar<Frequency>> = [
+            const expectedScalarsAsDecimals: Array<Scalar<Hz>> = [
                 1.00439453125,
                 1.40340909091,
-            ].map(to.Scalar)
-                .map(to.Frequency)
+            ].map((expected: number) => to.Scalar<Hz>(expected))
             expect(actualScalars)
                 .toBeCloseToArray(expectedScalarsAsDecimals)
         })

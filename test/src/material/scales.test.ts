@@ -29,18 +29,18 @@ describe('yer scale', () => {
                 INITIAL,
                 apply.Translation(
                     indexOfFinalElement(yerScaleScalars),
-                    to.Translation(from.Cardinal(negative(YER_PITCH_CLASS_COUNT))),
+                    to.Translation<Ordinal<Scalar>>(from.Cardinal(negative(YER_PITCH_CLASS_COUNT))),
                 ),
             ),
-            (scalar: Scalar, index: Ordinal) => {
-                const indexOfScalarWhichShouldBeTwiceThisOne: Ordinal = apply.Translation(
+            (scalar: Scalar, index: Ordinal<Scalar>) => {
+                const indexOfScalarWhichShouldBeTwiceThisOne: Ordinal<Scalar> = apply.Translation(
                     index,
-                    to.Translation(from.Cardinal(YER_PITCH_CLASS_COUNT)),
+                    to.Translation<Ordinal<Scalar>>(from.Cardinal(YER_PITCH_CLASS_COUNT)),
                 )
                 const yerScaleScalarWhichShouldBeTwiceThisOne: Maybe<Scalar> =
                     apply.Ordinal(yerScaleScalars, indexOfScalarWhichShouldBeTwiceThisOne)
                 if (isUndefined(yerScaleScalarWhichShouldBeTwiceThisOne)) {
-                    fail('yer scale scalar which should be twice this one was beyond the count of yer scale scalars')
+                    fail('yer scale multiple which should be twice this one was beyond the count of yer scale scalars')
 
                     return
                 }

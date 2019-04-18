@@ -1,4 +1,4 @@
-import { Frequency, ObjectOf, Scalar } from '@musical-patterns/utilities'
+import { Frequency, Multiple, ObjectOf, Scalar } from '@musical-patterns/utilities'
 
 enum YerPitchClass {
     _1 = '_1',
@@ -36,7 +36,7 @@ type YerFactorization = Partial<{ [Index in YerFactor]: boolean }>
 interface Yer {
     pitchClass: YerPitchClass,
     scalar: Scalar<Frequency>,
-    subset: Array<Scalar<Frequency>>,
+    subset: Array<Multiple<Scalar<Frequency>>>,
 }
 
 type YerPitchClassByFactorization = ObjectOf<ObjectOf<ObjectOf<ObjectOf<YerPitchClass>>>>

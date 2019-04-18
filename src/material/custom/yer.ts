@@ -3,6 +3,7 @@ import {
     Frequency,
     from,
     keyExistsOnObject,
+    Multiple,
     octaveReduce,
     powerSet,
     reduce,
@@ -19,10 +20,10 @@ const isYerPitchClass: (candidate: string) => candidate is YerPitchClass =
 const computeYer: () => Yer[] =
     (): Yer[] =>
         powerSet(YER_FACTORS)
-            .map((subset: Array<Scalar<Frequency>>): Yer => {
+            .map((subset: Array<Multiple<Scalar<Frequency>>>): Yer => {
                 let rawPitchClass: string = reduce(
                     subset,
-                    (accumulator: string, factor: Scalar<Frequency>): string =>
+                    (accumulator: string, factor: Multiple<Scalar<Frequency>>): string =>
                         `${accumulator}_${factor}`,
                     '',
                 )
@@ -37,19 +38,20 @@ const computeYer: () => Yer[] =
 
                 const scalar: Scalar<Frequency> = reduce(
                     subset,
-                    (accumulator: Scalar<Frequency>, factor: Scalar<Frequency>): Scalar<Frequency> =>
-                        apply.Scalar(accumulator, factor),
-                    to.Scalar(to.Frequency(1)),
+                    (accumulator: Scalar<Frequency>, factor: Multiple<Scalar<Frequency>>) =>
+                        apply.Multiple(accumulator, factor),
+                    to.Scalar<Frequency>(1),
                 )
 
-                return { scalar, pitchClass, subset }
+                return { pitchClass, scalar, subset }
             })
             .map((yer: Yer) => ({
                 ...yer,
                 scalar: octaveReduce(yer.scalar),
             }))
             .sort((yer: Yer, nextYer: Yer) =>
-                from.Scalar(yer.scalar) - from.Scalar(nextYer.scalar))
+                from.Scalar<Frequency>(yer.scalar) - from.Scalar<Frequency>(nextYer.scalar),
+            )
 
 export {
     computeYer,

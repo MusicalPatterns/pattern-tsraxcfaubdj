@@ -5,25 +5,43 @@ import {
     STANDARD_PITCH_SCALE_INDEX,
 } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
-import { computeOctaveRepeatingScalars, from, Scalar, to } from '@musical-patterns/utilities'
+import {
+    apply,
+    computeOctaveRepeatingScalars,
+    Hz,
+    insteadOf,
+    Scalar,
+    to,
+    Translation,
+} from '@musical-patterns/utilities'
 import { computeYerExceptionScalars, computeYerScalars } from './scalars'
 
 const materializeScales: MaterializeScales =
-    (specs: StandardSpecs): Scale[] => {
-        const yerScalars: Scalar[] = computeOctaveRepeatingScalars(computeYerScalars())
-            .map(from.Frequency)
-            .map(to.Scalar)
+    // tslint:disable-next-line no-any
+    (specs: StandardSpecs): Array<Scale<any>> => {
+        const yerScalars: Array<Scalar<Hz>> = computeOctaveRepeatingScalars(computeYerScalars())
 
-        const standardScales: Scale[] = materializeStandardScales(specs, { pitchScalars: yerScalars })
+        // tslint:disable-next-line no-any
+        const standardScales: Array<Scale<any>> = materializeStandardScales(specs, { pitchScalars: yerScalars })
 
-        const yerExceptionScalars: Scalar[] = computeOctaveRepeatingScalars(computeYerExceptionScalars())
-            .map(from.Frequency)
-            .map(to.Scalar)
+        const yerExceptionScalars: Array<Scalar<Hz>> = computeOctaveRepeatingScalars(computeYerExceptionScalars())
 
-        const yerExceptionPitchesScale: Scale = {
-            scalar: standardScales[ STANDARD_PITCH_SCALE_INDEX ].scalar,
+        const yerExceptionPitchesScale: Scale<Hz> = {
+            scalar: insteadOf<Scalar, Hz>(
+                apply.Ordinal(
+                    standardScales,
+                    STANDARD_PITCH_SCALE_INDEX,
+                ).scalar ||
+                to.Scalar(0),
+            ),
             scalars: yerExceptionScalars,
-            translation: standardScales[ STANDARD_PITCH_SCALE_INDEX ].translation,
+            translation: insteadOf<Translation, Hz>(
+                apply.Ordinal(
+                    standardScales,
+                    STANDARD_PITCH_SCALE_INDEX,
+                ).translation ||
+                to.Translation(0),
+            ),
         }
 
         return standardScales.concat([

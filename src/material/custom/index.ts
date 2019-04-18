@@ -7,6 +7,7 @@ export {
     rawPiecesFromPump,
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
+    YerBlumeyerCommaPumpInstruction,
 } from './comma'
 
 export {

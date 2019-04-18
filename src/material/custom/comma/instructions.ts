@@ -4,9 +4,9 @@ import { applyPumpInstructionsOperation } from './operations'
 import { YerBlumeyerCommaPumpInstruction, YerBlumeyerCommaPumpInstructionsBlueprint } from './types'
 
 const computeYerBlumeyerCommaPumpInstructions:
-    (instructionsSpecs: YerBlumeyerCommaPumpInstructionsBlueprint) => YerBlumeyerCommaPumpInstruction[] =
-    (instructionsSpecs: YerBlumeyerCommaPumpInstructionsBlueprint): YerBlumeyerCommaPumpInstruction[] => {
-        const { cycling, family, operation } = instructionsSpecs
+    (instructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint) => YerBlumeyerCommaPumpInstruction[] =
+    (instructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint): YerBlumeyerCommaPumpInstruction[] => {
+        const { cycling, family, operation } = instructionsBlueprint
         let instructions: Cycle<YerBlumeyerCommaPumpInstruction> = computePumpInstructionsFromFamily(family)
         instructions = applyPumpInstructionsOperation(instructions, operation)
         instructions = apply.Translation(instructions, cycling)

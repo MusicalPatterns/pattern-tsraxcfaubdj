@@ -1,6 +1,6 @@
 import { computeOrderedPitchClassIndices, YerPitchClass, yerPitchClassIndex } from '../../../../src/indexForTest'
 
-describe('pitch indices', () => {
+describe('pitch class indices', () => {
     it('has the pitch classes ordered by pitch', () => {
         const actual: YerPitchClass[] = computeOrderedPitchClassIndices()
 

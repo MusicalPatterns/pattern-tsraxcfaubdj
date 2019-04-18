@@ -6,11 +6,11 @@ import {
     ContourPiece,
     deepEqual,
     forEach,
-    from,
+    from, INCREMENT,
     indexOfFinalElement,
     keys,
     NEXT,
-    Ordinal,
+    Ordinal, Scalar,
     to,
 } from '@musical-patterns/utilities'
 import {
@@ -98,11 +98,11 @@ describe('segments', () => {
         quarters.forEach((quarter: number[]) => {
             for (
                 let firstPitchIndex: Ordinal = to.Ordinal(0);
-                from.Ordinal(firstPitchIndex) < indexOfFinalElement(quarter);
+                firstPitchIndex < indexOfFinalElement(quarter);
                 firstPitchIndex = apply.Translation(firstPitchIndex, NEXT)
             ) {
                 for (
-                    let secondPitchIndex: Ordinal = to.Ordinal(firstPitchIndex + 1);
+                    let secondPitchIndex: Ordinal = apply.Translation(firstPitchIndex, INCREMENT);
                     from.Ordinal(secondPitchIndex) < quarter.length;
                     secondPitchIndex = apply.Translation(secondPitchIndex, NEXT)
                 ) {
@@ -116,7 +116,7 @@ describe('segments', () => {
 
         const combinationsOfFactorizations: Array<[ YerFactorization, YerFactorization ]> =
             combinationsOfPitches.map(([ firstPitch, secondPitch ]: [ number, number ]): [ YerFactorization, YerFactorization ] => {
-                if (firstPitch === from.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST) || secondPitch === from.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST)) {
+                if (firstPitch === from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST) || secondPitch === from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST)) {
                     return [ {}, {} ]
                 }
 
@@ -149,7 +149,7 @@ describe('segments', () => {
         const potentialFailures: PotentialFailure[] = []
         forEach(
             combinationsOfFactorizations,
-            ([ firstFactorization, secondFactorization ]: [ YerFactorization, YerFactorization ], index: Ordinal) => {
+            ([ firstFactorization, secondFactorization ]: [ YerFactorization, YerFactorization ], index: Ordinal<[ YerFactorization, YerFactorization ]>) => {
                 let differences: number = 0
                 keys(YerFactor)
                     .forEach((factor: keyof typeof YerFactor) => {
@@ -159,8 +159,8 @@ describe('segments', () => {
                     })
 
                 if (differences > 2) {
-                    const segment: number = Math.floor(index / (6 * 4))
-                    const quarter: number = Math.floor((index % (6 * 4)) / 6)
+                    const segment: number = Math.floor(from.Ordinal<[ YerFactorization, YerFactorization ]>(index) / (6 * 4))
+                    const quarter: number = Math.floor((from.Ordinal<[ YerFactorization, YerFactorization ]>(index) % (6 * 4)) / 6)
 
                     const patternQuarter: number = (segment * 4) + quarter
                     if (exceptionalIndices.includes(patternQuarter)) {

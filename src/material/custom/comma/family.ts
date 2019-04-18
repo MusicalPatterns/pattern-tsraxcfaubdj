@@ -1,4 +1,4 @@
-import { apply, Cycle, negative, sequence, to } from '@musical-patterns/utilities'
+import { apply, Cycle, DECREMENT, INCREMENT, negative, NO_TRANSLATION, sequence, to } from '@musical-patterns/utilities'
 import { YerFactor } from '../types'
 import { YerBlumeyerCommaPumpAction, YerBlumeyerCommaPumpFamily, YerBlumeyerCommaPumpInstruction } from './types'
 
@@ -15,17 +15,17 @@ const computePumpInstructionsFromFamily:
             case YerBlumeyerCommaPumpFamily.A:
                 return to.Cycle(sequence(
                     [ { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD } ],
-                    apply.Translation(theFactorsOnTheOtherSide, to.Translation(0)),
+                    apply.Translation(theFactorsOnTheOtherSide, NO_TRANSLATION),
                 ))
             case YerBlumeyerCommaPumpFamily.B:
                 return to.Cycle(sequence(
                     [ { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD } ],
-                    apply.Translation(theFactorsOnTheOtherSide, to.Translation(1)),
+                    apply.Translation(theFactorsOnTheOtherSide, INCREMENT),
                 ))
             case YerBlumeyerCommaPumpFamily.C:
                 return to.Cycle(sequence(
                     [ { factor: YerFactor._19, action: YerBlumeyerCommaPumpAction.ADD } ],
-                    apply.Translation(theFactorsOnTheOtherSide, to.Translation(negative(1))),
+                    apply.Translation(theFactorsOnTheOtherSide, DECREMENT),
                 ))
             default:
                 throw new Error('YerBlumeyerCommaPumpInstructionsBlueprint has no family.')

@@ -5,4 +5,5 @@ export { rawPiecesFromPump } from './contours'
 export {
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpOperation,
+    YerBlumeyerCommaPumpInstruction,
 } from './types'
