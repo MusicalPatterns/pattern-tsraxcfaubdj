@@ -1,4 +1,4 @@
-import { apply, Cardinal, from, to } from '@musical-patterns/utilities'
+import { as, Cardinal, notAs, use } from '@musical-patterns/utilities'
 import { YER_EXCEPTION_PITCH_CLASS_COUNT, YER_PITCH_CLASS_COUNT } from '../constants'
 import { Yer, YerExceptionPitchClass, YerPitchClass } from './types'
 import { computeYer } from './yer'
@@ -15,9 +15,9 @@ const yerExceptionPitchClassesOrderedByPitch: YerExceptionPitchClass[] = [
 
 const yerPitchClassIndex: (octaveIndex: number, yerPitchClass: YerPitchClass) => number =
     (octaveIndex: number, yerPitchClass: YerPitchClass): number =>
-        from.Cardinal(apply.Translation(
-            apply.Multiple(YER_PITCH_CLASS_COUNT, to.Multiple<Cardinal<YerPitchClass>>(octaveIndex)),
-            to.Translation<Cardinal<YerPitchClass>>(
+        notAs.Cardinal(use.Translation(
+            use.Multiple(YER_PITCH_CLASS_COUNT, as.Multiple<Cardinal<YerPitchClass>>(octaveIndex)),
+            as.Translation<Cardinal<YerPitchClass>>(
                 computeOrderedPitchClassIndices()
                     .indexOf(yerPitchClass),
             ),
@@ -25,9 +25,9 @@ const yerPitchClassIndex: (octaveIndex: number, yerPitchClass: YerPitchClass) =>
 
 const yerExceptionPitchClassIndex: (octaveIndex: number, yerExceptionPitchClass: YerExceptionPitchClass) => number =
     (octaveIndex: number, yerExceptionPitchClass: YerExceptionPitchClass): number =>
-        from.Cardinal(apply.Translation(
-            apply.Multiple(YER_EXCEPTION_PITCH_CLASS_COUNT, to.Multiple<Cardinal<YerExceptionPitchClass>>(octaveIndex)),
-            to.Translation<Cardinal<YerExceptionPitchClass>>(
+        notAs.Cardinal(use.Translation(
+            use.Multiple(YER_EXCEPTION_PITCH_CLASS_COUNT, as.Multiple<Cardinal<YerExceptionPitchClass>>(octaveIndex)),
+            as.Translation<Cardinal<YerExceptionPitchClass>>(
                 yerExceptionPitchClassesOrderedByPitch
                     .indexOf(yerExceptionPitchClass),
             ),

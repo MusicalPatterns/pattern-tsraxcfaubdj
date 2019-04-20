@@ -6,13 +6,13 @@ import {
 } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
 import {
-    apply,
+    as,
     computeOctaveRepeatingScalars,
     Hz,
     insteadOf,
     Scalar,
-    to,
     Translation,
+    use,
 } from '@musical-patterns/utilities'
 import { computeYerExceptionScalars, computeYerScalars } from './scalars'
 
@@ -28,19 +28,19 @@ const materializeScales: MaterializeScales =
 
         const yerExceptionPitchesScale: Scale<Hz> = {
             scalar: insteadOf<Scalar, Hz>(
-                apply.Ordinal(
+                use.Ordinal(
                     standardScales,
                     STANDARD_PITCH_SCALE_INDEX,
                 ).scalar ||
-                to.Scalar(0),
+                as.Scalar(0),
             ),
             scalars: yerExceptionScalars,
             translation: insteadOf<Translation, Hz>(
-                apply.Ordinal(
+                use.Ordinal(
                     standardScales,
                     STANDARD_PITCH_SCALE_INDEX,
                 ).translation ||
-                to.Translation(0),
+                as.Translation(0),
             ),
         }
 

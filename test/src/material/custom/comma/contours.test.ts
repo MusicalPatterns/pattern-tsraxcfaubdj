@@ -1,4 +1,4 @@
-import { NO_TRANSLATION, to } from '@musical-patterns/utilities'
+import { as, NO_TRANSLATION } from '@musical-patterns/utilities'
 import {
     computeYerBlumeyerCommaPump,
     computeYerBlumeyerCommaPumpInstructions,
@@ -8,7 +8,8 @@ import {
     THIRD_OCTAVE,
     WHOLE_NOTE,
     YER_SCALE_INDEX,
-    YerBlumeyerCommaPumpFamily, YerBlumeyerCommaPumpInstruction,
+    YerBlumeyerCommaPumpFamily,
+    YerBlumeyerCommaPumpInstruction,
     YerBlumeyerCommaPumpOperation,
     YerPitchClass,
     yerPitchClassIndex,
@@ -23,7 +24,7 @@ describe('raw pieces from pump', () => {
                     family: YerBlumeyerCommaPumpFamily.A,
                     operation: YerBlumeyerCommaPumpOperation.CONVERSE,
                 }),
-                to.Ordinal<YerBlumeyerCommaPumpInstruction>(2),
+                as.Ordinal<YerBlumeyerCommaPumpInstruction>(2),
             ),
             [ SECOND_OCTAVE, SECOND_OCTAVE, THIRD_OCTAVE, SECOND_OCTAVE ],
         )

@@ -6,36 +6,36 @@ import {
     Voice,
 } from '@musical-patterns/material'
 import {
-    apply,
+    as,
     ContourElement,
     ContourWhole,
     filter,
     forEach,
     Fraction,
-    from,
     indexOfFinalElement,
     isCloseTo,
     Maybe,
     NEXT,
+    notAs,
     numericSort,
     Ordinal,
     quotient,
     Scalar,
-    to,
     uniqueFilter,
+    use,
 } from '@musical-patterns/utilities'
 import { computeBassContourWhole, pattern, YER_PITCH_CLASS_COUNT } from '../../src/indexForTest'
 import { INDEX_OF_PITCH_WITHIN_CONTOUR_ELEMENT } from './constants'
 
 const pitchClassIndexFromPitchIndexRespectingRests: (pitchIndex: number) => number =
     (pitchIndex: number): number => {
-        if (pitchIndex === from.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST)) {
+        if (pitchIndex === notAs.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST)) {
             return pitchIndex
         }
 
-        return apply.Modulus(
+        return use.Modulus(
             pitchIndex,
-            to.Modulus(from.Cardinal(YER_PITCH_CLASS_COUNT)),
+            as.Modulus(notAs.Cardinal(YER_PITCH_CLASS_COUNT)),
         )
     }
 
@@ -45,13 +45,13 @@ const computeBassPitchClassIndexSet: () => number[] =
             computePitchClassIndices(computeBassContourWhole()),
             uniqueFilter,
         )
-            .filter((value: number) => value !== from.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST))
+            .filter((value: number) => value !== notAs.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST))
             .sort(numericSort)
 
 const computePitchClassIndices: (contourWhole: ContourWhole<PitchDurationScale>) => number[] =
     (contourWhole: ContourWhole<PitchDurationScale>): number[] =>
         contourWhole.map((contourElement: ContourElement<PitchDurationScale>) => {
-            const pitchIndex: number = apply.Ordinal(contourElement, INDEX_OF_PITCH_WITHIN_CONTOUR_ELEMENT)
+            const pitchIndex: number = use.Ordinal(contourElement, INDEX_OF_PITCH_WITHIN_CONTOUR_ELEMENT)
 
             return pitchClassIndexFromPitchIndexRespectingRests(pitchIndex)
         })
@@ -95,11 +95,11 @@ const testEveryIntervalIsSimple: (voiceIndex: Ordinal<Voice>, exceptionalIndices
         ]
         const acceptableRatios: Fraction[] = rawAcceptablySimpleRatios.map(
             ([ numerator, denominator ]: [ number, number ]) =>
-                to.Fraction([ to.Numerator(numerator), to.Denominator(denominator) ]),
+                as.Fraction([ as.Numerator(numerator), as.Denominator(denominator) ]),
         )
 
         const { voices } = await compilePattern(pattern)
-        const voice: Voice = apply.Ordinal(voices, voiceIndex)
+        const voice: Voice = use.Ordinal(voices, voiceIndex)
         const sounds: Sound[] = voice.sounds || []
 
         forEach(sounds, (sound: Sound, index: Ordinal<Sound>) => {
@@ -107,19 +107,19 @@ const testEveryIntervalIsSimple: (voiceIndex: Ordinal<Voice>, exceptionalIndices
                 return
             }
 
-            const nextIndex: Ordinal<Sound> = apply.Translation(index, NEXT)
+            const nextIndex: Ordinal<Sound> = use.Translation(index, NEXT)
             if (nextIndex > indexOfFinalElement(sounds)) {
                 return
             }
-            const nextSound: Maybe<Sound> = apply.Ordinal(sounds, nextIndex)
+            const nextSound: Maybe<Sound> = use.Ordinal(sounds, nextIndex)
             if (!nextSound) {
                 return
             }
 
             let pass: boolean = false
-            const actualInterval: Scalar = to.Scalar(from.Hz(quotient(nextSound.frequency, sound.frequency)))
+            const actualInterval: Scalar = as.Scalar(notAs.Hz(quotient(nextSound.frequency, sound.frequency)))
             acceptableRatios.forEach((acceptableRatio: Fraction) => {
-                const acceptableInterval: Scalar = to.Scalar(from.Fraction(acceptableRatio))
+                const acceptableInterval: Scalar = as.Scalar(notAs.Fraction(acceptableRatio))
                 if (isCloseTo(actualInterval, acceptableInterval)) {
                     pass = true
                 }

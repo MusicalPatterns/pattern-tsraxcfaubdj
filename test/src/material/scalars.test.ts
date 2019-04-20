@@ -1,4 +1,4 @@
-import { Hz, Scalar, to } from '@musical-patterns/utilities'
+import { as, Hz, Scalar } from '@musical-patterns/utilities'
 import { computeYerExceptionScalars, computeYerScalars } from '../../../src/indexForTest'
 
 describe('scalars', () => {
@@ -24,7 +24,7 @@ describe('scalars', () => {
                 221 / 128,
                 3553 / 2048,
                 247 / 128,
-            ].map((expected: number) => to.Scalar<Hz>(expected))
+            ].map((expected: number) => as.Scalar<Hz>(expected))
             expect(actualScalars)
                 .toEqual(expectedScalarsAsRatios)
 
@@ -46,7 +46,7 @@ describe('scalars', () => {
                 1.7265625,
                 1.73486328125,
                 1.9296875,
-            ].map((expected: number) => to.Scalar<Hz>(expected))
+            ].map((expected: number) => as.Scalar<Hz>(expected))
             expect(actualScalars)
                 .toBeCloseToArray(expectedScalarsAsDecimals)
         })
@@ -59,14 +59,14 @@ describe('scalars', () => {
             const expectedScalarsAsRatios: Array<Scalar<Hz>> = [
                 2057 / 2048,
                 247 / 176,
-            ].map((expected: number) => to.Scalar<Hz>(expected))
+            ].map((expected: number) => as.Scalar<Hz>(expected))
             expect(actualScalars)
                 .toEqual(expectedScalarsAsRatios)
 
             const expectedScalarsAsDecimals: Array<Scalar<Hz>> = [
                 1.00439453125,
                 1.40340909091,
-            ].map((expected: number) => to.Scalar<Hz>(expected))
+            ].map((expected: number) => as.Scalar<Hz>(expected))
             expect(actualScalars)
                 .toBeCloseToArray(expectedScalarsAsDecimals)
         })

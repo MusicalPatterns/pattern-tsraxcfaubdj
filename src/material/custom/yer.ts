@@ -1,14 +1,14 @@
 import {
-    apply,
+    as,
     Frequency,
-    from,
     keyExistsOnObject,
     Multiple,
+    notAs,
     octaveReduce,
     powerSet,
     reduce,
     Scalar,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { YER_FACTORS } from './constants'
 import { Yer, YerPitchClass } from './types'
@@ -39,8 +39,8 @@ const computeYer: () => Yer[] =
                 const scalar: Scalar<Frequency> = reduce(
                     subset,
                     (accumulator: Scalar<Frequency>, factor: Multiple<Scalar<Frequency>>) =>
-                        apply.Multiple(accumulator, factor),
-                    to.Scalar<Frequency>(1),
+                        use.Multiple(accumulator, factor),
+                    as.Scalar<Frequency>(1),
                 )
 
                 return { pitchClass, scalar, subset }
@@ -50,7 +50,7 @@ const computeYer: () => Yer[] =
                 scalar: octaveReduce(yer.scalar),
             }))
             .sort((yer: Yer, nextYer: Yer) =>
-                from.Scalar<Frequency>(yer.scalar) - from.Scalar<Frequency>(nextYer.scalar),
+                notAs.Scalar<Frequency>(yer.scalar) - notAs.Scalar<Frequency>(nextYer.scalar),
             )
 
 export {

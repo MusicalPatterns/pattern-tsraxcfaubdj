@@ -1,4 +1,4 @@
-import { Ordinal, to } from '@musical-patterns/utilities'
+import { as, Ordinal } from '@musical-patterns/utilities'
 import {
     computeYerBlumeyerCommaPump,
     YerBlumeyerCommaPump,
@@ -22,7 +22,7 @@ describe('comma pumps', () => {
         })
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 0', () => {
-            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = to.Ordinal<YerBlumeyerCommaPumpInstruction>(0)
+            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = as.Ordinal<YerBlumeyerCommaPumpInstruction>(0)
             const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
@@ -35,7 +35,7 @@ describe('comma pumps', () => {
         })
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 1', () => {
-            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = to.Ordinal<YerBlumeyerCommaPumpInstruction>(1)
+            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = as.Ordinal<YerBlumeyerCommaPumpInstruction>(1)
             const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
@@ -48,7 +48,7 @@ describe('comma pumps', () => {
         })
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 2', () => {
-            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = to.Ordinal<YerBlumeyerCommaPumpInstruction>(2)
+            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = as.Ordinal<YerBlumeyerCommaPumpInstruction>(2)
             const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
@@ -61,7 +61,7 @@ describe('comma pumps', () => {
         })
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 3', () => {
-            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = to.Ordinal<YerBlumeyerCommaPumpInstruction>(3)
+            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = as.Ordinal<YerBlumeyerCommaPumpInstruction>(3)
             const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
@@ -85,7 +85,7 @@ describe('comma pumps', () => {
         })
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 0', () => {
-            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = to.Ordinal<YerBlumeyerCommaPumpInstruction>(0)
+            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = as.Ordinal<YerBlumeyerCommaPumpInstruction>(0)
             const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
@@ -98,7 +98,7 @@ describe('comma pumps', () => {
         })
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 1', () => {
-            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = to.Ordinal<YerBlumeyerCommaPumpInstruction>(1)
+            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = as.Ordinal<YerBlumeyerCommaPumpInstruction>(1)
             const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
@@ -111,7 +111,7 @@ describe('comma pumps', () => {
         })
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 2', () => {
-            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = to.Ordinal<YerBlumeyerCommaPumpInstruction>(2)
+            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = as.Ordinal<YerBlumeyerCommaPumpInstruction>(2)
             const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)
@@ -124,7 +124,7 @@ describe('comma pumps', () => {
         })
 
         it('can rotate the comma pump to the position where the shift by the blumeyer comma occurs at index 3', () => {
-            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = to.Ordinal<YerBlumeyerCommaPumpInstruction>(3)
+            const rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = as.Ordinal<YerBlumeyerCommaPumpInstruction>(3)
             const commaPump: YerBlumeyerCommaPump = computeYerBlumeyerCommaPump(instructions, rotation)
 
             expect(commaPump)

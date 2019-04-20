@@ -1,5 +1,5 @@
 import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
-import { from, Scalar } from '@musical-patterns/utilities'
+import { notAs, Scalar } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import { YerPitchClass, yerPitchClassIndex } from '../custom'
 import { FOURTH_OCTAVE, QUARTER_NOTE, WHOLE_NOTE } from './constants'
@@ -17,7 +17,7 @@ const introLead: () => number[][][] =
 const introRest: () => number[][][] =
     (): number[][][] => [
         [
-            [ from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
+            [ notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
     ]
 

@@ -1,9 +1,9 @@
-import { Cycle, to } from '@musical-patterns/utilities'
+import { as, Cycle } from '@musical-patterns/utilities'
 import { YerBlumeyerCommaPumpAction, YerBlumeyerCommaPumpInstruction, YerBlumeyerCommaPumpOperation } from './types'
 
 const converse: (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =
     (instructions: Cycle<YerBlumeyerCommaPumpInstruction>): Cycle<YerBlumeyerCommaPumpInstruction> =>
-        to.Cycle(
+        as.Cycle(
             instructions.slice(0, 1)
                 .concat(
                     instructions.slice(1)
@@ -13,7 +13,7 @@ const converse: (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<
 
 const inverse: (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =
     (instructions: Cycle<YerBlumeyerCommaPumpInstruction>): Cycle<YerBlumeyerCommaPumpInstruction> =>
-        to.Cycle(instructions.map((instruction: YerBlumeyerCommaPumpInstruction) => ({
+        as.Cycle(instructions.map((instruction: YerBlumeyerCommaPumpInstruction) => ({
             ...instruction,
             action: instruction.action === YerBlumeyerCommaPumpAction.ADD ?
                 YerBlumeyerCommaPumpAction.REMOVE :

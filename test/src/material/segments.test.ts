@@ -1,19 +1,19 @@
 import { PitchDurationScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
 import {
-    apply,
+    as,
     combinationCount,
     ContourElement,
     ContourPiece,
     deepEqual,
     forEach,
-    from,
     INCREMENT,
     indexOfFinalElement,
     keys,
     NEXT,
+    notAs,
     Ordinal,
     Scalar,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import {
     computeBassContourPieces,
@@ -35,8 +35,8 @@ describe('segments', () => {
     const COMBINATIONS_PER_QUARTER: number = combinationCount(QUARTERS_PER_SEGMENT, 2)
     const COMBINATIONS_COUNT: number = COMBINATIONS_PER_QUARTER * QUARTERS_COUNT
 
-    const INDEX_OF_PITCH_IN_PITCH_DURATION_SCALE_CONTOUR: Ordinal = to.Ordinal(0)
-    const INDEX_OF_DURATION_IN_PITCH_DURATION_SCALE_CONTOUR: Ordinal = to.Ordinal(1)
+    const INDEX_OF_PITCH_IN_PITCH_DURATION_SCALE_CONTOUR: Ordinal = as.Ordinal(0)
+    const INDEX_OF_DURATION_IN_PITCH_DURATION_SCALE_CONTOUR: Ordinal = as.Ordinal(1)
 
     const computePitchClassIndicesByQuarter: (contourPieces: Array<ContourPiece<PitchDurationScale>>) => number[] =
         (contourPieces: Array<ContourPiece<PitchDurationScale>>): number[] => {
@@ -44,12 +44,12 @@ describe('segments', () => {
             contourPieces.forEach((piece: ContourPiece<PitchDurationScale>) => {
                 piece.forEach((element: ContourElement<PitchDurationScale>) => {
                     for (
-                        let quarter: Ordinal = to.Ordinal(0);
-                        from.Ordinal(quarter) < (apply.Ordinal(element, INDEX_OF_DURATION_IN_PITCH_DURATION_SCALE_CONTOUR));
-                        quarter = apply.Translation(quarter, NEXT)
+                        let quarter: Ordinal = as.Ordinal(0);
+                        notAs.Ordinal(quarter) < (use.Ordinal(element, INDEX_OF_DURATION_IN_PITCH_DURATION_SCALE_CONTOUR));
+                        quarter = use.Translation(quarter, NEXT)
                     ) {
                         pitchIndicesByQuarter.push(
-                            apply.Ordinal(element, INDEX_OF_PITCH_IN_PITCH_DURATION_SCALE_CONTOUR),
+                            use.Ordinal(element, INDEX_OF_PITCH_IN_PITCH_DURATION_SCALE_CONTOUR),
                         )
                     }
                 })
@@ -87,30 +87,30 @@ describe('segments', () => {
         const secondHarmonyPitchClassIndicesByQuarter: number[] = computePitchClassIndicesByQuarter(secondHarmonyContourPieces)
 
         const quarters: number[][] = []
-        for (let index: Ordinal = to.Ordinal(0); from.Ordinal(index) < QUARTERS_COUNT; index = apply.Translation(index, NEXT)) {
+        for (let index: Ordinal = as.Ordinal(0); notAs.Ordinal(index) < QUARTERS_COUNT; index = use.Translation(index, NEXT)) {
             quarters.push([
-                apply.Ordinal(leadPitchClassIndicesByQuarter, index),
-                apply.Ordinal(bassPitchClassIndicesByQuarter, index),
-                apply.Ordinal(firstHarmonyPitchClassIndicesByQuarter, index),
-                apply.Ordinal(secondHarmonyPitchClassIndicesByQuarter, index),
+                use.Ordinal(leadPitchClassIndicesByQuarter, index),
+                use.Ordinal(bassPitchClassIndicesByQuarter, index),
+                use.Ordinal(firstHarmonyPitchClassIndicesByQuarter, index),
+                use.Ordinal(secondHarmonyPitchClassIndicesByQuarter, index),
             ])
         }
 
         const combinationsOfPitches: Array<[ number, number ]> = []
         quarters.forEach((quarter: number[]) => {
             for (
-                let firstPitchIndex: Ordinal = to.Ordinal(0);
+                let firstPitchIndex: Ordinal = as.Ordinal(0);
                 firstPitchIndex < indexOfFinalElement(quarter);
-                firstPitchIndex = apply.Translation(firstPitchIndex, NEXT)
+                firstPitchIndex = use.Translation(firstPitchIndex, NEXT)
             ) {
                 for (
-                    let secondPitchIndex: Ordinal = apply.Translation(firstPitchIndex, INCREMENT);
-                    from.Ordinal(secondPitchIndex) < quarter.length;
-                    secondPitchIndex = apply.Translation(secondPitchIndex, NEXT)
+                    let secondPitchIndex: Ordinal = use.Translation(firstPitchIndex, INCREMENT);
+                    notAs.Ordinal(secondPitchIndex) < quarter.length;
+                    secondPitchIndex = use.Translation(secondPitchIndex, NEXT)
                 ) {
                     combinationsOfPitches.push([
-                        apply.Ordinal(quarter, firstPitchIndex),
-                        apply.Ordinal(quarter, secondPitchIndex),
+                        use.Ordinal(quarter, firstPitchIndex),
+                        use.Ordinal(quarter, secondPitchIndex),
                     ])
                 }
             }
@@ -118,7 +118,7 @@ describe('segments', () => {
 
         const combinationsOfFactorizations: Array<[ YerFactorization, YerFactorization ]> =
             combinationsOfPitches.map(([ firstPitch, secondPitch ]: [ number, number ]): [ YerFactorization, YerFactorization ] => {
-                if (firstPitch === from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST) || secondPitch === from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST)) {
+                if (firstPitch === notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST) || secondPitch === notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST)) {
                     return [ {}, {} ]
                 }
 
@@ -161,8 +161,8 @@ describe('segments', () => {
                     })
 
                 if (differences > 2) {
-                    const segment: number = Math.floor(from.Ordinal<[ YerFactorization, YerFactorization ]>(index) / (6 * 4))
-                    const quarter: number = Math.floor((from.Ordinal<[ YerFactorization, YerFactorization ]>(index) % (6 * 4)) / 6)
+                    const segment: number = Math.floor(notAs.Ordinal<[ YerFactorization, YerFactorization ]>(index) / (6 * 4))
+                    const quarter: number = Math.floor((notAs.Ordinal<[ YerFactorization, YerFactorization ]>(index) % (6 * 4)) / 6)
 
                     const patternQuarter: number = (segment * 4) + quarter
                     if (exceptionalIndices.includes(patternQuarter)) {

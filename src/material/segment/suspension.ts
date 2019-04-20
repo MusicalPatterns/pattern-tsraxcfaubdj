@@ -1,4 +1,4 @@
-import { Cycle, negative, to } from '@musical-patterns/utilities'
+import { as, Cycle, negative } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import {
     computeYerBlumeyerCommaPump,
@@ -39,7 +39,7 @@ const suspensionBassPump: (parameters?: { transposeThirdStepDown?: boolean }) =>
         rawPiecesFromPump(
             computeYerBlumeyerCommaPump(
                 computeYerBlumeyerCommaPumpInstructions({
-                    cycling: to.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(negative(1)),
+                    cycling: as.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(negative(1)),
                     family: YerBlumeyerCommaPumpFamily.A,
                     operation: YerBlumeyerCommaPumpOperation.INVERSE,
                 }),

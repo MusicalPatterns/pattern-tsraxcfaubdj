@@ -1,7 +1,7 @@
 // tslint:disable max-file-line-count
 
 import { PitchDurationScale } from '@musical-patterns/material'
-import { ContourPiece, sequence, to } from '@musical-patterns/utilities'
+import { as, ContourPiece, sequence } from '@musical-patterns/utilities'
 import {
     desperationLead,
     introLead,
@@ -30,7 +30,7 @@ const computeLeadContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
             openingEntranceLead(),
             introLead(),
         )
-            .map((contourPiece: number[][]) => to.ContourPiece<PitchDurationScale>(contourPiece))
+            .map((contourPiece: number[][]) => as.ContourPiece<PitchDurationScale>(contourPiece))
 
 export {
     computeLeadContourPieces,

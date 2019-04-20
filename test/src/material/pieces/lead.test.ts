@@ -1,5 +1,5 @@
 import { PitchDurationScale, Sound, Voice } from '@musical-patterns/material'
-import { Ordinal, to } from '@musical-patterns/utilities'
+import { as, Ordinal } from '@musical-patterns/utilities'
 import {
     computeLeadContourPieces,
     DOTTED_HALF_NOTE,
@@ -26,9 +26,9 @@ describe('lead pieces', () => {
             BETWEEN_BAR_13_AND_14,
             BETWEEN_BAR_14_AND_15_IS_ACTUALLY_NOT_NECESSARY_TO_EXCEPT_BECAUSE_IT_CIRCIUMVRENTS_THIS_CHECK_WITH_A_COMMA_SHIFT,
             BETWEEN_BAR_22_AND_23_WHICH_IS_THE_SAME_AS_BETWEEN_THREE_AND_FOUR,
-        ].map((value: number) => to.Ordinal<Sound>(value))
+        ].map((value: number) => as.Ordinal<Sound>(value))
 
-        const INDEX_OF_LEAD_VOICE: Ordinal<Voice> = to.Ordinal<Voice>(0)
+        const INDEX_OF_LEAD_VOICE: Ordinal<Voice> = as.Ordinal<Voice>(0)
         await testEveryIntervalIsSimple(INDEX_OF_LEAD_VOICE, exceptionalIndices)
 
         done()
@@ -137,7 +137,7 @@ describe('lead pieces', () => {
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), QUARTER_NOTE, YER_SCALE_INDEX ],
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), QUARTER_NOTE, YER_SCALE_INDEX ],
                     ],
-                ].map((contourPiece: number[][]) => to.ContourPiece<PitchDurationScale>(contourPiece)),
+                ].map((contourPiece: number[][]) => as.ContourPiece<PitchDurationScale>(contourPiece)),
             )
     })
 })

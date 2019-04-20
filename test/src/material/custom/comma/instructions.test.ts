@@ -1,4 +1,4 @@
-import { Cycle, to } from '@musical-patterns/utilities'
+import { as, Cycle } from '@musical-patterns/utilities'
 import {
     computeYerBlumeyerCommaPumpInstructions,
     YerBlumeyerCommaPumpAction,
@@ -12,7 +12,7 @@ import {
 describe('comma pump instructions', () => {
     it('from a blueprint, gives you instructions for a comma pump, which you could then find a starting position / rotation for to get a final pattern of pitch classes', () => {
         const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
-            cycling: to.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
+            cycling: as.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
             family: YerBlumeyerCommaPumpFamily.A,
             operation: YerBlumeyerCommaPumpOperation.BASE,
         }
@@ -33,7 +33,7 @@ describe('comma pump instructions', () => {
     describe('cycling', () => {
         it('can cycle', () => {
             const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
-                cycling: to.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(3),
+                cycling: as.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(3),
                 family: YerBlumeyerCommaPumpFamily.A,
                 operation: YerBlumeyerCommaPumpOperation.BASE,
             }
@@ -55,7 +55,7 @@ describe('comma pump instructions', () => {
     describe('family', () => {
         it('can change families to B', () => {
             const cSpecs: YerBlumeyerCommaPumpInstructionsBlueprint = {
-                cycling: to.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
+                cycling: as.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
                 family: YerBlumeyerCommaPumpFamily.B,
                 operation: YerBlumeyerCommaPumpOperation.BASE,
             }
@@ -73,7 +73,7 @@ describe('comma pump instructions', () => {
 
         it('can change families to C', () => {
             const bSpecs: YerBlumeyerCommaPumpInstructionsBlueprint = {
-                cycling: to.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
+                cycling: as.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
                 family: YerBlumeyerCommaPumpFamily.C,
                 operation: YerBlumeyerCommaPumpOperation.BASE,
             }
@@ -93,7 +93,7 @@ describe('comma pump instructions', () => {
     describe('operation', () => {
         it('can change operation to inverse', () => {
             const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
-                cycling: to.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
+                cycling: as.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
                 family: YerBlumeyerCommaPumpFamily.A,
                 operation: YerBlumeyerCommaPumpOperation.INVERSE,
             }
@@ -113,7 +113,7 @@ describe('comma pump instructions', () => {
 
         it('can change operation to converse', () => {
             const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
-                cycling: to.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
+                cycling: as.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
                 family: YerBlumeyerCommaPumpFamily.A,
                 operation: YerBlumeyerCommaPumpOperation.CONVERSE,
             }
@@ -133,7 +133,7 @@ describe('comma pump instructions', () => {
 
         it('can change operation to reverse', () => {
             const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
-                cycling: to.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
+                cycling: as.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
                 family: YerBlumeyerCommaPumpFamily.A,
                 operation: YerBlumeyerCommaPumpOperation.REVERSE,
             }
@@ -155,7 +155,7 @@ describe('comma pump instructions', () => {
     describe('combining operations', () => {
         it('can do it', () => {
             const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
-                cycling: to.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(2),
+                cycling: as.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(2),
                 family: YerBlumeyerCommaPumpFamily.C,
                 operation: YerBlumeyerCommaPumpOperation.REVERSE,
             }

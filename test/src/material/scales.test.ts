@@ -1,19 +1,19 @@
 import { Scale } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
 import {
-    apply,
+    as,
     forEach,
-    from,
     indexOfFinalElement,
     INITIAL,
     isUndefined,
     Maybe,
     negative,
+    notAs,
     ONE_HALF,
     Ordinal,
     Scalar,
     slice,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { materializeScales, YER_PITCH_CLASS_COUNT } from '../../../src/indexForTest'
 
@@ -27,18 +27,18 @@ describe('yer scale', () => {
             slice(
                 yerScaleScalars,
                 INITIAL,
-                apply.Translation(
+                use.Translation(
                     indexOfFinalElement(yerScaleScalars),
-                    to.Translation<Ordinal<Scalar>>(from.Cardinal(negative(YER_PITCH_CLASS_COUNT))),
+                    as.Translation<Ordinal<Scalar>>(notAs.Cardinal(negative(YER_PITCH_CLASS_COUNT))),
                 ),
             ),
             (scalar: Scalar, index: Ordinal<Scalar>) => {
-                const indexOfScalarWhichShouldBeTwiceThisOne: Ordinal<Scalar> = apply.Translation(
+                const indexOfScalarWhichShouldBeTwiceThisOne: Ordinal<Scalar> = use.Translation(
                     index,
-                    to.Translation<Ordinal<Scalar>>(from.Cardinal(YER_PITCH_CLASS_COUNT)),
+                    as.Translation<Ordinal<Scalar>>(notAs.Cardinal(YER_PITCH_CLASS_COUNT)),
                 )
                 const yerScaleScalarWhichShouldBeTwiceThisOne: Maybe<Scalar> =
-                    apply.Ordinal(yerScaleScalars, indexOfScalarWhichShouldBeTwiceThisOne)
+                    use.Ordinal(yerScaleScalars, indexOfScalarWhichShouldBeTwiceThisOne)
                 if (isUndefined(yerScaleScalarWhichShouldBeTwiceThisOne)) {
                     fail('yer scale multiple which should be twice this one was beyond the count of yer scale scalars')
 
@@ -46,7 +46,7 @@ describe('yer scale', () => {
                 }
 
                 expect(scalar)
-                    .toEqual(apply.Scalar(
+                    .toEqual(use.Scalar(
                         yerScaleScalarWhichShouldBeTwiceThisOne,
                         ONE_HALF,
                     ))

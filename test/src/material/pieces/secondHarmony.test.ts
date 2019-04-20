@@ -1,5 +1,5 @@
 import { PitchDurationScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
-import { from, Scalar, to } from '@musical-patterns/utilities'
+import { as, notAs, Scalar } from '@musical-patterns/utilities'
 import {
     computeSecondHarmonyContourPieces,
     FOURTH_OCTAVE,
@@ -23,7 +23,7 @@ describe('second harmony pieces', () => {
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
-                        [ from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
+                        [ notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), HALF_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
@@ -41,20 +41,20 @@ describe('second harmony pieces', () => {
                     [],
                     [],
                     [
-                        [ from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
+                        [ notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), HALF_NOTE, YER_SCALE_INDEX ],
-                        [ from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
+                        [ notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
-                        [ from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
+                        [ notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
-                        [ from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
+                        [ notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],
@@ -67,7 +67,7 @@ describe('second harmony pieces', () => {
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
-                        [ from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
+                        [ notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
                     [
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],
@@ -86,7 +86,7 @@ describe('second harmony pieces', () => {
                     [
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17_19), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
-                ].map((contourPiece: number[][]) => to.ContourPiece<PitchDurationScale>(contourPiece)),
+                ].map((contourPiece: number[][]) => as.ContourPiece<PitchDurationScale>(contourPiece)),
             )
     })
 })
