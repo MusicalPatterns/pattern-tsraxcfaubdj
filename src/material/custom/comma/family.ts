@@ -1,4 +1,4 @@
-import { apply, Cycle, DECREMENT, INCREMENT, negative, NO_TRANSLATION, sequence, to } from '@musical-patterns/utilities'
+import { apply, Cycle, DECREMENT, INCREMENT, NO_TRANSLATION, sequence, to } from '@musical-patterns/utilities'
 import { YerFactor } from '../types'
 import { YerBlumeyerCommaPumpAction, YerBlumeyerCommaPumpFamily, YerBlumeyerCommaPumpInstruction } from './types'
 

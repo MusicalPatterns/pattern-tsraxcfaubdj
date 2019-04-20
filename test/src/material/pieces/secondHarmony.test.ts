@@ -1,5 +1,5 @@
 import { PitchDurationScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
-import { from, to } from '@musical-patterns/utilities'
+import { from, Scalar, to } from '@musical-patterns/utilities'
 import {
     computeSecondHarmonyContourPieces,
     FOURTH_OCTAVE,

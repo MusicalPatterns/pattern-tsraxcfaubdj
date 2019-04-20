@@ -29,7 +29,7 @@ import { INDEX_OF_PITCH_WITHIN_CONTOUR_ELEMENT } from './constants'
 
 const pitchClassIndexFromPitchIndexRespectingRests: (pitchIndex: number) => number =
     (pitchIndex: number): number => {
-        if (pitchIndex === STANDARD_PITCH_INDEX_INDICATING_REST) {
+        if (pitchIndex === from.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST)) {
             return pitchIndex
         }
 
@@ -72,8 +72,8 @@ const testDoesNotUseSamePitchesAsBass:
         })
     }
 
-const testEveryIntervalIsSimple: (voiceIndex: Ordinal, exceptionalIndices?: Ordinal[]) => Promise<void> =
-    async (voiceIndex: Ordinal, exceptionalIndices: Ordinal[] = []): Promise<void> => {
+const testEveryIntervalIsSimple: (voiceIndex: Ordinal<Voice>, exceptionalIndices?: Array<Ordinal<Sound>>) => Promise<void> =
+    async (voiceIndex: Ordinal<Voice>, exceptionalIndices: Array<Ordinal<Sound>> = []): Promise<void> => {
         const rawAcceptablySimpleRatios: Array<[ number, number ]> = [
             [ 1, 1 ],
             [ 11, 16 ],
@@ -99,15 +99,15 @@ const testEveryIntervalIsSimple: (voiceIndex: Ordinal, exceptionalIndices?: Ordi
         )
 
         const { voices } = await compilePattern(pattern)
-        const voice: Voice = voices[ voiceIndex ]
+        const voice: Voice = apply.Ordinal(voices, voiceIndex)
         const sounds: Sound[] = voice.sounds || []
 
-        forEach(sounds, (sound: Sound, index: Ordinal) => {
+        forEach(sounds, (sound: Sound, index: Ordinal<Sound>) => {
             if (exceptionalIndices.includes(index)) {
                 return
             }
 
-            const nextIndex: Ordinal = apply.Translation(index, NEXT)
+            const nextIndex: Ordinal<Sound> = apply.Translation(index, NEXT)
             if (nextIndex > indexOfFinalElement(sounds)) {
                 return
             }

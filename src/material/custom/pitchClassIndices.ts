@@ -1,4 +1,4 @@
-import { apply, to } from '@musical-patterns/utilities'
+import { apply, Cardinal, from, to } from '@musical-patterns/utilities'
 import { YER_EXCEPTION_PITCH_CLASS_COUNT, YER_PITCH_CLASS_COUNT } from '../constants'
 import { Yer, YerExceptionPitchClass, YerPitchClass } from './types'
 import { computeYer } from './yer'
@@ -6,9 +6,7 @@ import { computeYer } from './yer'
 const computeOrderedPitchClassIndices: () => YerPitchClass[] =
     (): YerPitchClass[] =>
         computeYer()
-            .map((yer: Yer): YerPitchClass =>
-                yer.pitchClass,
-            )
+            .map((yer: Yer): YerPitchClass => yer.pitchClass)
 
 const yerExceptionPitchClassesOrderedByPitch: YerExceptionPitchClass[] = [
     YerExceptionPitchClass._11_11_17,
@@ -17,20 +15,23 @@ const yerExceptionPitchClassesOrderedByPitch: YerExceptionPitchClass[] = [
 
 const yerPitchClassIndex: (octaveIndex: number, yerPitchClass: YerPitchClass) => number =
     (octaveIndex: number, yerPitchClass: YerPitchClass): number =>
-        apply.Translation(
-            apply.Scalar(YER_PITCH_CLASS_COUNT, to.Scalar(octaveIndex)),
-            to.Translation(
+        from.Cardinal(apply.Translation(
+            apply.Multiple(YER_PITCH_CLASS_COUNT, to.Multiple<Cardinal<YerPitchClass>>(octaveIndex)),
+            to.Translation<Cardinal<YerPitchClass>>(
                 computeOrderedPitchClassIndices()
                     .indexOf(yerPitchClass),
             ),
-        )
+        ))
 
 const yerExceptionPitchClassIndex: (octaveIndex: number, yerExceptionPitchClass: YerExceptionPitchClass) => number =
     (octaveIndex: number, yerExceptionPitchClass: YerExceptionPitchClass): number =>
-        apply.Translation(
-            apply.Scalar(YER_EXCEPTION_PITCH_CLASS_COUNT, to.Scalar(octaveIndex)),
-            to.Translation(yerExceptionPitchClassesOrderedByPitch.indexOf(yerExceptionPitchClass)),
-        )
+        from.Cardinal(apply.Translation(
+            apply.Multiple(YER_EXCEPTION_PITCH_CLASS_COUNT, to.Multiple<Cardinal<YerExceptionPitchClass>>(octaveIndex)),
+            to.Translation<Cardinal<YerExceptionPitchClass>>(
+                yerExceptionPitchClassesOrderedByPitch
+                    .indexOf(yerExceptionPitchClass),
+            ),
+        ))
 
 export {
     yerPitchClassIndex,

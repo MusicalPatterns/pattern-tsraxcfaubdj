@@ -6,7 +6,7 @@ import {
     STANDARD_DURATIONS_SCALE_INDEX,
     STANDARD_PITCH_INDEX_INDICATING_REST,
 } from '@musical-patterns/material'
-import { ContourElement, from, insteadOf, Scalar, to } from '@musical-patterns/utilities'
+import { Amplitude, ContourElement, from, Scalar, to } from '@musical-patterns/utilities'
 
 const computeNote: (contourElement: ContourElement<PitchDurationScale>) => Note =
     ([ pitch, duration, scale ]: ContourElement<PitchDurationScale>): Note => {
@@ -17,7 +17,7 @@ const computeNote: (contourElement: ContourElement<PitchDurationScale>) => Note 
                     scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
                 },
                 gain: {
-                    scalar: insteadOf<Scalar, Scalar>(SILENT),
+                    scalar: to.Scalar<Scalar>(from.NormalScalar<Amplitude>(SILENT)),
                 },
             }
         }

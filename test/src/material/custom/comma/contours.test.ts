@@ -8,7 +8,7 @@ import {
     THIRD_OCTAVE,
     WHOLE_NOTE,
     YER_SCALE_INDEX,
-    YerBlumeyerCommaPumpFamily,
+    YerBlumeyerCommaPumpFamily, YerBlumeyerCommaPumpInstruction,
     YerBlumeyerCommaPumpOperation,
     YerPitchClass,
     yerPitchClassIndex,
@@ -23,7 +23,7 @@ describe('raw pieces from pump', () => {
                     family: YerBlumeyerCommaPumpFamily.A,
                     operation: YerBlumeyerCommaPumpOperation.CONVERSE,
                 }),
-                to.Ordinal(2),
+                to.Ordinal<YerBlumeyerCommaPumpInstruction>(2),
             ),
             [ SECOND_OCTAVE, SECOND_OCTAVE, THIRD_OCTAVE, SECOND_OCTAVE ],
         )

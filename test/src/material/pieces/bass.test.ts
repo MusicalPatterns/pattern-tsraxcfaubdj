@@ -1,4 +1,4 @@
-import { PitchDurationScale } from '@musical-patterns/material'
+import { PitchDurationScale, Sound, Voice } from '@musical-patterns/material'
 import { Ordinal, to } from '@musical-patterns/utilities'
 import {
     computeBassContourPieces,
@@ -18,9 +18,9 @@ import { testEveryIntervalIsSimple } from '../../../support/helpers'
 describe('bass pieces', () => {
     it('almost every interval is a simple 11, 13, 17, or 19', async (done: DoneFn) => {
         const FROM_THE_OPENING_REST: number = 0
-        const exceptionalIndices: Ordinal[] = [ FROM_THE_OPENING_REST ].map(to.Ordinal)
+        const exceptionalIndices: Array<Ordinal<Sound>> = [ FROM_THE_OPENING_REST ].map((value: number) => to.Ordinal<Sound>(value))
 
-        const INDEX_OF_BASS_VOICE: Ordinal = to.Ordinal(1)
+        const INDEX_OF_BASS_VOICE: Ordinal<Voice> = to.Ordinal<Voice>(1)
         await testEveryIntervalIsSimple(INDEX_OF_BASS_VOICE, exceptionalIndices)
         done()
     })

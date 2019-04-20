@@ -3,7 +3,6 @@ import {
     from,
     Hz,
     insteadOf,
-    Multiple,
     octaveReduce,
     product,
     quotient,
@@ -23,10 +22,10 @@ const computeYerScalars: () => Array<Scalar<Hz>> =
 const computeYerExceptionScalars: () => Array<Scalar<Hz>> =
     (): Array<Scalar<Hz>> =>
         [
-            product(YER_ELEVEN, YER_ELEVEN, YER_SEVENTEEN),
-            quotient(product(YER_THIRTEEN, YER_NINETEEN), YER_ELEVEN),
+            from.Multiple(product(YER_ELEVEN, YER_ELEVEN, YER_SEVENTEEN)),
+            from.Scalar(quotient(product(YER_THIRTEEN, YER_NINETEEN), YER_ELEVEN)),
         ]
-            .map((num: number) => to.Scalar<Frequency>(num))
+            .map((value: number) => to.Scalar<Frequency>(value))
             .map(octaveReduce)
             // tslint:disable-next-line no-unnecessary-callback-wrapper
             .map((scalar: Scalar<Frequency>) => insteadOf<Scalar, Hz>(scalar))

@@ -6,11 +6,13 @@ import {
     ContourPiece,
     deepEqual,
     forEach,
-    from, INCREMENT,
+    from,
+    INCREMENT,
     indexOfFinalElement,
     keys,
     NEXT,
-    Ordinal, Scalar,
+    Ordinal,
+    Scalar,
     to,
 } from '@musical-patterns/utilities'
 import {
