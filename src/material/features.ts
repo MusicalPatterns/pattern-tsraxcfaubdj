@@ -10,7 +10,7 @@ import { Amplitude, as, ContourElement, notAs, Scalar } from '@musical-patterns/
 
 const computeNote: (contourElement: ContourElement<PitchDurationScale>) => Note =
     ([ pitch, duration, scale ]: ContourElement<PitchDurationScale>): Note => {
-        if (pitch === notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST)) {
+        if (pitch === notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST)) {
             return {
                 duration: {
                     scalar: as.Scalar<Scalar>(duration),
@@ -28,8 +28,8 @@ const computeNote: (contourElement: ContourElement<PitchDurationScale>) => Note 
                 scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
             },
             pitch: {
-                index: as.Ordinal<Scalar>(pitch),
-                scaleIndex: as.Ordinal<Scale>(scale),
+                index: as.Ordinal<Scalar[]>(pitch),
+                scaleIndex: as.Ordinal<Scale[]>(scale),
             },
         }
     }

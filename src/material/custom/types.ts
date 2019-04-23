@@ -36,7 +36,7 @@ type YerFactorization = Partial<{ [Index in YerFactor]: boolean }>
 interface Yer {
     pitchClass: YerPitchClass,
     scalar: Scalar<Frequency>,
-    subset: Array<Multiple<Scalar<Frequency>>>,
+    subset: YerMultiple[],
 }
 
 type YerPitchClassByFactorization = ObjectOf<ObjectOf<ObjectOf<ObjectOf<YerPitchClass>>>>
@@ -48,6 +48,8 @@ type YerPitchClassByFactorizationCursor = ObjectOf<ObjectOf<ObjectOf<ObjectOf<Ye
 
 type YerFactorizationByPitchClass = { [Index in YerPitchClass]: YerFactorization }
 
+type YerMultiple = Multiple<Scalar<Frequency>>
+
 export {
     Yer,
     YerPitchClass,
@@ -57,4 +59,5 @@ export {
     YerPitchClassByFactorization,
     YerPitchClassByFactorizationCursor,
     YerFactorizationByPitchClass,
+    YerMultiple,
 }

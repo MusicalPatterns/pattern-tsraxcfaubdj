@@ -9,7 +9,7 @@ const computeYerBlumeyerCommaPumpInstructions:
         const { cycling, family, operation } = instructionsBlueprint
         let instructions: Cycle<YerBlumeyerCommaPumpInstruction> = computePumpInstructionsFromFamily(family)
         instructions = applyPumpInstructionsOperation(instructions, operation)
-        instructions = use.Translation(instructions, cycling)
+        instructions = use.Cardinal(instructions, cycling)
 
         return notAs.Cycle(instructions)
     }

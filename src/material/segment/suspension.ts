@@ -39,7 +39,7 @@ const suspensionBassPump: (parameters?: { transposeThirdStepDown?: boolean }) =>
         rawPiecesFromPump(
             computeYerBlumeyerCommaPump(
                 computeYerBlumeyerCommaPumpInstructions({
-                    cycling: as.Translation<Cycle<YerBlumeyerCommaPumpInstruction>>(negative(1)),
+                    cycling: as.Cardinal<Cycle<YerBlumeyerCommaPumpInstruction>>(negative(1)),
                     family: YerBlumeyerCommaPumpFamily.A,
                     operation: YerBlumeyerCommaPumpOperation.INVERSE,
                 }),

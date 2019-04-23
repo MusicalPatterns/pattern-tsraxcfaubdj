@@ -1,4 +1,4 @@
-import { NO_TRANSLATION } from '@musical-patterns/utilities'
+import { NO_SHIFT } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import {
     computeYerBlumeyerCommaPump,
@@ -36,7 +36,7 @@ const openingBassPump: () => number[][][] =
         rawPiecesFromPump(
             computeYerBlumeyerCommaPump(
                 computeYerBlumeyerCommaPumpInstructions({
-                    cycling: NO_TRANSLATION,
+                    cycling: NO_SHIFT,
                     family: YerBlumeyerCommaPumpFamily.A,
                     operation: YerBlumeyerCommaPumpOperation.CONVERSE,
                 }),

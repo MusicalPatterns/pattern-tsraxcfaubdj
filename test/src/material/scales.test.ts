@@ -27,15 +27,15 @@ describe('yer scale', () => {
             slice(
                 yerScaleScalars,
                 INITIAL,
-                use.Translation(
+                use.Cardinal(
                     indexOfFinalElement(yerScaleScalars),
-                    as.Translation<Ordinal<Scalar>>(notAs.Cardinal(negative(YER_PITCH_CLASS_COUNT))),
+                    as.Cardinal<Ordinal<Scalar[]>>(notAs.Cardinal(negative(YER_PITCH_CLASS_COUNT))),
                 ),
             ),
-            (scalar: Scalar, index: Ordinal<Scalar>) => {
-                const indexOfScalarWhichShouldBeTwiceThisOne: Ordinal<Scalar> = use.Translation(
+            (scalar: Scalar, index: Ordinal<Scalar[]>) => {
+                const indexOfScalarWhichShouldBeTwiceThisOne: Ordinal<Scalar[]> = use.Cardinal(
                     index,
-                    as.Translation<Ordinal<Scalar>>(notAs.Cardinal(YER_PITCH_CLASS_COUNT)),
+                    as.Cardinal<Ordinal<Scalar[]>>(notAs.Cardinal(YER_PITCH_CLASS_COUNT)),
                 )
                 const yerScaleScalarWhichShouldBeTwiceThisOne: Maybe<Scalar> =
                     use.Ordinal(yerScaleScalars, indexOfScalarWhichShouldBeTwiceThisOne)

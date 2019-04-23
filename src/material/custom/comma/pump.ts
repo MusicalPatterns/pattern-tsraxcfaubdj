@@ -13,18 +13,18 @@ const isFullPump: (candidate: YerPitchClass[][]) => candidate is YerBlumeyerComm
 
 const computeYerBlumeyerCommaPump: (
     instructions: YerBlumeyerCommaPumpInstruction[],
-    rotation?: Ordinal<YerBlumeyerCommaPumpInstruction>,
+    rotation?: Ordinal<YerBlumeyerCommaPumpInstruction[]>,
 ) => YerBlumeyerCommaPump =
     (
         instructions: YerBlumeyerCommaPumpInstruction[],
-        rotation: Ordinal<YerBlumeyerCommaPumpInstruction> = INITIAL,
+        rotation: Ordinal<YerBlumeyerCommaPumpInstruction[]> = INITIAL,
     ): YerBlumeyerCommaPump => {
         let currentFactorization: YerFactorization = computeInitialFactorization(rotation, instructions)
         const pump: YerPitchClass[][] = []
 
         forEach(
             instructions,
-            (instruction: YerBlumeyerCommaPumpInstruction, index: Ordinal<YerBlumeyerCommaPumpInstruction>): void => {
+            (instruction: YerBlumeyerCommaPumpInstruction, index: Ordinal<YerBlumeyerCommaPumpInstruction[]>): void => {
                 const pumpStep: YerPitchClass[] = []
 
                 pumpStep.push(computeYerPitchClassByFactorization(currentFactorization))

@@ -1,4 +1,4 @@
-import { Cycle, Translation } from '@musical-patterns/utilities'
+import { Cardinal, Cycle } from '@musical-patterns/utilities'
 import { YerFactor, YerPitchClass } from '../types'
 
 enum YerBlumeyerCommaPumpFamily {
@@ -15,7 +15,7 @@ enum YerBlumeyerCommaPumpOperation {
 }
 
 interface YerBlumeyerCommaPumpInstructionsBlueprint {
-    cycling: Translation<Cycle<YerBlumeyerCommaPumpInstruction>>,
+    cycling: Cardinal<Cycle<YerBlumeyerCommaPumpInstruction>>,
     family: YerBlumeyerCommaPumpFamily,
     operation: YerBlumeyerCommaPumpOperation,
 }

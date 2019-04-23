@@ -72,8 +72,8 @@ const testDoesNotUseSamePitchesAsBass:
         })
     }
 
-const testEveryIntervalIsSimple: (voiceIndex: Ordinal<Voice>, exceptionalIndices?: Array<Ordinal<Sound>>) => Promise<void> =
-    async (voiceIndex: Ordinal<Voice>, exceptionalIndices: Array<Ordinal<Sound>> = []): Promise<void> => {
+const testEveryIntervalIsSimple: (voiceIndex: Ordinal<Voice[]>, exceptionalIndices?: Array<Ordinal<Sound[]>>) => Promise<void> =
+    async (voiceIndex: Ordinal<Voice[]>, exceptionalIndices: Array<Ordinal<Sound[]>> = []): Promise<void> => {
         const rawAcceptablySimpleRatios: Array<[ number, number ]> = [
             [ 1, 1 ],
             [ 11, 16 ],
@@ -102,12 +102,12 @@ const testEveryIntervalIsSimple: (voiceIndex: Ordinal<Voice>, exceptionalIndices
         const voice: Voice = use.Ordinal(voices, voiceIndex)
         const sounds: Sound[] = voice.sounds || []
 
-        forEach(sounds, (sound: Sound, index: Ordinal<Sound>) => {
+        forEach(sounds, (sound: Sound, index: Ordinal<Sound[]>) => {
             if (exceptionalIndices.includes(index)) {
                 return
             }
 
-            const nextIndex: Ordinal<Sound> = use.Translation(index, NEXT)
+            const nextIndex: Ordinal<Sound[]> = use.Cardinal(index, NEXT)
             if (nextIndex > indexOfFinalElement(sounds)) {
                 return
             }

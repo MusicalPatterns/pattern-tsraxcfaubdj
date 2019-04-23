@@ -15,9 +15,9 @@ const yerExceptionPitchClassesOrderedByPitch: YerExceptionPitchClass[] = [
 
 const yerPitchClassIndex: (octaveIndex: number, yerPitchClass: YerPitchClass) => number =
     (octaveIndex: number, yerPitchClass: YerPitchClass): number =>
-        notAs.Cardinal(use.Translation(
+        notAs.Cardinal(use.Cardinal(
             use.Multiple(YER_PITCH_CLASS_COUNT, as.Multiple<Cardinal<YerPitchClass>>(octaveIndex)),
-            as.Translation<Cardinal<YerPitchClass>>(
+            as.Cardinal<Cardinal<YerPitchClass>>(
                 computeOrderedPitchClassIndices()
                     .indexOf(yerPitchClass),
             ),
@@ -25,9 +25,9 @@ const yerPitchClassIndex: (octaveIndex: number, yerPitchClass: YerPitchClass) =>
 
 const yerExceptionPitchClassIndex: (octaveIndex: number, yerExceptionPitchClass: YerExceptionPitchClass) => number =
     (octaveIndex: number, yerExceptionPitchClass: YerExceptionPitchClass): number =>
-        notAs.Cardinal(use.Translation(
+        notAs.Cardinal(use.Cardinal(
             use.Multiple(YER_EXCEPTION_PITCH_CLASS_COUNT, as.Multiple<Cardinal<YerExceptionPitchClass>>(octaveIndex)),
-            as.Translation<Cardinal<YerExceptionPitchClass>>(
+            as.Cardinal<Cardinal<YerExceptionPitchClass>>(
                 yerExceptionPitchClassesOrderedByPitch
                     .indexOf(yerExceptionPitchClass),
             ),

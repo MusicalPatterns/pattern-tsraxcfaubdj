@@ -14,4 +14,5 @@ export {
     YerPitchClass,
     YerExceptionPitchClass,
     Yer,
+    YerMultiple,
 } from './types'

@@ -17,7 +17,7 @@ const introLead: () => number[][][] =
 const introRest: () => number[][][] =
     (): number[][][] => [
         [
-            [ notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
+            [ notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
     ]
 

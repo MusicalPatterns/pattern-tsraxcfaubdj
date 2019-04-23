@@ -2,7 +2,6 @@ import {
     as,
     Frequency,
     keyExistsOnObject,
-    Multiple,
     notAs,
     octaveReduce,
     powerSet,
@@ -11,7 +10,7 @@ import {
     use,
 } from '@musical-patterns/utilities'
 import { YER_FACTORS } from './constants'
-import { Yer, YerPitchClass } from './types'
+import { Yer, YerMultiple, YerPitchClass } from './types'
 
 const isYerPitchClass: (candidate: string) => candidate is YerPitchClass =
     (candidate: string): candidate is YerPitchClass =>
@@ -20,10 +19,10 @@ const isYerPitchClass: (candidate: string) => candidate is YerPitchClass =
 const computeYer: () => Yer[] =
     (): Yer[] =>
         powerSet(YER_FACTORS)
-            .map((subset: Array<Multiple<Scalar<Frequency>>>): Yer => {
+            .map((subset: YerMultiple[]): Yer => {
                 let rawPitchClass: string = reduce(
                     subset,
-                    (accumulator: string, factor: Multiple<Scalar<Frequency>>): string =>
+                    (accumulator: string, factor: YerMultiple): string =>
                         `${accumulator}_${factor}`,
                     '',
                 )
@@ -38,7 +37,7 @@ const computeYer: () => Yer[] =
 
                 const scalar: Scalar<Frequency> = reduce(
                     subset,
-                    (accumulator: Scalar<Frequency>, factor: Multiple<Scalar<Frequency>>) =>
+                    (accumulator: Scalar<Frequency>, factor: YerMultiple) =>
                         use.Multiple(accumulator, factor),
                     as.Scalar<Frequency>(1),
                 )

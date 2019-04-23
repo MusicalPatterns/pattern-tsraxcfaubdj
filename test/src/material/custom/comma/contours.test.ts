@@ -1,4 +1,4 @@
-import { as, NO_TRANSLATION } from '@musical-patterns/utilities'
+import { as, NO_SHIFT } from '@musical-patterns/utilities'
 import {
     computeYerBlumeyerCommaPump,
     computeYerBlumeyerCommaPumpInstructions,
@@ -20,11 +20,11 @@ describe('raw pieces from pump', () => {
         const actual: number[][][] = rawPiecesFromPump(
             computeYerBlumeyerCommaPump(
                 computeYerBlumeyerCommaPumpInstructions({
-                    cycling: NO_TRANSLATION,
+                    cycling: NO_SHIFT,
                     family: YerBlumeyerCommaPumpFamily.A,
                     operation: YerBlumeyerCommaPumpOperation.CONVERSE,
                 }),
-                as.Ordinal<YerBlumeyerCommaPumpInstruction>(2),
+                as.Ordinal<YerBlumeyerCommaPumpInstruction[]>(2),
             ),
             [ SECOND_OCTAVE, SECOND_OCTAVE, THIRD_OCTAVE, SECOND_OCTAVE ],
         )

@@ -9,7 +9,7 @@ import {
     quotient,
     Scalar,
 } from '@musical-patterns/utilities'
-import { YER_ELEVEN, YER_NINETEEN, YER_SEVENTEEN, YER_THIRTEEN } from '../constants'
+import { YER_ELEVEN, YER_NINETEEN, YER_SEVENTEEN, YER_THIRTEEN } from './constants'
 import { computeYer, Yer } from './custom'
 
 const computeYerScalars: () => Array<Scalar<Hz>> =

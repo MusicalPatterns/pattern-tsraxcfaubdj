@@ -14,8 +14,10 @@ const THIRD_OCTAVE: number = 3
 const FOURTH_OCTAVE: number = 4
 const FIFTH_OCTAVE: number = 5
 
-const FIRST_PUMP_ROTATION: Ordinal<YerBlumeyerCommaPumpInstruction> = as.Ordinal<YerBlumeyerCommaPumpInstruction>(2)
-const SECOND_PUMP_ROTATION: Ordinal<YerBlumeyerCommaPumpInstruction> = as.Ordinal<YerBlumeyerCommaPumpInstruction>(3)
+const FIRST_PUMP_ROTATION: Ordinal<YerBlumeyerCommaPumpInstruction[]> =
+    as.Ordinal<YerBlumeyerCommaPumpInstruction[]>(2)
+const SECOND_PUMP_ROTATION: Ordinal<YerBlumeyerCommaPumpInstruction[]> =
+    as.Ordinal<YerBlumeyerCommaPumpInstruction[]>(3)
 
 export {
     THREE_WHOLE_NOTES,
