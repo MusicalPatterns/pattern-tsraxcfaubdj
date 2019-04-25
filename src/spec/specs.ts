@@ -6,12 +6,12 @@ import {
     StandardSpec,
     StandardSpecs,
 } from '@musical-patterns/spec'
-import { TSRAXCFAUBDJ_INITIAL_BASE_DURATION, TSRAXCFAUBDJ_INITIAL_BASE_FREQUENCY } from './constants'
+import { TSRAXCFAUBDJ_INITIAL_BASIS_DURATION, TSRAXCFAUBDJ_INITIAL_BASIS_FREQUENCY } from './constants'
 
 const initialSpecs: StandardSpecs = {
     ...standardInitialSpecs,
-    [ StandardSpec.BASE_DURATION ]: TSRAXCFAUBDJ_INITIAL_BASE_DURATION,
-    [ StandardSpec.BASE_FREQUENCY ]: TSRAXCFAUBDJ_INITIAL_BASE_FREQUENCY,
+    [ StandardSpec.BASIS_DURATION ]: TSRAXCFAUBDJ_INITIAL_BASIS_DURATION,
+    [ StandardSpec.BASIS_FREQUENCY ]: TSRAXCFAUBDJ_INITIAL_BASIS_FREQUENCY,
 }
 
 const configurations: Configurations<StandardSpecs> = {

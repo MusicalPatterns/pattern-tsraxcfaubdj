@@ -5,43 +5,24 @@ import {
     STANDARD_PITCH_SCALE_INDEX,
 } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
-import {
-    as,
-    computeOctaveRepeatingScalars,
-    Hz,
-    insteadOf,
-    Scalar,
-    Translation,
-    use,
-} from '@musical-patterns/utilities'
+import { computeOctaveRepeatingPitchScalars, Pitch, Scalar, use } from '@musical-patterns/utilities'
 import { computeYerExceptionScalars, computeYerScalars } from './scalars'
 
 const materializeScales: MaterializeScales =
     // tslint:disable-next-line no-any
     (specs: StandardSpecs): Array<Scale<any>> => {
-        const yerScalars: Array<Scalar<Hz>> = computeOctaveRepeatingScalars(computeYerScalars())
+        const yerScalars: Array<Scalar<Pitch>> = computeOctaveRepeatingPitchScalars(computeYerScalars())
 
         // tslint:disable-next-line no-any
         const standardScales: Array<Scale<any>> = materializeStandardScales(specs, { pitchScalars: yerScalars })
 
-        const yerExceptionScalars: Array<Scalar<Hz>> = computeOctaveRepeatingScalars(computeYerExceptionScalars())
+        const yerExceptionScalars: Array<Scalar<Pitch>> =
+            computeOctaveRepeatingPitchScalars(computeYerExceptionScalars())
 
-        const yerExceptionPitchesScale: Scale<Hz> = {
-            scalar: insteadOf<Scalar, Hz>(
-                use.Ordinal(
-                    standardScales,
-                    STANDARD_PITCH_SCALE_INDEX,
-                ).scalar ||
-                as.Scalar(0),
-            ),
+        const yerExceptionPitchesScale: Scale<Pitch> = {
+            basis: use.Ordinal(standardScales, STANDARD_PITCH_SCALE_INDEX).basis,
             scalars: yerExceptionScalars,
-            translation: insteadOf<Translation, Hz>(
-                use.Ordinal(
-                    standardScales,
-                    STANDARD_PITCH_SCALE_INDEX,
-                ).translation ||
-                as.Translation(0),
-            ),
+            translation: use.Ordinal(standardScales, STANDARD_PITCH_SCALE_INDEX).translation,
         }
 
         return standardScales.concat([
