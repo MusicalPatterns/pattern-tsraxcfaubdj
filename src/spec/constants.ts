@@ -11,7 +11,7 @@ import {
     ScientificPitchOctaveNumber,
 } from '@musical-patterns/utilities'
 
-const TSRAXCFAUBDJ_INITIAL_BASIS_DURATION: Duration = as.Translation<Point<Ms>>(2400)
+const TSRAXCFAUBDJ_INITIAL_BASIS_DURATION: Duration = as.Delta<Ms>(2400)
 const TSRAXCFAUBDJ_INITIAL_BASIS_FREQUENCY: Pitch =
     SCIENTIFIC_PITCHES[ ScientificPitchNoteName.C ][ ScientificPitchOctaveNumber._0 ]
 

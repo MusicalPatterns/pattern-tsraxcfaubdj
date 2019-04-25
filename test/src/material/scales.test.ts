@@ -29,13 +29,13 @@ describe('yer scale', () => {
                 INITIAL,
                 use.Cardinal(
                     indexOfFinalElement(yerScaleScalars),
-                    as.Cardinal<Ordinal<Scalar[]>>(notAs.Cardinal(negative(YER_PITCH_CLASS_COUNT))),
+                    as.Transition<Scalar[]>(notAs.Cardinal(negative(YER_PITCH_CLASS_COUNT))),
                 ),
             ),
             (scalar: Scalar, index: Ordinal<Scalar[]>) => {
                 const indexOfScalarWhichShouldBeTwiceThisOne: Ordinal<Scalar[]> = use.Cardinal(
                     index,
-                    as.Cardinal<Ordinal<Scalar[]>>(notAs.Cardinal(YER_PITCH_CLASS_COUNT)),
+                    as.Transition<Scalar[]>(notAs.Cardinal(YER_PITCH_CLASS_COUNT)),
                 )
                 const yerScaleScalarWhichShouldBeTwiceThisOne: Maybe<Scalar> =
                     use.Ordinal(yerScaleScalars, indexOfScalarWhichShouldBeTwiceThisOne)
