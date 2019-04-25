@@ -1,10 +1,10 @@
 import {
     as,
     Frequency,
-    Hz,
     insteadOf,
     notAs,
-    octaveReduce, Pitch,
+    octaveReduce,
+    Pitch,
     product,
     quotient,
     Scalar,
