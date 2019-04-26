@@ -2,7 +2,7 @@ import {
     as,
     Frequency,
     keyExistsOnObject,
-    notAs,
+
     octaveReduce,
     powerSet,
     reduce,
@@ -49,7 +49,7 @@ const computeYer: () => Yer[] =
                 scalar: octaveReduce(yer.scalar),
             }))
             .sort((yer: Yer, nextYer: Yer) =>
-                notAs.Scalar<Frequency>(yer.scalar) - notAs.Scalar<Frequency>(nextYer.scalar),
+                as.number(yer.scalar) - as.number(nextYer.scalar),
             )
 
 export {

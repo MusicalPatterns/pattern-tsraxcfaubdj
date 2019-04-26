@@ -16,11 +16,11 @@ import {
     isCloseTo,
     Maybe,
     NEXT,
-    notAs,
     numericSort,
     Ordinal,
     Pitch,
     quotient,
+    resolve,
     Scalar,
     uniqueFilter,
     use,
@@ -30,13 +30,13 @@ import { INDEX_OF_PITCH_WITHIN_CONTOUR_ELEMENT } from './constants'
 
 const pitchClassIndexFromPitchIndexRespectingRests: (pitchIndex: number) => number =
     (pitchIndex: number): number => {
-        if (pitchIndex === notAs.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST)) {
+        if (pitchIndex === as.number(STANDARD_PITCH_INDEX_INDICATING_REST)) {
             return pitchIndex
         }
 
         return use.Modulus(
             pitchIndex,
-            as.Modulus(notAs.Cardinal(YER_PITCH_CLASS_COUNT)),
+            as.Modulus(as.number(YER_PITCH_CLASS_COUNT)),
         )
     }
 
@@ -46,7 +46,7 @@ const computeBassPitchClassIndexSet: () => number[] =
             computePitchClassIndices(computeBassContourWhole()),
             uniqueFilter,
         )
-            .filter((value: number) => value !== notAs.Ordinal(STANDARD_PITCH_INDEX_INDICATING_REST))
+            .filter((value: number) => value !== as.number(STANDARD_PITCH_INDEX_INDICATING_REST))
             .sort(numericSort)
 
 const computePitchClassIndices: (contourWhole: ContourWhole<PitchDurationScale>) => number[] =
@@ -120,7 +120,7 @@ const testEveryIntervalIsSimple: (voiceIndex: Ordinal<Voice[]>, exceptionalIndic
             let pass: boolean = false
             const actualInterval: Scalar<Pitch> = quotient(nextSound.frequency, sound.frequency)
             acceptableRatios.forEach((acceptableRatio: Fraction) => {
-                const acceptableInterval: Scalar<Pitch> = as.Scalar<Pitch>(notAs.Fraction(acceptableRatio))
+                const acceptableInterval: Scalar<Pitch> = as.Scalar<Pitch>(resolve(acceptableRatio))
                 if (isCloseTo(actualInterval, acceptableInterval)) {
                     pass = true
                 }

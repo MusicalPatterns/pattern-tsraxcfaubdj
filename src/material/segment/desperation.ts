@@ -1,5 +1,5 @@
 import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
-import { notAs, Scalar } from '@musical-patterns/utilities'
+import { as } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import { YerPitchClass, yerPitchClassIndex } from '../custom'
 import {
@@ -36,7 +36,7 @@ const desperationFirstHarmony: () => number[][][] =
             [ yerPitchClassIndex(THIRD_OCTAVE, YerPitchClass._11_17_19), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
         [
-            [ notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
+            [ as.number(STANDARD_PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17_19), HALF_NOTE, YER_SCALE_INDEX ],
         ],
         [
@@ -50,17 +50,17 @@ const desperationFirstHarmony: () => number[][][] =
 const desperationSecondHarmony: () => number[][][] =
     (): number[][][] => [
         [
-            [ notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
+            [ as.number(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_17_19), HALF_NOTE, YER_SCALE_INDEX ],
-            [ notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
+            [ as.number(STANDARD_PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
         ],
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
         [
-            [ notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
+            [ as.number(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
     ]
 

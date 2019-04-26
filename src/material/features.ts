@@ -6,11 +6,11 @@ import {
     STANDARD_DURATION_SCALE_INDEX,
     STANDARD_PITCH_INDEX_INDICATING_REST,
 } from '@musical-patterns/material'
-import { as, ContourElement, Duration, notAs, Pitch, Scalar } from '@musical-patterns/utilities'
+import { as, ContourElement, Duration,  Pitch, Scalar } from '@musical-patterns/utilities'
 
 const computeNote: (contourElement: ContourElement<PitchDurationScale>) => Note =
     ([ pitch, duration, scale ]: ContourElement<PitchDurationScale>): Note => {
-        if (pitch === notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST)) {
+        if (pitch === as.number(STANDARD_PITCH_INDEX_INDICATING_REST)) {
             return {
                 duration: {
                     scalar: as.Scalar<Duration>(duration),

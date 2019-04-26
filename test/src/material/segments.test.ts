@@ -10,7 +10,7 @@ import {
     indexOfFinalElement,
     keys,
     NEXT,
-    notAs,
+
     Ordinal,
     Scalar,
     use,
@@ -45,7 +45,7 @@ describe('segments', () => {
                 piece.forEach((element: ContourElement<PitchDurationScale>) => {
                     for (
                         let quarter: Ordinal = as.Ordinal(0);
-                        notAs.Ordinal(quarter) < (use.Ordinal(element, INDEX_OF_DURATION_IN_PITCH_DURATION_SCALE_CONTOUR));
+                        as.number(quarter) < (use.Ordinal(element, INDEX_OF_DURATION_IN_PITCH_DURATION_SCALE_CONTOUR));
                         quarter = use.Cardinal(quarter, NEXT)
                     ) {
                         pitchIndicesByQuarter.push(
@@ -87,7 +87,7 @@ describe('segments', () => {
         const secondHarmonyPitchClassIndicesByQuarter: number[] = computePitchClassIndicesByQuarter(secondHarmonyContourPieces)
 
         const quarters: number[][] = []
-        for (let index: Ordinal = as.Ordinal(0); notAs.Ordinal(index) < QUARTERS_COUNT; index = use.Cardinal(index, NEXT)) {
+        for (let index: Ordinal = as.Ordinal(0); as.number(index) < QUARTERS_COUNT; index = use.Cardinal(index, NEXT)) {
             quarters.push([
                 use.Ordinal(leadPitchClassIndicesByQuarter, index),
                 use.Ordinal(bassPitchClassIndicesByQuarter, index),
@@ -105,7 +105,7 @@ describe('segments', () => {
             ) {
                 for (
                     let secondPitchIndex: Ordinal = use.Cardinal(firstPitchIndex, INCREMENT);
-                    notAs.Ordinal(secondPitchIndex) < quarter.length;
+                    as.number(secondPitchIndex) < quarter.length;
                     secondPitchIndex = use.Cardinal(secondPitchIndex, NEXT)
                 ) {
                     combinationsOfPitches.push([
@@ -118,7 +118,7 @@ describe('segments', () => {
 
         const combinationsOfFactorizations: Array<[ YerFactorization, YerFactorization ]> =
             combinationsOfPitches.map(([ firstPitch, secondPitch ]: [ number, number ]): [ YerFactorization, YerFactorization ] => {
-                if (firstPitch === notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST) || secondPitch === notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST)) {
+                if (firstPitch === as.number(STANDARD_PITCH_INDEX_INDICATING_REST) || secondPitch === as.number(STANDARD_PITCH_INDEX_INDICATING_REST)) {
                     return [ {}, {} ]
                 }
 
@@ -161,8 +161,8 @@ describe('segments', () => {
                     })
 
                 if (differences > 2) {
-                    const segment: number = Math.floor(notAs.Ordinal<Array<[ YerFactorization, YerFactorization ]>>(index) / (6 * 4))
-                    const quarter: number = Math.floor((notAs.Ordinal<Array<[ YerFactorization, YerFactorization ]>>(index) % (6 * 4)) / 6)
+                    const segment: number = Math.floor(as.number(index) / (6 * 4))
+                    const quarter: number = Math.floor((as.number(index) % (6 * 4)) / 6)
 
                     const patternQuarter: number = (segment * 4) + quarter
                     if (exceptionalIndices.includes(patternQuarter)) {

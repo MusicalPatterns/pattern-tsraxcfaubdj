@@ -2,7 +2,7 @@ import {
     as,
     Frequency,
     insteadOf,
-    notAs,
+
     octaveReduce,
     Pitch,
     product,
@@ -22,8 +22,8 @@ const computeYerScalars: () => Array<Scalar<Pitch>> =
 const computeYerExceptionScalars: () => Array<Scalar<Pitch>> =
     (): Array<Scalar<Pitch>> =>
         [
-            notAs.Multiple(product(YER_ELEVEN, YER_ELEVEN, YER_SEVENTEEN)),
-            notAs.Scalar(quotient(product(YER_THIRTEEN, YER_NINETEEN), YER_ELEVEN)),
+            as.number(product(YER_ELEVEN, YER_ELEVEN, YER_SEVENTEEN)),
+            as.number(quotient(product(YER_THIRTEEN, YER_NINETEEN), YER_ELEVEN)),
         ]
             .map((value: number) => as.Scalar<Frequency>(value))
             .map(octaveReduce)

@@ -1,4 +1,4 @@
-import { Cycle, notAs, use } from '@musical-patterns/utilities'
+import { Cycle,  use } from '@musical-patterns/utilities'
 import { computePumpInstructionsFromFamily } from './family'
 import { applyPumpInstructionsOperation } from './operations'
 import { YerBlumeyerCommaPumpInstruction, YerBlumeyerCommaPumpInstructionsBlueprint } from './types'
@@ -11,7 +11,9 @@ const computeYerBlumeyerCommaPumpInstructions:
         instructions = applyPumpInstructionsOperation(instructions, operation)
         instructions = use.Cardinal(instructions, cycling)
 
-        return notAs.Cycle(instructions)
+        delete instructions._CycleBrand
+
+        return instructions
     }
 
 export {
