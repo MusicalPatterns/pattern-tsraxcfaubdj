@@ -25,7 +25,7 @@ const computeYerExceptionScalars: () => Array<Scalar<Pitch>> =
             as.number(product(YER_ELEVEN, YER_ELEVEN, YER_SEVENTEEN)),
             as.number(quotient(product(YER_THIRTEEN, YER_NINETEEN), YER_ELEVEN)),
         ]
-            .map((value: number) => as.Scalar<Frequency>(value))
+            .map((numeral: number) => as.Scalar<Frequency>(numeral))
             .map(octaveReduce)
             // tslint:disable-next-line no-unnecessary-callback-wrapper
             .map((scalar: Scalar<Frequency>) => insteadOf<Scalar, Pitch>(scalar))

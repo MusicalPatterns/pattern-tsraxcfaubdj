@@ -46,7 +46,7 @@ const computeBassPitchClassIndexSet: () => number[] =
             computePitchClassIndices(computeBassContourWhole()),
             uniqueFilter,
         )
-            .filter((value: number) => value !== as.number(STANDARD_PITCH_INDEX_INDICATING_REST))
+            .filter((numeral: number) => numeral !== as.number(STANDARD_PITCH_INDEX_INDICATING_REST))
             .sort(numericSort)
 
 const computePitchClassIndices: (contourWhole: ContourWhole<PitchDurationScale>) => number[] =

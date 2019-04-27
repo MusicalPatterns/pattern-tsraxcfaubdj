@@ -26,7 +26,7 @@ describe('lead pieces', () => {
             BETWEEN_BAR_13_AND_14,
             BETWEEN_BAR_14_AND_15_IS_ACTUALLY_NOT_NECESSARY_TO_EXCEPT_BECAUSE_IT_CIRCIUMVRENTS_THIS_CHECK_WITH_A_COMMA_SHIFT,
             BETWEEN_BAR_22_AND_23_WHICH_IS_THE_SAME_AS_BETWEEN_THREE_AND_FOUR,
-        ].map((value: number) => as.Ordinal<Sound[]>(value))
+        ].map((numeral: number) => as.Ordinal<Sound[]>(numeral))
 
         const INDEX_OF_LEAD_VOICE: Ordinal<Voice[]> = as.Ordinal<Voice[]>(0)
         await testEveryIntervalIsSimple(INDEX_OF_LEAD_VOICE, exceptionalIndices)

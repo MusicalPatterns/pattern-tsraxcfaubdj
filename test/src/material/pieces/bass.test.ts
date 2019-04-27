@@ -18,7 +18,7 @@ import { testEveryIntervalIsSimple } from '../../../support/helpers'
 describe('bass pieces', () => {
     it('almost every interval is a simple 11, 13, 17, or 19', async (done: DoneFn) => {
         const FROM_THE_OPENING_REST: number = 0
-        const exceptionalIndices: Array<Ordinal<Sound[]>> = [ FROM_THE_OPENING_REST ].map((value: number) => as.Ordinal<Sound[]>(value))
+        const exceptionalIndices: Array<Ordinal<Sound[]>> = [ FROM_THE_OPENING_REST ].map((numeral: number) => as.Ordinal<Sound[]>(numeral))
 
         const INDEX_OF_BASS_VOICE: Ordinal<Voice[]> = as.Ordinal<Voice[]>(1)
         await testEveryIntervalIsSimple(INDEX_OF_BASS_VOICE, exceptionalIndices)
