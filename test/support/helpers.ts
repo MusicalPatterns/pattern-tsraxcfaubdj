@@ -34,9 +34,9 @@ const pitchClassIndexFromPitchIndexRespectingRests: (pitchIndex: number) => numb
             return pitchIndex
         }
 
-        return use.Modulus(
+        return use.Remaindee(
             pitchIndex,
-            as.Modulus(as.number(YER_PITCH_CLASS_COUNT)),
+            as.Remaindee(as.number(YER_PITCH_CLASS_COUNT)),
         )
     }
 
