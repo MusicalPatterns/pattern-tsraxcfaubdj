@@ -20,7 +20,6 @@ import {
     Ordinal,
     Pitch,
     quotient,
-    resolve,
     Scalar,
     uniqueFilter,
     use,
@@ -120,7 +119,7 @@ const testEveryIntervalIsSimple: (voiceIndex: Ordinal<Voice[]>, exceptionalIndic
             let pass: boolean = false
             const actualInterval: Scalar<Pitch> = quotient(nextSound.frequency, sound.frequency)
             acceptableRatios.forEach((acceptableRatio: Fraction) => {
-                const acceptableInterval: Scalar<Pitch> = as.Scalar<Pitch>(resolve(acceptableRatio))
+                const acceptableInterval: Scalar<Pitch> = as.Scalar<Pitch>(as.number(acceptableRatio))
                 if (isCloseTo(actualInterval, acceptableInterval)) {
                     pass = true
                 }
