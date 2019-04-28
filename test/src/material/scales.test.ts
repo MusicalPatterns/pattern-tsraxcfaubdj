@@ -18,7 +18,7 @@ import {
 import { materializeScales, YER_PITCH_CLASS_COUNT } from '../../../src/indexForTest'
 
 describe('yer scale', () => {
-    it('the pitch scale has 16 pitch classes, repeating within an octave window', () => {
+    it('the pitch scale has 16 pitch classes, repeating within an octave period', () => {
         const specs: StandardSpecs = {}
         const yerScale: Scale = materializeScales(specs)[ 2 ]
         const yerScaleScalars: Scalar[] = yerScale.scalars!
