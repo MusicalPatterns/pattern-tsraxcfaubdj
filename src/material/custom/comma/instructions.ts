@@ -1,4 +1,4 @@
-import { Cycle,  use } from '@musical-patterns/utilities'
+import { Cycle, use } from '@musical-patterns/utilities'
 import { computePumpInstructionsFromFamily } from './family'
 import { applyPumpInstructionsOperation } from './operations'
 import { YerBlumeyerCommaPumpInstruction, YerBlumeyerCommaPumpInstructionsBlueprint } from './types'

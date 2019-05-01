@@ -1,5 +1,5 @@
-import { PitchDurationScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
-import { as,  Scalar } from '@musical-patterns/utilities'
+import { PitchValueScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
+import { as } from '@musical-patterns/utilities'
 import {
     computeSecondHarmonyContourPieces,
     FOURTH_OCTAVE,
@@ -86,7 +86,7 @@ describe('second harmony pieces', () => {
                     [
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17_19), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
-                ].map((contourPiece: number[][]) => as.ContourPiece<PitchDurationScale>(contourPiece)),
+                ].map((contourPiece: number[][]) => as.ContourPiece<PitchValueScale>(contourPiece)),
             )
     })
 })

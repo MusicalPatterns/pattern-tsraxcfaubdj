@@ -1,4 +1,4 @@
-import { as, Cardinal,  use } from '@musical-patterns/utilities'
+import { as, Cardinal, use } from '@musical-patterns/utilities'
 import { YER_EXCEPTION_PITCH_CLASS_COUNT, YER_PITCH_CLASS_COUNT } from '../constants'
 import { Yer, YerExceptionPitchClass, YerPitchClass } from './types'
 import { computeYer } from './yer'

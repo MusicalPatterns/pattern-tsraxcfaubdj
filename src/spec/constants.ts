@@ -3,17 +3,17 @@
 import {
     Duration,
     musicalAs,
-    Pitch,
     SCIENTIFIC_PITCHES,
     ScientificPitchNoteName,
     ScientificPitchOctaveNumber,
+    Tone,
 } from '@musical-patterns/utilities'
 
-const TSRAXCFAUBDJ_INITIAL_BASIS_DURATION: Duration = musicalAs.Duration(2400)
-const TSRAXCFAUBDJ_INITIAL_BASIS_FREQUENCY: Pitch =
+const TSRAXCFAUBDJ_INITIAL_MS_PHYSICALIZATION: Duration = musicalAs.Duration(2400)
+const TSRAXCFAUBDJ_INITIAL_HZ_PHYSICALIZATION: Tone =
     SCIENTIFIC_PITCHES[ ScientificPitchNoteName.C ][ ScientificPitchOctaveNumber._0 ]
 
 export {
-    TSRAXCFAUBDJ_INITIAL_BASIS_DURATION,
-    TSRAXCFAUBDJ_INITIAL_BASIS_FREQUENCY,
+    TSRAXCFAUBDJ_INITIAL_MS_PHYSICALIZATION,
+    TSRAXCFAUBDJ_INITIAL_HZ_PHYSICALIZATION,
 }

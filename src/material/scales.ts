@@ -5,7 +5,18 @@ import {
     STANDARD_PITCH_SCALE_INDEX,
 } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
-import { computeOctaveRepeatingPitchScalars, Pitch, Scalar, use } from '@musical-patterns/utilities'
+import {
+    as,
+    computeOctaveRepeatingPitchScalars,
+    INITIAL,
+    musicalAs,
+    Pitch,
+    Scalar,
+    slice,
+    THIRD,
+    Tone,
+    use,
+} from '@musical-patterns/utilities'
 import { computeYerExceptionScalars, computeYerScalars } from './scalars'
 
 const materializeScales: MaterializeScales =
@@ -20,14 +31,18 @@ const materializeScales: MaterializeScales =
             computeOctaveRepeatingPitchScalars(computeYerExceptionScalars())
 
         const yerExceptionPitchesScale: Scale<Pitch> = {
-            basis: use.Ordinal(standardScales, STANDARD_PITCH_SCALE_INDEX).basis,
+            basis: musicalAs.Tone(as.number(use.Ordinal(standardScales, STANDARD_PITCH_SCALE_INDEX).basis || 0)),
             scalars: yerExceptionScalars,
-            translation: use.Ordinal(standardScales, STANDARD_PITCH_SCALE_INDEX).translation,
+            translation: as.Translation<Tone>(as.number(use.Ordinal(
+                standardScales,
+                STANDARD_PITCH_SCALE_INDEX,
+            ).translation || 0)),
         }
 
-        return standardScales.concat([
-            yerExceptionPitchesScale,
-        ])
+        return slice(standardScales, INITIAL, THIRD)
+            .concat([
+                yerExceptionPitchesScale,
+            ])
     }
 
 export {

@@ -1,14 +1,4 @@
-import {
-    as,
-    Frequency,
-    insteadOf,
-
-    octaveReduce,
-    Pitch,
-    product,
-    quotient,
-    Scalar,
-} from '@musical-patterns/utilities'
+import { as, insteadOf, octaveReduce, Pitch, product, quotient, Scalar } from '@musical-patterns/utilities'
 import { YER_ELEVEN, YER_NINETEEN, YER_SEVENTEEN, YER_THIRTEEN } from './constants'
 import { computeYer, Yer } from './custom'
 
@@ -25,10 +15,10 @@ const computeYerExceptionScalars: () => Array<Scalar<Pitch>> =
             as.number(product(YER_ELEVEN, YER_ELEVEN, YER_SEVENTEEN)),
             as.number(quotient(product(YER_THIRTEEN, YER_NINETEEN), YER_ELEVEN)),
         ]
-            .map((numeral: number) => as.Scalar<Frequency>(numeral))
+            .map((numeral: number) => as.Scalar<Pitch>(numeral))
             .map(octaveReduce)
             // tslint:disable-next-line no-unnecessary-callback-wrapper
-            .map((scalar: Scalar<Frequency>) => insteadOf<Scalar, Pitch>(scalar))
+            .map((scalar: Scalar<Pitch>) => insteadOf<Scalar, Pitch>(scalar))
 
 export {
     computeYerScalars,

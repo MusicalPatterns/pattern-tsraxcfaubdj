@@ -1,6 +1,6 @@
 // tslint:disable max-file-line-count
 
-import { PitchDurationScale } from '@musical-patterns/material'
+import { PitchValueScale } from '@musical-patterns/material'
 import { as, ContourPiece, sequence } from '@musical-patterns/utilities'
 import {
     desperationSecondHarmony,
@@ -11,8 +11,8 @@ import {
     suspensionSecondHarmony,
 } from '../segment'
 
-const computeSecondHarmonyContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
-    (): Array<ContourPiece<PitchDurationScale>> =>
+const computeSecondHarmonyContourPieces: () => Array<ContourPiece<PitchValueScale>> =
+    (): Array<ContourPiece<PitchValueScale>> =>
         sequence(
             openingSecondHarmony(),
             openingEntranceAsPartOfLoopSecondHarmony(),
@@ -23,7 +23,7 @@ const computeSecondHarmonyContourPieces: () => Array<ContourPiece<PitchDurationS
             quietudeSecondHarmony(),
             openingEntranceSecondHarmony(),
         )
-            .map((contourPiece: number[][]) => as.ContourPiece<PitchDurationScale>(contourPiece))
+            .map((contourPiece: number[][]) => as.ContourPiece<PitchValueScale>(contourPiece))
 
 export {
     computeSecondHarmonyContourPieces,

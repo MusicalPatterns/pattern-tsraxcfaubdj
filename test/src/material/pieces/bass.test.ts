@@ -1,4 +1,4 @@
-import { PitchDurationScale, Sound, Voice } from '@musical-patterns/material'
+import { PitchValueScale, Sound, Voice } from '@musical-patterns/material'
 import { as, Ordinal } from '@musical-patterns/utilities'
 import {
     computeBassContourPieces,
@@ -13,7 +13,7 @@ import {
     YerPitchClass,
     yerPitchClassIndex,
 } from '../../../../src/indexForTest'
-import { testEveryIntervalIsSimple } from '../../../support/helpers'
+import { testEveryStepIsSimple } from '../../../support/helpers'
 
 describe('bass pieces', () => {
     it('almost every interval is a simple 11, 13, 17, or 19', async (done: DoneFn) => {
@@ -21,7 +21,7 @@ describe('bass pieces', () => {
         const exceptionalIndices: Array<Ordinal<Sound[]>> = [ FROM_THE_OPENING_REST ].map((numeral: number) => as.Ordinal<Sound[]>(numeral))
 
         const INDEX_OF_BASS_VOICE: Ordinal<Voice[]> = as.Ordinal<Voice[]>(1)
-        await testEveryIntervalIsSimple(INDEX_OF_BASS_VOICE, exceptionalIndices)
+        await testEveryStepIsSimple(INDEX_OF_BASS_VOICE, exceptionalIndices)
         done()
     })
 
@@ -108,7 +108,7 @@ describe('bass pieces', () => {
                     [
                         [ yerPitchClassIndex(SECOND_OCTAVE, YerPitchClass._13_17), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
-                ].map((contourPiece: number[][]) => as.ContourPiece<PitchDurationScale>(contourPiece)),
+                ].map((contourPiece: number[][]) => as.ContourPiece<PitchValueScale>(contourPiece)),
             )
     })
 })

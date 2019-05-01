@@ -1,5 +1,5 @@
 import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
-import { as, Scalar } from '@musical-patterns/utilities'
+import { as } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import { YerPitchClass, yerPitchClassIndex } from '../custom'
 import { FIFTH_OCTAVE, FOURTH_OCTAVE, HALF_NOTE, QUARTER_NOTE, WHOLE_NOTE } from './constants'

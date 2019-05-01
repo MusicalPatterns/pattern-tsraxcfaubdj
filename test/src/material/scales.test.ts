@@ -8,7 +8,6 @@ import {
     isUndefined,
     Maybe,
     negative,
-
     ONE_HALF,
     Ordinal,
     Scalar,

@@ -1,6 +1,6 @@
 // tslint:disable max-file-line-count
 
-import { PitchDurationScale } from '@musical-patterns/material'
+import { PitchValueScale } from '@musical-patterns/material'
 import { as, ContourPiece, FIRST, FOURTH, INITIAL, SECOND, sequence, slice, THIRD } from '@musical-patterns/utilities'
 import {
     openingBassPump,
@@ -9,8 +9,8 @@ import {
     thirdStepOfOpeningBassPumpIfItDidNotCommaShift,
 } from '../segment'
 
-const computeBassContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
-    (): Array<ContourPiece<PitchDurationScale>> =>
+const computeBassContourPieces: () => Array<ContourPiece<PitchValueScale>> =
+    (): Array<ContourPiece<PitchValueScale>> =>
         sequence(
             openingBassPump(),
             slice(openingBassPump(), INITIAL, SECOND),
@@ -21,7 +21,7 @@ const computeBassContourPieces: () => Array<ContourPiece<PitchDurationScale>> =
             slice(quietudeBassPump(), INITIAL, SECOND),
             slice(openingBassPump(), FIRST, FOURTH),
         )
-            .map((contourPiece: number[][]) => as.ContourPiece<PitchDurationScale>(contourPiece))
+            .map((contourPiece: number[][]) => as.ContourPiece<PitchValueScale>(contourPiece))
 
 export {
     computeBassContourPieces,

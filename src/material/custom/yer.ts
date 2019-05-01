@@ -1,14 +1,4 @@
-import {
-    as,
-    Frequency,
-    keyExistsOnObject,
-
-    octaveReduce,
-    powerSet,
-    reduce,
-    Scalar,
-    use,
-} from '@musical-patterns/utilities'
+import { as, keyExistsOnObject, octaveReduce, Pitch, powerSet, reduce, Scalar, use } from '@musical-patterns/utilities'
 import { YER_FACTORS } from './constants'
 import { Yer, YerMultiple, YerPitchClass } from './types'
 
@@ -35,11 +25,11 @@ const computeYer: () => Yer[] =
                     throw new Error(`malformed YerPitchClass: ${rawPitchClass}`)
                 }
 
-                const scalar: Scalar<Frequency> = reduce(
+                const scalar: Scalar<Pitch> = reduce(
                     subset,
-                    (accumulator: Scalar<Frequency>, factor: YerMultiple) =>
+                    (accumulator: Scalar<Pitch>, factor: YerMultiple) =>
                         use.Multiple(accumulator, factor),
-                    as.Scalar<Frequency>(1),
+                    as.Scalar<Pitch>(1),
                 )
 
                 return { pitchClass, scalar, subset }

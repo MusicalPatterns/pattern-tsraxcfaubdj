@@ -1,4 +1,4 @@
-import { PitchDurationScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
+import { PitchValueScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
 import {
     as,
     combinationCount,
@@ -10,9 +10,7 @@ import {
     indexOfFinalElement,
     keys,
     NEXT,
-
     Ordinal,
-    Scalar,
     use,
 } from '@musical-patterns/utilities'
 import {
@@ -38,11 +36,11 @@ describe('segments', () => {
     const INDEX_OF_PITCH_IN_PITCH_DURATION_SCALE_CONTOUR: Ordinal = as.Ordinal(0)
     const INDEX_OF_DURATION_IN_PITCH_DURATION_SCALE_CONTOUR: Ordinal = as.Ordinal(1)
 
-    const computePitchClassIndicesByQuarter: (contourPieces: Array<ContourPiece<PitchDurationScale>>) => number[] =
-        (contourPieces: Array<ContourPiece<PitchDurationScale>>): number[] => {
+    const computePitchClassIndicesByQuarter: (contourPieces: Array<ContourPiece<PitchValueScale>>) => number[] =
+        (contourPieces: Array<ContourPiece<PitchValueScale>>): number[] => {
             const pitchIndicesByQuarter: number[] = []
-            contourPieces.forEach((piece: ContourPiece<PitchDurationScale>) => {
-                piece.forEach((element: ContourElement<PitchDurationScale>) => {
+            contourPieces.forEach((piece: ContourPiece<PitchValueScale>) => {
+                piece.forEach((element: ContourElement<PitchValueScale>) => {
                     for (
                         let quarter: Ordinal = as.Ordinal(0);
                         as.number(quarter) < (use.Ordinal(element, INDEX_OF_DURATION_IN_PITCH_DURATION_SCALE_CONTOUR));
@@ -58,10 +56,10 @@ describe('segments', () => {
             return pitchIndicesByQuarter.map(pitchClassIndexFromPitchIndexRespectingRests)
         }
 
-    let leadContourPieces: Array<ContourPiece<PitchDurationScale>>
-    let bassContourPieces: Array<ContourPiece<PitchDurationScale>>
-    let firstHarmonyContourPieces: Array<ContourPiece<PitchDurationScale>>
-    let secondHarmonyContourPieces: Array<ContourPiece<PitchDurationScale>>
+    let leadContourPieces: Array<ContourPiece<PitchValueScale>>
+    let bassContourPieces: Array<ContourPiece<PitchValueScale>>
+    let firstHarmonyContourPieces: Array<ContourPiece<PitchValueScale>>
+    let secondHarmonyContourPieces: Array<ContourPiece<PitchValueScale>>
     beforeEach(() => {
         leadContourPieces = computeLeadContourPieces()
         bassContourPieces = computeBassContourPieces()

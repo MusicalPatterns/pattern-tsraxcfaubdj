@@ -1,6 +1,6 @@
 import {
     compilePattern,
-    PitchDurationScale,
+    PitchValueScale,
     Sound,
     STANDARD_PITCH_INDEX_INDICATING_REST,
     Voice,
@@ -18,9 +18,9 @@ import {
     NEXT,
     numericSort,
     Ordinal,
-    Pitch,
     quotient,
     Scalar,
+    Tone,
     uniqueFilter,
     use,
 } from '@musical-patterns/utilities'
@@ -48,17 +48,17 @@ const computeBassPitchClassIndexSet: () => number[] =
             .filter((numeral: number) => numeral !== as.number(STANDARD_PITCH_INDEX_INDICATING_REST))
             .sort(numericSort)
 
-const computePitchClassIndices: (contourWhole: ContourWhole<PitchDurationScale>) => number[] =
-    (contourWhole: ContourWhole<PitchDurationScale>): number[] =>
-        contourWhole.map((contourElement: ContourElement<PitchDurationScale>) => {
+const computePitchClassIndices: (contourWhole: ContourWhole<PitchValueScale>) => number[] =
+    (contourWhole: ContourWhole<PitchValueScale>): number[] =>
+        contourWhole.map((contourElement: ContourElement<PitchValueScale>) => {
             const pitchIndex: number = use.Ordinal(contourElement, INDEX_OF_PITCH_WITHIN_CONTOUR_ELEMENT)
 
             return pitchClassIndexFromPitchIndexRespectingRests(pitchIndex)
         })
 
 const testDoesNotUseSamePitchesAsBass:
-    (contourWhole: ContourWhole<PitchDurationScale>, exceptionalIndices?: Ordinal[]) => void =
-    (contourWhole: ContourWhole<PitchDurationScale>, exceptionalIndices: Ordinal[] = []): void => {
+    (contourWhole: ContourWhole<PitchValueScale>, exceptionalIndices?: Ordinal[]) => void =
+    (contourWhole: ContourWhole<PitchValueScale>, exceptionalIndices: Ordinal[] = []): void => {
         const bassPitchClassIndexSet: number[] = computeBassPitchClassIndexSet()
 
         const pitchClassIndices: number[] = computePitchClassIndices(contourWhole)
@@ -72,7 +72,7 @@ const testDoesNotUseSamePitchesAsBass:
         })
     }
 
-const testEveryIntervalIsSimple: (voiceIndex: Ordinal<Voice[]>, exceptionalIndices?: Array<Ordinal<Sound[]>>) => Promise<void> =
+const testEveryStepIsSimple: (voiceIndex: Ordinal<Voice[]>, exceptionalIndices?: Array<Ordinal<Sound[]>>) => Promise<void> =
     async (voiceIndex: Ordinal<Voice[]>, exceptionalIndices: Array<Ordinal<Sound[]>> = []): Promise<void> => {
         const rawAcceptablySimpleRatios: Array<[ number, number ]> = [
             [ 1, 1 ],
@@ -117,22 +117,22 @@ const testEveryIntervalIsSimple: (voiceIndex: Ordinal<Voice[]>, exceptionalIndic
             }
 
             let pass: boolean = false
-            const actualInterval: Scalar<Pitch> = quotient(nextSound.frequency, sound.frequency)
+            const actualStep: Scalar<Tone> = quotient(nextSound.tone, sound.tone)
             acceptableRatios.forEach((acceptableRatio: Fraction) => {
-                const acceptableInterval: Scalar<Pitch> = as.Scalar<Pitch>(as.number(acceptableRatio))
-                if (isCloseTo(actualInterval, acceptableInterval)) {
+                const acceptableStep: Scalar<Tone> = as.Scalar<Tone>(as.number(acceptableRatio))
+                if (isCloseTo(actualStep, acceptableStep)) {
                     pass = true
                 }
             })
             if (!pass) {
-                fail(`The interval between index ${index} and ${nextIndex} is unacceptably complex: ${actualInterval}`)
+                fail(`The step between index ${index} and ${nextIndex} is unacceptably complex: ${actualStep}`)
             }
         })
     }
 
 export {
     pitchClassIndexFromPitchIndexRespectingRests,
-    testEveryIntervalIsSimple,
+    testEveryStepIsSimple,
     testDoesNotUseSamePitchesAsBass,
     computeBassPitchClassIndexSet,
     computePitchClassIndices,

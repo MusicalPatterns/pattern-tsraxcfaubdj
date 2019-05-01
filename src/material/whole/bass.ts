@@ -1,10 +1,10 @@
-import { PitchDurationScale } from '@musical-patterns/material'
+import { PitchValueScale } from '@musical-patterns/material'
 import { as, ContourWhole, sequence } from '@musical-patterns/utilities'
 import { computeBassContourPieces } from '../piece'
 
-const computeBassContourWhole: () => ContourWhole<PitchDurationScale> =
-    (): ContourWhole<PitchDurationScale> =>
-        as.ContourWhole<PitchDurationScale>(sequence(...computeBassContourPieces()))
+const computeBassContourWhole: () => ContourWhole<PitchValueScale> =
+    (): ContourWhole<PitchValueScale> =>
+        as.ContourWhole<PitchValueScale>(sequence(...computeBassContourPieces()))
 
 export {
     computeBassContourWhole,
