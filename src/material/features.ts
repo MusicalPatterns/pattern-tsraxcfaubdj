@@ -1,11 +1,4 @@
-import {
-    Note,
-    PitchValueScale,
-    Scale,
-    SILENT,
-    STANDARD_PITCH_INDEX_INDICATING_REST,
-    STANDARD_VALUE_SCALE_INDEX,
-} from '@musical-patterns/material'
+import { Note, PitchValueScale, Scale, SILENT, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
 import { as, ContourElement, Pitch, Scalar, Value } from '@musical-patterns/utilities'
 
 const computeNote: (contourElement: ContourElement<PitchValueScale>) => Note =
@@ -17,7 +10,6 @@ const computeNote: (contourElement: ContourElement<PitchValueScale>) => Note =
                 },
                 value: {
                     scalar: as.Scalar<Value>(value),
-                    scaleIndex: STANDARD_VALUE_SCALE_INDEX,
                 },
             }
         }
@@ -29,7 +21,6 @@ const computeNote: (contourElement: ContourElement<PitchValueScale>) => Note =
             },
             value: {
                 scalar: as.Scalar<Value>(value),
-                scaleIndex: STANDARD_VALUE_SCALE_INDEX,
             },
         }
     }

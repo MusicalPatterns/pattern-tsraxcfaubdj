@@ -1,4 +1,4 @@
-import { Scale } from '@musical-patterns/material'
+import { AbstractName, Scale } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
 import {
     as,
@@ -9,7 +9,7 @@ import {
     Maybe,
     negative,
     ONE_HALF,
-    Ordinal,
+    Ordinal, Pitch,
     Scalar,
     slice,
     use,
@@ -19,8 +19,8 @@ import { materializeScales, YER_PITCH_CLASS_COUNT } from '../../../src/indexForT
 describe('yer scale', () => {
     it('the pitch scale has 16 pitch classes, repeating within an octave period', () => {
         const specs: StandardSpecs = {}
-        const yerScale: Scale = materializeScales(specs)[ 2 ]
-        const yerScaleScalars: Scalar[] = yerScale.scalars!
+        const yerScale: Scale<Pitch> = materializeScales(specs)[ AbstractName.PITCH ]![ 0 ]
+        const yerScaleScalars: Array<Scalar<Pitch>> = yerScale.scalars!
 
         forEach(
             slice(
@@ -28,15 +28,15 @@ describe('yer scale', () => {
                 INITIAL,
                 use.Cardinal(
                     indexOfFinalElement(yerScaleScalars),
-                    as.Transition<Scalar[]>(as.number(negative(YER_PITCH_CLASS_COUNT))),
+                    as.Transition<Array<Scalar<Pitch>>>(as.number(negative(YER_PITCH_CLASS_COUNT))),
                 ),
             ),
-            (scalar: Scalar, index: Ordinal<Scalar[]>) => {
-                const indexOfScalarWhichShouldBeTwiceThisOne: Ordinal<Scalar[]> = use.Cardinal(
+            (scalar: Scalar<Pitch>, index: Ordinal<Array<Scalar<Pitch>>>) => {
+                const indexOfScalarWhichShouldBeTwiceThisOne: Ordinal<Array<Scalar<Pitch>>> = use.Cardinal(
                     index,
-                    as.Transition<Scalar[]>(as.number(YER_PITCH_CLASS_COUNT)),
+                    as.Transition<Array<Scalar<Pitch>>>(as.number(YER_PITCH_CLASS_COUNT)),
                 )
-                const yerScaleScalarWhichShouldBeTwiceThisOne: Maybe<Scalar> =
+                const yerScaleScalarWhichShouldBeTwiceThisOne: Maybe<Scalar<Pitch>> =
                     use.Ordinal(yerScaleScalars, indexOfScalarWhichShouldBeTwiceThisOne)
                 if (isUndefined(yerScaleScalarWhichShouldBeTwiceThisOne)) {
                     fail('yer scale multiple which should be twice this one was beyond the count of yer scale scalars')
@@ -55,8 +55,8 @@ describe('yer scale', () => {
 
     it('has a total of 160 notes, spanning 10 octaves', () => {
         const specs: StandardSpecs = {}
-        const yerScale: Scale = materializeScales(specs)[ 2 ]
-        const yerScaleScalars: Scalar[] = yerScale.scalars!
+        const yerScale: Scale<Pitch> = materializeScales(specs)[ AbstractName.PITCH ]![ 0 ]
+        const yerScaleScalars: Array<Scalar<Pitch>> = yerScale.scalars!
 
         expect(yerScaleScalars.length)
             .toBe(160)

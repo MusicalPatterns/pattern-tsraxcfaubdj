@@ -1,48 +1,28 @@
-import {
-    MaterializeScales,
-    materializeStandardScales,
-    Scale,
-    STANDARD_PITCH_SCALE_INDEX,
-} from '@musical-patterns/material'
+// tslint:disable no-non-null-assertion
+
+import { AbstractName, MaterializeScales, materializeStandardScales, Scale, Scales } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
-import {
-    as,
-    computeOctaveRepeatingPitchScalars,
-    INITIAL,
-    musicalAs,
-    Pitch,
-    Scalar,
-    slice,
-    THIRD,
-    Tone,
-    use,
-} from '@musical-patterns/utilities'
+import { as, computeOctaveRepeatingPitchScalars, musicalAs, Pitch, Scalar, Tone } from '@musical-patterns/utilities'
 import { computeYerExceptionScalars, computeYerScalars } from './scalars'
 
 const materializeScales: MaterializeScales =
-    // tslint:disable-next-line no-any
-    (specs: StandardSpecs): Array<Scale<any>> => {
+    (specs: StandardSpecs): Scales => {
         const yerScalars: Array<Scalar<Pitch>> = computeOctaveRepeatingPitchScalars(computeYerScalars())
 
-        // tslint:disable-next-line no-any
-        const standardScales: Array<Scale<any>> = materializeStandardScales(specs, { pitchScalars: yerScalars })
+        const standardScales: Scales = materializeStandardScales(specs, { pitchScalars: yerScalars })
 
         const yerExceptionScalars: Array<Scalar<Pitch>> =
             computeOctaveRepeatingPitchScalars(computeYerExceptionScalars())
 
         const yerExceptionPitchesScale: Scale<Pitch> = {
-            basis: musicalAs.Tone(as.number(use.Ordinal(standardScales, STANDARD_PITCH_SCALE_INDEX).basis || 0)),
+            basis: musicalAs.Tone(as.number(standardScales[ AbstractName.PITCH ]![ 0 ].basis || 0)),
             scalars: yerExceptionScalars,
-            translation: as.Translation<Tone>(as.number(use.Ordinal(
-                standardScales,
-                STANDARD_PITCH_SCALE_INDEX,
-            ).translation || 0)),
+            translation: as.Translation<Tone>(as.number(standardScales[ AbstractName.PITCH ]![ 0 ].translation || 0)),
         }
 
-        return slice(standardScales, INITIAL, THIRD)
-            .concat([
-                yerExceptionPitchesScale,
-            ])
+        standardScales[ AbstractName.PITCH ]!.push(yerExceptionPitchesScale)
+
+        return standardScales
     }
 
 export {

@@ -5,8 +5,8 @@ import { YerExceptionPitchClass, YerMultiple, YerPitchClass } from './custom'
 
 const YER_PITCH_CLASS_COUNT: Cardinal<YerPitchClass> = as.Cardinal<YerPitchClass>(16)
 const YER_EXCEPTION_PITCH_CLASS_COUNT: Cardinal<YerExceptionPitchClass> = as.Cardinal<YerExceptionPitchClass>(2)
-const YER_SCALE_INDEX: number = 2
-const YER_EXCEPTION_SCALE_INDEX: number = 3
+const YER_SCALE_INDEX: number = 0
+const YER_EXCEPTION_SCALE_INDEX: number = 1
 
 const YER_ELEVEN: YerMultiple = as.Multiple<Scalar<Pitch>>(11)
 const YER_THIRTEEN: YerMultiple = as.Multiple<Scalar<Pitch>>(13)
