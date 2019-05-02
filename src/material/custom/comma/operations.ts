@@ -1,14 +1,11 @@
-import { as, Cycle } from '@musical-patterns/utilities'
+import { as, Cycle, FIRST, reverse as utilitiesReverse, slice, ZEROTH } from '@musical-patterns/utilities'
 import { YerBlumeyerCommaPumpAction, YerBlumeyerCommaPumpInstruction, YerBlumeyerCommaPumpOperation } from './types'
 
 const converse: (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =
     (instructions: Cycle<YerBlumeyerCommaPumpInstruction>): Cycle<YerBlumeyerCommaPumpInstruction> =>
         as.Cycle(
-            instructions.slice(0, 1)
-                .concat(
-                    instructions.slice(1)
-                        .reverse(),
-                ),
+            slice(instructions, ZEROTH, FIRST)
+                .concat(utilitiesReverse(slice(instructions, FIRST))),
         )
 
 const inverse: (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =
