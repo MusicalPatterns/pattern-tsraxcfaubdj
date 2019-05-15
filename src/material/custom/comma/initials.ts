@@ -1,8 +1,18 @@
-import { as, deepEqual, INITIAL, isEmpty, Maybe, Ordinal, reverse, slice, use } from '@musical-patterns/utilities'
+import {
+    as,
+    computeReverse,
+    deepEqual,
+    INITIAL,
+    isEmpty,
+    Maybe,
+    Ordinal,
+    slice,
+    use,
+} from '@musical-patterns/utilities'
 import { computeYerFactorizationByPitchClass } from '../factors'
 import { YerFactor, YerFactorization, YerPitchClass } from '../types'
 import { nextFactorization } from './nextFactorization'
-import { inverse } from './operations'
+import { computePumpInverse } from './operations'
 import { YerBlumeyerCommaPumpAction, YerBlumeyerCommaPumpInstruction } from './types'
 
 const canUseUndoInstructionsToDetermineCommaShiftDirection:
@@ -51,8 +61,8 @@ const computeUndoInstructions: (
         instructions: YerBlumeyerCommaPumpInstruction[],
     ): YerBlumeyerCommaPumpInstruction[] => {
         let undoInstructions: YerBlumeyerCommaPumpInstruction[] = instructionsUpToCommaShift(rotation, instructions)
-        undoInstructions = inverse(as.Cycle(undoInstructions))
-        undoInstructions = reverse(undoInstructions)
+        undoInstructions = computePumpInverse(as.Cycle(undoInstructions))
+        undoInstructions = computeReverse(undoInstructions)
 
         return undoInstructions
     }

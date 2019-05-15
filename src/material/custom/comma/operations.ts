@@ -1,14 +1,16 @@
-import { as, Cycle, FIRST, reverse as utilitiesReverse, slice, ZEROTH } from '@musical-patterns/utilities'
+import { as, computeReverse, Cycle, FIRST, slice, ZEROTH } from '@musical-patterns/utilities'
 import { YerBlumeyerCommaPumpAction, YerBlumeyerCommaPumpInstruction, YerBlumeyerCommaPumpOperation } from './types'
 
-const converse: (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =
+const computePumpConverse:
+    (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =
     (instructions: Cycle<YerBlumeyerCommaPumpInstruction>): Cycle<YerBlumeyerCommaPumpInstruction> =>
         as.Cycle(
             slice(instructions, ZEROTH, FIRST)
-                .concat(utilitiesReverse(slice(instructions, FIRST))),
+                .concat(computeReverse(slice(instructions, FIRST))),
         )
 
-const inverse: (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =
+const computePumpInverse:
+    (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =
     (instructions: Cycle<YerBlumeyerCommaPumpInstruction>): Cycle<YerBlumeyerCommaPumpInstruction> =>
         as.Cycle(instructions.map((instruction: YerBlumeyerCommaPumpInstruction) => ({
             ...instruction,
@@ -17,9 +19,10 @@ const inverse: (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<Y
                 YerBlumeyerCommaPumpAction.ADD,
         })))
 
-const reverse: (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =
+const computePumpReverse:
+    (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =
     (instructions: Cycle<YerBlumeyerCommaPumpInstruction>): Cycle<YerBlumeyerCommaPumpInstruction> =>
-        converse(inverse(instructions))
+        computePumpConverse(computePumpInverse(instructions))
 
 const applyPumpInstructionsOperation:
     (
@@ -34,11 +37,11 @@ const applyPumpInstructionsOperation:
             case YerBlumeyerCommaPumpOperation.BASE:
                 return instructions
             case YerBlumeyerCommaPumpOperation.CONVERSE:
-                return converse(instructions)
+                return computePumpConverse(instructions)
             case YerBlumeyerCommaPumpOperation.INVERSE:
-                return inverse(instructions)
+                return computePumpInverse(instructions)
             case YerBlumeyerCommaPumpOperation.REVERSE:
-                return reverse(instructions)
+                return computePumpReverse(instructions)
             default:
                 throw new Error('YerBlumeyerCommaPumpInstructionsBlueprint has no operation.')
         }
@@ -46,5 +49,5 @@ const applyPumpInstructionsOperation:
 
 export {
     applyPumpInstructionsOperation,
-    inverse,
+    computePumpInverse,
 }

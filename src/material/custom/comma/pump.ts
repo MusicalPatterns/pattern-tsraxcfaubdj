@@ -1,4 +1,4 @@
-import { forEach, INITIAL, length, Ordinal } from '@musical-patterns/utilities'
+import { computeLength, forEach, INITIAL, Ordinal } from '@musical-patterns/utilities'
 import { computeYerPitchClassByFactorization } from '../factors'
 import { YerFactorization, YerPitchClass } from '../types'
 import { BLUMEYER_COMMA_PUMP_STEP_COUNT } from './constants'
@@ -9,7 +9,7 @@ import { YerBlumeyerCommaPump, YerBlumeyerCommaPumpInstruction } from './types'
 
 const isFullPump: (candidate: YerPitchClass[][]) => candidate is YerBlumeyerCommaPump =
     (candidate: YerPitchClass[][]): candidate is YerBlumeyerCommaPump =>
-        length(candidate) === BLUMEYER_COMMA_PUMP_STEP_COUNT
+        computeLength(candidate) === BLUMEYER_COMMA_PUMP_STEP_COUNT
 
 const computeYerBlumeyerCommaPump: (
     instructions: YerBlumeyerCommaPumpInstruction[],
