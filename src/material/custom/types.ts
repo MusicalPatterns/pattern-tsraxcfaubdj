@@ -41,9 +41,9 @@ interface Yer {
 
 type YerPitchClassByFactorization = ObjectOf<ObjectOf<ObjectOf<ObjectOf<YerPitchClass>>>>
 
-type YerPitchClassByFactorizationCursor = ObjectOf<ObjectOf<ObjectOf<ObjectOf<YerPitchClass>>>> |
-    ObjectOf<ObjectOf<ObjectOf<YerPitchClass>>> |
-    ObjectOf<ObjectOf<YerPitchClass>> |
+type YerPitchClassByFactorizationCursor = ObjectOf<ObjectOf<ObjectOf<ObjectOf<YerPitchClass>>>> &
+    ObjectOf<ObjectOf<ObjectOf<YerPitchClass>>> &
+    ObjectOf<ObjectOf<YerPitchClass>> &
     ObjectOf<YerPitchClass>
 
 type YerFactorizationByPitchClass = { [Index in YerPitchClass]: YerFactorization }

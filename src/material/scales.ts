@@ -1,12 +1,12 @@
 // tslint:disable no-non-null-assertion
 
 import { AbstractName, MaterializeScales, materializeStandardScales, Scale, Scales } from '@musical-patterns/material'
-import { StandardSpecs } from '@musical-patterns/spec'
+import { Specs } from '@musical-patterns/spec'
 import { as, computeOctaveRepeatingPitchScalars, musicalAs, Pitch, Scalar, Tone } from '@musical-patterns/utilities'
 import { computeYerExceptionScalars, computeYerScalars } from './scalars'
 
 const materializeScales: MaterializeScales =
-    (specs: StandardSpecs): Scales => {
+    (specs: Specs): Scales => {
         const yerScalars: Array<Scalar<Pitch>> = computeOctaveRepeatingPitchScalars(computeYerScalars())
 
         const standardScales: Scales = materializeStandardScales(specs, { pitchScalars: yerScalars })

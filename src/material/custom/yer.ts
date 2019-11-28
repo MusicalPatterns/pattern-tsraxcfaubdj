@@ -13,7 +13,7 @@ const computeYer: () => Yer[] =
                 let rawPitchClass: string = reduce(
                     subset,
                     (accumulator: string, factor: YerMultiple): string =>
-                        `${accumulator}_${factor}`,
+                        `${accumulator}_${String(factor)}`,
                     '',
                 )
                 rawPitchClass = rawPitchClass || '_1'

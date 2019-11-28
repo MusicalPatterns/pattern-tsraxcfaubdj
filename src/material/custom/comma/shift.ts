@@ -19,7 +19,7 @@ const applyCommaShift: (factorization: YerFactorization) => YerFactorization =
 
         if (isUndefined(commaShiftedYer)) {
             throw new Error(
-                `You tried to comma shift at a place you cannot: ${yerPitchClass} at factorization ${factorization}`,
+                `You tried to comma shift at a place you cannot: ${yerPitchClass} at factorization ${String(factorization)}`,
             )
         }
 

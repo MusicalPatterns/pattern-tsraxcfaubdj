@@ -15,10 +15,9 @@ const computeYerExceptionScalars: () => Array<Scalar<Pitch>> =
             as.number(product(YER_ELEVEN, YER_ELEVEN, YER_SEVENTEEN)),
             as.number(quotient(product(YER_THIRTEEN, YER_NINETEEN), YER_ELEVEN)),
         ]
-            .map((numeral: number) => as.Scalar<Pitch>(numeral))
-            .map(octaveReduce)
+            .map((numeral: number): Scalar<Pitch> => as.Scalar<Pitch>(numeral))
             // tslint:disable-next-line no-unnecessary-callback-wrapper
-            .map((scalar: Scalar<Pitch>) => insteadOf<Scalar, Pitch>(scalar))
+            .map((scalar: Scalar<Pitch>) => octaveReduce(scalar))
 
 export {
     computeYerScalars,

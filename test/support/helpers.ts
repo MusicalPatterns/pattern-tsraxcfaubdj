@@ -125,7 +125,7 @@ const testEveryStepIsSimple: (voiceIndex: Ordinal<Voice[]>, exceptionalIndices?:
                 }
             })
             if (!pass) {
-                fail(`The step between index ${index} and ${nextIndex} is unacceptably complex: ${actualStep}`)
+                fail(`The step between index ${String(index)} and ${String(nextIndex)} is unacceptably complex: ${String(actualStep)}`)
             }
         })
     }

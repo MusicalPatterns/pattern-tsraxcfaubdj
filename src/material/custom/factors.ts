@@ -26,7 +26,7 @@ const pitchClassByFactorization: () => YerPitchClassByFactorization =
         computeYer()
             .reduce<YerPitchClassByFactorization>(
                 (accumulator: YerPitchClassByFactorization, yer: Yer): YerPitchClassByFactorization => {
-                    let cursor: YerPitchClassByFactorizationCursor = accumulator
+                    let cursor: YerPitchClassByFactorizationCursor = accumulator as YerPitchClassByFactorizationCursor
                     forEach(
                         YER_FACTORS,
                         (yerFactor: YerMultiple, index: Ordinal<YerMultiple[]>) => {
