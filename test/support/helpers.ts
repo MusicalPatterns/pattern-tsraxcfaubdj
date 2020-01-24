@@ -7,6 +7,7 @@ import {
 } from '@musical-patterns/material'
 import {
     as,
+    asFraction,
     ContourElement,
     ContourWhole,
     filter,
@@ -95,7 +96,7 @@ const testEveryStepIsSimple: (voiceIndex: Ordinal<Voice[]>, exceptionalIndices?:
         ]
         const acceptableRatios: Fraction[] = rawAcceptablySimpleRatios.map(
             ([ numerator, denominator ]: [ number, number ]) =>
-                as.Fraction([ as.Numerator(numerator), as.Denominator(denominator) ]),
+                asFraction(numerator, denominator),
         )
 
         const { voices } = await compilePattern(pattern)
