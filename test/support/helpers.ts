@@ -7,12 +7,11 @@ import {
 } from '@musical-patterns/material'
 import {
     as,
-    asFraction,
+    asRational,
     ContourElement,
     ContourWhole,
     filter,
     forEach,
-    Fraction,
     indexOfFinalElement,
     isCloseTo,
     Maybe,
@@ -20,6 +19,7 @@ import {
     numericSort,
     Ordinal,
     quotient,
+    Rational,
     Scalar,
     Tone,
     uniqueFilter,
@@ -94,9 +94,9 @@ const testEveryStepIsSimple: (voiceIndex: Ordinal<Voice[]>, exceptionalIndices?:
             [ 19, 16 ],
             [ 19, 32 ],
         ]
-        const acceptableRatios: Fraction[] = rawAcceptablySimpleRatios.map(
+        const acceptableRatios: Rational[] = rawAcceptablySimpleRatios.map(
             ([ numerator, denominator ]: [ number, number ]) =>
-                asFraction(numerator, denominator),
+                asRational(numerator, denominator),
         )
 
         const { voices } = await compilePattern(pattern)
@@ -119,7 +119,7 @@ const testEveryStepIsSimple: (voiceIndex: Ordinal<Voice[]>, exceptionalIndices?:
 
             let pass: boolean = false
             const actualStep: Scalar<Tone> = quotient(nextSound.tone, sound.tone)
-            acceptableRatios.forEach((acceptableRatio: Fraction) => {
+            acceptableRatios.forEach((acceptableRatio: Rational) => {
                 const acceptableStep: Scalar<Tone> = as.Scalar<Tone>(as.number(acceptableRatio))
                 if (isCloseTo(actualStep, acceptableStep)) {
                     pass = true
