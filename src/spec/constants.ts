@@ -3,9 +3,9 @@
 import {
     Duration,
     musicalAs,
-    SCIENTIFIC_PITCHES,
     ScientificPitchNoteName,
     ScientificPitchOctaveNumber,
+    SCIENTIFIC_PITCHES,
     Tone,
 } from '@musical-patterns/utilities'
 

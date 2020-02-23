@@ -12,12 +12,14 @@ const computePumpConverse:
 const computePumpInverse:
     (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =
     (instructions: Cycle<YerBlumeyerCommaPumpInstruction>): Cycle<YerBlumeyerCommaPumpInstruction> =>
-        as.Cycle(instructions.map((instruction: YerBlumeyerCommaPumpInstruction) => ({
-            ...instruction,
-            action: instruction.action === YerBlumeyerCommaPumpAction.ADD ?
-                YerBlumeyerCommaPumpAction.REMOVE :
-                YerBlumeyerCommaPumpAction.ADD,
-        })))
+        as.Cycle(instructions.map(
+            (instruction: YerBlumeyerCommaPumpInstruction): YerBlumeyerCommaPumpInstruction => ({
+                ...instruction,
+                action: instruction.action === YerBlumeyerCommaPumpAction.ADD ?
+                    YerBlumeyerCommaPumpAction.REMOVE :
+                    YerBlumeyerCommaPumpAction.ADD,
+            }),
+        ))
 
 const computePumpReverse:
     (instructions: Cycle<YerBlumeyerCommaPumpInstruction>) => Cycle<YerBlumeyerCommaPumpInstruction> =

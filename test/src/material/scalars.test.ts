@@ -1,10 +1,10 @@
 import { as, Pitch, Scalar } from '@musical-patterns/utilities'
-import { computeYerExceptionScalars, computeYerScalars } from '../../../src/indexForTest'
+import { thunkYerExceptionScalars, thunkYerScalars } from '../../../src/indexForTest'
 
-describe('scalars', () => {
-    describe('yer scalars', () => {
-        it('are the octave reduced power set of the prime harmonics 11, 13, 17, and 19', () => {
-            const actualScalars: Array<Scalar<Pitch>> = computeYerScalars()
+describe('scalars', (): void => {
+    describe('yer scalars', (): void => {
+        it('are the octave reduced power set of the prime harmonics 11, 13, 17, and 19', (): void => {
+            const actualScalars: Array<Scalar<Pitch>> = thunkYerScalars()
 
             const expectedScalarsAsRatios: Array<Scalar<Pitch>> = [
                 // tslint:disable-next-line no-identical-expressions
@@ -24,7 +24,7 @@ describe('scalars', () => {
                 221 / 128,
                 3553 / 2048,
                 247 / 128,
-            ].map((expected: number) => as.Scalar<Pitch>(expected))
+            ].map((expected: number): Scalar<Pitch> => as.Scalar<Pitch>(expected))
             expect(actualScalars)
                 .toEqual(expectedScalarsAsRatios)
 
@@ -46,27 +46,27 @@ describe('scalars', () => {
                 1.7265625,
                 1.73486328125,
                 1.9296875,
-            ].map((expected: number) => as.Scalar<Pitch>(expected))
+            ].map((expected: number): Scalar<Pitch> => as.Scalar<Pitch>(expected))
             expect(actualScalars)
                 .toBeCloseToArray(expectedScalarsAsDecimals)
         })
     })
 
-    describe('yer exception scalars', () => {
-        it('is a set of a couple scalars not members of yer at its most essential, but which come in handy when using it', () => {
-            const actualScalars: Array<Scalar<Pitch>> = computeYerExceptionScalars()
+    describe('yer exception scalars', (): void => {
+        it('is a set of a couple scalars not members of yer at its most essential, but which come in handy when using it', (): void => {
+            const actualScalars: Array<Scalar<Pitch>> = thunkYerExceptionScalars()
 
             const expectedScalarsAsRatios: Array<Scalar<Pitch>> = [
                 2057 / 2048,
                 247 / 176,
-            ].map((expected: number) => as.Scalar<Pitch>(expected))
+            ].map((expected: number): Scalar<Pitch> => as.Scalar<Pitch>(expected))
             expect(actualScalars)
                 .toEqual(expectedScalarsAsRatios)
 
             const expectedScalarsAsDecimals: Array<Scalar<Pitch>> = [
                 1.00439453125,
                 1.40340909091,
-            ].map((expected: number) => as.Scalar<Pitch>(expected))
+            ].map((expected: number): Scalar<Pitch> => as.Scalar<Pitch>(expected))
             expect(actualScalars)
                 .toBeCloseToArray(expectedScalarsAsDecimals)
         })

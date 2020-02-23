@@ -1,7 +1,7 @@
 // tslint:disable max-file-line-count
 
 import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
-import { as } from '@musical-patterns/utilities'
+import { as, Thunk } from '@musical-patterns/utilities'
 import { YER_EXCEPTION_SCALE_INDEX, YER_SCALE_INDEX } from '../constants'
 import { YerExceptionPitchClass, yerExceptionPitchClassIndex, YerPitchClass, yerPitchClassIndex } from '../custom'
 import {
@@ -14,7 +14,7 @@ import {
     WHOLE_NOTE,
 } from './constants'
 
-const quietudeLead: () => number[][][] =
+const quietudeLead: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_17_19), HALF_NOTE, YER_SCALE_INDEX ],
@@ -30,7 +30,7 @@ const quietudeLead: () => number[][][] =
         ],
     ]
 
-const quietudeEndingToLoopLead: () => number[][][] =
+const quietudeEndingToLoopLead: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), HALF_NOTE, YER_SCALE_INDEX ],
@@ -38,7 +38,7 @@ const quietudeEndingToLoopLead: () => number[][][] =
         ],
     ]
 
-const quietudeEndingToEscapeLead: () => number[][][] =
+const quietudeEndingToEscapeLead: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13_19), HALF_NOTE, YER_SCALE_INDEX ],
@@ -47,7 +47,7 @@ const quietudeEndingToEscapeLead: () => number[][][] =
         ],
     ]
 
-const quietudeBassPump: () => number[][][] =
+const quietudeBassPump: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(SECOND_OCTAVE, YerPitchClass._11), WHOLE_NOTE, YER_SCALE_INDEX ],
@@ -69,7 +69,7 @@ const quietudeBassPump: () => number[][][] =
         ],
     ]
 
-const quietudeFirstHarmony: () => number[][][] =
+const quietudeFirstHarmony: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(THIRD_OCTAVE, YerPitchClass._11_17_19), WHOLE_NOTE, YER_SCALE_INDEX ],
@@ -86,7 +86,7 @@ const quietudeFirstHarmony: () => number[][][] =
         ],
     ]
 
-const quietudeSecondHarmony: () => number[][][] =
+const quietudeSecondHarmony: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ as.number(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],

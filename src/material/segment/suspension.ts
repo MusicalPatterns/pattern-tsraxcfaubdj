@@ -1,4 +1,4 @@
-import { as, Cycle, negative } from '@musical-patterns/utilities'
+import { as, Cycle, negative, Thunk } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import {
     computeYerBlumeyerCommaPump,
@@ -20,7 +20,7 @@ import {
     THREE_WHOLE_NOTES,
 } from './constants'
 
-const suspensionLead: () => number[][][] =
+const suspensionLead: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FIFTH_OCTAVE, YerPitchClass._17_19), DOTTED_HALF_NOTE, YER_SCALE_INDEX ],
@@ -48,7 +48,7 @@ const suspensionBassPump: (parameters?: { transposeThirdStepDown?: boolean }) =>
             [ THIRD_OCTAVE, THIRD_OCTAVE, transposeThirdStepDown ? SECOND_OCTAVE : THIRD_OCTAVE, THIRD_OCTAVE ],
         )
 
-const suspensionFirstHarmony: () => number[][][] =
+const suspensionFirstHarmony: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17_19), THREE_WHOLE_NOTES, YER_SCALE_INDEX ],
@@ -57,7 +57,7 @@ const suspensionFirstHarmony: () => number[][][] =
         [],
     ]
 
-const suspensionSecondHarmony: () => number[][][] =
+const suspensionSecondHarmony: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17_19), THREE_WHOLE_NOTES, YER_SCALE_INDEX ],

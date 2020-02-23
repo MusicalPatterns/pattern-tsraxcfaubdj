@@ -7,8 +7,8 @@ import { OctavesMap, YerBlumeyerCommaPump } from './types'
 
 const rawPiecesFromPump: (pump: YerBlumeyerCommaPump, octavesMap: OctavesMap) => number[][][] =
     (pump: YerBlumeyerCommaPump, octavesMap: OctavesMap): number[][][] =>
-        map(pump, (pumpStep: YerPitchClass[], index: Ordinal<YerPitchClass[][]>) =>
-            map(pumpStep, (pumpStepElement: YerPitchClass) =>
+        map(pump, (pumpStep: YerPitchClass[], index: Ordinal<YerPitchClass[][]>): number[][] =>
+            map(pumpStep, (pumpStepElement: YerPitchClass): number[] =>
                 [
                     yerPitchClassIndex(use.Ordinal(octavesMap, insteadOf<Ordinal, OctavesMap>(index)), pumpStepElement),
                     isSingleton(pumpStep) ? WHOLE_NOTE : HALF_NOTE,

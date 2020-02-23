@@ -20,12 +20,12 @@ import {
     Ordinal,
     quotient,
     Rational,
-    Scalar,
+    Scalar, Thunk,
     Tone,
     uniqueFilter,
     use,
 } from '@musical-patterns/utilities'
-import { computeBassContourWhole, pattern, YER_PITCH_CLASS_COUNT } from '../../src/indexForTest'
+import { pattern, thunkBassContourWhole, YER_PITCH_CLASS_COUNT } from '../../src/indexForTest'
 import { INDEX_OF_PITCH_WITHIN_CONTOUR_ELEMENT } from './constants'
 
 const pitchClassIndexFromPitchIndexRespectingRests: (pitchIndex: number) => number =
@@ -40,18 +40,18 @@ const pitchClassIndexFromPitchIndexRespectingRests: (pitchIndex: number) => numb
         )
     }
 
-const computeBassPitchClassIndexSet: () => number[] =
+const thunkBassPitchClassIndexSet: Thunk<number[]> =
     (): number[] =>
         filter(
-            computePitchClassIndices(computeBassContourWhole()),
+            computePitchClassIndices(thunkBassContourWhole()),
             uniqueFilter,
         )
-            .filter((numeral: number) => numeral !== as.number(STANDARD_PITCH_INDEX_INDICATING_REST))
+            .filter((numeral: number): boolean => numeral !== as.number(STANDARD_PITCH_INDEX_INDICATING_REST))
             .sort(numericSort)
 
 const computePitchClassIndices: (contourWhole: ContourWhole<PitchValueScale>) => number[] =
     (contourWhole: ContourWhole<PitchValueScale>): number[] =>
-        contourWhole.map((contourElement: ContourElement<PitchValueScale>) => {
+        contourWhole.map((contourElement: ContourElement<PitchValueScale>): number => {
             const pitchIndex: number = use.Ordinal(contourElement, INDEX_OF_PITCH_WITHIN_CONTOUR_ELEMENT)
 
             return pitchClassIndexFromPitchIndexRespectingRests(pitchIndex)
@@ -60,11 +60,11 @@ const computePitchClassIndices: (contourWhole: ContourWhole<PitchValueScale>) =>
 const testDoesNotUseSamePitchesAsBass:
     (contourWhole: ContourWhole<PitchValueScale>, exceptionalIndices?: Ordinal[]) => void =
     (contourWhole: ContourWhole<PitchValueScale>, exceptionalIndices: Ordinal[] = []): void => {
-        const bassPitchClassIndexSet: number[] = computeBassPitchClassIndexSet()
+        const bassPitchClassIndexSet: number[] = thunkBassPitchClassIndexSet()
 
         const pitchClassIndices: number[] = computePitchClassIndices(contourWhole)
 
-        forEach(pitchClassIndices, (pitchClassIndex: number, index: Ordinal) => {
+        forEach(pitchClassIndices, (pitchClassIndex: number, index: Ordinal): void => {
             if (exceptionalIndices.includes(index)) {
                 return
             }
@@ -95,7 +95,7 @@ const testEveryStepIsSimple: (voiceIndex: Ordinal<Voice[]>, exceptionalIndices?:
             [ 19, 32 ],
         ]
         const acceptableRatios: Rational[] = rawAcceptablySimpleRatios.map(
-            ([ numerator, denominator ]: [ number, number ]) =>
+            ([ numerator, denominator ]: [ number, number ]): Rational =>
                 asRational(numerator, denominator),
         )
 
@@ -103,7 +103,7 @@ const testEveryStepIsSimple: (voiceIndex: Ordinal<Voice[]>, exceptionalIndices?:
         const voice: Voice = use.Ordinal(voices, voiceIndex)
         const sounds: Sound[] = voice.sounds || []
 
-        forEach(sounds, (sound: Sound, index: Ordinal<Sound[]>) => {
+        forEach(sounds, (sound: Sound, index: Ordinal<Sound[]>): void => {
             if (exceptionalIndices.includes(index)) {
                 return
             }
@@ -119,7 +119,7 @@ const testEveryStepIsSimple: (voiceIndex: Ordinal<Voice[]>, exceptionalIndices?:
 
             let pass: boolean = false
             const actualStep: Scalar<Tone> = quotient(nextSound.tone, sound.tone)
-            acceptableRatios.forEach((acceptableRatio: Rational) => {
+            acceptableRatios.forEach((acceptableRatio: Rational): void => {
                 const acceptableStep: Scalar<Tone> = as.Scalar<Tone>(as.number(acceptableRatio))
                 if (isCloseTo(actualStep, acceptableStep)) {
                     pass = true
@@ -135,6 +135,6 @@ export {
     pitchClassIndexFromPitchIndexRespectingRests,
     testEveryStepIsSimple,
     testDoesNotUseSamePitchesAsBass,
-    computeBassPitchClassIndexSet,
+    thunkBassPitchClassIndexSet,
     computePitchClassIndices,
 }

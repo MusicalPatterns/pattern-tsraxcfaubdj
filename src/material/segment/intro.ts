@@ -1,10 +1,10 @@
 import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
-import { as } from '@musical-patterns/utilities'
+import { as, Thunk } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import { YerPitchClass, yerPitchClassIndex } from '../custom'
 import { FOURTH_OCTAVE, QUARTER_NOTE, WHOLE_NOTE } from './constants'
 
-const introLead: () => number[][][] =
+const introLead: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17_19), QUARTER_NOTE, YER_SCALE_INDEX ],
@@ -14,7 +14,7 @@ const introLead: () => number[][][] =
         ],
     ]
 
-const introRest: () => number[][][] =
+const introRest: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ as.number(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],

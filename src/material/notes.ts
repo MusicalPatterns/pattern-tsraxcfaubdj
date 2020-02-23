@@ -1,29 +1,30 @@
 import { Note } from '@musical-patterns/material'
+import { Thunk } from '@musical-patterns/utilities'
 import { computeNote } from './features'
 import { TsraxcfaubdjNotes } from './types'
 import {
-    computeBassContourWhole,
-    computeFirstHarmonyContourWhole,
-    computeLeadContourWhole,
-    computeLeadIntroContourWhole,
-    computeNonLeadIntroRestContourWhole,
-    computeSecondHarmonyContourWhole,
+    thunkBassContourWhole,
+    thunkFirstHarmonyContourWhole,
+    thunkLeadContourWhole,
+    thunkLeadIntroContourWhole,
+    thunkNonLeadIntroRestContourWhole,
+    thunkSecondHarmonyContourWhole,
 } from './whole'
 
-const computeNotes: () => TsraxcfaubdjNotes =
+const thunkNotes: Thunk<TsraxcfaubdjNotes> =
     (): TsraxcfaubdjNotes => {
-        const lead: Note[] = computeLeadContourWhole()
+        const lead: Note[] = thunkLeadContourWhole()
             .map(computeNote)
-        const bass: Note[] = computeBassContourWhole()
+        const bass: Note[] = thunkBassContourWhole()
             .map(computeNote)
-        const firstHarmony: Note[] = computeFirstHarmonyContourWhole()
+        const firstHarmony: Note[] = thunkFirstHarmonyContourWhole()
             .map(computeNote)
-        const secondHarmony: Note[] = computeSecondHarmonyContourWhole()
+        const secondHarmony: Note[] = thunkSecondHarmonyContourWhole()
             .map(computeNote)
 
-        const leadIntro: Note[] = computeLeadIntroContourWhole()
+        const leadIntro: Note[] = thunkLeadIntroContourWhole()
             .map(computeNote)
-        const nonLeadIntroRest: Note[] = computeNonLeadIntroRestContourWhole()
+        const nonLeadIntroRest: Note[] = thunkNonLeadIntroRestContourWhole()
             .map(computeNote)
 
         return {
@@ -37,5 +38,5 @@ const computeNotes: () => TsraxcfaubdjNotes =
     }
 
 export {
-    computeNotes,
+    thunkNotes,
 }

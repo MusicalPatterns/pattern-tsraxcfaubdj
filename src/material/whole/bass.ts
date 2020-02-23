@@ -1,11 +1,11 @@
 import { PitchValueScale } from '@musical-patterns/material'
-import { as, ContourWhole, flatten } from '@musical-patterns/utilities'
-import { computeBassContourPieces } from '../piece'
+import { as, ContourWhole, flatten, Thunk } from '@musical-patterns/utilities'
+import { thunkBassContourPieces } from '../piece'
 
-const computeBassContourWhole: () => ContourWhole<PitchValueScale> =
+const thunkBassContourWhole: Thunk<ContourWhole<PitchValueScale>> =
     (): ContourWhole<PitchValueScale> =>
-        as.ContourWhole<PitchValueScale>(flatten(computeBassContourPieces()))
+        as.ContourWhole<PitchValueScale>(flatten(thunkBassContourPieces()))
 
 export {
-    computeBassContourWhole,
+    thunkBassContourWhole,
 }

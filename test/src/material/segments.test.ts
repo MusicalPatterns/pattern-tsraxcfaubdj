@@ -14,19 +14,19 @@ import {
     use,
 } from '@musical-patterns/utilities'
 import {
-    computeBassContourPieces,
-    computeFirstHarmonyContourPieces,
-    computeLeadContourPieces,
-    computeOrderedPitchClassIndices,
-    computeSecondHarmonyContourPieces,
     computeYerFactorizationByPitchClass,
+    thunkBassContourPieces,
+    thunkFirstHarmonyContourPieces,
+    thunkLeadContourPieces,
+    thunkOrderedPitchClassIndices,
+    thunkSecondHarmonyContourPieces,
     YerFactor,
     YerFactorization,
 } from '../../../src/indexForTest'
 import { pitchClassIndexFromPitchIndexRespectingRests } from '../../support/helpers'
 import { PotentialFailure } from '../../support/types'
 
-describe('segments', () => {
+describe('segments', (): void => {
     const SEGMENT_COUNT: number = 23
     const QUARTERS_PER_SEGMENT: number = 4
     const QUARTERS_COUNT: number = SEGMENT_COUNT * QUARTERS_PER_SEGMENT
@@ -39,8 +39,8 @@ describe('segments', () => {
     const computePitchClassIndicesByQuarter: (contourPieces: Array<ContourPiece<PitchValueScale>>) => number[] =
         (contourPieces: Array<ContourPiece<PitchValueScale>>): number[] => {
             const pitchIndicesByQuarter: number[] = []
-            contourPieces.forEach((piece: ContourPiece<PitchValueScale>) => {
-                piece.forEach((element: ContourElement<PitchValueScale>) => {
+            contourPieces.forEach((piece: ContourPiece<PitchValueScale>): void => {
+                piece.forEach((element: ContourElement<PitchValueScale>): void => {
                     for (
                         let quarter: Ordinal = as.Ordinal(0);
                         as.number(quarter) < (use.Ordinal(element, INDEX_OF_DURATION_IN_PITCH_DURATION_SCALE_CONTOUR));
@@ -60,14 +60,14 @@ describe('segments', () => {
     let bassContourPieces: Array<ContourPiece<PitchValueScale>>
     let firstHarmonyContourPieces: Array<ContourPiece<PitchValueScale>>
     let secondHarmonyContourPieces: Array<ContourPiece<PitchValueScale>>
-    beforeEach(() => {
-        leadContourPieces = computeLeadContourPieces()
-        bassContourPieces = computeBassContourPieces()
-        firstHarmonyContourPieces = computeFirstHarmonyContourPieces()
-        secondHarmonyContourPieces = computeSecondHarmonyContourPieces()
+    beforeEach((): void => {
+        leadContourPieces = thunkLeadContourPieces()
+        bassContourPieces = thunkBassContourPieces()
+        firstHarmonyContourPieces = thunkFirstHarmonyContourPieces()
+        secondHarmonyContourPieces = thunkSecondHarmonyContourPieces()
     })
 
-    it('each array of contour piece has the correct and same amount of segments', () => {
+    it('each array of contour piece has the correct and same amount of segments', (): void => {
         expect(leadContourPieces.length)
             .toBe(SEGMENT_COUNT)
         expect(bassContourPieces.length)
@@ -78,7 +78,7 @@ describe('segments', () => {
             .toBe(SEGMENT_COUNT)
     })
 
-    it('each segment makes simple chords', () => {
+    it('each segment makes simple chords', (): void => {
         const leadPitchClassIndicesByQuarter: number[] = computePitchClassIndicesByQuarter(leadContourPieces)
         const bassPitchClassIndicesByQuarter: number[] = computePitchClassIndicesByQuarter(bassContourPieces)
         const firstHarmonyPitchClassIndicesByQuarter: number[] = computePitchClassIndicesByQuarter(firstHarmonyContourPieces)
@@ -95,7 +95,7 @@ describe('segments', () => {
         }
 
         const combinationsOfPitches: Array<[ number, number ]> = []
-        quarters.forEach((quarter: number[]) => {
+        quarters.forEach((quarter: number[]): void => {
             for (
                 let firstPitchIndex: Ordinal = as.Ordinal(0);
                 firstPitchIndex < indexOfFinalElement(quarter);
@@ -121,8 +121,8 @@ describe('segments', () => {
                 }
 
                 return [
-                    computeYerFactorizationByPitchClass(computeOrderedPitchClassIndices()[ firstPitch ]),
-                    computeYerFactorizationByPitchClass(computeOrderedPitchClassIndices()[ secondPitch ]),
+                    computeYerFactorizationByPitchClass(thunkOrderedPitchClassIndices()[ firstPitch ]),
+                    computeYerFactorizationByPitchClass(thunkOrderedPitchClassIndices()[ secondPitch ]),
                 ]
             })
 
@@ -149,10 +149,10 @@ describe('segments', () => {
         const potentialFailures: PotentialFailure[] = []
         forEach(
             combinationsOfFactorizations,
-            ([ firstFactorization, secondFactorization ]: [ YerFactorization, YerFactorization ], index: Ordinal<Array<[ YerFactorization, YerFactorization ]>>) => {
+            ([ firstFactorization, secondFactorization ]: [ YerFactorization, YerFactorization ], index: Ordinal<Array<[ YerFactorization, YerFactorization ]>>): void => {
                 let differences: number = 0
                 keys(YerFactor)
-                    .forEach((factor: keyof typeof YerFactor) => {
+                    .forEach((factor: keyof typeof YerFactor): void => {
                         if (!!firstFactorization[ factor ] !== !!secondFactorization[ factor ]) {
                             differences += 1
                         }
@@ -167,7 +167,7 @@ describe('segments', () => {
                         return
                     }
 
-                    potentialFailures.forEach((potentialFailure: PotentialFailure) => {
+                    potentialFailures.forEach((potentialFailure: PotentialFailure): void => {
                         if (
                             deepEqual(potentialFailure.firstFactorization, firstFactorization) &&
                             deepEqual(potentialFailure.secondFactorization, secondFactorization) &&

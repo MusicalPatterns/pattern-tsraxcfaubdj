@@ -1,18 +1,18 @@
 // tslint:disable no-reaching-imports
 
-export { computeYerScalars, computeYerExceptionScalars } from './scalars'
+export { thunkYerScalars, thunkYerExceptionScalars } from './scalars'
 export { materializeScales } from './scales'
 export {
-    computeBassContourPieces,
-    computeLeadContourPieces,
-    computeFirstHarmonyContourPieces,
-    computeSecondHarmonyContourPieces,
+    thunkBassContourPieces,
+    thunkLeadContourPieces,
+    thunkFirstHarmonyContourPieces,
+    thunkSecondHarmonyContourPieces,
 } from './piece/indexForTest'
 export {
-    computeBassContourWhole,
-    computeFirstHarmonyContourWhole,
-    computeSecondHarmonyContourWhole,
-    computeLeadContourWhole,
+    thunkBassContourWhole,
+    thunkFirstHarmonyContourWhole,
+    thunkSecondHarmonyContourWhole,
+    thunkLeadContourWhole,
 } from './whole/indexForTest'
 export {
     HALF_NOTE,
@@ -42,7 +42,7 @@ export {
     rawPiecesFromPump,
     computeYerFactorizationByPitchClass,
     YerFactorization,
-    computeOrderedPitchClassIndices,
+    thunkOrderedPitchClassIndices,
 } from './custom/indexForTest'
 
 export {

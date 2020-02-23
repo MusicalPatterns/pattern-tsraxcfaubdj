@@ -1,11 +1,11 @@
 import { Entity, MaterializeEntities, TimbreNameEnum } from '@musical-patterns/material'
 import { ONCE } from '@musical-patterns/utilities'
-import { computeNotes } from './notes'
+import { thunkNotes } from './notes'
 import { TsraxcfaubdjNotes } from './types'
 
 const materializeEntities: MaterializeEntities =
     (): Entity[] => {
-        const notes: TsraxcfaubdjNotes = computeNotes()
+        const notes: TsraxcfaubdjNotes = thunkNotes()
 
         const leadEntity: Entity = {
             sections: [

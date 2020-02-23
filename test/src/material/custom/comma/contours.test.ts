@@ -7,16 +7,16 @@ import {
     SECOND_OCTAVE,
     THIRD_OCTAVE,
     WHOLE_NOTE,
-    YER_SCALE_INDEX,
     YerBlumeyerCommaPumpFamily,
     YerBlumeyerCommaPumpInstruction,
     YerBlumeyerCommaPumpOperation,
     YerPitchClass,
     yerPitchClassIndex,
+    YER_SCALE_INDEX,
 } from '../../../../../src/indexForTest'
 
-describe('raw pieces from pump', () => {
-    it('given a comma pump, returns the raw pieces to be cast to contour pieces', () => {
+describe('raw pieces from pump', (): void => {
+    it('given a comma pump, returns the raw pieces to be cast to contour pieces', (): void => {
         const actual: number[][][] = rawPiecesFromPump(
             computeYerBlumeyerCommaPump(
                 computeYerBlumeyerCommaPumpInstructions({

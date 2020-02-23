@@ -1,11 +1,11 @@
-import { as, Cardinal, use } from '@musical-patterns/utilities'
+import { as, Cardinal, Thunk, use } from '@musical-patterns/utilities'
 import { YER_EXCEPTION_PITCH_CLASS_COUNT, YER_PITCH_CLASS_COUNT } from '../constants'
 import { Yer, YerExceptionPitchClass, YerPitchClass } from './types'
-import { computeYer } from './yer'
+import { thunkYer } from './yer'
 
-const computeOrderedPitchClassIndices: () => YerPitchClass[] =
+const thunkOrderedPitchClassIndices: Thunk<YerPitchClass[]> =
     (): YerPitchClass[] =>
-        computeYer()
+        thunkYer()
             .map((yer: Yer): YerPitchClass => yer.pitchClass)
 
 const yerExceptionPitchClassesOrderedByPitch: YerExceptionPitchClass[] = [
@@ -18,7 +18,7 @@ const yerPitchClassIndex: (octaveIndex: number, yerPitchClass: YerPitchClass) =>
         as.number(use.Cardinal(
             use.Multiple(YER_PITCH_CLASS_COUNT, as.Multiple<Cardinal<YerPitchClass>>(octaveIndex)),
             as.Cardinal<Cardinal<YerPitchClass>>(
-                computeOrderedPitchClassIndices()
+                thunkOrderedPitchClassIndices()
                     .indexOf(yerPitchClass),
             ),
         ))
@@ -36,5 +36,5 @@ const yerExceptionPitchClassIndex: (octaveIndex: number, yerExceptionPitchClass:
 export {
     yerPitchClassIndex,
     yerExceptionPitchClassIndex,
-    computeOrderedPitchClassIndices,
+    thunkOrderedPitchClassIndices,
 }

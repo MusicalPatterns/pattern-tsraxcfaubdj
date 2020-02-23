@@ -16,8 +16,8 @@ import {
 } from '@musical-patterns/utilities'
 import { materializeScales, YER_PITCH_CLASS_COUNT } from '../../../src/indexForTest'
 
-describe('yer scale', () => {
-    it('the pitch scale has 16 pitch classes, repeating within an octave period', () => {
+describe('yer scale', (): void => {
+    it('the pitch scale has 16 pitch classes, repeating within an octave period', (): void => {
         const specs: Specs = {}
         const yerScale: Scale<Pitch> = materializeScales(specs)[ AbstractName.PITCH ]![ 0 ]
         const yerScaleScalars: Array<Scalar<Pitch>> = yerScale.scalars!
@@ -31,7 +31,7 @@ describe('yer scale', () => {
                     as.Transition<Array<Scalar<Pitch>>>(as.number(negative(YER_PITCH_CLASS_COUNT))),
                 ),
             ),
-            (scalar: Scalar<Pitch>, index: Ordinal<Array<Scalar<Pitch>>>) => {
+            (scalar: Scalar<Pitch>, index: Ordinal<Array<Scalar<Pitch>>>): void => {
                 const indexOfScalarWhichShouldBeTwiceThisOne: Ordinal<Array<Scalar<Pitch>>> = use.Cardinal(
                     index,
                     as.Transition<Array<Scalar<Pitch>>>(as.number(YER_PITCH_CLASS_COUNT)),
@@ -53,7 +53,7 @@ describe('yer scale', () => {
         )
     })
 
-    it('has a total of 160 notes, spanning 10 octaves', () => {
+    it('has a total of 160 notes, spanning 10 octaves', (): void => {
         const specs: Specs = {}
         const yerScale: Scale<Pitch> = materializeScales(specs)[ AbstractName.PITCH ]![ 0 ]
         const yerScaleScalars: Array<Scalar<Pitch>> = yerScale.scalars!

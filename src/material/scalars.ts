@@ -1,15 +1,15 @@
-import { as, insteadOf, octaveReduce, Pitch, product, quotient, Scalar } from '@musical-patterns/utilities'
+import { as, insteadOf, octaveReduce, Pitch, product, quotient, Scalar, Thunk } from '@musical-patterns/utilities'
 import { YER_ELEVEN, YER_NINETEEN, YER_SEVENTEEN, YER_THIRTEEN } from './constants'
-import { computeYer, Yer } from './custom'
+import { thunkYer, Yer } from './custom'
 
-const computeYerScalars: () => Array<Scalar<Pitch>> =
+const thunkYerScalars: Thunk<Array<Scalar<Pitch>>> =
     (): Array<Scalar<Pitch>> =>
-        computeYer()
+        thunkYer()
             .map((yer: Yer): Scalar<Pitch> =>
                 insteadOf<Scalar, Pitch>(yer.scalar),
             )
 
-const computeYerExceptionScalars: () => Array<Scalar<Pitch>> =
+const thunkYerExceptionScalars: Thunk<Array<Scalar<Pitch>>> =
     (): Array<Scalar<Pitch>> =>
         [
             as.number(product(YER_ELEVEN, YER_ELEVEN, YER_SEVENTEEN)),
@@ -17,10 +17,10 @@ const computeYerExceptionScalars: () => Array<Scalar<Pitch>> =
         ]
             .map((numeral: number): Scalar<Pitch> => as.Scalar<Pitch>(numeral))
             // tslint:disable-next-line no-unnecessary-callback-wrapper
-            .map((scalar: Scalar<Pitch>) => octaveReduce(scalar))
+            .map((scalar: Scalar<Pitch>): Scalar<Pitch> => octaveReduce(scalar))
 
 export {
-    computeYerScalars,
-    computeYerExceptionScalars,
-    computeYer,
+    thunkYerScalars,
+    thunkYerExceptionScalars,
+    thunkYer,
 }

@@ -1,10 +1,10 @@
 import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
-import { as } from '@musical-patterns/utilities'
+import { as, Thunk } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import { YerPitchClass, yerPitchClassIndex } from '../custom'
 import { FIFTH_OCTAVE, FOURTH_OCTAVE, HALF_NOTE, QUARTER_NOTE, WHOLE_NOTE } from './constants'
 
-const openingEntranceAsPartOfLoopLead: () => number[][][] =
+const openingEntranceAsPartOfLoopLead: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FIFTH_OCTAVE, YerPitchClass._17_19), QUARTER_NOTE, YER_SCALE_INDEX ],
@@ -13,7 +13,7 @@ const openingEntranceAsPartOfLoopLead: () => number[][][] =
         ],
     ]
 
-const openingEntranceLead: () => number[][][] =
+const openingEntranceLead: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FIFTH_OCTAVE, YerPitchClass._17_19), QUARTER_NOTE, YER_SCALE_INDEX ],
@@ -22,7 +22,7 @@ const openingEntranceLead: () => number[][][] =
         ],
     ]
 
-const openingEntranceAsPartOfLoopFirstHarmony: () => number[][][] =
+const openingEntranceAsPartOfLoopFirstHarmony: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17_19), HALF_NOTE, YER_SCALE_INDEX ],
@@ -33,7 +33,7 @@ const openingEntranceAsPartOfLoopFirstHarmony: () => number[][][] =
         ],
     ]
 
-const openingEntranceFirstHarmony: () => number[][][] =
+const openingEntranceFirstHarmony: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17_19), HALF_NOTE, YER_SCALE_INDEX ],
@@ -45,7 +45,7 @@ const openingEntranceFirstHarmony: () => number[][][] =
         ],
     ]
 
-const openingEntranceAsPartOfLoopSecondHarmony: () => number[][][] =
+const openingEntranceAsPartOfLoopSecondHarmony: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ as.number(STANDARD_PITCH_INDEX_INDICATING_REST), HALF_NOTE, YER_SCALE_INDEX ],
@@ -56,7 +56,7 @@ const openingEntranceAsPartOfLoopSecondHarmony: () => number[][][] =
         ],
     ]
 
-const openingEntranceSecondHarmony: () => number[][][] =
+const openingEntranceSecondHarmony: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17_19), HALF_NOTE, YER_SCALE_INDEX ],

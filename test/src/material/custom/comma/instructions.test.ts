@@ -9,8 +9,8 @@ import {
     YerFactor,
 } from '../../../../../src/indexForTest'
 
-describe('comma pump instructions', () => {
-    it('from a blueprint, gives you instructions for a comma pump, which you could then find a starting position / rotation for to get a final pattern of pitch classes', () => {
+describe('comma pump instructions', (): void => {
+    it('from a blueprint, gives you instructions for a comma pump, which you could then find a starting position / rotation for to get a final pattern of pitch classes', (): void => {
         const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
             cycling: as.Cardinal<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
             family: YerBlumeyerCommaPumpFamily.A,
@@ -30,8 +30,8 @@ describe('comma pump instructions', () => {
             .toEqual(actual)
     })
 
-    describe('cycling', () => {
-        it('can cycle', () => {
+    describe('cycling', (): void => {
+        it('can cycle', (): void => {
             const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
                 cycling: as.Cardinal<Cycle<YerBlumeyerCommaPumpInstruction>>(3),
                 family: YerBlumeyerCommaPumpFamily.A,
@@ -52,8 +52,8 @@ describe('comma pump instructions', () => {
         })
     })
 
-    describe('family', () => {
-        it('can change families to B', () => {
+    describe('family', (): void => {
+        it('can change families to B', (): void => {
             const cSpecs: YerBlumeyerCommaPumpInstructionsBlueprint = {
                 cycling: as.Cardinal<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
                 family: YerBlumeyerCommaPumpFamily.B,
@@ -71,7 +71,7 @@ describe('comma pump instructions', () => {
                 .toEqual(cActual)
         })
 
-        it('can change families to C', () => {
+        it('can change families to C', (): void => {
             const bSpecs: YerBlumeyerCommaPumpInstructionsBlueprint = {
                 cycling: as.Cardinal<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
                 family: YerBlumeyerCommaPumpFamily.C,
@@ -90,8 +90,8 @@ describe('comma pump instructions', () => {
         })
     })
 
-    describe('operation', () => {
-        it('can change operation to inverse', () => {
+    describe('operation', (): void => {
+        it('can change operation to inverse', (): void => {
             const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
                 cycling: as.Cardinal<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
                 family: YerBlumeyerCommaPumpFamily.A,
@@ -111,7 +111,7 @@ describe('comma pump instructions', () => {
                 .toEqual(actual)
         })
 
-        it('can change operation to converse', () => {
+        it('can change operation to converse', (): void => {
             const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
                 cycling: as.Cardinal<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
                 family: YerBlumeyerCommaPumpFamily.A,
@@ -131,7 +131,7 @@ describe('comma pump instructions', () => {
                 .toEqual(actual)
         })
 
-        it('can change operation to reverse', () => {
+        it('can change operation to reverse', (): void => {
             const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
                 cycling: as.Cardinal<Cycle<YerBlumeyerCommaPumpInstruction>>(0),
                 family: YerBlumeyerCommaPumpFamily.A,
@@ -152,8 +152,8 @@ describe('comma pump instructions', () => {
         })
     })
 
-    describe('combining operations', () => {
-        it('can do it', () => {
+    describe('combining operations', (): void => {
+        it('can do it', (): void => {
             const yerBlumeyerCommaPumpInstructionsBlueprint: YerBlumeyerCommaPumpInstructionsBlueprint = {
                 cycling: as.Cardinal<Cycle<YerBlumeyerCommaPumpInstruction>>(2),
                 family: YerBlumeyerCommaPumpFamily.C,

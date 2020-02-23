@@ -1,4 +1,4 @@
-import { as, keyExistsOnObject, octaveReduce, Pitch, powerSet, reduce, Scalar, use } from '@musical-patterns/utilities'
+import { as, keyExistsOnObject, octaveReduce, Pitch, powerSet, reduce, Scalar, Thunk, use } from '@musical-patterns/utilities'
 import { YER_FACTORS } from './constants'
 import { Yer, YerMultiple, YerPitchClass } from './types'
 
@@ -6,7 +6,7 @@ const isYerPitchClass: (candidate: string) => candidate is YerPitchClass =
     (candidate: string): candidate is YerPitchClass =>
         keyExistsOnObject(candidate, YerPitchClass)
 
-const computeYer: () => Yer[] =
+const thunkYer: Thunk<Yer[]> =
     (): Yer[] =>
         powerSet(YER_FACTORS)
             .map((subset: YerMultiple[]): Yer => {
@@ -27,21 +27,21 @@ const computeYer: () => Yer[] =
 
                 const scalar: Scalar<Pitch> = reduce(
                     subset,
-                    (accumulator: Scalar<Pitch>, factor: YerMultiple) =>
+                    (accumulator: Scalar<Pitch>, factor: YerMultiple): Scalar<Pitch> =>
                         use.Multiple(accumulator, factor),
                     as.Scalar<Pitch>(1),
                 )
 
                 return { pitchClass, scalar, subset }
             })
-            .map((yer: Yer) => ({
+            .map((yer: Yer): Yer => ({
                 ...yer,
                 scalar: octaveReduce(yer.scalar),
             }))
-            .sort((yer: Yer, nextYer: Yer) =>
+            .sort((yer: Yer, nextYer: Yer): number =>
                 as.number(yer.scalar) - as.number(nextYer.scalar),
             )
 
 export {
-    computeYer,
+    thunkYer,
 }

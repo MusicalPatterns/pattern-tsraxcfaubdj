@@ -6,6 +6,7 @@ import {
     objectSet,
     Ordinal,
     reduce,
+    Thunk,
 } from '@musical-patterns/utilities'
 import { YER_FACTORS } from './constants'
 import { isNotYerPitchClassByFactorizationLeaf, yerMultipleByFactor } from './helpers'
@@ -19,17 +20,17 @@ import {
     YerPitchClassByFactorization,
     YerPitchClassByFactorizationCursor,
 } from './types'
-import { computeYer } from './yer'
+import { thunkYer } from './yer'
 
-const pitchClassByFactorization: () => YerPitchClassByFactorization =
+const thunkYerPitchClassByFactorization: Thunk<YerPitchClassByFactorization> =
     (): YerPitchClassByFactorization =>
-        computeYer()
+        thunkYer()
             .reduce<YerPitchClassByFactorization>(
                 (accumulator: YerPitchClassByFactorization, yer: Yer): YerPitchClassByFactorization => {
                     let cursor: YerPitchClassByFactorizationCursor = accumulator as YerPitchClassByFactorizationCursor
                     forEach(
                         YER_FACTORS,
-                        (yerFactor: YerMultiple, index: Ordinal<YerMultiple[]>) => {
+                        (yerFactor: YerMultiple, index: Ordinal<YerMultiple[]>): void => {
                             const key: string = yer.subset.includes(yerFactor)
                                 .toString()
                             if (isUndefined(cursor[ key ])) {
@@ -47,14 +48,14 @@ const pitchClassByFactorization: () => YerPitchClassByFactorization =
                 {},
             )
 
-const factorizationByPitchClass: () => YerFactorizationByPitchClass =
+const thunkFactorizationByPitchClass: Thunk<YerFactorizationByPitchClass> =
     (): YerFactorizationByPitchClass =>
         reduce(
-            computeYer(),
+            thunkYer(),
             (accumulator: YerFactorizationByPitchClass, yer: Yer): YerFactorizationByPitchClass => {
                 const factorization: YerFactorization = {}
                 entries(yerMultipleByFactor)
-                    .forEach(([ factor, multiple ]: [ YerFactor, YerMultiple ]) => {
+                    .forEach(([ factor, multiple ]: [ YerFactor, YerMultiple ]): void => {
                         if (yer.subset.includes(multiple)) {
                             objectSet(factorization, factor, true)
                         }
@@ -70,7 +71,7 @@ const factorizationByPitchClass: () => YerFactorizationByPitchClass =
 
 const computeYerFactorizationByPitchClass: (yer: YerPitchClass) => YerFactorization =
     (yer: YerPitchClass): YerFactorization =>
-        factorizationByPitchClass()[ yer ]
+        thunkFactorizationByPitchClass()[ yer ]
 
 const computeYerPitchClassByFactorization: (factors: YerFactorization) => YerPitchClass =
     (yerFactorization: YerFactorization): YerPitchClass => {
@@ -81,7 +82,7 @@ const computeYerPitchClassByFactorization: (factors: YerFactorization) => YerPit
             [ YerFactor._19 ]: nineteen = false,
         } = yerFactorization
 
-        return pitchClassByFactorization()
+        return thunkYerPitchClassByFactorization()
             [ eleven.toString() ]
             [ thirteen.toString() ]
             [ seventeen.toString() ]

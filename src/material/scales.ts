@@ -3,16 +3,16 @@
 import { AbstractName, MaterializeScales, materializeStandardScales, Scale, Scales } from '@musical-patterns/material'
 import { Specs } from '@musical-patterns/spec'
 import { as, computeOctaveRepeatingPitchScalars, musicalAs, Pitch, Scalar, Tone } from '@musical-patterns/utilities'
-import { computeYerExceptionScalars, computeYerScalars } from './scalars'
+import { thunkYerExceptionScalars, thunkYerScalars } from './scalars'
 
 const materializeScales: MaterializeScales =
     (specs: Specs): Scales => {
-        const yerScalars: Array<Scalar<Pitch>> = computeOctaveRepeatingPitchScalars(computeYerScalars())
+        const yerScalars: Array<Scalar<Pitch>> = computeOctaveRepeatingPitchScalars(thunkYerScalars())
 
         const standardScales: Scales = materializeStandardScales(specs, { pitchScalars: yerScalars })
 
         const yerExceptionScalars: Array<Scalar<Pitch>> =
-            computeOctaveRepeatingPitchScalars(computeYerExceptionScalars())
+            computeOctaveRepeatingPitchScalars(thunkYerExceptionScalars())
 
         const yerExceptionPitchesScale: Scale<Pitch> = {
             basis: musicalAs.Tone(as.number(standardScales[ AbstractName.PITCH ]![ 0 ].basis || 0)),

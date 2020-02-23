@@ -1,4 +1,4 @@
-import { NO_SHIFT } from '@musical-patterns/utilities'
+import { NO_SHIFT, Thunk } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import {
     computeYerBlumeyerCommaPump,
@@ -19,7 +19,7 @@ import {
     WHOLE_NOTE,
 } from './constants'
 
-const openingLead: () => number[][][] =
+const openingLead: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],
@@ -31,7 +31,7 @@ const openingLead: () => number[][][] =
         ],
     ]
 
-const openingBassPump: () => number[][][] =
+const openingBassPump: Thunk<number[][][]> =
     (): number[][][] =>
         rawPiecesFromPump(
             computeYerBlumeyerCommaPump(
@@ -45,14 +45,14 @@ const openingBassPump: () => number[][][] =
             [ SECOND_OCTAVE, SECOND_OCTAVE, THIRD_OCTAVE, SECOND_OCTAVE ],
         )
 
-const thirdStepOfOpeningBassPumpIfItDidNotCommaShift: () => number[][][] =
+const thirdStepOfOpeningBassPumpIfItDidNotCommaShift: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(THIRD_OCTAVE, YerPitchClass._19), WHOLE_NOTE, YER_SCALE_INDEX ],
         ],
     ]
 
-const openingFirstHarmony: () => number[][][] =
+const openingFirstHarmony: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._1), WHOLE_NOTE, YER_SCALE_INDEX ],
@@ -62,7 +62,7 @@ const openingFirstHarmony: () => number[][][] =
         ],
     ]
 
-const openingSecondHarmony: () => number[][][] =
+const openingSecondHarmony: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._11_13), WHOLE_NOTE, YER_SCALE_INDEX ],

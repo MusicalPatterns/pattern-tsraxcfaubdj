@@ -1,19 +1,19 @@
 import { PitchValueScale, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
-import { as } from '@musical-patterns/utilities'
+import { as, ContourPiece } from '@musical-patterns/utilities'
 import {
-    computeSecondHarmonyContourPieces,
     FOURTH_OCTAVE,
     HALF_NOTE,
     THREE_WHOLE_NOTES,
+    thunkSecondHarmonyContourPieces,
     WHOLE_NOTE,
-    YER_SCALE_INDEX,
     YerPitchClass,
     yerPitchClassIndex,
+    YER_SCALE_INDEX,
 } from '../../../../src/indexForTest'
 
-describe('second harmony pieces', () => {
-    it('comes out like this', () => {
-        expect(computeSecondHarmonyContourPieces())
+describe('second harmony pieces', (): void => {
+    it('comes out like this', (): void => {
+        expect(thunkSecondHarmonyContourPieces())
             .toEqual(
                 [
                     [
@@ -86,7 +86,7 @@ describe('second harmony pieces', () => {
                     [
                         [ yerPitchClassIndex(FOURTH_OCTAVE, YerPitchClass._17_19), WHOLE_NOTE, YER_SCALE_INDEX ],
                     ],
-                ].map((contourPiece: number[][]) => as.ContourPiece<PitchValueScale>(contourPiece)),
+                ].map((contourPiece: number[][]): ContourPiece<PitchValueScale> => as.ContourPiece<PitchValueScale>(contourPiece)),
             )
     })
 })

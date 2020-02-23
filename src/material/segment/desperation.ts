@@ -1,5 +1,5 @@
 import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
-import { as } from '@musical-patterns/utilities'
+import { as, Thunk } from '@musical-patterns/utilities'
 import { YER_SCALE_INDEX } from '../constants'
 import { YerPitchClass, yerPitchClassIndex } from '../custom'
 import {
@@ -12,7 +12,7 @@ import {
     WHOLE_NOTE,
 } from './constants'
 
-const desperationLead: () => number[][][] =
+const desperationLead: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(FIFTH_OCTAVE, YerPitchClass._11_17_19), WHOLE_NOTE, YER_SCALE_INDEX ],
@@ -30,7 +30,7 @@ const desperationLead: () => number[][][] =
         ],
     ]
 
-const desperationFirstHarmony: () => number[][][] =
+const desperationFirstHarmony: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ yerPitchClassIndex(THIRD_OCTAVE, YerPitchClass._11_17_19), WHOLE_NOTE, YER_SCALE_INDEX ],
@@ -47,7 +47,7 @@ const desperationFirstHarmony: () => number[][][] =
         ],
     ]
 
-const desperationSecondHarmony: () => number[][][] =
+const desperationSecondHarmony: Thunk<number[][][]> =
     (): number[][][] => [
         [
             [ as.number(STANDARD_PITCH_INDEX_INDICATING_REST), WHOLE_NOTE, YER_SCALE_INDEX ],

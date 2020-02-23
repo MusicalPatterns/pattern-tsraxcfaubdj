@@ -1,5 +1,5 @@
 export { yerPitchClassIndex, yerExceptionPitchClassIndex } from './pitchClassIndices'
-export { computeYer } from './yer'
+export { thunkYer } from './yer'
 
 export {
     computeYerBlumeyerCommaPumpInstructions,

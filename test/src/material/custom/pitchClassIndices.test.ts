@@ -1,8 +1,8 @@
-import { computeOrderedPitchClassIndices, YerPitchClass, yerPitchClassIndex } from '../../../../src/indexForTest'
+import { thunkOrderedPitchClassIndices, YerPitchClass, yerPitchClassIndex } from '../../../../src/indexForTest'
 
-describe('pitch class indices', () => {
-    it('has the pitch classes ordered by pitch', () => {
-        const actual: YerPitchClass[] = computeOrderedPitchClassIndices()
+describe('pitch class indices', (): void => {
+    it('has the pitch classes ordered by pitch', (): void => {
+        const actual: YerPitchClass[] = thunkOrderedPitchClassIndices()
 
         expect(actual)
             .toEqual([
@@ -25,7 +25,7 @@ describe('pitch class indices', () => {
             ])
     })
 
-    it('gives you the index of the pitch in the yer scale, given the octave and pitch class', () => {
+    it('gives you the index of the pitch in the yer scale, given the octave and pitch class', (): void => {
         expect(yerPitchClassIndex(0, YerPitchClass._1))
             .toBe(0)
         expect(yerPitchClassIndex(1, YerPitchClass._1))

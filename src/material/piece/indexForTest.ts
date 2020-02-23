@@ -1,6 +1,6 @@
 // tslint:disable no-reaching-imports
 
-export { computeBassContourPieces } from './bass'
-export { computeLeadContourPieces } from './lead'
-export { computeFirstHarmonyContourPieces } from './firstHarmony'
-export { computeSecondHarmonyContourPieces } from './secondHarmony'
+export { thunkBassContourPieces } from './bass'
+export { thunkLeadContourPieces } from './lead'
+export { thunkFirstHarmonyContourPieces } from './firstHarmony'
+export { thunkSecondHarmonyContourPieces } from './secondHarmony'
