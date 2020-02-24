@@ -1,4 +1,14 @@
-import { as, keyExistsOnObject, octaveReduce, Pitch, powerSet, reduce, Scalar, Thunk, use } from '@musical-patterns/utilities'
+import {
+    as,
+    keyExistsOnObject,
+    octaveReduce,
+    Pitch,
+    powerSet,
+    reduce,
+    Scalar,
+    Thunk,
+    use,
+} from '@musical-patterns/utilities'
 import { YER_FACTORS } from './constants'
 import { Yer, YerMultiple, YerPitchClass } from './types'
 
