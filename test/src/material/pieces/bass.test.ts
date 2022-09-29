@@ -16,13 +16,12 @@ import {
 import { testEveryStepIsSimple } from '../../../support/helpers'
 
 describe('bass pieces', (): void => {
-    it('almost every interval is a simple 11, 13, 17, or 19', async (done: DoneFn): Promise<void> => {
+    it('almost every interval is a simple 11, 13, 17, or 19', async (): Promise<void> => {
         const FROM_THE_OPENING_REST: number = 0
         const exceptionalIndices: Array<Ordinal<Sound[]>> = [ FROM_THE_OPENING_REST ].map((numeral: number): Ordinal<Sound[]> => as.Ordinal<Sound[]>(numeral))
 
         const INDEX_OF_BASS_VOICE: Ordinal<Voice[]> = as.Ordinal<Voice[]>(1)
         await testEveryStepIsSimple(INDEX_OF_BASS_VOICE, exceptionalIndices)
-        done()
     })
 
     it('based on all of those comma shifts, it comes out like this', (): void => {

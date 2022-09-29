@@ -15,7 +15,7 @@ import {
 import { testEveryStepIsSimple } from '../../../support/helpers'
 
 describe('lead pieces', (): void => {
-    it('almost every interval is a simple 11, 13, 17, or 19', async (done: DoneFn): Promise<void> => {
+    it('almost every interval is a simple 11, 13, 17, or 19', async (): Promise<void> => {
         const BETWEEN_BAR_3_AND_4: number = 10
         const BETWEEN_BAR_13_AND_14: number = 27
         const BETWEEN_BAR_14_AND_15_IS_ACTUALLY_NOT_NECESSARY_TO_EXCEPT_BECAUSE_IT_CIRCIUMVRENTS_THIS_CHECK_WITH_A_COMMA_SHIFT: number = 28
@@ -30,8 +30,6 @@ describe('lead pieces', (): void => {
 
         const INDEX_OF_LEAD_VOICE: Ordinal<Voice[]> = as.Ordinal<Voice[]>(0)
         await testEveryStepIsSimple(INDEX_OF_LEAD_VOICE, exceptionalIndices)
-
-        done()
     })
 
     it('comes out like this', (): void => {
